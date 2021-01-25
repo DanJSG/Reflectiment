@@ -7,6 +7,7 @@ services:
       - "8081:8080"
     networks:
       - primary
+    env_file: ./lexicalanalyzer.env
 
   db:
     image: mariadb:10.5.8
