@@ -172,7 +172,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	}
 	
 	@Override
-	public <V, U> Boolean deleteWhereEquals(SQLColumn clauseColumn, V clauseValue) {
+	public <V> Boolean deleteWhereEquals(SQLColumn clauseColumn, V clauseValue) {
 		Connection connection = getConnection();
 		if(connection == null)
 			return false;

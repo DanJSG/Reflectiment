@@ -4,13 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Whitelist for SQL table names which need to be referenced directly within the application.
+ * Whitelist enum for SQL table names which need to be referenced directly within the application.
+ *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
 public enum SQLTable implements Whitelist {
 
 	// Collection of SQL Table names that are needed to be referenced within the application
-	USERS;
+	// TODO add actual table names
+	PLACEHOLDER;
 
 	// Hashmap containing enums and their name
 	private static final Map<String, SQLTable> mappings = new HashMap<>(1);
