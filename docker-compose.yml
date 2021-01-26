@@ -16,7 +16,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /reflectiment/mariadb:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
     networks:
       - primary
     command: --lower_case_table_names=1
@@ -75,3 +75,8 @@ services:
 networks:
   primary:
     driver: bridge
+
+volumes:
+  mariadb-data:
+    external: true
+    
