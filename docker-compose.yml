@@ -7,6 +7,19 @@ services:
       - "8081:8080"
     networks:
       - primary
+    env_file: ./lexicalanalyzer.env
+
+  db:
+    image: mariadb:10.5.8
+    env_file:
+      - ./db.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - primary
+    command: --lower_case_table_names=1
 
 # Stuff below here is from another project's Dockerfile - just leaving here for easy reference for now
 #  sql:
@@ -62,3 +75,8 @@ services:
 networks:
   primary:
     driver: bridge
+
+volumes:
+  mariadb-data:
+    external: true
+    
