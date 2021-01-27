@@ -2,14 +2,15 @@ package com.dtj503.lexicalanalyzer.types;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class AnalysisRequest implements JsonObject {
 
     @JsonProperty
-    private String analysisText;
+    private String text;
 
     @JsonProperty
     private LocalDateTime timestamp;
@@ -17,17 +18,24 @@ public class AnalysisRequest implements JsonObject {
     @JsonCreator
     private AnalysisRequest() {}
 
-    public AnalysisRequest(String analysisText, LocalDateTime timestamp) {
-        this.analysisText = analysisText;
+    public AnalysisRequest(String text, LocalDateTime timestamp) {
+        this.text = text;
         this.timestamp = timestamp;
     }
 
-    public AnalysisRequest(String analysisText) {
-        this(analysisText, LocalDateTime.now());
+    public AnalysisRequest(String text) {
+        this(text, LocalDateTime.now());
     }
 
     @Override
     public String writeValueAsString() {
-        return null;
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(this);
+            return json;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
