@@ -7,23 +7,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.LocalDateTime;
 
-public class AnalysisRequest implements JsonObject {
+public class TextSubmission implements JsonObject {
 
     @JsonProperty
     private String text;
 
     @JsonProperty
+    // THIS MUST TAKE A DATE STRING IN ISO FORMAT SO THE FRONT END MUST USE SOMETHING SUCH AS
+    //  new Date().toISOString()
+    // FOR THE DATE TO WORK PROPERLY AND NOT THROW AN ERROR
     private LocalDateTime timestamp;
 
     @JsonCreator
-    private AnalysisRequest() {}
+    private TextSubmission() {}
 
-    public AnalysisRequest(String text, LocalDateTime timestamp) {
+    public TextSubmission(String text, LocalDateTime timestamp) {
         this.text = text;
         this.timestamp = timestamp;
     }
 
-    public AnalysisRequest(String text) {
+    public TextSubmission(String text) {
         this(text, LocalDateTime.now());
     }
 
