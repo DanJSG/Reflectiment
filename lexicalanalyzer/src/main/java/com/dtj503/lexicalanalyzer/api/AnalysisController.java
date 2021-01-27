@@ -1,5 +1,6 @@
 package com.dtj503.lexicalanalyzer.api;
 
+import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
 import com.dtj503.lexicalanalyzer.types.TextSubmission;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,11 @@ public class AnalysisController extends RestAPIController {
             return BAD_REQUEST_HTTP_RESPONSE;
         }
 
-        System.out.println("Received request.");
+        System.out.println("Received request. JSON Received: ");
         System.out.println(submission.writeValueAsString());
+
+        SentimentAnalysisService.analyseSentiment(submission.getText());
+
         return EMPTY_OK_HTTP_RESPONSE;
 
     }

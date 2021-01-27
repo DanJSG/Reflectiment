@@ -30,6 +30,14 @@ public class TextSubmission implements JsonObject {
         this(text, LocalDateTime.now());
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
     @Override
     public String writeValueAsString() {
         ObjectMapper mapper = new ObjectMapper();
