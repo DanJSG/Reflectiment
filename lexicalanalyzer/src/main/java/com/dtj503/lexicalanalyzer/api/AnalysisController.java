@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+/**
+ * Spring REST API controller for handling the text analysis requests.
+ */
 public class AnalysisController extends RestAPIController {
 
     @PostMapping(value = "/analyse", consumes = MediaType.APPLICATION_JSON_VALUE)
