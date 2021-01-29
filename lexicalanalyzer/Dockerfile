@@ -14,4 +14,4 @@ FROM openjdk:13-alpine as runtime
 COPY --from=build /tmp/target/lexicalanalyzer.jar /app/lexicalanalyzer.jar
 EXPOSE 8080
 WORKDIR /app/
-ENTRYPOINT [ "java", "-jar", "lexicalanalyzer.jar" ]
+ENTRYPOINT [ "java", "-jar", "-Xmx4g", "lexicalanalyzer.jar" ]
