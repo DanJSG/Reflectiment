@@ -11,8 +11,7 @@ import java.util.Map;
 public enum SQLTable implements Whitelist {
 
 	// Collection of SQL Table names that are needed to be referenced within the application
-	// TODO add actual table names
-	PLACEHOLDER;
+	SENTIMENT;
 
 	// Hashmap containing enums and their name
 	private static final Map<String, SQLTable> mappings = new HashMap<>(1);

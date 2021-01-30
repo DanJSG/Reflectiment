@@ -11,8 +11,7 @@ import java.util.Map;
 public enum SQLColumn implements Whitelist {
 
 	// Collection of SQL column names that are referenced within the application
-	// TODO add actual column names
-	PLACEHOLDER;
+	ID, TAG, POS, WORD, SENTIMENT;
 
 	// Hashmap containing enums and their name
 	private static final Map<String, SQLColumn> mapping = new HashMap<>(16);

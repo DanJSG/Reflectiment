@@ -50,6 +50,12 @@ public interface SQLRepository<T extends SQLEntity> {
 	 */
 	public <V> List<T> findWhereEqual(SQLColumn searchColumn, V value, int limit, SQLEntityBuilder<T> builder);
 
+	// TODO comment
+	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues, List<U> secondValues, int limit, SQLEntityBuilder<T> builder);
+
+	// TODO comment
+	public <V> List<T> findWhereEqualOr(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder);
+
 	/**
 	 * Find a limited number of items from the database which have specific values within specific columns.
 	 *
