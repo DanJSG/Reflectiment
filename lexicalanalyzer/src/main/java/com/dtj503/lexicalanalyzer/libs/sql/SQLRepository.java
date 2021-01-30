@@ -51,6 +51,37 @@ public interface SQLRepository<T extends SQLEntity> {
 	public <V> List<T> findWhereEqual(SQLColumn searchColumn, V value, int limit, SQLEntityBuilder<T> builder);
 
 	/**
+	 * Find a limited number of  items in a database where a collection of AND clauses are non-exclusively true.
+	 * For example:
+	 * 	... WHERE (A AND B) OR (C AND D) OR ...
+	 *
+	 * @param firstColumn the first column to search for values
+	 * @param secondColumn the second column to search for values
+	 * @param firstValues the first column's search values
+	 * @param secondValues the second column's search values
+	 * @param limit the total number of items to fetch
+	 * @param builder the object builder
+	 * @param <V> the first search value type
+	 * @param <U> the second search value type
+	 * @return a list of objects found and built from the database results
+	 */
+	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues, List<U> secondValues, int limit, SQLEntityBuilder<T> builder);
+
+	/**
+	 * Find a limited number of items in a database where a collection of OR clauses are true.
+	 * For example:
+	 * 	... WHERE A OR B OR C OR D OR ...
+	 *
+	 * @param searchColumns the columns to search for values
+	 * @param values the values to search for
+	 * @param limit the number of items to fetch
+	 * @param builder the object builder
+	 * @param <V> the search value type
+	 * @return a list of objects found and built from the database results
+	 */
+	public <V> List<T> findWhereEqualOr(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder);
+
+	/**
 	 * Find a limited number of items from the database which have specific values within specific columns.
 	 *
 	 * @param searchColumns the SQL table column names to use as the search targets
@@ -60,7 +91,7 @@ public interface SQLRepository<T extends SQLEntity> {
 	 * @param <V> the type of value to search for
 	 * @return a list of objects from the database, or null
 	 */
-	public <V> List<T> findWhereEqual(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder);
+	public <V> List<T> findWhereEqualAnd(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder);
 
 	/**
 	 * Find all items from the database which have specific values within specific columns.
@@ -71,7 +102,7 @@ public interface SQLRepository<T extends SQLEntity> {
 	 * @param <V> the type of value to search for
 	 * @return a list of objects from the database, or null
 	 */
-	public <V> List<T> findWhereEqual(List<SQLColumn> searchColumns, List<V> values, SQLEntityBuilder<T> builder);
+	public <V> List<T> findWhereEqualAnd(List<SQLColumn> searchColumns, List<V> values, SQLEntityBuilder<T> builder);
 
 	/**
 	 * Find all items from the database which meet a certain SQL like condition in a specific column. These criteria can

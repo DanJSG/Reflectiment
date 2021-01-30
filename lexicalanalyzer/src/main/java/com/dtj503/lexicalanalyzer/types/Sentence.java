@@ -1,5 +1,6 @@
 package com.dtj503.lexicalanalyzer.types;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**

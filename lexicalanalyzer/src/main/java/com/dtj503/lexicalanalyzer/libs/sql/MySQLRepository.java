@@ -102,11 +102,109 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	
 	@Override
 	public <V> List<T> findWhereEqual(SQLColumn searchColumn, V value, int limit, SQLEntityBuilder<T> builder) {
-		return findWhereEqual(Arrays.asList(searchColumn), Arrays.asList(value), limit, builder);
+		return findWhereEqualAnd(Arrays.asList(searchColumn), Arrays.asList(value), limit, builder);
 	}
-	
+
 	@Override
-	public <V> List<T> findWhereEqual(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder) {
+	//TODO REFACTOR 
+	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues, List<U> secondValues, int limit, SQLEntityBuilder<T> builder) {
+		// Fetch connection and return null if it cannot be fetched
+		Connection connection = getConnection();
+		if(connection == null) {
+			return null;
+		}
+		// Ensure that there are the same number of columns and values
+		if(firstValues.size() != secondValues.size()) {
+			return null;
+		}
+		// Initialise incomplete  SQL query
+		String baseQuery = "SELECT * FROM `" + tableName + "` WHERE ";
+
+		List<String> andConditions = new ArrayList<>();
+		for(int i = 0; i < firstValues.size(); i++) {
+			andConditions.add("(" + firstColumn.name() + "=?" + " AND " + secondColumn.name() + "=?" + ")");
+		}
+		String queryCondition = "";
+		for(int i = 0; i < andConditions.size(); i++)  {
+			queryCondition += andConditions.get(i);
+			if(i < andConditions.size() - 1) {
+				queryCondition += " OR ";
+			}
+		}
+		queryCondition += ";";
+		String query = baseQuery + queryCondition;
+
+		System.out.println(query);
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setFetchSize(limit);
+			int n;
+			for(int i = 0; i < firstValues.size(); i++) {
+				n = ((i + 1) * 2) - 1;
+				statement.setObject(n, firstValues.get(i));
+				statement.setObject(n + 1, secondValues.get(i));
+			}
+			System.out.println(statement.toString());
+			ResultSet results = statement.executeQuery();
+			connection.commit();
+			ArrayList<T> objectList = new ArrayList<>();
+			while(results.next()) {
+				objectList.add(builder.fromResultSet(results));
+			}
+			if(objectList.size() == 0) {
+				connection.close();
+				return null;
+			}
+			connection.close();
+			return objectList;
+
+		} catch (SQLException e) 	{
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	// TODO REFACTOR
+	public <V> List<T> findWhereEqualOr(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder) {
+		// Fetch connection and return null if it cannot be fetched
+		Connection connection = getConnection();
+		if(connection == null) {
+			return null;
+		}
+		// Ensure that there are the same number of columns and values
+		if(searchColumns.size() != values.size()) {
+			return null;
+		}
+
+		// Initialise incomplete  SQL query
+		String baseQuery = "SELECT * FROM `" + tableName + "` WHERE ";
+
+		// Complete SQL query using string concatenation in a loop
+		String queryCondition = "";
+		for(int i=0; i < searchColumns.size(); i++) {
+			queryCondition += searchColumns.get(i).name() + "=?";
+			if(i < searchColumns.size() - 1) {
+				queryCondition += " OR ";
+			}
+		}
+		queryCondition += ";";
+
+		// Concatenate sections of query
+		String query = baseQuery + queryCondition;
+
+		// Send the query to the database - return the resulting objects if it succeeds, null otherwise
+		try {
+			return runCustomSelectQuery(connection, query, values, limit, builder);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public <V> List<T> findWhereEqualAnd(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
 		if(connection == null) {
@@ -173,8 +271,8 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	}
 	
 	@Override
-	public <V> List<T> findWhereEqual(List<SQLColumn> searchColumns, List<V> values, SQLEntityBuilder<T> builder) {
-		return findWhereEqual(searchColumns, values, 0, builder);
+	public <V> List<T> findWhereEqualAnd(List<SQLColumn> searchColumns, List<V> values, SQLEntityBuilder<T> builder) {
+		return findWhereEqualAnd(searchColumns, values, 0, builder);
 	}
 	
 	@Override

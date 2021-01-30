@@ -7,7 +7,8 @@ WORKDIR /tmp/
 RUN mvn dependency:go-offline
 # Compile maven project
 COPY /src/ /tmp/src/
-RUN mvn clean install -DskipTests
+#RUN mvn clean install -DskipTests
+RUN mvn package -DskipTests
 
 # Runtime phase
 FROM openjdk:13-alpine as runtime
