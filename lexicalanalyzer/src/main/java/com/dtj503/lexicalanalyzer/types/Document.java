@@ -2,25 +2,25 @@ package com.dtj503.lexicalanalyzer.types;
 
 import java.util.List;
 
-public class Sentence {
+public class Document {
 
     private String originalText;
-    private List<Word> words;
+    private List<Sentence> sentences;
 
-    public Sentence(String text, List<Word> words) {
+    public Document(String text, List<Sentence> sentences) {
         this.originalText = text;
-        this.words = words;
+        this.sentences = sentences;
     }
 
-    public List<Word> getWords() {
-        return words;
+    public List<Sentence> getSentences() {
+        return sentences;
     }
 
     @Override
     public String toString() {
-        return "Sentence{" +
+        return "Document{" +
                 "originalText='" + originalText + '\'' +
-                ", words=" + words +
+                ", sentences=" + sentences +
                 '}';
     }
 

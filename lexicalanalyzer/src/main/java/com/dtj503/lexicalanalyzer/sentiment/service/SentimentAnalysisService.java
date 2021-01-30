@@ -1,18 +1,22 @@
 package com.dtj503.lexicalanalyzer.sentiment.service;
 
-import edu.stanford.nlp.pipeline.CoreDocument;
-import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import com.dtj503.lexicalanalyzer.parsers.DocumentParser;
+import com.dtj503.lexicalanalyzer.types.Document;
+import com.dtj503.lexicalanalyzer.types.Sentence;
+import com.dtj503.lexicalanalyzer.types.Word;
+
 
 public class SentimentAnalysisService {
 
     public static float analyseSentiment(String text) {
         System.out.println(text);
-
-        String testString = "Good morning, how are you doing today?";
-        StanfordCoreNLP pipeline = new StanfordCoreNLP();
-        CoreDocument stringDoc = new CoreDocument(testString);
-        pipeline.annotate(stringDoc);
-
+        Document doc = DocumentParser.parseText(text);
+        for(Sentence sentence : doc.getSentences()) {
+            System.out.println(sentence);
+            for(Word word : sentence.getWords()) {
+                System.out.println(word);
+            }
+        }
         return 0;
     }
 

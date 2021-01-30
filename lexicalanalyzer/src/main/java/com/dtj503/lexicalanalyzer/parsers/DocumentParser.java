@@ -1,9 +1,9 @@
-package com.dtj503.offlinedevelopment.parsers;
+package com.dtj503.lexicalanalyzer.parsers;
 
-import com.dtj503.offlinedevelopment.types.Document;
-import com.dtj503.offlinedevelopment.types.Sentence;
-import com.dtj503.offlinedevelopment.types.StopWords;
-import com.dtj503.offlinedevelopment.types.Word;
+import com.dtj503.lexicalanalyzer.types.Document;
+import com.dtj503.lexicalanalyzer.types.Sentence;
+import com.dtj503.lexicalanalyzer.types.StopWords;
+import com.dtj503.lexicalanalyzer.types.Word;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.CoreSentence;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;

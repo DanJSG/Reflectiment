@@ -18,8 +18,6 @@ public class OfflineDevelopment {
                 System.out.println(word);
             }
         }
-
-
     }
 
 }
