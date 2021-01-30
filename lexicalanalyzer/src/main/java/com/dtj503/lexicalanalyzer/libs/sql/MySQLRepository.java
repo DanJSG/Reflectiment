@@ -102,10 +102,11 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	
 	@Override
 	public <V> List<T> findWhereEqual(SQLColumn searchColumn, V value, int limit, SQLEntityBuilder<T> builder) {
-		return findWhereEqual(Arrays.asList(searchColumn), Arrays.asList(value), limit, builder);
+		return findWhereEqualAnd(Arrays.asList(searchColumn), Arrays.asList(value), limit, builder);
 	}
 
-	//TODO REFACTOR
+	@Override
+	//TODO REFACTOR 
 	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues, List<U> secondValues, int limit, SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
@@ -130,9 +131,6 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 				queryCondition += " OR ";
 			}
 		}
-//		for(String andCondition : andConditions) {
-//			queryCondition += andCondition += " OR ";
-//		}
 		queryCondition += ";";
 		String query = baseQuery + queryCondition;
 
@@ -165,24 +163,6 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 			e.printStackTrace();
 			return null;
 		}
-//		PreparedStatement statement = connection.prepareStatement(query);
-//		statement.setFetchSize(limit);
-//		for(int i=0; i < values.size(); i++) {
-//			statement.setObject(i + 1, values.get(i));
-//		}
-//		ResultSet results = statement.executeQuery();
-//		connection.commit();
-//		ArrayList<T> objectList = new ArrayList<>();
-//		while(results.next()) {
-//			objectList.add(builder.fromResultSet(results));
-//		}
-//		if(objectList.size() == 0) {
-//			connection.close();
-//			return null;
-//		}
-//		connection.close();
-//		return objectList;
-
 	}
 
 	@Override
@@ -224,7 +204,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	}
 
 	@Override
-	public <V> List<T> findWhereEqual(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder) {
+	public <V> List<T> findWhereEqualAnd(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
 		if(connection == null) {
@@ -291,8 +271,8 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	}
 	
 	@Override
-	public <V> List<T> findWhereEqual(List<SQLColumn> searchColumns, List<V> values, SQLEntityBuilder<T> builder) {
-		return findWhereEqual(searchColumns, values, 0, builder);
+	public <V> List<T> findWhereEqualAnd(List<SQLColumn> searchColumns, List<V> values, SQLEntityBuilder<T> builder) {
+		return findWhereEqualAnd(searchColumns, values, 0, builder);
 	}
 	
 	@Override
