@@ -10,8 +10,6 @@ import com.dtj503.lexicalanalyzer.sentiment.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.types.Document;
 import com.dtj503.lexicalanalyzer.types.Sentence;
 import com.dtj503.lexicalanalyzer.types.Word;
-import edu.stanford.nlp.util.Scored;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,67 +26,75 @@ public class SentimentAnalysisService {
             System.out.println(sentence);
 
             List<Word> words = sentence.getWords();
-            List<SQLColumn> cols = new ArrayList<>(words.size());
-            List<String> wordStrings = new ArrayList<>(words.size());
 
-            Map<String, Integer> posIndex = new HashMap<>();
-            posIndex.put("v", 0);
-            posIndex.put("n", 1);
-            posIndex.put("r", 2);
-            posIndex.put("a", 3);
+            List<ScoredWord> scoredWords = fetchWordScores(words);
+            scoredWords = pickScoredWord(words,  scoredWords);
 
-            for(Word word : words) {
-                wordStrings.add(word.getWord());
-                cols.add(SQLColumn.WORD);
+            float sum = 0;
+            for(int i = 0; i < scoredWords.size(); i++) {
+                System.out.println(scoredWords.get(i));
+                sum += scoredWords.get(i).getScore();
             }
-
-            SQLRepository<ScoredWord> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
-            List<ScoredWord> scoredWords = repo.findWhereEqualOr(cols, wordStrings, 0, new ScoreWordBuilder());
-
-            int currentWordIndex = 0;
-            Map<String, List<String>> wordPosMap = new HashMap<>();
-            Map<String, List<ScoredWord>> scoredWordMap = new HashMap<>();
-            for(String word : wordStrings) {
-                wordPosMap.put(word, new ArrayList<>());
-                scoredWordMap.put(word, new ArrayList<>());
-            }
-            for(ScoredWord word : scoredWords) {
-                wordPosMap.get(word.getWord()).add(word.getPartOfSpeech());
-                scoredWordMap.get(word.getWord()).add(word);
-            }
-
-            List<ScoredWord> finalScoredWords = new ArrayList<>(words.size());
-            for(Word word : words) {
-                if(wordPosMap.get(word.getWord()).size() == 0) {
-                    finalScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech()));
-                    continue;
-                }
-                int index = -1;
-                float wordScoreSum = 0;
-                int numWords = wordPosMap.get(word.getWord()).size();
-                for(int i = 0; i < numWords; i++) {
-                    if(wordPosMap.get(word.getWord()).get(i).contentEquals(word.getPartOfSpeech())) {
-                        index = i;
-                        break;
-                    }
-                }
-                if(index == -1) {
-                    for(ScoredWord scoredWord : scoredWordMap.get(word.getWord())) {
-                        wordScoreSum += scoredWord.getScore();
-                    }
-                    float meanScore = wordScoreSum / numWords;
-                    finalScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech(), meanScore));
-                } else {
-                    finalScoredWords.add(scoredWordMap.get(word.getWord()).get(index));
-                }
-            }
-            for(ScoredWord word : finalScoredWords) {
-                System.out.println(word);
-            }
+            System.out.println("Sentence sum:" + sum);
+            System.out.println("Sentence average: " + (sum / scoredWords.size()));
 
         }
 
         return 0;
+    }
+
+    private static List<ScoredWord> fetchWordScores(List<Word> words) {
+        List<SQLColumn> cols = new ArrayList<>(words.size());
+        List<String> wordStrings = new ArrayList<>(words.size());
+
+        for(Word word : words) {
+            wordStrings.add(word.getWord());
+            cols.add(SQLColumn.WORD);
+        }
+
+        SQLRepository<ScoredWord> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
+        return repo.findWhereEqualOr(cols, wordStrings, 0, new ScoreWordBuilder());
+    }
+
+    private static List<ScoredWord> pickScoredWord(List<Word> words, List<ScoredWord> scoredWords) {
+        Map<String, List<ScoredWord>> scoredWordMap = buildScoredWordMap(words, scoredWords);
+        List<ScoredWord> updatedScoredWords = new ArrayList<>(words.size());
+        for(Word word : words) {
+            if (scoredWordMap.get(word.getWord()).size() == 0) {
+                updatedScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech()));
+                continue;
+            }
+            int index = -1;
+            float wordScoreSum = 0;
+            int numWords = scoredWordMap.get(word.getWord()).size();
+            for (int i = 0; i < numWords; i++) {
+                if (scoredWordMap.get(word.getWord()).get(i).getPartOfSpeech().contentEquals(word.getPartOfSpeech())) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index == -1) {
+                for (ScoredWord scoredWord : scoredWordMap.get(word.getWord())) {
+                    wordScoreSum += scoredWord.getScore();
+                }
+                float meanScore = wordScoreSum / numWords;
+                updatedScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech(), meanScore));
+            } else {
+                updatedScoredWords.add(scoredWordMap.get(word.getWord()).get(index));
+            }
+        }
+        return updatedScoredWords;
+    }
+
+    private static Map<String, List<ScoredWord>> buildScoredWordMap(List<Word> words, List<ScoredWord> scoredWords) {
+        Map<String, List<ScoredWord>> scoredWordMap = new HashMap<>();
+        for(Word word : words) {
+            scoredWordMap.put(word.getWord(), new ArrayList<>());
+        }
+        for(ScoredWord word : scoredWords) {
+            scoredWordMap.get(word.getWord()).add(word);
+        }
+        return scoredWordMap;
     }
 
 }

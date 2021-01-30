@@ -1,5 +1,7 @@
 package com.dtj503.lexicalanalyzer.types;
 
+import com.dtj503.lexicalanalyzer.parsers.PartOfSpeechReducer;
+
 /**
  * Class representing a word as well as the tag for the relevant part of speech.
  *
@@ -9,10 +11,12 @@ public class Word {
 
     private String word;
     private String partOfSpeech;
+    private int partOfSpeechIndex;
 
     public Word(String word, String partOfSpeech) {
         this.word = word;
         this.partOfSpeech = partOfSpeech;
+        this.partOfSpeechIndex = PartOfSpeechReducer.getPartOfSpeechIndex(partOfSpeech);
     }
 
     public String getWord() {
@@ -21,6 +25,10 @@ public class Word {
 
     public String getPartOfSpeech() {
         return partOfSpeech;
+    }
+
+    public int getPartOfSpeechIndex() {
+        return partOfSpeechIndex;
     }
 
     @Override

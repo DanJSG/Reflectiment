@@ -1,6 +1,7 @@
 package com.dtj503.lexicalanalyzer.parsers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,38 +12,47 @@ import java.util.Map;
 public class PartOfSpeechReducer {
 
     // Set up the tag mapping
-    private static final Map<String, String> POS_TAG_MAPPING;
+    private static final Map<String, String> POS_REDUCER_MAPPING;
+    private static final Map<String, Integer> POS_INDEX_MAPPING;
+    private static final String[] POS_TAG_MAPPING = new String[]{"v", "n", "r", "a"};
     static {
-        POS_TAG_MAPPING = new HashMap<>();
+
+        POS_INDEX_MAPPING = new HashMap<>();
+        POS_INDEX_MAPPING.put("v", 0);
+        POS_INDEX_MAPPING.put("n", 1);
+        POS_INDEX_MAPPING.put("r", 2);
+        POS_INDEX_MAPPING.put("a", 3);
+
+        POS_REDUCER_MAPPING = new HashMap<>();
         // Adverbs
-        POS_TAG_MAPPING.put("JJ", "a");
-        POS_TAG_MAPPING.put("JJR", "a");
-        POS_TAG_MAPPING.put("JJS", "a");
+        POS_REDUCER_MAPPING.put("JJ", "a");
+        POS_REDUCER_MAPPING.put("JJR", "a");
+        POS_REDUCER_MAPPING.put("JJS", "a");
 
         // Nouns
-        POS_TAG_MAPPING.put("NN", "n");
-        POS_TAG_MAPPING.put("NNS", "n");
-        POS_TAG_MAPPING.put("NNP", "n");
-        POS_TAG_MAPPING.put("NNPS", "n");
-        POS_TAG_MAPPING.put("PRP", "n");
-        POS_TAG_MAPPING.put("PRP$", "n");
-        POS_TAG_MAPPING.put("WP", "n");
-        POS_TAG_MAPPING.put("WP$", "n");
+        POS_REDUCER_MAPPING.put("NN", "n");
+        POS_REDUCER_MAPPING.put("NNS", "n");
+        POS_REDUCER_MAPPING.put("NNP", "n");
+        POS_REDUCER_MAPPING.put("NNPS", "n");
+        POS_REDUCER_MAPPING.put("PRP", "n");
+        POS_REDUCER_MAPPING.put("PRP$", "n");
+        POS_REDUCER_MAPPING.put("WP", "n");
+        POS_REDUCER_MAPPING.put("WP$", "n");
 
         // Verbs
-        POS_TAG_MAPPING.put("MD", "v");
-        POS_TAG_MAPPING.put("VB", "v");
-        POS_TAG_MAPPING.put("VBD", "v");
-        POS_TAG_MAPPING.put("VBG", "v");
-        POS_TAG_MAPPING.put("VBN", "v");
-        POS_TAG_MAPPING.put("VBP", "v");
-        POS_TAG_MAPPING.put("VBZ", "v");
+        POS_REDUCER_MAPPING.put("MD", "v");
+        POS_REDUCER_MAPPING.put("VB", "v");
+        POS_REDUCER_MAPPING.put("VBD", "v");
+        POS_REDUCER_MAPPING.put("VBG", "v");
+        POS_REDUCER_MAPPING.put("VBN", "v");
+        POS_REDUCER_MAPPING.put("VBP", "v");
+        POS_REDUCER_MAPPING.put("VBZ", "v");
 
         // Adverbs
-        POS_TAG_MAPPING.put("RB", "r");
-        POS_TAG_MAPPING.put("RBR", "r");
-        POS_TAG_MAPPING.put("RBS", "r");
-        POS_TAG_MAPPING.put("WRB", "r");
+        POS_REDUCER_MAPPING.put("RB", "r");
+        POS_REDUCER_MAPPING.put("RBR", "r");
+        POS_REDUCER_MAPPING.put("RBS", "r");
+        POS_REDUCER_MAPPING.put("WRB", "r");
 
     }
 
@@ -53,7 +63,15 @@ public class PartOfSpeechReducer {
      * @return the updated tag, or <code>null</code> if the PoS is not one of the desired categories
      */
     public static String simplifyPartOfSpeechTag(String posTag) {
-        return POS_TAG_MAPPING.containsKey(posTag) ? POS_TAG_MAPPING.get(posTag) : null;
+        return POS_REDUCER_MAPPING.containsKey(posTag) ? POS_REDUCER_MAPPING.get(posTag) : null;
+    }
+
+    public static int getPartOfSpeechIndex(String posTag) {
+        return POS_INDEX_MAPPING.containsKey(posTag) ? POS_INDEX_MAPPING.get(posTag) : -1;
+    }
+
+    public static String getPartOfSpeechTag(int posIndex) {
+        return POS_TAG_MAPPING[posIndex];
     }
 
 }

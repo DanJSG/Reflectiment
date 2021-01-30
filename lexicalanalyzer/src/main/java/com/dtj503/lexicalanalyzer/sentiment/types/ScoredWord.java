@@ -2,6 +2,7 @@ package com.dtj503.lexicalanalyzer.sentiment.types;
 
 import com.dtj503.lexicalanalyzer.libs.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.libs.sql.SQLEntity;
+import com.dtj503.lexicalanalyzer.parsers.PartOfSpeechReducer;
 import com.dtj503.lexicalanalyzer.types.Word;
 
 import java.util.HashMap;
@@ -23,13 +24,8 @@ public class ScoredWord extends Word implements SQLEntity {
     @Override
     public Map<SQLColumn, Object> toSqlMap() {
         Map<SQLColumn, Object> map = new HashMap<>();
-        Map<String, Integer> posIndex = new HashMap<>();
-        posIndex.put("v", 0);
-        posIndex.put("n", 1);
-        posIndex.put("r", 2);
-        posIndex.put("a", 3);
         map.put(SQLColumn.WORD, this.getWord());
-        map.put(SQLColumn.POS, posIndex.get(this.getPartOfSpeech()));
+        map.put(SQLColumn.POS, PartOfSpeechReducer.getPartOfSpeechIndex(this.getPartOfSpeech()));
         return map;
     }
 
