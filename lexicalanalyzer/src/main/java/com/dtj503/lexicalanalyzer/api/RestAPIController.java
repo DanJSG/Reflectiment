@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Abstract class for a Spring Boot REST Controller, containing common HTTP responses. Maps every inheriting class
  * endpoints underneath /api/v1/.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
  */
 public abstract class RestAPIController {
 

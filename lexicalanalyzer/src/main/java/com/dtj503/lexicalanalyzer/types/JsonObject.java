@@ -2,6 +2,8 @@ package com.dtj503.lexicalanalyzer.types;
 
 /**
  * Interface for objects which are JSON serializable/deserializable.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
  */
 public interface JsonObject {
 

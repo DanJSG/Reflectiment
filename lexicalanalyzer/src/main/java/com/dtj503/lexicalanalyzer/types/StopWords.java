@@ -3,6 +3,7 @@ package com.dtj503.lexicalanalyzer.types;
 import java.util.HashMap;
 import java.util.Map;
 
+// TODO review whether we need this at all or whether to use a much smaller selection of stop words
 public final class StopWords {
 
     private static final Map<String, Boolean> STOP_WORD_MAP = new HashMap<>();
