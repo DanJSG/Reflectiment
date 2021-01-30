@@ -10,6 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * Configuration class used by Spring to set up Cross Origin Resource Sharing (CORS) and allow certain origins access
  * to the REST API endpoints.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
  */
 public class GlobalCorsConfig implements WebMvcConfigurer {
 

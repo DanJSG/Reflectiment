@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 /**
  * Spring REST API controller for handling the text analysis requests.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
  */
 public class AnalysisController extends RestAPIController {
 

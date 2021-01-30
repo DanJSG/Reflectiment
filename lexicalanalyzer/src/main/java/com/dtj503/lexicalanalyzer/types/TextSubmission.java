@@ -9,9 +9,10 @@ import java.time.LocalDateTime;
 
 /**
  * Class for a JSON format text submission to be analysed by the application.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
  */
 public class TextSubmission implements JsonObject {
-
 
     @JsonProperty
     // The text to be analysed
