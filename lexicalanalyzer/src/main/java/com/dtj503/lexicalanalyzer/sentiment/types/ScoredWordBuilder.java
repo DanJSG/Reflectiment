@@ -5,7 +5,12 @@ import com.dtj503.lexicalanalyzer.parsers.PartOfSpeechReducer;
 
 import java.sql.ResultSet;
 
-public class ScoreWordBuilder implements SQLEntityBuilder<ScoredWord> {
+/**
+ * Builder class for a scored word. Designed to build a scored word from a set of SQL query results.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
+public class ScoredWordBuilder implements SQLEntityBuilder<ScoredWord> {
 
     @Override
     public ScoredWord fromResultSet(ResultSet sqlResults) {

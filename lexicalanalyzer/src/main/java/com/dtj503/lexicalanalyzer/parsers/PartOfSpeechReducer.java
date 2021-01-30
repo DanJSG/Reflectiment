@@ -11,12 +11,15 @@ import java.util.Map;
  */
 public class PartOfSpeechReducer {
 
-    // Set up the tag mapping
+    // Part of Speech reducer map for use with Penn Treebank style PoS tags
     private static final Map<String, String> POS_REDUCER_MAPPING;
+    // Mapping between PoS tag labels and database indices
     private static final Map<String, Integer> POS_INDEX_MAPPING;
+    // Mapping between database indices and PoS tag labels
     private static final String[] POS_TAG_MAPPING = new String[]{"v", "n", "r", "a"};
     static {
 
+        // Set up PoS tag mapping
         POS_INDEX_MAPPING = new HashMap<>();
         POS_INDEX_MAPPING.put("v", 0);
         POS_INDEX_MAPPING.put("n", 1);
@@ -66,10 +69,22 @@ public class PartOfSpeechReducer {
         return POS_REDUCER_MAPPING.containsKey(posTag) ? POS_REDUCER_MAPPING.get(posTag) : null;
     }
 
+    /**
+     * Method to get the database index value of a PoS tag.
+     *
+     * @param posTag the PoS tag to get the index value of
+     * @return the index value, or -1 if it could not be found
+     */
     public static int getPartOfSpeechIndex(String posTag) {
         return POS_INDEX_MAPPING.containsKey(posTag) ? POS_INDEX_MAPPING.get(posTag) : -1;
     }
 
+    /**
+     * Method to get the PoS tag from a database index value.
+     *
+     * @param posIndex the database index value
+     * @return the PoS tag
+     */
     public static String getPartOfSpeechTag(int posIndex) {
         return POS_TAG_MAPPING[posIndex];
     }

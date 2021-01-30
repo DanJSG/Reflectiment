@@ -5,7 +5,7 @@ import com.dtj503.lexicalanalyzer.libs.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.libs.sql.SQLRepository;
 import com.dtj503.lexicalanalyzer.libs.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.parsers.DocumentParser;
-import com.dtj503.lexicalanalyzer.sentiment.types.ScoreWordBuilder;
+import com.dtj503.lexicalanalyzer.sentiment.types.ScoredWordBuilder;
 import com.dtj503.lexicalanalyzer.sentiment.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.types.Document;
 import com.dtj503.lexicalanalyzer.types.Sentence;
@@ -53,7 +53,7 @@ public class SentimentAnalysisService {
         }
 
         SQLRepository<ScoredWord> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
-        return repo.findWhereEqualOr(cols, wordStrings, 0, new ScoreWordBuilder());
+        return repo.findWhereEqualOr(cols, wordStrings, 0, new ScoredWordBuilder());
     }
 
     private static List<ScoredWord> pickScoredWord(List<Word> words, List<ScoredWord> scoredWords) {
