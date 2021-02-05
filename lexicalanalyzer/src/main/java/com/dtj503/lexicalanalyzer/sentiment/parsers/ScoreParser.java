@@ -1,14 +1,18 @@
-package com.dtj503.offlinedevelopment.parsers;
+package com.dtj503.lexicalanalyzer.sentiment.parsers;
 
-import com.dtj503.offlinedevelopment.types.Sentence;
-import com.dtj503.offlinedevelopment.types.Token;
-import com.dtj503.offlinedevelopment.utils.ListMath;
 
-import java.util.*;
 
-public class ScoredWordParser {
+import com.dtj503.lexicalanalyzer.types.Sentence;
+import com.dtj503.lexicalanalyzer.types.Token;
+import com.dtj503.lexicalanalyzer.utils.ListMath;
 
-    public static void parseScoredWords(Sentence sentence) {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ScoreParser {
+
+    public static float parseSentenceScore(Sentence sentence) {
         for(Token word : sentence.getWords()) {
             System.out.println(word);
         }
@@ -23,27 +27,22 @@ public class ScoredWordParser {
         List<Float> modificationVector = new ArrayList<>(Collections.nCopies(scores.size(), 1f));
 
         // TODO refactor
-        if(adjectivePositions != null && adjectivePositions.size() > 0) {
+        if(adjectivePositions != null && adjectivePositions.size() > 0 && adverbPositions != null) {
             setModifiersAndNegators(modificationVector, adjectivePositions, adverbPositions, scores);
-//            List<Float> adjectiveNegators = getNegators(adjectivePositions, adverbPositions, scores);
-//            List<Float> adjectiveModifiers = getModifiers(adjectivePositions, adverbPositions, scores);
-//            updateModificationVector(modificationVector, adjectivePositions, adjectiveModifiers);
-//            updateModificationVector(modificationVector, adjectivePositions, adjectiveNegators);
         }
 
         // TODO refactor
-        if(verbPositions != null && verbPositions.size() > 0) {
+        if(verbPositions != null && verbPositions.size() > 0 && adverbPositions != null) {
             setModifiersAndNegators(modificationVector, verbPositions, adverbPositions, scores);
-//            List<Float> verbNegators = getNegators(verbPositions, adverbPositions, scores);
-//            List<Float> verbModifiers = getModifiers(verbPositions, adverbPositions, scores);
-//            updateModificationVector(modificationVector, verbPositions, verbModifiers);
-//            updateModificationVector(modificationVector, verbPositions, verbNegators);
         }
 
-        scores = removeAdverbs(scores, adverbPositions);
-        modificationVector = removeAdverbs(modificationVector, adverbPositions);
+        if(adverbPositions != null) {
+            scores = removeAdverbs(scores, adverbPositions);
+            modificationVector = removeAdverbs(modificationVector, adverbPositions);
+        }
 
         List<Float> modifiedScores = ListMath.hadamardProduct(modificationVector, scores);
+        modifiedScores = stripZeroScores(modifiedScores);
 
         float sentenceScore = Math.max(-1, Math.min(ListMath.mean(modifiedScores), 1));
         
@@ -55,6 +54,18 @@ public class ScoredWordParser {
         System.out.println(modifiedScores);
         System.out.println("Final average: " + sentenceScore);
 
+        return sentenceScore;
+
+    }
+
+    private static List<Float> stripZeroScores(List<Float> scores) {
+        List<Float> newScores = new ArrayList<>();
+        for(float score : scores) {
+            if(score != 0f) {
+                newScores.add(score);
+            }
+        }
+        return newScores.size() > 0 ? newScores : scores;
     }
 
     private static void setModifiersAndNegators(List<Float> modificationVector, List<Integer> modifiedPositions,

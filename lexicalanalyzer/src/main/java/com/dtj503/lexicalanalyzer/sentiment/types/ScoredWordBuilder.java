@@ -2,6 +2,7 @@ package com.dtj503.lexicalanalyzer.sentiment.types;
 
 import com.dtj503.lexicalanalyzer.libs.sql.SQLEntityBuilder;
 import com.dtj503.lexicalanalyzer.parsers.PartOfSpeechReducer;
+import com.dtj503.lexicalanalyzer.types.Token;
 
 import java.sql.ResultSet;
 
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class ScoredWordBuilder implements SQLEntityBuilder<ScoredWord> {
+public class ScoredWordBuilder implements SQLEntityBuilder<Token> {
 
     @Override
     public ScoredWord fromResultSet(ResultSet sqlResults) {

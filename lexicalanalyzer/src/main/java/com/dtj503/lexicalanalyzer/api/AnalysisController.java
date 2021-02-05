@@ -2,6 +2,7 @@ package com.dtj503.lexicalanalyzer.api;
 
 import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
 import com.dtj503.lexicalanalyzer.types.TextSubmission;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,9 +27,10 @@ public class AnalysisController extends RestAPIController {
         System.out.println("Received request. JSON Received: ");
         System.out.println(submission.writeValueAsString());
 
-        SentimentAnalysisService.analyseSentiment(submission.getText());
+        Float sentimentScore = SentimentAnalysisService.analyseSentiment(submission.getText());
 
-        return EMPTY_OK_HTTP_RESPONSE;
+        return ResponseEntity.status(HttpStatus.OK).body(sentimentScore.toString());
+//        return EMPTY_OK_HTTP_RESPONSE;
 
     }
 

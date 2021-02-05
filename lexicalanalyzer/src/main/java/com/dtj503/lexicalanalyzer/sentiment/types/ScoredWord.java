@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class ScoredWord extends Word implements SQLEntity {
+public class ScoredWord extends Word {
 
     private float score;
 
@@ -37,14 +37,6 @@ public class ScoredWord extends Word implements SQLEntity {
     public ScoredWord(String word, String partOfSpeech, float score) {
         super(word, partOfSpeech);
         this.score = score;
-    }
-
-    @Override
-    public Map<SQLColumn, Object> toSqlMap() {
-        Map<SQLColumn, Object> map = new HashMap<>();
-        map.put(SQLColumn.WORD, this.getWord());
-        map.put(SQLColumn.POS, PartOfSpeechReducer.getPartOfSpeechIndex(this.getPartOfSpeech()));
-        return map;
     }
 
     public float getScore() {

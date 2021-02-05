@@ -1,16 +1,11 @@
 package com.dtj503.offlinedevelopment;
 
 import com.dtj503.offlinedevelopment.parsers.DocumentParser;
-import com.dtj503.offlinedevelopment.parsers.ScoredWordParser;
+import com.dtj503.offlinedevelopment.parsers.ScoreParser;
 import com.dtj503.offlinedevelopment.types.*;
-import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.pipeline.CoreDocument;
-import edu.stanford.nlp.pipeline.CoreSentence;
-import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 import java.util.Random;
 
 public class OfflineDevelopment {
@@ -45,7 +40,7 @@ public class OfflineDevelopment {
 
         for(int i = 0; i < doc.getSentences().size(); i++) {
             Sentence scoredSentence = new Sentence(doc.getSentences().get(i).getOriginalText(), scoredWords.get(i));
-            ScoredWordParser.parseScoredWords(scoredSentence);
+            ScoreParser.parseSentenceScore(scoredSentence);
         }
 
 //        String text = "The work in team, from my point of view, is usually more complex than working alone because there are new parameters to consider";
