@@ -29,6 +29,7 @@ public class OfflineDevelopment {
 
 //        String testString = "I really really loved the movie!";
         String testString = "I really loved the documentary, it was very very interesting and extremely enjoyable.";
+//        String testString = "She was eating very happily.";
         Document doc = DocumentParser.parseText(testString);
         List<List<Token>> scoredWords = new ArrayList<>();
         scoredWords = new ArrayList<>();
