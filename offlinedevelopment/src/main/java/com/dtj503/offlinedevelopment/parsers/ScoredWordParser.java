@@ -24,18 +24,20 @@ public class ScoredWordParser {
 
         // TODO refactor
         if(adjectivePositions != null && adjectivePositions.size() > 0) {
-            List<Float> adjectiveNegators = getNegators(adjectivePositions, adverbPositions, scores);
-            List<Float> adjectiveModifiers = getModifiers(adjectivePositions, adverbPositions, scores);
-            updateModificationVector(modificationVector, adjectivePositions, adjectiveModifiers);
-            updateModificationVector(modificationVector, adjectivePositions, adjectiveNegators);
+            setModifiersAndNegators(modificationVector, adjectivePositions, adverbPositions, scores);
+//            List<Float> adjectiveNegators = getNegators(adjectivePositions, adverbPositions, scores);
+//            List<Float> adjectiveModifiers = getModifiers(adjectivePositions, adverbPositions, scores);
+//            updateModificationVector(modificationVector, adjectivePositions, adjectiveModifiers);
+//            updateModificationVector(modificationVector, adjectivePositions, adjectiveNegators);
         }
 
         // TODO refactor
         if(verbPositions != null && verbPositions.size() > 0) {
-            List<Float> verbNegators = getNegators(verbPositions, adverbPositions, scores);
-            List<Float> verbModifiers = getModifiers(verbPositions, adverbPositions, scores);
-            updateModificationVector(modificationVector, verbPositions, verbModifiers);
-            updateModificationVector(modificationVector, verbPositions, verbNegators);
+            setModifiersAndNegators(modificationVector, verbPositions, adverbPositions, scores);
+//            List<Float> verbNegators = getNegators(verbPositions, adverbPositions, scores);
+//            List<Float> verbModifiers = getModifiers(verbPositions, adverbPositions, scores);
+//            updateModificationVector(modificationVector, verbPositions, verbModifiers);
+//            updateModificationVector(modificationVector, verbPositions, verbNegators);
         }
 
         scores = removeAdverbs(scores, adverbPositions);
@@ -55,6 +57,14 @@ public class ScoredWordParser {
 
     }
 
+    private static void setModifiersAndNegators(List<Float> modificationVector, List<Integer> modifiedPositions,
+                                                List<Integer> adverbPositions, List<Float> scores) {
+        List<Float> verbNegators = getNegators(modifiedPositions, adverbPositions, scores);
+        List<Float> verbModifiers = getModifiers(modifiedPositions, adverbPositions, scores);
+        updateModificationVector(modificationVector, modifiedPositions, verbModifiers);
+        updateModificationVector(modificationVector, modifiedPositions, verbNegators);
+    }
+
     private static List<Float> getNegators(List<Integer> positions, List<Integer> adverbPositions, List<Float> scores) {
         List<Float> negators = new ArrayList<>();
         for(int pos : positions) {
@@ -71,7 +81,8 @@ public class ScoredWordParser {
         return negators;
     }
 
-    private static List<Float> getModifiers(List<Integer> positions, List<Integer> adverbPositions, List<Float> scores) {
+    private static List<Float> getModifiers(List<Integer> positions, List<Integer> adverbPositions,
+                                            List<Float> scores) {
         List<Float> modifiers = new ArrayList<>();
         for(int pos : positions) {
             List<Float> currentModifiers = new ArrayList<>();
@@ -108,7 +119,8 @@ public class ScoredWordParser {
         return newList;
     }
 
-    private static void updateModificationVector(List<Float> modificationVector, List<Integer> positions, List<Float> modifiers) {
+    private static void updateModificationVector(List<Float> modificationVector, List<Integer> positions,
+                                                 List<Float> modifiers) {
         for(int i = 0; i < positions.size(); i++) {
             int position = positions.get(i);
             float modifier = modifiers.get(i);
