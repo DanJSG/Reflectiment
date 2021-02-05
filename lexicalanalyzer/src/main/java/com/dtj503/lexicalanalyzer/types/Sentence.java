@@ -1,5 +1,8 @@
 package com.dtj503.lexicalanalyzer.types;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +15,13 @@ import java.util.Map;
  */
 public class Sentence {
 
+    @JsonProperty
     private String originalText;
+
+    @JsonIgnore
     private List<Token> words;
+
+    @JsonIgnore
     private Map<String, List<Integer>> posPositions;
 
     public Sentence(String text, List<Token> words) {
@@ -26,6 +34,7 @@ public class Sentence {
         return words;
     }
 
+    @JsonIgnore
     public List<Float> getScores() {
         List<Float> scores = new ArrayList<>();
         for(Token word : words) {
@@ -33,7 +42,6 @@ public class Sentence {
         }
         return scores;
     }
-
 
     @Override
     public String toString() {
@@ -47,18 +55,22 @@ public class Sentence {
         return originalText;
     }
 
+    @JsonIgnore
     public List<Integer> getVerbPositions() {
         return posPositions.get("v");
     }
 
+    @JsonIgnore
     public List<Integer> getNounPositions() {
         return posPositions.get("n");
     }
 
+    @JsonIgnore
     public List<Integer> getAdjectivePositions() {
         return posPositions.get("a");
     }
 
+    @JsonIgnore
     public List<Integer> getAdverbPositions() {
         return posPositions.get("r");
     }

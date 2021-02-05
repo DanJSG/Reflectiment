@@ -13,6 +13,7 @@ import java.util.List;
 public class ScoreParser {
 
     public static float parseSentenceScore(Sentence sentence) {
+        //TODO remove debugging print statements
         for(Token word : sentence.getWords()) {
             System.out.println(word);
         }
@@ -22,16 +23,15 @@ public class ScoreParser {
         List<Integer> adverbPositions = sentence.getAdverbPositions();
         List<Float> scores = sentence.getScores();
 
+        //TODO remove debugging print statements
         System.out.println(scores);
 
         List<Float> modificationVector = new ArrayList<>(Collections.nCopies(scores.size(), 1f));
 
-        // TODO refactor
         if(adjectivePositions != null && adjectivePositions.size() > 0 && adverbPositions != null) {
             setModifiersAndNegators(modificationVector, adjectivePositions, adverbPositions, scores);
         }
 
-        // TODO refactor
         if(verbPositions != null && verbPositions.size() > 0 && adverbPositions != null) {
             setModifiersAndNegators(modificationVector, verbPositions, adverbPositions, scores);
         }
@@ -45,7 +45,8 @@ public class ScoreParser {
         modifiedScores = stripZeroScores(modifiedScores);
 
         float sentenceScore = Math.max(-1, Math.min(ListMath.mean(modifiedScores), 1));
-        
+
+        //TODO remove debugging print statements
         System.out.println("Trimmed scores: ");
         System.out.println(scores);
         System.out.println("Modification vector: ");

@@ -1,6 +1,8 @@
 package com.dtj503.lexicalanalyzer.api;
 
 import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
+import com.dtj503.lexicalanalyzer.sentiment.types.ScoredSentence;
+import com.dtj503.lexicalanalyzer.types.AnalysisResponse;
 import com.dtj503.lexicalanalyzer.types.TextSubmission;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -8,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 /**
@@ -17,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 public class AnalysisController extends RestAPIController {
 
-    @PostMapping(value = "/analyse", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/analyse", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public static ResponseEntity<String> analyse(@RequestBody TextSubmission submission) {
 
         if(submission == null) {
@@ -27,9 +31,10 @@ public class AnalysisController extends RestAPIController {
         System.out.println("Received request. JSON Received: ");
         System.out.println(submission.writeValueAsString());
 
-        Float sentimentScore = SentimentAnalysisService.analyseSentiment(submission.getText());
+        List<ScoredSentence> scoredSentences = SentimentAnalysisService.analyseSentiment(submission.getText());
+        AnalysisResponse response = new AnalysisResponse(scoredSentences);
 
-        return ResponseEntity.status(HttpStatus.OK).body(sentimentScore.toString());
+        return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
 //        return EMPTY_OK_HTTP_RESPONSE;
 
     }

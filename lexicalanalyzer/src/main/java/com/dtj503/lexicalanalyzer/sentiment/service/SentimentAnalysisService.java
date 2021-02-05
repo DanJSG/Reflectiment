@@ -6,6 +6,7 @@ import com.dtj503.lexicalanalyzer.libs.sql.SQLRepository;
 import com.dtj503.lexicalanalyzer.libs.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.sentiment.parsers.ScoreParser;
+import com.dtj503.lexicalanalyzer.sentiment.types.ScoredSentence;
 import com.dtj503.lexicalanalyzer.sentiment.types.ScoredWordBuilder;
 import com.dtj503.lexicalanalyzer.sentiment.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.types.Document;
@@ -20,39 +21,23 @@ import java.util.Map;
 
 public class SentimentAnalysisService {
 
-    public static float analyseSentiment(String text) {
+    public static List<ScoredSentence> analyseSentiment(String text) {
         System.out.println(text);
         Document doc = StringParser.parseText(text);
+        List<ScoredSentence> scoredSentences = new ArrayList<>();
+//        List<Float> scores = new ArrayList<>();
         for(Sentence sentence : doc.getSentences()) {
-
             System.out.println(sentence);
-
             List<Token> words = sentence.getWords();
-
             List<Token> scoredWords = fetchWordScores(words);
             scoredWords = pickScoredWord(words,  scoredWords);
-
-            Sentence scoredSentence = new Sentence(sentence.getOriginalText(), scoredWords);
-
-            float score = ScoreParser.parseSentenceScore(scoredSentence);
-
+            Sentence sentenceWithScoredWords = new Sentence(sentence.getOriginalText(), scoredWords);
+            float score = ScoreParser.parseSentenceScore(sentenceWithScoredWords);
             System.out.println("Final calculated score: " + score);
-
-            return score;
-
-            // TODO  remove this debug stuff
-//            float sum = 0;
-//            for(int i = 0; i < scoredWords.size(); i++) {
-//                System.out.println(scoredWords.get(i));
-//                sum += scoredWords.get(i).getScore();
-//            }
-//            System.out.println("Sentence sum:" + sum);
-//            System.out.println("Sentence average: " + (sum / scoredWords.size()));
-//            ScoredWordParser.parseScoredWords(scoredWords);
-
+            scoredSentences.add(new ScoredSentence(sentence.getOriginalText(), scoredWords, score));
+//            scores.add(score);
         }
-
-        return 0;
+        return scoredSentences;
     }
 
     private static List<Token> fetchWordScores(List<Token> words) {
