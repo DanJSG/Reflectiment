@@ -1,6 +1,6 @@
 package com.dtj503.offlinedevelopment.types;
 
-public class Word {
+public class Word implements Token {
 
     private String word;
     private String partOfSpeech;
@@ -16,6 +16,11 @@ public class Word {
 
     public String getPartOfSpeech() {
         return partOfSpeech;
+    }
+
+    @Override
+    public float getScore() {
+        return 0;
     }
 
     @Override

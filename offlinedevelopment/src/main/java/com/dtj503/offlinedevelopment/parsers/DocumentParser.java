@@ -1,9 +1,6 @@
 package com.dtj503.offlinedevelopment.parsers;
 
-import com.dtj503.offlinedevelopment.types.Document;
-import com.dtj503.offlinedevelopment.types.Sentence;
-import com.dtj503.offlinedevelopment.types.StopWords;
-import com.dtj503.offlinedevelopment.types.Word;
+import com.dtj503.offlinedevelopment.types.*;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.CoreSentence;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
@@ -34,18 +31,18 @@ public class DocumentParser {
     private static List<Sentence> parseSentences(List<CoreSentence> coreSentences) {
         List<Sentence> sentences = new ArrayList<>(coreSentences.size());
         for(CoreSentence sentence : coreSentences) {
-            List<Word> words = parseWords(sentence);
+            List<Token> words = parseWords(sentence);
             sentences.add(new Sentence(sentence.text(), words));
         }
         return sentences;
     }
 
-    private static List<Word> parseWords(CoreSentence sentence) {
-        List<Word> words = new ArrayList<>(sentence.tokens().size());
+    private static List<Token> parseWords(CoreSentence sentence) {
+        List<Token> words = new ArrayList<>(sentence.tokens().size());
         for(int i = 0; i < sentence.tokens().size(); i++) {
             String token = sentence.tokensAsStrings().get(i).toLowerCase();
             String posTag = PartOfSpeechReducer.simplifyPartOfSpeechTag(sentence.posTags().get(i));
-            if(!isPunctuation(token) && !StopWords.isStopWord(token) && posTag != null) {
+            if(!isPunctuation(token) && posTag != null) {
                 words.add(new Word(token, posTag));
             }
         }
