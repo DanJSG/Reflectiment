@@ -119,7 +119,7 @@ public class ScoreParser {
      * @param positions the indices of the words being negated
      * @param adverbPositions the indices of the adverbs
      * @param scores the scores of the words in the sentence
-     * @return
+     * @return list of 1s and -1s representing negation, in <code>float</code> format
      */
     private static List<Float> getNegators(List<Integer> positions, List<Integer> adverbPositions, List<Float> scores) {
         List<Float> negators = new ArrayList<>();
@@ -139,25 +139,41 @@ public class ScoreParser {
         return negators;
     }
 
+    /**
+     * Method for finding the indices of adverb modifiers from a sentence.
+     *
+     * @param positions the indices of the words being modified
+     * @param adverbPositions the indices of the adverbs
+     * @param scores the scores of the words in the sentence
+     * @return list of modifiers, each with a value between 0 and 2, in <code>float</code> format
+     */
     private static List<Float> getModifiers(List<Integer> positions, List<Integer> adverbPositions,
                                             List<Float> scores) {
         List<Float> modifiers = new ArrayList<>();
         for(int pos : positions) {
             List<Float> currentModifiers = new ArrayList<>();
             int prevPos = pos - 1;
+            // Loop backwards from the modified word to find all potential modifiers
             while(prevPos >= 0 && adverbPositions.contains(prevPos)) {
+                // Take the absolute value of the modifiers score
+                // TODO tweak during analysis to see impact on effectiveness
                 currentModifiers.add(Math.abs(scores.get(prevPos)));
                 prevPos = prevPos - 1;
             }
+            // If no modifiers are found in front of the word, search for them after the word
             if(currentModifiers.size() == 0) {
                 prevPos = pos + 1;
+                // Loop forward from the modified word to find all potential modifiers
                 while(prevPos < scores.size() && adverbPositions.contains(prevPos)) {
+                    // Take the absolute value of the modifiers score
+                    // TODO tweak during analysis to see impact on effectiveness
                     currentModifiers.add(Math.abs(scores.get(prevPos)));
                     prevPos = prevPos + 1;
                 }
             }
+            // Add the modifiers to the list, or just add 1 if there are no modifiers
             if(currentModifiers.size() > 0) {
-                // TODO also tweak this during analysis to see impact on effectiveness
+                // TODO tweak this during analysis to see impact on effectiveness
                 modifiers.add(1 + ListMath.mean(currentModifiers));
             } else {
                 modifiers.add(1f);
@@ -166,10 +182,17 @@ public class ScoreParser {
         return modifiers;
     }
 
-    private static List<Float> removeAdverbs(List<Float> list, List<Integer> positions) {
-        List<Float> newList = new ArrayList<>(list.size() - positions.size());
+    /**
+     * Method for removing all adverb positions from a set of scores.
+     *
+     * @param list the list of scores to remove the adverb positions from
+     * @param adverbPositions the list of adverbs
+     * @return an updated list of scores with the adverb positions removed
+     */
+    private static List<Float> removeAdverbs(List<Float> list, List<Integer> adverbPositions) {
+        List<Float> newList = new ArrayList<>(list.size() - adverbPositions.size());
         for(int i = 0; i < list.size(); i++) {
-            if(positions.contains(i)) {
+            if(adverbPositions.contains(i)) {
                 continue;
             }
             newList.add(list.get(i));
@@ -177,11 +200,20 @@ public class ScoreParser {
         return newList;
     }
 
+    /**
+     * Method to update the modification vector with a set of new modifiers.
+     *
+     * @param modificationVector the modification vector to change - this is changed directly rather than returning
+     * @param positions the positions of the modifiers
+     * @param modifiers the values of the modifiers
+     */
     private static void updateModificationVector(List<Float> modificationVector, List<Integer> positions,
                                                  List<Float> modifiers) {
+        // Loop over each modifier position
         for(int i = 0; i < positions.size(); i++) {
             int position = positions.get(i);
             float modifier = modifiers.get(i);
+            // Update cumulatively for each position - don't just replace, multiply
             modificationVector.set(position, modificationVector.get(position) * modifier);
         }
     }
