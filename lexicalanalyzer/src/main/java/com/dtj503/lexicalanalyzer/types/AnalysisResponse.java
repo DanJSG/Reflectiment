@@ -1,6 +1,6 @@
 package com.dtj503.lexicalanalyzer.types;
 
-import com.dtj503.lexicalanalyzer.sentiment.types.ScoredSentence;
+import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -15,10 +15,10 @@ import java.util.List;
 public class AnalysisResponse implements JsonObject {
 
     @JsonProperty
-    List<ScoredSentence> scoredSentences;
+    List<SentimentScoredSentence> sentimentScoredSentences;
 
-    public AnalysisResponse(List<ScoredSentence> scoredSentences) {
-        this.scoredSentences = scoredSentences;
+    public AnalysisResponse(List<SentimentScoredSentence> sentimentScoredSentences) {
+        this.sentimentScoredSentences = sentimentScoredSentences;
     }
 
     @Override
