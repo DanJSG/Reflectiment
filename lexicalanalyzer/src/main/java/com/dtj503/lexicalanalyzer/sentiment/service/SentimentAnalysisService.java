@@ -1,20 +1,20 @@
 package com.dtj503.lexicalanalyzer.sentiment.service;
 
-import com.dtj503.lexicalanalyzer.libs.sql.MySQLRepository;
-import com.dtj503.lexicalanalyzer.libs.sql.SQLColumn;
-import com.dtj503.lexicalanalyzer.libs.sql.SQLRepository;
-import com.dtj503.lexicalanalyzer.libs.sql.SQLTable;
-import com.dtj503.lexicalanalyzer.parsers.StringParser;
+import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
+import com.dtj503.lexicalanalyzer.common.sql.MySQLRepository;
+import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
+import com.dtj503.lexicalanalyzer.common.sql.SQLRepository;
+import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
+import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.sentiment.parsers.SentimentScoreParser;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
-import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWordBuilder;
-import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWord;
-import com.dtj503.lexicalanalyzer.types.Document;
-import com.dtj503.lexicalanalyzer.types.Sentence;
-import com.dtj503.lexicalanalyzer.types.Token;
+import com.dtj503.lexicalanalyzer.common.types.ScoredWordBuilder;
+import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
+import com.dtj503.lexicalanalyzer.common.types.Document;
+import com.dtj503.lexicalanalyzer.common.types.Sentence;
+import com.dtj503.lexicalanalyzer.common.types.Token;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +23,7 @@ import java.util.Map;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class SentimentAnalysisService {
+public class SentimentAnalysisService extends AnalysisService {
 
     /**
      * Method for analysing the sentiment from a string of text.
@@ -40,7 +40,7 @@ public class SentimentAnalysisService {
             // Get the words from the sentence
             List<Token> words = sentence.getWords();
             // Get the scores for each word
-            List<SentimentScoredWord> scoredWords = fetchWordScores(words);
+            List<ScoredWord> scoredWords = fetchWordScores(words);
             // Pick the correct score for each word
             scoredWords = pickScoredWord(words,  scoredWords);
             // Rebuild the sentence with the scored words in it
@@ -60,7 +60,7 @@ public class SentimentAnalysisService {
      * @return a list of scored word tokens containing the words and associated scores (may contain duplicate words
      *         where their are multiple scores for a word)
      */
-    private static List<SentimentScoredWord> fetchWordScores(List<Token> words) {
+    private static List<ScoredWord> fetchWordScores(List<Token> words) {
         List<SQLColumn> cols = new ArrayList<>(words.size());
         List<String> wordStrings = new ArrayList<>(words.size());
         for(Token word : words) {
@@ -68,8 +68,8 @@ public class SentimentAnalysisService {
             cols.add(SQLColumn.WORD);
         }
         // Open the database connection and fetch the scores
-        SQLRepository<SentimentScoredWord> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
-        return repo.findWhereEqualOr(cols, wordStrings, 0, new SentimentScoredWordBuilder());
+        SQLRepository<ScoredWord> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
+        return repo.findWhereEqualOr(cols, wordStrings, 0, new ScoredWordBuilder());
     }
 
     /**
@@ -80,16 +80,16 @@ public class SentimentAnalysisService {
      * @param scoredWords the scored words containing potential duplicates
      * @return a list of scored words without duplicates
      */
-    private static List<SentimentScoredWord> pickScoredWord(List<Token> words, List<SentimentScoredWord> scoredWords) {
+    private static List<ScoredWord> pickScoredWord(List<Token> words, List<ScoredWord> scoredWords) {
         // Create a scored word map, where the key is the original word and the object is a list of associated scored
         // words
-        Map<String, List<SentimentScoredWord>> scoredWordMap = buildScoredWordMap(words, scoredWords);
-        List<SentimentScoredWord> updatedScoredWords = new ArrayList<>(words.size());
+        Map<String, List<ScoredWord>> scoredWordMap = buildScoredWordMap(words, scoredWords);
+        List<ScoredWord> updatedScoredWords = new ArrayList<>(words.size());
         // Loop over each token in the sentence
         for(Token word : words) {
             // If the word does not have an associated score, score it zero
             if (scoredWordMap.get(word.getWord()).size() == 0) {
-                updatedScoredWords.add(new SentimentScoredWord(word.getWord(), word.getPartOfSpeech()));
+                updatedScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech()));
                 continue;
             }
             int index = -1;
@@ -106,37 +106,16 @@ public class SentimentAnalysisService {
             // If a word with a matching PoS is not found then take the mean of the matching words with different PoS
             // tags
             if (index == -1) {
-                for (Token scoredWord : scoredWordMap.get(word.getWord())) {
+                for (ScoredWord scoredWord : scoredWordMap.get(word.getWord())) {
                     wordScoreSum += scoredWord.getScore();
                 }
                 float meanScore = wordScoreSum / numWords;
-                updatedScoredWords.add(new SentimentScoredWord(word.getWord(), word.getPartOfSpeech(), meanScore));
+                updatedScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech(), meanScore));
             } else {
                 updatedScoredWords.add(scoredWordMap.get(word.getWord()).get(index));
             }
         }
         return updatedScoredWords;
-    }
-
-    /**
-     * Method for building a scored word map. This generates a map where the keys are words and the objects are lists of
-     * associated scored words.
-     *
-     * @param words the words for the keys
-     * @param scoredWords the scored words
-     * @return
-     */
-    private static Map<String, List<SentimentScoredWord>> buildScoredWordMap(List<Token> words, List<SentimentScoredWord> scoredWords) {
-        Map<String, List<SentimentScoredWord>> scoredWordMap = new HashMap<>();
-        // Loop over each word and add it to the map
-        for(Token word : words) {
-            scoredWordMap.put(word.getWord(), new ArrayList<>());
-        }
-        // Loop over each scored word and add it to its associated list in the map
-        for(SentimentScoredWord word : scoredWords) {
-            scoredWordMap.get(word.getWord()).add(word);
-        }
-        return scoredWordMap;
     }
 
 }

@@ -1,18 +1,17 @@
 package com.dtj503.lexicalanalyzer.mood.service;
 
-import com.dtj503.lexicalanalyzer.libs.sql.MySQLRepository;
-import com.dtj503.lexicalanalyzer.libs.sql.SQLColumn;
-import com.dtj503.lexicalanalyzer.libs.sql.SQLRepository;
-import com.dtj503.lexicalanalyzer.libs.sql.SQLTable;
+import com.dtj503.lexicalanalyzer.common.sql.MySQLRepository;
+import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
+import com.dtj503.lexicalanalyzer.common.sql.SQLRepository;
+import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWord;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWordBuilder;
-import com.dtj503.lexicalanalyzer.parsers.StringParser;
-import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
-import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWord;
-import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWordBuilder;
-import com.dtj503.lexicalanalyzer.types.Document;
-import com.dtj503.lexicalanalyzer.types.Sentence;
-import com.dtj503.lexicalanalyzer.types.Token;
+import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
+import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
+import com.dtj503.lexicalanalyzer.common.types.ScoredWordBuilder;
+import com.dtj503.lexicalanalyzer.common.types.Document;
+import com.dtj503.lexicalanalyzer.common.types.Sentence;
+import com.dtj503.lexicalanalyzer.common.types.Token;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,7 @@ public class MoodAnalysisService {
             List<Token> words = sentence.getWords();
 
             List<MoodScoredWord> moodScoredWords = fetchMoodWordScores(words);
-            List<SentimentScoredWord> modifierScoredWords = fetchModifierWordScores(words);
+            List<ScoredWord> modifierScoredWords = fetchModifierWordScores(words);
 
             System.out.println(moodScoredWords);
             System.out.println(modifierScoredWords);
@@ -52,7 +51,7 @@ public class MoodAnalysisService {
         return repo.findWhereEqualOr(cols, wordStrings, 0, new MoodScoredWordBuilder());
     }
 
-    private static List<SentimentScoredWord> fetchModifierWordScores(List<Token> words) {
+    private static List<ScoredWord> fetchModifierWordScores(List<Token> words) {
         List<SQLColumn> cols = new ArrayList<>(words.size());
         List<String> wordStrings = new ArrayList<>(words.size());
         for(Token word : words) {
@@ -60,8 +59,8 @@ public class MoodAnalysisService {
             cols.add(SQLColumn.WORD);
         }
         // Open the database connection and fetch the scores
-        SQLRepository<SentimentScoredWord> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
-        return repo.findWhereEqualOr(cols, wordStrings, 0, new SentimentScoredWordBuilder());
+        SQLRepository<ScoredWord> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
+        return repo.findWhereEqualOr(cols, wordStrings, 0, new ScoredWordBuilder());
     }
 
 }

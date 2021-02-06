@@ -1,8 +1,7 @@
 package com.dtj503.lexicalanalyzer.sentiment.parsers;
 
-import com.dtj503.lexicalanalyzer.types.Sentence;
-import com.dtj503.lexicalanalyzer.types.Token;
-import com.dtj503.lexicalanalyzer.utils.ListMath;
+import com.dtj503.lexicalanalyzer.common.types.Sentence;
+import com.dtj503.lexicalanalyzer.common.utils.ListMath;
 
 import java.util.ArrayList;
 import java.util.Collections;

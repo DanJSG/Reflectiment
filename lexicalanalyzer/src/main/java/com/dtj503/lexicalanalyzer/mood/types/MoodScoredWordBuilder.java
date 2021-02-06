@@ -1,6 +1,6 @@
 package com.dtj503.lexicalanalyzer.mood.types;
 
-import com.dtj503.lexicalanalyzer.libs.sql.SQLEntityBuilder;
+import com.dtj503.lexicalanalyzer.common.sql.SQLEntityBuilder;
 
 import java.sql.ResultSet;
 
