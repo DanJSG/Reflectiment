@@ -8,6 +8,8 @@ services:
     networks:
       - primary
     env_file: ./lexicalanalyzer.env
+    volumes:
+      - maven-cache:/root/.m2
 
   db:
     image: mariadb:10.5.8
@@ -78,5 +80,7 @@ networks:
 
 volumes:
   mariadb-data:
+    external: true
+  maven-cache:
     external: true
     
