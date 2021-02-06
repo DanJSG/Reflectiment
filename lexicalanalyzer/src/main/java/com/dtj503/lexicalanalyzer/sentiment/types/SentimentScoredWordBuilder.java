@@ -11,7 +11,7 @@ import java.sql.ResultSet;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class SentimentScoredWordBuilder implements SQLEntityBuilder<Token> {
+public class SentimentScoredWordBuilder implements SQLEntityBuilder<SentimentScoredWord> {
 
     @Override
     public SentimentScoredWord fromResultSet(ResultSet sqlResults) {

@@ -11,12 +11,12 @@ import java.util.List;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class SentimentScoredSentence extends Sentence {
+public class SentimentScoredSentence extends Sentence<SentimentScoredWord> {
 
     @JsonProperty
     private float score;
 
-    public SentimentScoredSentence(String text, List<Token> words, float score) {
+    public SentimentScoredSentence(String text, List<SentimentScoredWord> words, float score) {
         super(text, words);
         this.score = score;
     }

@@ -8,6 +8,7 @@ import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWord;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWordBuilder;
 import com.dtj503.lexicalanalyzer.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
+import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWord;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWordBuilder;
 import com.dtj503.lexicalanalyzer.types.Document;
 import com.dtj503.lexicalanalyzer.types.Sentence;
@@ -30,13 +31,12 @@ public class MoodAnalysisService {
             List<Token> words = sentence.getWords();
 
             List<MoodScoredWord> moodScoredWords = fetchMoodWordScores(words);
-            List<Token> modifierScoredWords = fetchModifierWordScores(words);
+            List<SentimentScoredWord> modifierScoredWords = fetchModifierWordScores(words);
 
             System.out.println(moodScoredWords);
             System.out.println(modifierScoredWords);
 
         }
-
 
     }
 
@@ -52,7 +52,7 @@ public class MoodAnalysisService {
         return repo.findWhereEqualOr(cols, wordStrings, 0, new MoodScoredWordBuilder());
     }
 
-    private static List<Token> fetchModifierWordScores(List<Token> words) {
+    private static List<SentimentScoredWord> fetchModifierWordScores(List<Token> words) {
         List<SQLColumn> cols = new ArrayList<>(words.size());
         List<String> wordStrings = new ArrayList<>(words.size());
         for(Token word : words) {
@@ -60,7 +60,7 @@ public class MoodAnalysisService {
             cols.add(SQLColumn.WORD);
         }
         // Open the database connection and fetch the scores
-        SQLRepository<Token> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
+        SQLRepository<SentimentScoredWord> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
         return repo.findWhereEqualOr(cols, wordStrings, 0, new SentimentScoredWordBuilder());
     }
 

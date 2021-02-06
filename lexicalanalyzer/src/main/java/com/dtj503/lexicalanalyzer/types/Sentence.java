@@ -13,24 +13,24 @@ import java.util.Map;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class Sentence {
+public class Sentence<T extends Token> {
 
     @JsonProperty
     private String originalText;
 
     @JsonIgnore
-    private List<Token> words;
+    private List<T> words;
 
     @JsonIgnore
     private Map<String, List<Integer>> posPositions;
 
-    public Sentence(String text, List<Token> words) {
+    public Sentence(String text, List<T> words) {
         this.originalText = text;
         this.words = words;
         this.posPositions = markPosPositions();
     }
 
-    public List<Token> getWords() {
+    public List<T> getWords() {
         return words;
     }
 

@@ -3,6 +3,7 @@ package com.dtj503.lexicalanalyzer.api;
 import com.dtj503.lexicalanalyzer.mood.service.MoodAnalysisService;
 import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
+import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWord;
 import com.dtj503.lexicalanalyzer.types.AnalysisResponse;
 import com.dtj503.lexicalanalyzer.types.TextSubmission;
 import org.springframework.http.HttpStatus;
