@@ -11,15 +11,15 @@ import java.sql.ResultSet;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class ScoredWordBuilder implements SQLEntityBuilder<Token> {
+public class SentimentScoredWordBuilder implements SQLEntityBuilder<Token> {
 
     @Override
-    public ScoredWord fromResultSet(ResultSet sqlResults) {
+    public SentimentScoredWord fromResultSet(ResultSet sqlResults) {
         try {
             String word = sqlResults.getString("word");
             int posIndex = sqlResults.getInt("pos");
             float score = sqlResults.getFloat("sentiment");
-            return new ScoredWord(word, PartOfSpeechReducer.getPartOfSpeechTag(posIndex), score);
+            return new SentimentScoredWord(word, PartOfSpeechReducer.getPartOfSpeechTag(posIndex), score);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

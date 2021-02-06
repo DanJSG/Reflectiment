@@ -12,7 +12,7 @@ import java.util.List;
  * Class for parsing the sentiment score of a sentence using a lexicon-based approach.
  * @author
  */
-public class ScoreParser {
+public class SentimentScoreParser {
 
     /**
      * Method for parsing the scores of all the words in a sentence and calculating the overall sentiment polarity score
@@ -22,10 +22,6 @@ public class ScoreParser {
      * @return a <code>float</code> between -1 and 1 (inclusive)
      */
     public static float parseSentenceScore(Sentence sentence) {
-        //TODO remove debugging print statements
-        for(Token word : sentence.getWords()) {
-            System.out.println(word);
-        }
 
         // Get the adjective, verb and adverb positions from the sentence
         List<Integer> adjectivePositions = sentence.getAdjectivePositions();
@@ -34,9 +30,6 @@ public class ScoreParser {
 
         // Get the word scores from the sentence
         List<Float> scores = sentence.getScores();
-
-        //TODO remove debugging print statements
-        System.out.println(scores);
 
         // Initialise a list of ones ready to use as a multiplication vector
         List<Float> modificationVector = new ArrayList<>(Collections.nCopies(scores.size(), 1f));
@@ -67,15 +60,6 @@ public class ScoreParser {
 
         // Calculate the overall sentence score by taking the mean of the scores and limiting between -1 and 1
         float sentenceScore = Math.max(-1, Math.min(ListMath.mean(modifiedScores), 1));
-
-        //TODO remove debugging print statements
-        System.out.println("Trimmed scores: ");
-        System.out.println(scores);
-        System.out.println("Modification vector: ");
-        System.out.println(modificationVector);
-        System.out.println("Modified scores: ");
-        System.out.println(modifiedScores);
-        System.out.println("Final average: " + sentenceScore);
 
         return sentenceScore;
 

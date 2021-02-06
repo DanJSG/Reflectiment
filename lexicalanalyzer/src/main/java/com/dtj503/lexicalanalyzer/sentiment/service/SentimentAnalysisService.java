@@ -5,10 +5,10 @@ import com.dtj503.lexicalanalyzer.libs.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.libs.sql.SQLRepository;
 import com.dtj503.lexicalanalyzer.libs.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.parsers.StringParser;
-import com.dtj503.lexicalanalyzer.sentiment.parsers.ScoreParser;
-import com.dtj503.lexicalanalyzer.sentiment.types.ScoredSentence;
-import com.dtj503.lexicalanalyzer.sentiment.types.ScoredWordBuilder;
-import com.dtj503.lexicalanalyzer.sentiment.types.ScoredWord;
+import com.dtj503.lexicalanalyzer.sentiment.parsers.SentimentScoreParser;
+import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
+import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWordBuilder;
+import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredWord;
 import com.dtj503.lexicalanalyzer.types.Document;
 import com.dtj503.lexicalanalyzer.types.Sentence;
 import com.dtj503.lexicalanalyzer.types.Token;
@@ -31,14 +31,12 @@ public class SentimentAnalysisService {
      * @param text the string of text
      * @return
      */
-    public static List<ScoredSentence> analyseSentiment(String text) {
-        System.out.println(text);
+    public static List<SentimentScoredSentence> analyseSentiment(String text) {
         // Parse the string of text into a document, split into sentences and words
         Document doc = StringParser.parseText(text);
-        List<ScoredSentence> scoredSentences = new ArrayList<>();
+        List<SentimentScoredSentence> scoredSentences = new ArrayList<>();
         // Loop over each sentence in the document
         for(Sentence sentence : doc.getSentences()) {
-            System.out.println(sentence);
             // Get the words from the sentence
             List<Token> words = sentence.getWords();
             // Get the scores for each word
@@ -48,10 +46,9 @@ public class SentimentAnalysisService {
             // Rebuild the sentence with the scored words in it
             Sentence sentenceWithScoredWords = new Sentence(sentence.getOriginalText(), scoredWords);
             // Parse the overall score of the sentence
-            float score = ScoreParser.parseSentenceScore(sentenceWithScoredWords);
-            System.out.println("Final calculated score: " + score);
+            float score = SentimentScoreParser.parseSentenceScore(sentenceWithScoredWords);
             // Add a new scored sentence with the given score to the list ready to return
-            scoredSentences.add(new ScoredSentence(sentence.getOriginalText(), scoredWords, score));
+            scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), scoredWords, score));
         }
         return scoredSentences;
     }
@@ -72,7 +69,7 @@ public class SentimentAnalysisService {
         }
         // Open the database connection and fetch the scores
         SQLRepository<Token> repo = new MySQLRepository<>(SQLTable.SENTIMENT);
-        return repo.findWhereEqualOr(cols, wordStrings, 0, new ScoredWordBuilder());
+        return repo.findWhereEqualOr(cols, wordStrings, 0, new SentimentScoredWordBuilder());
     }
 
     /**
@@ -92,7 +89,7 @@ public class SentimentAnalysisService {
         for(Token word : words) {
             // If the word does not have an associated score, score it zero
             if (scoredWordMap.get(word.getWord()).size() == 0) {
-                updatedScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech()));
+                updatedScoredWords.add(new SentimentScoredWord(word.getWord(), word.getPartOfSpeech()));
                 continue;
             }
             int index = -1;
@@ -113,7 +110,7 @@ public class SentimentAnalysisService {
                     wordScoreSum += scoredWord.getScore();
                 }
                 float meanScore = wordScoreSum / numWords;
-                updatedScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech(), meanScore));
+                updatedScoredWords.add(new SentimentScoredWord(word.getWord(), word.getPartOfSpeech(), meanScore));
             } else {
                 updatedScoredWords.add(scoredWordMap.get(word.getWord()).get(index));
             }

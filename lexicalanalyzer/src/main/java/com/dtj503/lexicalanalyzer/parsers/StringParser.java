@@ -79,7 +79,6 @@ public class StringParser {
         for(int i = 0; i < sentence.tokens().size(); i++) {
             String token = sentence.tokensAsStrings().get(i).toLowerCase();
             String posTag = PartOfSpeechReducer.simplifyPartOfSpeechTag(sentence.posTags().get(i));
-            System.out.println(token + ":" + posTag);
             if(!isPunctuation(token) && posTag != null) {
                 words.add(new Word(token, posTag));
             }
