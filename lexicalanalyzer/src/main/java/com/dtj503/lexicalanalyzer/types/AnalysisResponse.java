@@ -6,6 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
+/**
+ * Class representing an analysis response JSON object. This is used for returning the analysis response to the user in
+ * a JSON format following an API request.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
 public class AnalysisResponse implements JsonObject {
 
     @JsonProperty

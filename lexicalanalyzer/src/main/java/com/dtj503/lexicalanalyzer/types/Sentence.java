@@ -75,6 +75,13 @@ public class Sentence {
         return posPositions.get("r");
     }
 
+    /**
+     * Method to mark the part of speech positions in the sentence in a map. The key is the part of speech abbreviation
+     * ie. "v", "r", "a" or "n" and the object is a list of the <code>integer</code> indices of these parts of speech
+     * in the sentence.
+     *
+     * @return a map of pos tags to word indices
+     */
     private Map<String, List<Integer>> markPosPositions() {
         Map<String, List<Integer>> positions = new HashMap<>();
         for(int i = 0; i < words.size(); i++) {

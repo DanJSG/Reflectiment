@@ -12,7 +12,6 @@ import com.dtj503.lexicalanalyzer.sentiment.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.types.Document;
 import com.dtj503.lexicalanalyzer.types.Sentence;
 import com.dtj503.lexicalanalyzer.types.Token;
-import com.dtj503.lexicalanalyzer.types.Word;
 
 import java.util.ArrayList;
 import java.util.HashMap;
