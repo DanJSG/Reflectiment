@@ -1,5 +1,6 @@
 package com.dtj503.lexicalanalyzer.sentiment.service;
 
+import com.dtj503.lexicalanalyzer.common.parsers.ScoreParser;
 import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
 import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
@@ -26,10 +27,10 @@ public class SentimentAnalysisService extends AnalysisService {
      */
     public static List<SentimentScoredSentence> analyseSentiment(String text) {
         // Parse the string of text into a document, split into sentences and words
-        Document doc = StringParser.parseText(text);
+        Document<Token> doc = StringParser.parseText(text);
         List<SentimentScoredSentence> scoredSentences = new ArrayList<>();
         // Loop over each sentence in the document
-        for(Sentence sentence : doc.getSentences()) {
+        for(Sentence<Token> sentence : doc.getSentences()) {
             // Get the words from the sentence
             List<Token> words = sentence.getWords();
             // Get the scores for each word
@@ -37,7 +38,7 @@ public class SentimentAnalysisService extends AnalysisService {
             // Pick the correct score for each word
             scoredWords = pickScoredWord(words,  scoredWords);
             // Rebuild the sentence with the scored words in it
-            Sentence sentenceWithScoredWords = new Sentence(sentence.getOriginalText(), scoredWords);
+            Sentence<ScoredWord> sentenceWithScoredWords = new Sentence<>(sentence.getOriginalText(), scoredWords);
             // Parse the overall score of the sentence
             float score = SentimentScoreParser.parseSentenceScore(sentenceWithScoredWords);
             // Add a new scored sentence with the given score to the list ready to return
