@@ -2,7 +2,7 @@ package com.dtj503.lexicalanalyzer.parsers;
 
 import com.dtj503.lexicalanalyzer.types.Document;
 import com.dtj503.lexicalanalyzer.types.Sentence;
-import com.dtj503.lexicalanalyzer.types.StopWords;
+import com.dtj503.lexicalanalyzer.types.Token;
 import com.dtj503.lexicalanalyzer.types.Word;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.CoreSentence;
@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class DocumentParser {
+public class StringParser {
 
     // Regex pattern for matching everything except punctuation
     private static final Pattern NO_PUNCTUATION = Pattern.compile("^[0-9a-zA-Z_-]*$");
@@ -61,7 +61,7 @@ public class DocumentParser {
         // Loop through each sentence
         for(CoreSentence sentence : coreSentences) {
             // Parse the words in each sentence and add them to output list
-            List<Word> words = parseWords(sentence);
+            List<Token> words = parseWords(sentence);
             sentences.add(new Sentence(sentence.text(), words));
         }
         return sentences;
@@ -74,8 +74,8 @@ public class DocumentParser {
      * @param sentence the input sentence
      * @return a list of tagged words
      */
-    private static List<Word> parseWords(CoreSentence sentence) {
-        List<Word> words = new ArrayList<>(sentence.tokens().size());
+    private static List<Token> parseWords(CoreSentence sentence) {
+        List<Token> words = new ArrayList<>(sentence.tokens().size());
         for(int i = 0; i < sentence.tokens().size(); i++) {
             String token = sentence.tokensAsStrings().get(i).toLowerCase();
             String posTag = PartOfSpeechReducer.simplifyPartOfSpeechTag(sentence.posTags().get(i));

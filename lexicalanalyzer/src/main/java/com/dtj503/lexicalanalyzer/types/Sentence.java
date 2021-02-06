@@ -1,7 +1,12 @@
 package com.dtj503.lexicalanalyzer.types;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class representing a sentence. Contains the original sentence text and a list of word tokens.
@@ -10,16 +15,32 @@ import java.util.List;
  */
 public class Sentence {
 
+    @JsonProperty
     private String originalText;
-    private List<Word> words;
 
-    public Sentence(String text, List<Word> words) {
+    @JsonIgnore
+    private List<Token> words;
+
+    @JsonIgnore
+    private Map<String, List<Integer>> posPositions;
+
+    public Sentence(String text, List<Token> words) {
         this.originalText = text;
         this.words = words;
+        this.posPositions = markPosPositions();
     }
 
-    public List<Word> getWords() {
+    public List<Token> getWords() {
         return words;
+    }
+
+    @JsonIgnore
+    public List<Float> getScores() {
+        List<Float> scores = new ArrayList<>();
+        for(Token word : words) {
+            scores.add(word.getScore());
+        }
+        return scores;
     }
 
     @Override
@@ -33,4 +54,43 @@ public class Sentence {
     public String getOriginalText() {
         return originalText;
     }
+
+    @JsonIgnore
+    public List<Integer> getVerbPositions() {
+        return posPositions.get("v");
+    }
+
+    @JsonIgnore
+    public List<Integer> getNounPositions() {
+        return posPositions.get("n");
+    }
+
+    @JsonIgnore
+    public List<Integer> getAdjectivePositions() {
+        return posPositions.get("a");
+    }
+
+    @JsonIgnore
+    public List<Integer> getAdverbPositions() {
+        return posPositions.get("r");
+    }
+
+    /**
+     * Method to mark the part of speech positions in the sentence in a map. The key is the part of speech abbreviation
+     * ie. "v", "r", "a" or "n" and the object is a list of the <code>integer</code> indices of these parts of speech
+     * in the sentence.
+     *
+     * @return a map of pos tags to word indices
+     */
+    private Map<String, List<Integer>> markPosPositions() {
+        Map<String, List<Integer>> positions = new HashMap<>();
+        for(int i = 0; i < words.size(); i++) {
+            if(!positions.containsKey(words.get(i).getPartOfSpeech())) {
+                positions.put(words.get(i).getPartOfSpeech(), new ArrayList<>());
+            }
+            positions.get(words.get(i).getPartOfSpeech()).add(i);
+        }
+        return positions;
+    }
+
 }

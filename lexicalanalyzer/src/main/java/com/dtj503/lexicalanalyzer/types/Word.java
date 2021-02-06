@@ -1,13 +1,17 @@
 package com.dtj503.lexicalanalyzer.types;
 
+import com.dtj503.lexicalanalyzer.libs.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.parsers.PartOfSpeechReducer;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class representing a word as well as the tag for the relevant part of speech.
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class Word {
+public class Word implements Token {
 
     private String word;
     private String partOfSpeech;
@@ -27,6 +31,11 @@ public class Word {
         return partOfSpeech;
     }
 
+    @Override
+    public float getScore() {
+        return 0;
+    }
+
     public int getPartOfSpeechIndex() {
         return partOfSpeechIndex;
     }
@@ -38,4 +47,13 @@ public class Word {
                 ", pos='" + partOfSpeech + '\'' +
                 '}';
     }
+
+    @Override
+    public Map<SQLColumn, Object> toSqlMap() {
+        Map<SQLColumn, Object> map = new HashMap<>();
+        map.put(SQLColumn.WORD, this.getWord());
+        map.put(SQLColumn.POS, PartOfSpeechReducer.getPartOfSpeechIndex(this.getPartOfSpeech()));
+        return map;
+    }
+
 }

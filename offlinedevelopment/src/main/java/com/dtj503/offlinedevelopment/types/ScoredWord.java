@@ -1,12 +1,4 @@
-package com.dtj503.lexicalanalyzer.sentiment.types;
-
-import com.dtj503.lexicalanalyzer.libs.sql.SQLColumn;
-import com.dtj503.lexicalanalyzer.libs.sql.SQLEntity;
-import com.dtj503.lexicalanalyzer.parsers.PartOfSpeechReducer;
-import com.dtj503.lexicalanalyzer.types.Word;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.dtj503.offlinedevelopment.types;
 
 /**
  * Class for a word with an associated sentiment score.
