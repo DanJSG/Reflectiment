@@ -1,7 +1,5 @@
 package com.dtj503.lexicalanalyzer.common.types;
 
-import com.dtj503.lexicalanalyzer.common.types.Word;
-
 /**
  * Class for a word with an associated sentiment score.
  *

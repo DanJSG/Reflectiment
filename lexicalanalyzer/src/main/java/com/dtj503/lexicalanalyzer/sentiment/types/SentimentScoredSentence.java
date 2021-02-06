@@ -2,7 +2,6 @@ package com.dtj503.lexicalanalyzer.sentiment.types;
 
 import com.dtj503.lexicalanalyzer.common.types.ScoredSentence;
 import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
-import com.dtj503.lexicalanalyzer.common.types.Sentence;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
