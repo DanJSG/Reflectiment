@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Abstract class for an analysis service containing shared methods for sentiment, mood and reflection analysis.
+ */
 public abstract class AnalysisService {
 
     /**
