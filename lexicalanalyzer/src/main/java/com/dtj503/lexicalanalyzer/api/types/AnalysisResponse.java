@@ -16,16 +16,20 @@ import java.util.List;
  */
 public class AnalysisResponse implements JsonObject {
 
-    @JsonProperty
-    List<SentimentScoredSentence> sentimentScoredSentences;
+    @JsonProperty("sentences")
+    private List<AnalysedSentence> analysedSentences;
 
     @JsonProperty
-    List<MoodScoredSentence> moodScoredSentences;
+    private String fullText;
 
-    public AnalysisResponse(List<SentimentScoredSentence> sentimentScoredSentences,
+    public AnalysisResponse(String fullText,
+                            List<SentimentScoredSentence> sentimentScoredSentences,
                             List<MoodScoredSentence> moodScoredSentences) {
-        this.sentimentScoredSentences = sentimentScoredSentences;
-        this.moodScoredSentences = moodScoredSentences;
+        this.fullText = fullText;
+        analysedSentences = new ArrayList<>();
+        for(int i = 0; i < sentimentScoredSentences.size(); i++) {
+            analysedSentences.add(new AnalysedSentence(sentimentScoredSentences.get(i), moodScoredSentences.get(i)));
+        }
     }
 
     @Override
@@ -39,13 +43,5 @@ public class AnalysisResponse implements JsonObject {
             return null;
         }
     }
-
-//    private List<String> getOriginalSentences(List<SentimentScoredSentence> sentences) {
-//        List<String> sentencesText = new ArrayList<>();
-//        for(SentimentScoredSentence sentence : sentences) {
-//            sentencesText.add(sentence.getOriginalText());
-//        }
-//        return sentencesText;
-//    }
 
 }

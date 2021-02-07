@@ -33,6 +33,12 @@ public class MoodAnalysisService extends AnalysisService {
             List<Token> words = sentence.getWords();
 
             List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, SQLColumn.WORD, new MoodScoredWordBuilder());
+
+            if(moodScoredWords == null) {
+                moodScoredSentences.add(getZeroScoreSentence(sentence.getOriginalText()));
+                continue;
+            }
+
             Map<String, List<MoodScoredWord>> scoredWordMap = buildScoredWordMap(words, moodScoredWords);
             Map<String, Sentence<MoodScoredWord>> moodSentenceMap = buildMoodSentenceMap(sentence, scoredWordMap);
 
@@ -124,6 +130,15 @@ public class MoodAnalysisService extends AnalysisService {
 
         return new ImmutablePair<>(label, highestScore);
 
+    }
+
+    private static MoodScoredSentence getZeroScoreSentence(String originalText) {
+        Map<String, Float> zeroScoreMap = new HashMap<>();
+        zeroScoreMap.put("fear", 0f);
+        zeroScoreMap.put("anger", 0f);
+        zeroScoreMap.put("sadness", 0f);
+        zeroScoreMap.put("joy", 0f);
+        return new MoodScoredSentence(originalText, null, 0f, "none", zeroScoreMap);
     }
 
 }

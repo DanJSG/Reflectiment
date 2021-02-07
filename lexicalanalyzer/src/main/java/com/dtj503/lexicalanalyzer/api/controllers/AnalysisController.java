@@ -38,7 +38,7 @@ public class AnalysisController extends RestAPIController {
         List<MoodScoredSentence> moodScoredSentences = MoodAnalysisService.analyseMood(submission.getText());
         List<SentimentScoredSentence> sentimentScoredSentences = SentimentAnalysisService.analyseSentiment(submission.getText());
 
-        AnalysisResponse response = new AnalysisResponse(sentimentScoredSentences, moodScoredSentences);
+        AnalysisResponse response = new AnalysisResponse(submission.getText(), sentimentScoredSentences, moodScoredSentences);
 
         return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
 
