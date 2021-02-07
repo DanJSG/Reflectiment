@@ -1,6 +1,5 @@
 package com.dtj503.lexicalanalyzer.sentiment.service;
 
-import com.dtj503.lexicalanalyzer.common.parsers.ScoreParser;
 import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
 import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
