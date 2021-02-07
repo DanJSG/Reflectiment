@@ -5,6 +5,7 @@ import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class representing a sentence with a calculated sentiment score.

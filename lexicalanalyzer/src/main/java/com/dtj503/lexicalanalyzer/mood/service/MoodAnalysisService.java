@@ -6,8 +6,11 @@ import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.common.types.*;
 import com.dtj503.lexicalanalyzer.mood.parsers.MoodScoreParser;
+import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWord;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWordBuilder;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,29 +19,50 @@ import java.util.Map;
 
 public class MoodAnalysisService extends AnalysisService {
 
-    public static void analyseMood(String text) {
+    public static List<MoodScoredSentence> analyseMood(String text) {
         // TODO remove debugging prints
         System.out.println("Text  arrived at the analyseMood(x) function.");
         System.out.println(text);
 
         Document<Token> doc = StringParser.parseText(text);
 
+        List<MoodScoredSentence> moodScoredSentences = new ArrayList<>();
+
         for(Sentence<Token> sentence : doc.getSentences()) {
 
             List<Token> words = sentence.getWords();
 
             List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, SQLColumn.WORD, new MoodScoredWordBuilder());
-            Map<String, List<MoodScoredWord>> scoredMoodWordMap = buildScoredWordMap(words, moodScoredWords);
-            Map<String, Sentence<MoodScoredWord>> moodSentenceMap = buildMoodSentenceMap(sentence, scoredMoodWordMap);
+            Map<String, List<MoodScoredWord>> scoredWordMap = buildScoredWordMap(words, moodScoredWords);
+            Map<String, Sentence<MoodScoredWord>> moodSentenceMap = buildMoodSentenceMap(sentence, scoredWordMap);
 
             // Modifiers
             List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, SQLColumn.WORD, new ScoredWordBuilder());
             modifierScoredWords = pickScoredWord(words, modifierScoredWords);
             Sentence<ScoredWord> modifierSentence = new Sentence<>(sentence.getOriginalText(), modifierScoredWords);
 
-            MoodScoreParser.parseSentenceScore(moodSentenceMap, modifierSentence);
+            Map<String, Float> moodMap = MoodScoreParser.parseSentenceScore(moodSentenceMap, modifierSentence);
+
+            System.out.println("Showing mood map scores: ");
+            moodMap.forEach((mood, score) -> {
+                System.out.println(mood + ": " + score);
+            });
+
+            Pair<String, Float> strongestEmotionProperties = pickStrongestEmotion(moodMap);
+
+            System.out.println("Strongest emotion -> " +
+                                strongestEmotionProperties.getLeft() + ": " + strongestEmotionProperties.getRight());
+
+            MoodScoredSentence scoredSentence = new MoodScoredSentence(sentence.getOriginalText(),
+                                                moodSentenceMap.get(strongestEmotionProperties.getLeft()).getWords(),
+                                                strongestEmotionProperties.getRight(),
+                                                strongestEmotionProperties.getLeft(), moodMap);
+
+            moodScoredSentences.add(scoredSentence);
 
         }
+
+        return moodScoredSentences;
 
     }
 
@@ -82,6 +106,24 @@ public class MoodAnalysisService extends AnalysisService {
             }
         }
         return pickedWords;
+    }
+
+    private static Pair<String, Float> pickStrongestEmotion(Map<String, Float> moodScoreMap) {
+        float highestScore = -1f;
+        String label = null;
+
+        String[] moods = moodScoreMap.keySet().toArray(String[]::new);
+
+        for(String mood : moods) {
+            float score = moodScoreMap.get(mood);
+            if(score > highestScore) {
+                highestScore = score;
+                label = mood;
+            }
+        }
+
+        return new ImmutablePair<>(label, highestScore);
+
     }
 
 }

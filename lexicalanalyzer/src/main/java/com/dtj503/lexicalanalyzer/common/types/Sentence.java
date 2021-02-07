@@ -25,6 +25,7 @@ public class Sentence<T extends Token> {
     private Map<String, List<Integer>> posPositions;
 
     public Sentence(String text, List<T> words) {
+        System.out.println("Words: " + words);
         this.originalText = text;
         this.words = words;
         this.posPositions = markPosPositions();
@@ -51,6 +52,7 @@ public class Sentence<T extends Token> {
                 '}';
     }
 
+    @JsonIgnore
     public String getOriginalText() {
         return originalText;
     }
