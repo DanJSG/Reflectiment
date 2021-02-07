@@ -7,17 +7,17 @@ import java.util.List;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public class Document {
+public class Document<T extends Token> {
 
     private String originalText;
-    private List<Sentence> sentences;
+    private List<Sentence<T>> sentences;
 
-    public Document(String text, List<Sentence> sentences) {
+    public Document(String text, List<Sentence<T>> sentences) {
         this.originalText = text;
         this.sentences = sentences;
     }
 
-    public List<Sentence> getSentences() {
+    public List<Sentence<T>> getSentences() {
         return sentences;
     }
 

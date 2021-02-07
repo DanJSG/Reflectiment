@@ -31,7 +31,7 @@ public class StringParser {
      * @param text the text to parse
      * @return the document object
      */
-    public static Document parseText(String text) {
+    public static <T extends Token> Document<T> parseText(String text) {
 
         // Create a CoreNLP pipeline for tokenize, splitting sentences and tagging parts of speech
         Properties props = new Properties();

@@ -1,9 +1,11 @@
 package com.dtj503.lexicalanalyzer.api.types;
 
+import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,11 +16,20 @@ import java.util.List;
  */
 public class AnalysisResponse implements JsonObject {
 
-    @JsonProperty
-    List<SentimentScoredSentence> sentimentScoredSentences;
+    @JsonProperty("sentences")
+    private List<AnalysedSentence> analysedSentences;
 
-    public AnalysisResponse(List<SentimentScoredSentence> sentimentScoredSentences) {
-        this.sentimentScoredSentences = sentimentScoredSentences;
+    @JsonProperty
+    private String fullText;
+
+    public AnalysisResponse(String fullText,
+                            List<SentimentScoredSentence> sentimentScoredSentences,
+                            List<MoodScoredSentence> moodScoredSentences) {
+        this.fullText = fullText;
+        analysedSentences = new ArrayList<>();
+        for(int i = 0; i < sentimentScoredSentences.size(); i++) {
+            analysedSentences.add(new AnalysedSentence(sentimentScoredSentences.get(i), moodScoredSentences.get(i)));
+        }
     }
 
     @Override
@@ -32,4 +43,5 @@ public class AnalysisResponse implements JsonObject {
             return null;
         }
     }
+
 }

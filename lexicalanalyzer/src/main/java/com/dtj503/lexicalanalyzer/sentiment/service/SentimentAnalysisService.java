@@ -26,18 +26,23 @@ public class SentimentAnalysisService extends AnalysisService {
      */
     public static List<SentimentScoredSentence> analyseSentiment(String text) {
         // Parse the string of text into a document, split into sentences and words
-        Document doc = StringParser.parseText(text);
+        Document<Token> doc = StringParser.parseText(text);
         List<SentimentScoredSentence> scoredSentences = new ArrayList<>();
         // Loop over each sentence in the document
-        for(Sentence sentence : doc.getSentences()) {
+        for(Sentence<Token> sentence : doc.getSentences()) {
             // Get the words from the sentence
             List<Token> words = sentence.getWords();
             // Get the scores for each word
             List<ScoredWord> scoredWords = fetchWordScores(words, SQLTable.SENTIMENT, SQLColumn.WORD, new ScoredWordBuilder());
+            // If there are no associated scores for any of the words, then score the sentence 0
+            if(scoredWords == null) {
+                scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), null, 0));
+                continue;
+            }
             // Pick the correct score for each word
             scoredWords = pickScoredWord(words,  scoredWords);
             // Rebuild the sentence with the scored words in it
-            Sentence sentenceWithScoredWords = new Sentence(sentence.getOriginalText(), scoredWords);
+            Sentence<ScoredWord> sentenceWithScoredWords = new Sentence<>(sentence.getOriginalText(), scoredWords);
             // Parse the overall score of the sentence
             float score = SentimentScoreParser.parseSentenceScore(sentenceWithScoredWords);
             // Add a new scored sentence with the given score to the list ready to return

@@ -1,7 +1,6 @@
 package com.dtj503.lexicalanalyzer.common.types;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import java.util.Map;
  */
 public class Sentence<T extends Token> {
 
-    @JsonProperty
+    @JsonIgnore
     private String originalText;
 
     @JsonIgnore
@@ -25,9 +24,10 @@ public class Sentence<T extends Token> {
     private Map<String, List<Integer>> posPositions;
 
     public Sentence(String text, List<T> words) {
+        System.out.println("Words: " + words);
         this.originalText = text;
         this.words = words;
-        this.posPositions = markPosPositions();
+        this.posPositions = markPosPositions(words);
     }
 
     public List<T> getWords() {
@@ -51,6 +51,7 @@ public class Sentence<T extends Token> {
                 '}';
     }
 
+    @JsonIgnore
     public String getOriginalText() {
         return originalText;
     }
@@ -82,7 +83,10 @@ public class Sentence<T extends Token> {
      *
      * @return a map of pos tags to word indices
      */
-    private Map<String, List<Integer>> markPosPositions() {
+    private Map<String, List<Integer>> markPosPositions(List<T> words) {
+        if(words == null) {
+            return null;
+        }
         Map<String, List<Integer>> positions = new HashMap<>();
         for(int i = 0; i < words.size(); i++) {
             if(!positions.containsKey(words.get(i).getPartOfSpeech())) {
