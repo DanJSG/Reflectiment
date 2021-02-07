@@ -1,7 +1,6 @@
 package com.dtj503.lexicalanalyzer.common.types;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import java.util.Map;
  */
 public class Sentence<T extends Token> {
 
-    @JsonProperty
+    @JsonIgnore
     private String originalText;
 
     @JsonIgnore
