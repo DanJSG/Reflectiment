@@ -35,6 +35,11 @@ public class SentimentAnalysisService extends AnalysisService {
             List<Token> words = sentence.getWords();
             // Get the scores for each word
             List<ScoredWord> scoredWords = fetchWordScores(words, SQLTable.SENTIMENT, SQLColumn.WORD, new ScoredWordBuilder());
+            // If there are no associated scores for any of the words, then score the sentence 0
+            if(scoredWords == null) {
+                scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), null, 0));
+                continue;
+            }
             // Pick the correct score for each word
             scoredWords = pickScoredWord(words,  scoredWords);
             // Rebuild the sentence with the scored words in it
