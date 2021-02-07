@@ -4,6 +4,12 @@ import com.dtj503.lexicalanalyzer.common.sql.SQLEntityBuilder;
 
 import java.sql.ResultSet;
 
+/**
+ * Class which acts as a builder for a <code>MoodScoredWord</code> and constructs one of these objects from a set of
+ * SQL database results.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
 public class MoodScoredWordBuilder implements SQLEntityBuilder<MoodScoredWord> {
 
     @Override

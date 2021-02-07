@@ -6,8 +6,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Abstract class implementing shared methods in score parsers.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
 public abstract class ScoreParser {
 
+    /**
+     * Method for creating a vector of values used to modify the scores of words. These vectors are based on adverb
+     * positions and their scores.
+     *
+     * @param adjectivePositions the indices of the adjectives
+     * @param verbPositions the indices of the verbs
+     * @param adverbPositions the indices of the adverbs
+     * @param scores the scores of the words in the sentence
+     * @return returns a <code>List</code> of <code>Float</code>s representing the modifying multipliers
+     */
     protected static List<Float> createModificationVector(List<Integer> adjectivePositions, List<Integer> verbPositions,
                                                           List<Integer> adverbPositions, List<Float> scores) {
         // Initialise a list of ones ready to use as a multiplication vector
