@@ -3,9 +3,30 @@ package com.dtj503.lexicalanalyzer.common.parsers;
 import com.dtj503.lexicalanalyzer.common.utils.ListMath;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class ScoreParser {
+
+    protected static List<Float> createModificationVector(List<Integer> adjectivePositions, List<Integer> verbPositions,
+                                                          List<Integer> adverbPositions, List<Float> scores) {
+        // Initialise a list of ones ready to use as a multiplication vector
+        List<Float> modificationVector = new ArrayList<>(Collections.nCopies(scores.size(), 1f));
+
+        // If there are adjectives and adverbs in the sentence, then find the adverbs which modify and/or negate the
+        // adjectives and update the modification vector with the modification and negation values
+        if(adjectivePositions != null && adjectivePositions.size() > 0 && adverbPositions != null) {
+            setModifiersAndNegators(modificationVector, adjectivePositions, adverbPositions, scores);
+        }
+
+        // If there are verbs and adverbs in the sentence, then find the adverbs which modify and/or negate the
+        // verbs and update the modification vector with the modification and negation values
+        if(verbPositions != null && verbPositions.size() > 0 && adverbPositions != null) {
+            setModifiersAndNegators(modificationVector, verbPositions, adverbPositions, scores);
+        }
+
+        return modificationVector;
+    }
 
     /**
      * Method for removing all zero values from a list, unless the list only contains 0 in which case none are removed.
@@ -24,6 +45,24 @@ public abstract class ScoreParser {
     }
 
     /**
+     * Method for removing all adverb positions from a set of scores.
+     *
+     * @param list the list of scores to remove the adverb positions from
+     * @param adverbPositions the list of adverbs
+     * @return an updated list of scores with the adverb positions removed
+     */
+    protected static List<Float> removeAdverbs(List<Float> list, List<Integer> adverbPositions) {
+        List<Float> newList = new ArrayList<>(list.size() - adverbPositions.size());
+        for(int i = 0; i < list.size(); i++) {
+            if(adverbPositions.contains(i)) {
+                continue;
+            }
+            newList.add(list.get(i));
+        }
+        return newList;
+    }
+
+    /**
      * Method for finding modifiers and negators of specific words and updating a modification vector with these values.
      *
      * @param modificationVector the modification vector to update
@@ -31,7 +70,7 @@ public abstract class ScoreParser {
      * @param adverbPositions the indices of the adverbs
      * @param scores the scores of the words in the sentence
      */
-    protected static void setModifiersAndNegators(List<Float> modificationVector, List<Integer> modifiedPositions,
+    private static void setModifiersAndNegators(List<Float> modificationVector, List<Integer> modifiedPositions,
                                                 List<Integer> adverbPositions, List<Float> scores) {
         List<Float> negators = getNegators(modifiedPositions, adverbPositions, scores);
         List<Float> modifiers = getModifiers(modifiedPositions, adverbPositions, scores);
@@ -47,7 +86,7 @@ public abstract class ScoreParser {
      * @param scores the scores of the words in the sentence
      * @return list of 1s and -1s representing negation, in <code>float</code> format
      */
-    protected static List<Float> getNegators(List<Integer> positions, List<Integer> adverbPositions, List<Float> scores) {
+    private static List<Float> getNegators(List<Integer> positions, List<Integer> adverbPositions, List<Float> scores) {
         List<Float> negators = new ArrayList<>();
         for(int pos : positions) {
             float currentNegator = 1;
@@ -73,7 +112,7 @@ public abstract class ScoreParser {
      * @param scores the scores of the words in the sentence
      * @return list of modifiers, each with a value between 0 and 2, in <code>float</code> format
      */
-    protected static List<Float> getModifiers(List<Integer> positions, List<Integer> adverbPositions,
+    private static List<Float> getModifiers(List<Integer> positions, List<Integer> adverbPositions,
                                             List<Float> scores) {
         List<Float> modifiers = new ArrayList<>();
         for(int pos : positions) {
@@ -109,31 +148,13 @@ public abstract class ScoreParser {
     }
 
     /**
-     * Method for removing all adverb positions from a set of scores.
-     *
-     * @param list the list of scores to remove the adverb positions from
-     * @param adverbPositions the list of adverbs
-     * @return an updated list of scores with the adverb positions removed
-     */
-    protected static List<Float> removeAdverbs(List<Float> list, List<Integer> adverbPositions) {
-        List<Float> newList = new ArrayList<>(list.size() - adverbPositions.size());
-        for(int i = 0; i < list.size(); i++) {
-            if(adverbPositions.contains(i)) {
-                continue;
-            }
-            newList.add(list.get(i));
-        }
-        return newList;
-    }
-
-    /**
      * Method to update the modification vector with a set of new modifiers.
      *
      * @param modificationVector the modification vector to change - this is changed directly rather than returning
      * @param positions the positions of the modifiers
      * @param modifiers the values of the modifiers
      */
-    protected static void updateModificationVector(List<Float> modificationVector, List<Integer> positions,
+    private static void updateModificationVector(List<Float> modificationVector, List<Integer> positions,
                                                  List<Float> modifiers) {
         // Loop over each modifier position
         for(int i = 0; i < positions.size(); i++) {

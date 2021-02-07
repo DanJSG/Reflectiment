@@ -5,13 +5,11 @@ import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.common.types.Sentence;
 import com.dtj503.lexicalanalyzer.common.utils.ListMath;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Class for parsing the sentiment score of a sentence using a lexicon-based approach.
- * @author
+ * @author Dan Jackson (dtj503@york.ac.uk)
  */
 public class SentimentScoreParser extends ScoreParser {
 
@@ -32,20 +30,8 @@ public class SentimentScoreParser extends ScoreParser {
         // Get the word scores from the sentence
         List<Float> scores = sentence.getScores();
 
-        // Initialise a list of ones ready to use as a multiplication vector
-        List<Float> modificationVector = new ArrayList<>(Collections.nCopies(scores.size(), 1f));
-
-        // If there are adjectives and adverbs in the sentence, then find the adverbs which modify and/or negate the
-        // adjectives and update the modification vector with the modification and negation values
-        if(adjectivePositions != null && adjectivePositions.size() > 0 && adverbPositions != null) {
-            setModifiersAndNegators(modificationVector, adjectivePositions, adverbPositions, scores);
-        }
-
-        // If there are verbs and adverbs in the sentence, then find the adverbs which modify and/or negate the
-        // verbs and update the modification vector with the modification and negation values
-        if(verbPositions != null && verbPositions.size() > 0 && adverbPositions != null) {
-            setModifiersAndNegators(modificationVector, verbPositions, adverbPositions, scores);
-        }
+        // Generate the modification vector
+        List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions, scores);
 
         // Remove the adverb scores from the sentence
         if(adverbPositions != null) {
