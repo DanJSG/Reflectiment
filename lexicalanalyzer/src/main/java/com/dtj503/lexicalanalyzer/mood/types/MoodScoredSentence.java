@@ -8,9 +8,10 @@ import java.util.Map;
 
 public class MoodScoredSentence extends ScoredSentence<MoodScoredWord> {
 
-    @JsonProperty
+    @JsonProperty("label")
     private String strongestEmotionLabel;
 
+    @JsonProperty("mixedScores")
     private Map<String, Float> moodScoreMap;
 
     public MoodScoredSentence(String text, List<MoodScoredWord> words, float strongestEmotionScore,
