@@ -6,7 +6,7 @@ me	n	experience	1
 we	n	experience	0.9
 was	v	experience	1
 had	v	experience	1
-were	v	experience 0.9
+were	v	experience	0.9
 did	v	experience	0.5
 i	n	feeling	1
 me	n	feeling	0.6
