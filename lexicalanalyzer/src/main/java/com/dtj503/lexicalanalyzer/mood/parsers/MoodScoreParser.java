@@ -38,7 +38,8 @@ public class MoodScoreParser extends ScoreParser {
         // Get the word scores from the modifier sentence
         List<Float> modifierScores = modifierSentence.getScores();
         // Create the modification vector based on the modifying adverbs in the modifier sentence
-        List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions, modifierScores);
+        List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions,
+                                                                  modifierScores);
         // Calculate the updated emotion scores based on the hadamard product of the individual scores and the mood
         // scores
         List<Float> modifiedFearScores = ListMath.hadamardProduct(modificationVector, fearScores);

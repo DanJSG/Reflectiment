@@ -1,11 +1,11 @@
 package com.dtj503.lexicalanalyzer.api.controllers;
 
+import com.dtj503.lexicalanalyzer.api.types.AnalysisResponse;
+import com.dtj503.lexicalanalyzer.api.types.TextSubmission;
 import com.dtj503.lexicalanalyzer.mood.service.MoodAnalysisService;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
 import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
-import com.dtj503.lexicalanalyzer.api.types.AnalysisResponse;
-import com.dtj503.lexicalanalyzer.api.types.TextSubmission;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.dtj503.lexicalanalyzer.mood.service.MoodAnalysisService.analyseMood;
-
 @RestController
 /**
  * Spring REST API controller for handling the text analysis requests.
@@ -25,7 +23,8 @@ import static com.dtj503.lexicalanalyzer.mood.service.MoodAnalysisService.analys
  */
 public class AnalysisController extends RestAPIController {
 
-    @PostMapping(value = "/analyse", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/analyse", consumes = MediaType.APPLICATION_JSON_VALUE,
+                 produces = MediaType.APPLICATION_JSON_VALUE)
     public static ResponseEntity<String> analyse(@RequestBody TextSubmission submission) {
 
         if(submission == null) {
@@ -36,9 +35,11 @@ public class AnalysisController extends RestAPIController {
         System.out.println(submission.writeValueAsString());
 
         List<MoodScoredSentence> moodScoredSentences = MoodAnalysisService.analyseMood(submission.getText());
-        List<SentimentScoredSentence> sentimentScoredSentences = SentimentAnalysisService.analyseSentiment(submission.getText());
+        List<SentimentScoredSentence> sentimentScoredSentences = SentimentAnalysisService
+                                                                    .analyseSentiment(submission.getText());
 
-        AnalysisResponse response = new AnalysisResponse(submission.getText(), sentimentScoredSentences, moodScoredSentences);
+        AnalysisResponse response = new AnalysisResponse(submission.getText(), sentimentScoredSentences,
+                                                         moodScoredSentences);
 
         return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
 

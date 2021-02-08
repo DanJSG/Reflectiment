@@ -107,7 +107,8 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 
 	@Override
 	//TODO REFACTOR 
-	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues, List<U> secondValues, int limit, SQLEntityBuilder<T> builder) {
+	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues,
+											  List<U> secondValues, int limit, SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
 		if(connection == null) {
@@ -167,7 +168,8 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 
 	@Override
 	// TODO REFACTOR
-	public <V> List<T> findWhereEqualOr(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder) {
+	public <V> List<T> findWhereEqualOr(List<SQLColumn> searchColumns, List<V> values, int limit,
+										SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
 		if(connection == null) {
@@ -204,7 +206,8 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	}
 
 	@Override
-	public <V> List<T> findWhereEqualAnd(List<SQLColumn> searchColumns, List<V> values, int limit, SQLEntityBuilder<T> builder) {
+	public <V> List<T> findWhereEqualAnd(List<SQLColumn> searchColumns, List<V> values, int limit,
+										 SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
 		if(connection == null) {
@@ -291,12 +294,14 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	}
 	
 	@Override
-	public <V, U> Boolean updateWhereEquals(SQLColumn clauseColumn, V clauseValue, SQLColumn updateColumn, U updateValue) {
+	public <V, U> Boolean updateWhereEquals(SQLColumn clauseColumn, V clauseValue, SQLColumn updateColumn,
+											U updateValue) {
 		return updateWhereEquals(clauseColumn, clauseValue, Arrays.asList(updateColumn), Arrays.asList(updateValue));
 	}
 	
 	@Override
-	public <V, U> Boolean updateWhereEquals(SQLColumn clauseColumn, V clauseValue, List<SQLColumn> updateColumns, List<U> updateValues) {
+	public <V, U> Boolean updateWhereEquals(SQLColumn clauseColumn, V clauseValue, List<SQLColumn> updateColumns,
+											List<U> updateValues) {
 		// Get database connection, return false if one cannot be retrieved
 		Connection connection = getConnection();
 		if(connection == null) {
@@ -445,7 +450,8 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	 * @return a list of objects
 	 * @throws Exception if a database connection cannot be made
 	 */
-	private <V> List<T> runCustomSelectQuery(Connection connection, String query, List<V> values, int limit, SQLEntityBuilder<T> builder) throws Exception {
+	private <V> List<T> runCustomSelectQuery(Connection connection, String query, List<V> values, int limit,
+											 SQLEntityBuilder<T> builder) throws Exception {
 		PreparedStatement statement = connection.prepareStatement(query);
 		statement.setFetchSize(limit);
 		for(int i=0; i < values.size(); i++) {
