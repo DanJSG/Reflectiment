@@ -31,7 +31,8 @@ public class SentimentScoreParser extends ScoreParser {
         List<Float> scores = sentence.getScores();
 
         // Generate the modification vector
-        List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions, scores);
+        List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions,
+                                                                  scores);
 
         // Remove the adverb scores from the sentence
         if(adverbPositions != null) {

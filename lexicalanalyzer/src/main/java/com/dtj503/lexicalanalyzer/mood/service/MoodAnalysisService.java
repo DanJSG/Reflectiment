@@ -41,7 +41,8 @@ public class MoodAnalysisService extends AnalysisService {
             // Get the tokenized words from the sentence
             List<Token> words = sentence.getWords();
             // Fetch the scores for each word from the database
-            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, SQLColumn.WORD, new MoodScoredWordBuilder());
+            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, SQLColumn.WORD,
+                                                                   new MoodScoredWordBuilder());
             // If there are no scored words in the database, then score the sentence as 0 for all emotions and continue
             // the loop
             if(moodScoredWords == null) {
@@ -53,7 +54,8 @@ public class MoodAnalysisService extends AnalysisService {
             // Build a map of emotions to sentences of scored words
             Map<String, Sentence<MoodScoredWord>> moodSentenceMap = buildMoodSentenceMap(sentence, scoredWordMap);
             // Fetch and choose the modifier word scores
-            List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, SQLColumn.WORD, new ScoredWordBuilder());
+            List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, SQLColumn.WORD,
+                                                                   new ScoredWordBuilder());
             modifierScoredWords = pickScoredWord(words, modifierScoredWords);
             // Convert the modifier words into a sentence
             Sentence<ScoredWord> modifierSentence = new Sentence<>(sentence.getOriginalText(), modifierScoredWords);
@@ -61,11 +63,14 @@ public class MoodAnalysisService extends AnalysisService {
             Map<String, Float> moodMap = MoodScoreParser.parseSentenceScore(moodSentenceMap, modifierSentence);
             // Find the strongest emotion and return the emotion label and the intensity score
             Pair<String, Float> strongestEmotionProperties = pickStrongestEmotion(moodMap);
+            // Get the scored words for the strongest emotion
+            List<MoodScoredWord> strongestEmotionWords = moodSentenceMap.get(strongestEmotionProperties.getLeft())
+                                                                        .getWords();
             // Create a new sentence scored with mood intensities and labelled with the strongest emotion intensity
             MoodScoredSentence scoredSentence = new MoodScoredSentence(sentence.getOriginalText(),
-                                                moodSentenceMap.get(strongestEmotionProperties.getLeft()).getWords(),
-                                                strongestEmotionProperties.getRight(),
-                                                strongestEmotionProperties.getLeft(), moodMap);
+                                                                       strongestEmotionWords,
+                                                                       strongestEmotionProperties.getRight(),
+                                                                       strongestEmotionProperties.getLeft(), moodMap);
             // Add the mood scored sentence to the list of sentences
             moodScoredSentences.add(scoredSentence);
         }
@@ -81,7 +86,8 @@ public class MoodAnalysisService extends AnalysisService {
      * @return a map containing emotion tags mapped to a sentence containing scored words
      */
     private static Map<String, Sentence<MoodScoredWord>> buildMoodSentenceMap(Sentence<Token> originalSentence,
-                                                                              Map<String, List<MoodScoredWord>> scoredMoodWordMap) {
+                                                                              Map<String,
+                                                                              List<MoodScoredWord>> scoredMoodWordMap) {
         Map<String, Sentence<MoodScoredWord>> moodSentenceMap = new HashMap<>();
         List<Token> words = originalSentence.getWords();
         // Add the words for fear to the map
@@ -164,7 +170,8 @@ public class MoodAnalysisService extends AnalysisService {
         zeroScoreMap.put(Emotions.ANGER, 0f);
         zeroScoreMap.put(Emotions.SADNESS, 0f);
         zeroScoreMap.put(Emotions.JOY, 0f);
-        return new MoodScoredSentence(originalText, null, 0f, "none", zeroScoreMap);
+        return new MoodScoredSentence(originalText, null, 0f, "none",
+                                      zeroScoreMap);
     }
 
 }
