@@ -44,6 +44,7 @@ public class ReflectionAnalysisService extends AnalysisService {
             Sentence<ScoredWord> modifierSentence = new Sentence<>(sentence.getOriginalText(), modifierScoredWords);
             Map<String, Float> reflectionMap = ReflectionScoreParser.parseSentenceScore(reflectionSentenceMap,
                     modifierSentence);
+            System.out.println(reflectionMap);
 
         }
 
