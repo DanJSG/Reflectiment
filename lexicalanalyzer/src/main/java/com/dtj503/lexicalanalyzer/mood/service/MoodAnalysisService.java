@@ -86,8 +86,7 @@ public class MoodAnalysisService extends AnalysisService {
      * @return a map containing emotion tags mapped to a sentence containing scored words
      */
     private static Map<String, Sentence<MoodScoredWord>> buildMoodSentenceMap(Sentence<Token> originalSentence,
-                                                                              Map<String,
-                                                                              List<MoodScoredWord>> scoredMoodWordMap) {
+                                                                  Map<String, List<MoodScoredWord>> scoredMoodWordMap) {
         Map<String, Sentence<MoodScoredWord>> moodSentenceMap = new HashMap<>();
         List<Token> words = originalSentence.getWords();
         // Add the words for fear to the map
@@ -124,6 +123,7 @@ public class MoodAnalysisService extends AnalysisService {
             for(int i = 0; i < scoredWords.size(); i++) {
                 if(scoredWords.get(i).getEmotion().contentEquals(emotion)) {
                     index = i;
+                    break;
                 }
             }
             // If no word is found, add the word with a score of zero, otherwise add the found word

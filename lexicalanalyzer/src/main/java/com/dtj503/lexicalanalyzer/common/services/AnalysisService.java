@@ -3,6 +3,7 @@ package com.dtj503.lexicalanalyzer.common.services;
 import com.dtj503.lexicalanalyzer.common.sql.*;
 import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.common.types.Token;
+import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -103,6 +104,5 @@ public abstract class AnalysisService {
         }
         return updatedScoredWords;
     }
-
 
 }

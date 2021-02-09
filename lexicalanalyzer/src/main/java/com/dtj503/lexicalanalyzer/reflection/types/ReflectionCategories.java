@@ -1,14 +1,25 @@
 package com.dtj503.lexicalanalyzer.reflection.types;
 
-public final class ReflectionCategories {
+public enum  ReflectionCategories {
 
-    public static final String REFLECTION = "reflection";
-    public static final String EXPERIENCE = "experience";
-    public static final String FEELING = "feeling";
-    public static final String BELIEF = "belief";
-    public static final String DIFFICULTY = "difficulty";
-    public static final String PERSPECTIVE = "perspective";
-    public static final String LEARNING = "learning";
-    public static final String INTENTION = "intention";
+    REFLECTION("reflection"),
+    EXPERIENCE("experience"),
+    FEELING("feeling"),
+    BELIEF("belief"),
+    DIFFICULTY("difficulty"),
+    PERSPECTIVE("perspective"),
+    LEARNING("learning"),
+    INTENTION("intention");
+
+    private final String category;
+
+    private ReflectionCategories(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return this.category;
+    }
 
 }
