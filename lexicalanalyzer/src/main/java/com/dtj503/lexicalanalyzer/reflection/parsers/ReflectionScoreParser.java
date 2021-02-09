@@ -38,11 +38,10 @@ public class ReflectionScoreParser extends ScoreParser {
         Map<String, List<Float>> modifiedCategoryScores = new HashMap<>();
         for(ReflectionCategories value : ReflectionCategories.values()) {
             List<Float> newScores = ListMath.hadamardProduct(categoryScores.get(value.toString()), modificationVector);
-            modifiedCategoryScores.put(value.toString(), newScores);
+            modifiedCategoryScores.put(value.toString(), stripZeroScores(newScores));
         }
 
         Map<String, Float> scoreMap = new HashMap<>();
-
         for(ReflectionCategories value : ReflectionCategories.values()) {
             float categoryScore = Math.max(0, Math.min(ListMath.mean(modifiedCategoryScores.get(value.toString())), 1));
             scoreMap.put(value.toString(), categoryScore);

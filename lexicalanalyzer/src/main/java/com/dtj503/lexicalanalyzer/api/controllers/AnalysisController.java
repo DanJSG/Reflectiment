@@ -5,6 +5,7 @@ import com.dtj503.lexicalanalyzer.api.types.TextSubmission;
 import com.dtj503.lexicalanalyzer.mood.service.MoodAnalysisService;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
 import com.dtj503.lexicalanalyzer.reflection.service.ReflectionAnalysisService;
+import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
 import org.springframework.http.HttpStatus;
@@ -35,14 +36,18 @@ public class AnalysisController extends RestAPIController {
         System.out.println("Received request. JSON Received: ");
         System.out.println(submission.writeValueAsString());
 
-        ReflectionAnalysisService.analyseReflection(submission.getText());
+        List<ReflectionScoredSentence> reflectionScoredSentences =
+                ReflectionAnalysisService.analyseReflection(submission.getText());
+
+        System.out.println(reflectionScoredSentences);
 
         List<MoodScoredSentence> moodScoredSentences = MoodAnalysisService.analyseMood(submission.getText());
-        List<SentimentScoredSentence> sentimentScoredSentences = SentimentAnalysisService
-                                                                    .analyseSentiment(submission.getText());
+
+        List<SentimentScoredSentence> sentimentScoredSentences =
+                SentimentAnalysisService.analyseSentiment(submission.getText());
 
         AnalysisResponse response = new AnalysisResponse(submission.getText(), sentimentScoredSentences,
-                                                         moodScoredSentences);
+                                                         moodScoredSentences, reflectionScoredSentences);
 
         return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
 

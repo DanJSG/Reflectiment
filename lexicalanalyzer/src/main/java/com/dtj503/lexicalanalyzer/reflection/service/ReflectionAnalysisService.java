@@ -5,23 +5,18 @@ import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
 import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.common.types.*;
+import com.dtj503.lexicalanalyzer.common.utils.ListMath;
 import com.dtj503.lexicalanalyzer.reflection.parsers.ReflectionScoreParser;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionCategories;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredWord;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredWordBuilder;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ReflectionAnalysisService extends AnalysisService {
 
-    public static void analyseReflection(String text) {
-        System.out.println("In reflection analysis service!");
-        System.out.println(text);
-
+    public static List<ReflectionScoredSentence> analyseReflection(String text) {
         Document<Token> doc = StringParser.parseText(text);
         List<ReflectionScoredSentence> scoredSentences = new ArrayList<>();
         for(Sentence<Token> sentence : doc.getSentences()) {
@@ -44,9 +39,16 @@ public class ReflectionAnalysisService extends AnalysisService {
             Sentence<ScoredWord> modifierSentence = new Sentence<>(sentence.getOriginalText(), modifierScoredWords);
             Map<String, Float> reflectionMap = ReflectionScoreParser.parseSentenceScore(reflectionSentenceMap,
                     modifierSentence);
-            System.out.println(reflectionMap);
+            float sentenceScore = ListMath.mean(Arrays.asList(reflectionMap.values().toArray(Float[]::new)));
 
+            ReflectionScoredSentence scoredSentence = new ReflectionScoredSentence(sentence.getOriginalText(),
+                    reflectionSentenceMap.get(ReflectionCategories.REFLECTION.toString()).getWords(), sentenceScore,
+                    reflectionMap);
+
+            scoredSentences.add(scoredSentence);
         }
+
+        return scoredSentences;
 
     }
 
