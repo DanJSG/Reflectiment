@@ -1,0 +1,25 @@
+package com.dtj503.lexicalanalyzer.reflection.types;
+
+import com.dtj503.lexicalanalyzer.common.types.ScoredSentence;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+import java.util.Map;
+
+public class ReflectionScoredSentence extends ScoredSentence<ReflectionScoredWord> {
+
+    @JsonProperty("categoryScores")
+    private Map<String, Float> categoryScoreMap;
+
+    /**
+     * Constructor for a scored sentence.
+     *
+     * @param text  the text in the sentence
+     * @param words the tokenized words with associated scores that the sentence contains
+     * @param score the score of the sentence
+     */
+    public ReflectionScoredSentence(String text, List<ReflectionScoredWord> words, float score, Map<String, Float> categoryScoreMap) {
+        super(text, words, score);
+        this.categoryScoreMap = categoryScoreMap;
+    }
+}
