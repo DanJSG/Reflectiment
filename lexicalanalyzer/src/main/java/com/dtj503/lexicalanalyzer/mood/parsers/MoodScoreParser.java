@@ -52,10 +52,10 @@ public class MoodScoreParser extends ScoreParser {
         modifiedSadnessScores = stripZeroScores(modifiedSadnessScores);
         modifiedJoyScores = stripZeroScores(modifiedJoyScores);
         // Calculate the overall sentence scores for each mood and limit between -1 and 1
-        float sentenceFearScore = Math.max(-1, Math.min(ListMath.mean(modifiedFearScores), 1));
-        float sentenceAngerScore = Math.max(-1, Math.min(ListMath.mean(modifiedAngerScores), 1));
-        float sentenceSadnessScore = Math.max(-1, Math.min(ListMath.mean(modifiedSadnessScores), 1));
-        float sentenceJoyScore = Math.max(-1, Math.min(ListMath.mean(modifiedJoyScores), 1));
+        float sentenceFearScore = Math.max(0, Math.min(ListMath.mean(modifiedFearScores), 1));
+        float sentenceAngerScore = Math.max(0, Math.min(ListMath.mean(modifiedAngerScores), 1));
+        float sentenceSadnessScore = Math.max(0, Math.min(ListMath.mean(modifiedSadnessScores), 1));
+        float sentenceJoyScore = Math.max(0, Math.min(ListMath.mean(modifiedJoyScores), 1));
         // Build the output map containing a scored sentence for each emotion
         Map<String, Float> moodScoreMap = new HashMap<>();
         moodScoreMap.put(Emotions.FEAR, sentenceFearScore);

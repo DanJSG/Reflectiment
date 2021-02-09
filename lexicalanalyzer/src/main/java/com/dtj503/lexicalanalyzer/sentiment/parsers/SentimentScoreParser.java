@@ -47,9 +47,7 @@ public class SentimentScoreParser extends ScoreParser {
         modifiedScores = stripZeroScores(modifiedScores);
 
         // Calculate the overall sentence score by taking the mean of the scores and limiting between -1 and 1
-        float sentenceScore = Math.max(-1, Math.min(ListMath.mean(modifiedScores), 1));
-
-        return sentenceScore;
+        return Math.max(-1, Math.min(ListMath.mean(modifiedScores), 1));
 
     }
 
