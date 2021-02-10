@@ -46,16 +46,17 @@ public class ReflectionAnalysisService extends AnalysisService {
         List<ReflectionScoredSentence> scoredSentences = new ArrayList<>();
         for(Sentence<Token> sentence : doc.getSentences()) {
             List<Token> words = sentence.getWords();
+            // Fetch the scores of the reflection based words
             List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION,
                     SQLColumn.WORD, new ReflectionScoredWordBuilder());
             if(reflectionScoredWords == null) {
                 scoredSentences.add(getZeroScoreSentence(sentence.getOriginalText()));
                 continue;
             }
+            // Map these words to their relevant emotions so that each separate category can be analysed
             Map<String, List<ReflectionScoredWord>> scoredWordMap = buildScoredWordMap(words, reflectionScoredWords);
             Map<String, Sentence<ReflectionScoredWord>> reflectionSentenceMap = buildReflectionSentenceMap(sentence,
                     scoredWordMap);
-
             // Fetch and choose the modifier word scores
             List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, SQLColumn.WORD,
                     new ScoredWordBuilder());
@@ -64,6 +65,7 @@ public class ReflectionAnalysisService extends AnalysisService {
             Sentence<ScoredWord> modifierSentence = new Sentence<>(sentence.getOriginalText(), modifierScoredWords);
             Map<String, Float> reflectionMap = ReflectionScoreParser.parseSentenceScore(reflectionSentenceMap,
                     modifierSentence);
+            // Calculate the average sentence reflection score as the mean of all other reflection scores
             float sentenceScore = ListMath.mean(Arrays.asList(reflectionMap.values().toArray(Float[]::new)));
 
             ReflectionScoredSentence scoredSentence = new ReflectionScoredSentence(sentence.getOriginalText(),

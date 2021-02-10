@@ -41,19 +41,20 @@ public class ReflectionScoreParser extends ScoreParser {
             categoryScores.put(category.toString(), reflectionSentenceMap.get(category.toString()).getScores());
         }
 
+        // Fetch adjectives, verbs and adverbs for calculating modifier multiplication positions
         List<Integer> adjectivePositions = modifierSentence.getAdjectivePositions();
         List<Integer> verbPositions = modifierSentence.getVerbPositions();
         List<Integer> adverbPositions = modifierSentence.getAdverbPositions();
         List<Float> modifierScores = modifierSentence.getScores();
         List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions,
                 modifierScores);
-
+        // Calculate the modified scores for each category of reflection
         Map<String, List<Float>> modifiedCategoryScores = new HashMap<>();
         for(ReflectionCategories value : ReflectionCategories.values()) {
             List<Float> newScores = ListMath.hadamardProduct(categoryScores.get(value.toString()), modificationVector);
             modifiedCategoryScores.put(value.toString(), stripZeroScores(newScores));
         }
-
+        // Calculate the average reflection scores of the sentence for each category to get the final scores
         Map<String, Float> scoreMap = new HashMap<>();
         for(ReflectionCategories value : ReflectionCategories.values()) {
             float categoryScore = Math.max(0, Math.min(ListMath.mean(modifiedCategoryScores.get(value.toString())), 1));
