@@ -14,8 +14,33 @@ import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredWordBuilder;
 
 import java.util.*;
 
+/**
+ * Class providing functionality to analyse reflection within a string of text. Parses the text and analyses the
+ * different categories of reflection, and provides an overall reflection score for each sentence based on these scores.
+ * The categories of reflection are:
+ *
+ *  <ul>
+ *   <li>Reflection</li>
+ *   <li>Experience</li>
+ *   <li>Feeling</li>
+ *   <li>Belief</li>
+ *   <li>Difficulty</li>
+ *   <li>Perspective</li>
+ *   <li>Learning</li>
+ *   <li>Intention</li>
+ *  </ul>
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
 public class ReflectionAnalysisService extends AnalysisService {
 
+    /**
+     * Method which analyses reflection in text, calculating the scores of the different categories of reflection and
+     * the overall score for the sentence.
+     *
+     * @param text the text to analyse
+     * @return a list of sentences scored for reflection
+     */
     public static List<ReflectionScoredSentence> analyseReflection(String text) {
         Document<Token> doc = StringParser.parseText(text);
         List<ReflectionScoredSentence> scoredSentences = new ArrayList<>();
@@ -52,6 +77,12 @@ public class ReflectionAnalysisService extends AnalysisService {
 
     }
 
+    /**
+     * Method to get a reflection scored sentence with a zero score for all elements.
+     *
+     * @param originalText the sentence text
+     * @return the new sentence
+     */
     private static ReflectionScoredSentence getZeroScoreSentence(String originalText) {
         Map<String, Float> zeroScoreMap = new HashMap<>();
         for(ReflectionCategories value : ReflectionCategories.values()) {
@@ -60,6 +91,13 @@ public class ReflectionAnalysisService extends AnalysisService {
         return new ReflectionScoredSentence(originalText, null, 0, zeroScoreMap);
     }
 
+    /**
+     * Method for building a map of sentences to their reflection category.
+     *
+     * @param sentence the sentence to analyse
+     * @param scoredWordMap the map of sentences to their reflection categories
+     * @return
+     */
     private static Map<String, Sentence<ReflectionScoredWord>> buildReflectionSentenceMap(
             Sentence<Token> sentence, Map<String, List<ReflectionScoredWord>> scoredWordMap) {
         Map<String, Sentence<ReflectionScoredWord>> reflectionMap = new HashMap<>();
@@ -72,6 +110,14 @@ public class ReflectionAnalysisService extends AnalysisService {
         return reflectionMap;
     }
 
+    /**
+     * Method to pick the correct reflection scored word based on an input list of possible scored words.
+     *
+     * @param words the words to match
+     * @param category the category of words
+     * @param reflectionScoredWordMap the map of words to pick the correctly scored word from the list
+     * @return a list of chosen words
+     */
     private static List<ReflectionScoredWord> pickReflectionScoredWords(List<Token> words, String category,
             Map<String, List<ReflectionScoredWord>> reflectionScoredWordMap) {
         List<ReflectionScoredWord> pickedWords = new ArrayList<>();

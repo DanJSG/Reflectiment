@@ -5,6 +5,11 @@ import com.dtj503.lexicalanalyzer.common.sql.SQLEntityBuilder;
 
 import java.sql.ResultSet;
 
+/**
+ * Builder class for building a ReflectionScoredWord from a set of SQL database results.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
 public class ReflectionScoredWordBuilder implements SQLEntityBuilder<ReflectionScoredWord> {
 
     @Override

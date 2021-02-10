@@ -26,6 +26,7 @@ public class MoodScoreParser extends ScoreParser {
      */
     public static Map<String, Float> parseSentenceScore(Map<String, Sentence<MoodScoredWord>> moodSentenceMap,
                                           Sentence<ScoredWord> modifierSentence) {
+        // TODO refactor Emotion into Enum and then update these to use a loop rather than many lines of code
         // Get the scores for each emotion
         List<Float> fearScores = moodSentenceMap.get(Emotions.FEAR).getScores();
         List<Float> angerScores = moodSentenceMap.get(Emotions.ANGER).getScores();

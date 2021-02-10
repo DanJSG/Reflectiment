@@ -11,8 +11,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class providing functionality to parse the reflection score from a collection of sentences containing scored words
+ * and a sentence containing scored modifier words.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
 public class ReflectionScoreParser extends ScoreParser {
 
+    /**
+     * Method for parsing the score of the a sentence for the different categories of reflection, making use of adverb
+     * modifiers.
+     * @param reflectionSentenceMap the collection of sentences for the different categories of reflection
+     * @param modifierSentence the sentence with the modifier scores
+     * @return a <code>Map</code> of the scores for each category
+     */
     public static Map<String, Float> parseSentenceScore(
             Map<String, Sentence<ReflectionScoredWord>> reflectionSentenceMap, Sentence<ScoredWord> modifierSentence) {
         System.out.println("Parsing reflection scores of sentence...");
