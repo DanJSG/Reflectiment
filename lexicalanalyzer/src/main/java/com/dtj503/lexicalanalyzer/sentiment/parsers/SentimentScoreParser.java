@@ -22,17 +22,14 @@ public class SentimentScoreParser extends ScoreParser {
      */
     public static float parseSentenceScore(Sentence<ScoredWord> sentence) {
 
-        // Get the adjective, verb and adverb positions from the sentence
-        List<Integer> adjectivePositions = sentence.getAdjectivePositions();
-        List<Integer> verbPositions = sentence.getVerbPositions();
-        List<Integer> adverbPositions = sentence.getAdverbPositions();
-
         // Get the word scores from the sentence
         List<Float> scores = sentence.getScores();
 
         // Generate the modification vector
-        List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions,
-                                                                  scores);
+        List<Float> modificationVector = createModificationVector(sentence, scores);
+
+        // Get the adverb positions from the sentence
+        List<Integer> adverbPositions = sentence.getAdverbPositions();
 
         // Remove the adverb scores from the sentence
         if(adverbPositions != null) {

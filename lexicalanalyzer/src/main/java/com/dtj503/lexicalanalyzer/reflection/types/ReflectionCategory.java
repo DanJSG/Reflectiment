@@ -6,7 +6,7 @@ package com.dtj503.lexicalanalyzer.reflection.types;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
-public enum  ReflectionCategories {
+public enum ReflectionCategory {
 
     REFLECTION("reflection"),
     EXPERIENCE("experience"),
@@ -25,7 +25,7 @@ public enum  ReflectionCategories {
      *
      * @param category the category of the enum instance
      */
-    private ReflectionCategories(String category) {
+    private ReflectionCategory(String category) {
         this.category = category;
     }
 

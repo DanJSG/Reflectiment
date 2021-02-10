@@ -6,7 +6,7 @@ import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.common.types.*;
 import com.dtj503.lexicalanalyzer.mood.parsers.MoodScoreParser;
-import com.dtj503.lexicalanalyzer.mood.types.Emotions;
+import com.dtj503.lexicalanalyzer.mood.types.Emotion;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWord;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWordBuilder;
@@ -89,18 +89,11 @@ public class MoodAnalysisService extends AnalysisService {
                                                                   Map<String, List<MoodScoredWord>> scoredMoodWordMap) {
         Map<String, Sentence<MoodScoredWord>> moodSentenceMap = new HashMap<>();
         List<Token> words = originalSentence.getWords();
-        // Add the words for fear to the map
-        List<MoodScoredWord> fearWords = pickMoodScoredWords(words, Emotions.FEAR, scoredMoodWordMap);
-        moodSentenceMap.put(Emotions.FEAR, new Sentence<>(originalSentence.getOriginalText(), fearWords));
-        // Add the words for anger to the map
-        List<MoodScoredWord> angerWords = pickMoodScoredWords(words, Emotions.ANGER, scoredMoodWordMap);
-        moodSentenceMap.put(Emotions.ANGER, new Sentence<>(originalSentence.getOriginalText(), angerWords));
-        // Add the words for sadness to the map
-        List<MoodScoredWord> sadnessWords = pickMoodScoredWords(words, Emotions.SADNESS, scoredMoodWordMap);
-        moodSentenceMap.put(Emotions.SADNESS, new Sentence<>(originalSentence.getOriginalText(), sadnessWords));
-        // Add the words for joy to the map
-        List<MoodScoredWord> joyWords = pickMoodScoredWords(words, Emotions.JOY, scoredMoodWordMap);
-        moodSentenceMap.put(Emotions.JOY, new Sentence<>(originalSentence.getOriginalText(), joyWords));
+        // Add the words for each emotion to the map
+        for(Emotion emotion : Emotion.values()) {
+            List<MoodScoredWord> scoredWords = pickMoodScoredWords(words, emotion.toString(), scoredMoodWordMap);
+            moodSentenceMap.put(emotion.toString(), new Sentence<>(originalSentence.getOriginalText(), scoredWords));
+        }
         return moodSentenceMap;
     }
 
@@ -166,10 +159,11 @@ public class MoodAnalysisService extends AnalysisService {
      */
     private static MoodScoredSentence getZeroScoreSentence(String originalText) {
         Map<String, Float> zeroScoreMap = new HashMap<>();
-        zeroScoreMap.put(Emotions.FEAR, 0f);
-        zeroScoreMap.put(Emotions.ANGER, 0f);
-        zeroScoreMap.put(Emotions.SADNESS, 0f);
-        zeroScoreMap.put(Emotions.JOY, 0f);
+
+        for(Emotion emotion : Emotion.values()) {
+            zeroScoreMap.put(emotion.toString(), 0f);
+        }
+
         return new MoodScoredSentence(originalText, null, 0f, "none",
                                       zeroScoreMap);
     }

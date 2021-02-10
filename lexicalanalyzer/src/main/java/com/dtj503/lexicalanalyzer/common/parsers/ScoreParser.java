@@ -1,5 +1,7 @@
 package com.dtj503.lexicalanalyzer.common.parsers;
 
+import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
+import com.dtj503.lexicalanalyzer.common.types.Sentence;
 import com.dtj503.lexicalanalyzer.common.utils.ListMath;
 
 import java.util.ArrayList;
@@ -17,16 +19,17 @@ public abstract class ScoreParser {
      * Method for creating a vector of values used to modify the scores of words. These vectors are based on adverb
      * positions and their scores.
      *
-     * @param adjectivePositions the indices of the adjectives
-     * @param verbPositions the indices of the verbs
-     * @param adverbPositions the indices of the adverbs
+     * @param modifierSentence the sentence containing the modifier words
      * @param scores the scores of the words in the sentence
      * @return returns a <code>List</code> of <code>Float</code>s representing the modifying multipliers
      */
-    protected static List<Float> createModificationVector(List<Integer> adjectivePositions, List<Integer> verbPositions,
-                                                          List<Integer> adverbPositions, List<Float> scores) {
+    protected static List<Float> createModificationVector(Sentence<ScoredWord> modifierSentence, List<Float> scores) {
         // Initialise a list of ones ready to use as a multiplication vector
         List<Float> modificationVector = new ArrayList<>(Collections.nCopies(scores.size(), 1f));
+
+        List<Integer> adjectivePositions = modifierSentence.getAdjectivePositions();
+        List<Integer> adverbPositions = modifierSentence.getAdverbPositions();
+        List<Integer> verbPositions = modifierSentence.getVerbPositions();
 
         // If there are adjectives and adverbs in the sentence, then find the adverbs which modify and/or negate the
         // adjectives and update the modification vector with the modification and negation values
