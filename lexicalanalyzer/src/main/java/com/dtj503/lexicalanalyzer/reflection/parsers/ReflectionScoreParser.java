@@ -28,22 +28,11 @@ public class ReflectionScoreParser extends ScoreParser {
      */
     public static Map<String, Float> parseSentenceScore(
             Map<String, Sentence<ReflectionScoredWord>> reflectionSentenceMap, Sentence<ScoredWord> modifierSentence) {
-        System.out.println("Parsing reflection scores of sentence...");
 
-        reflectionSentenceMap.forEach((category, sentence) -> {
-            System.out.println(category + ": ");
-            System.out.println(sentence);
-        });
-
-        // Fetch adjectives, verbs and adverbs for calculating modifier multiplication positions
-        List<Integer> adjectivePositions = modifierSentence.getAdjectivePositions();
-        List<Integer> verbPositions = modifierSentence.getVerbPositions();
-        List<Integer> adverbPositions = modifierSentence.getAdverbPositions();
+        // Get the modifier scores and build the modification vector
         List<Float> modifierScores = modifierSentence.getScores();
-        List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions,
-                modifierScores);
+        List<Float> modificationVector = createModificationVector(modifierSentence, modifierScores);
 
-        Map<String, List<Float>> categoryScores = new HashMap<>();
         Map<String, Float> scoreMap = new HashMap<>();
         for(ReflectionCategory category : ReflectionCategory.values()) {
             List<Float> currentScores = reflectionSentenceMap.get(category.toString()).getScores();
@@ -51,25 +40,6 @@ public class ReflectionScoreParser extends ScoreParser {
             float currentScore = Math.max(0, Math.min(ListMath.mean(modifiedScores), 1));
             scoreMap.put(category.toString(), currentScore);
         }
-//
-//
-//        for(ReflectionCategory category : ReflectionCategory.values()) {
-//            categoryScores.put(category.toString(), reflectionSentenceMap.get(category.toString()).getScores());
-//        }
-//
-//
-//        // Calculate the modified scores for each category of reflection
-//        Map<String, List<Float>> modifiedCategoryScores = new HashMap<>();
-//        for(ReflectionCategory value : ReflectionCategory.values()) {
-//            List<Float> newScores = ListMath.hadamardProduct(categoryScores.get(value.toString()), modificationVector);
-//            modifiedCategoryScores.put(value.toString(), stripZeroScores(newScores));
-//        }
-//        // Calculate the average reflection scores of the sentence for each category to get the final scores
-//        Map<String, Float> scoreMap = new HashMap<>();
-//        for(ReflectionCategory value : ReflectionCategory.values()) {
-//            float categoryScore = Math.max(0, Math.min(ListMath.mean(modifiedCategoryScores.get(value.toString())), 1));
-//            scoreMap.put(value.toString(), categoryScore);
-//        }
 
         return scoreMap;
     }

@@ -27,19 +27,13 @@ public class MoodScoreParser extends ScoreParser {
     public static Map<String, Float> parseSentenceScore(Map<String, Sentence<MoodScoredWord>> moodSentenceMap,
                                           Sentence<ScoredWord> modifierSentence) {
 
-        // Get the adjective, verb and adverb indices from the modifier sentence
-        List<Integer> adjectivePositions = modifierSentence.getAdjectivePositions();
-        List<Integer> verbPositions = modifierSentence.getVerbPositions();
-        List<Integer> adverbPositions = modifierSentence.getAdverbPositions();
         // Get the word scores from the modifier sentence
         List<Float> modifierScores = modifierSentence.getScores();
         // Create the modification vector based on the modifying adverbs in the modifier sentence
-        List<Float> modificationVector = createModificationVector(adjectivePositions, verbPositions, adverbPositions,
-                modifierScores);
+        List<Float> modificationVector = createModificationVector(modifierSentence, modifierScores);
 
         // Calculate the modified emotion scores and store them in a map where the score for each sentence is calculated
         // for each emotion
-        Map<String, List<Float>> emotionScores = new HashMap<>();
         Map<String, Float> moodScoreMap = new HashMap<>();
         for(Emotion emotion : Emotion.values()) {
             List<Float> currentScores = moodSentenceMap.get(emotion.toString()).getScores();
