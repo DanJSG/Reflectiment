@@ -7,7 +7,7 @@ import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.common.types.*;
 import com.dtj503.lexicalanalyzer.common.utils.ListMath;
 import com.dtj503.lexicalanalyzer.reflection.parsers.ReflectionScoreParser;
-import com.dtj503.lexicalanalyzer.reflection.types.ReflectionCategories;
+import com.dtj503.lexicalanalyzer.reflection.types.ReflectionCategory;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredWord;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredWordBuilder;
@@ -69,7 +69,7 @@ public class ReflectionAnalysisService extends AnalysisService {
             float sentenceScore = ListMath.mean(Arrays.asList(reflectionMap.values().toArray(Float[]::new)));
 
             ReflectionScoredSentence scoredSentence = new ReflectionScoredSentence(sentence.getOriginalText(),
-                    reflectionSentenceMap.get(ReflectionCategories.REFLECTION.toString()).getWords(), sentenceScore,
+                    reflectionSentenceMap.get(ReflectionCategory.REFLECTION.toString()).getWords(), sentenceScore,
                     reflectionMap);
 
             scoredSentences.add(scoredSentence);
@@ -87,7 +87,7 @@ public class ReflectionAnalysisService extends AnalysisService {
      */
     private static ReflectionScoredSentence getZeroScoreSentence(String originalText) {
         Map<String, Float> zeroScoreMap = new HashMap<>();
-        for(ReflectionCategories value : ReflectionCategories.values()) {
+        for(ReflectionCategory value : ReflectionCategory.values()) {
             zeroScoreMap.put(value.toString(), 0f);
         }
         return new ReflectionScoredSentence(originalText, null, 0, zeroScoreMap);
@@ -104,7 +104,7 @@ public class ReflectionAnalysisService extends AnalysisService {
             Sentence<Token> sentence, Map<String, List<ReflectionScoredWord>> scoredWordMap) {
         Map<String, Sentence<ReflectionScoredWord>> reflectionMap = new HashMap<>();
         List<Token> words = sentence.getWords();
-        for(ReflectionCategories value : ReflectionCategories.class.getEnumConstants()) {
+        for(ReflectionCategory value : ReflectionCategory.class.getEnumConstants()) {
             List<ReflectionScoredWord> currentScoredWords = pickReflectionScoredWords(words, value.toString(),
                     scoredWordMap);
             reflectionMap.put(value.toString(), new Sentence<>(sentence.getOriginalText(), currentScoredWords));

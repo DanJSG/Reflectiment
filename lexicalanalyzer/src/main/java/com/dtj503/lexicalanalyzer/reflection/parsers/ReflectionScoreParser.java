@@ -4,7 +4,7 @@ import com.dtj503.lexicalanalyzer.common.parsers.ScoreParser;
 import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.common.types.Sentence;
 import com.dtj503.lexicalanalyzer.common.utils.ListMath;
-import com.dtj503.lexicalanalyzer.reflection.types.ReflectionCategories;
+import com.dtj503.lexicalanalyzer.reflection.types.ReflectionCategory;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredWord;
 
 import java.util.HashMap;
@@ -37,7 +37,7 @@ public class ReflectionScoreParser extends ScoreParser {
 
         Map<String, List<Float>> categoryScores = new HashMap<>();
 
-        for(ReflectionCategories category : ReflectionCategories.values()) {
+        for(ReflectionCategory category : ReflectionCategory.values()) {
             categoryScores.put(category.toString(), reflectionSentenceMap.get(category.toString()).getScores());
         }
 
@@ -50,13 +50,13 @@ public class ReflectionScoreParser extends ScoreParser {
                 modifierScores);
         // Calculate the modified scores for each category of reflection
         Map<String, List<Float>> modifiedCategoryScores = new HashMap<>();
-        for(ReflectionCategories value : ReflectionCategories.values()) {
+        for(ReflectionCategory value : ReflectionCategory.values()) {
             List<Float> newScores = ListMath.hadamardProduct(categoryScores.get(value.toString()), modificationVector);
             modifiedCategoryScores.put(value.toString(), stripZeroScores(newScores));
         }
         // Calculate the average reflection scores of the sentence for each category to get the final scores
         Map<String, Float> scoreMap = new HashMap<>();
-        for(ReflectionCategories value : ReflectionCategories.values()) {
+        for(ReflectionCategory value : ReflectionCategory.values()) {
             float categoryScore = Math.max(0, Math.min(ListMath.mean(modifiedCategoryScores.get(value.toString())), 1));
             scoreMap.put(value.toString(), categoryScore);
         }
