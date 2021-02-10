@@ -3,6 +3,7 @@ package com.dtj503.lexicalanalyzer.common.services;
 import com.dtj503.lexicalanalyzer.common.sql.*;
 import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.common.types.Token;
+import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,8 +46,8 @@ public abstract class AnalysisService {
      * @return a list of scored word tokens containing the words and associated scores (may contain duplicate words
      *         where their are multiple scores for a word)
      */
-    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token>
-    List<T> fetchWordScores(List<U> words, SQLTable table, SQLColumn column, V builder) {
+    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(
+            List<U> words, SQLTable table, SQLColumn column, V builder) {
         List<SQLColumn> cols = new ArrayList<>(words.size());
         List<String> wordStrings = new ArrayList<>(words.size());
         for(U word : words) {
@@ -103,6 +104,5 @@ public abstract class AnalysisService {
         }
         return updatedScoredWords;
     }
-
 
 }

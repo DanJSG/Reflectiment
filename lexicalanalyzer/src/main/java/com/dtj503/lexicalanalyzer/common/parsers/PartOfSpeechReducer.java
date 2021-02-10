@@ -15,7 +15,7 @@ public class PartOfSpeechReducer {
     // Mapping between PoS tag labels and database indices
     private static final Map<String, Integer> POS_INDEX_MAPPING;
     // Mapping between database indices and PoS tag labels
-    private static final String[] POS_TAG_MAPPING = new String[]{"v", "n", "r", "a"};
+    private static final String[] POS_TAG_MAPPING = new String[]{"v", "n", "r", "a", "c"};
     static {
 
         // Set up PoS tag mapping
@@ -24,9 +24,10 @@ public class PartOfSpeechReducer {
         POS_INDEX_MAPPING.put("n", 1);
         POS_INDEX_MAPPING.put("r", 2);
         POS_INDEX_MAPPING.put("a", 3);
+        POS_INDEX_MAPPING.put("c", 4);
 
         POS_REDUCER_MAPPING = new HashMap<>();
-        // Adverbs
+        // Adjectives
         POS_REDUCER_MAPPING.put("JJ", "a");
         POS_REDUCER_MAPPING.put("JJR", "a");
         POS_REDUCER_MAPPING.put("JJS", "a");
@@ -56,6 +57,10 @@ public class PartOfSpeechReducer {
         POS_REDUCER_MAPPING.put("RBS", "r");
         POS_REDUCER_MAPPING.put("WRB", "r");
 
+        // Conjunctions
+        POS_REDUCER_MAPPING.put("CC", "c");
+        POS_REDUCER_MAPPING.put("IN", "c");
+
     }
 
     /**
@@ -65,7 +70,7 @@ public class PartOfSpeechReducer {
      * @return the updated tag, or <code>null</code> if the PoS is not one of the desired categories
      */
     public static String simplifyPartOfSpeechTag(String posTag) {
-        return POS_REDUCER_MAPPING.containsKey(posTag) ? POS_REDUCER_MAPPING.get(posTag) : null;
+        return POS_REDUCER_MAPPING.getOrDefault(posTag, null);
     }
 
     /**
@@ -75,7 +80,7 @@ public class PartOfSpeechReducer {
      * @return the index value, or -1 if it could not be found
      */
     public static int getPartOfSpeechIndex(String posTag) {
-        return POS_INDEX_MAPPING.containsKey(posTag) ? POS_INDEX_MAPPING.get(posTag) : -1;
+        return POS_INDEX_MAPPING.getOrDefault(posTag, -1);
     }
 
     /**

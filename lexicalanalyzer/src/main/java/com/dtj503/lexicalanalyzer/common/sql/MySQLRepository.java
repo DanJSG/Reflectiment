@@ -414,7 +414,6 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 			}
 		}
 
-		// Return the string of comma separated question marks
 		return paramString;
 	}
 

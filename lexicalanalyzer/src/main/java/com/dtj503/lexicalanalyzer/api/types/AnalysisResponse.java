@@ -1,6 +1,7 @@
 package com.dtj503.lexicalanalyzer.api.types;
 
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
+import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,11 +25,12 @@ public class AnalysisResponse implements JsonObject {
 
     public AnalysisResponse(String fullText,
                             List<SentimentScoredSentence> sentimentScoredSentences,
-                            List<MoodScoredSentence> moodScoredSentences) {
+                            List<MoodScoredSentence> moodScoredSentences,
+                            List<ReflectionScoredSentence> reflectionScoredSentences) {
         this.fullText = fullText;
         analysedSentences = new ArrayList<>();
         for(int i = 0; i < sentimentScoredSentences.size(); i++) {
-            analysedSentences.add(new AnalysedSentence(sentimentScoredSentences.get(i), moodScoredSentences.get(i)));
+            analysedSentences.add(new AnalysedSentence(sentimentScoredSentences.get(i), moodScoredSentences.get(i), reflectionScoredSentences.get(i)));
         }
     }
 

@@ -135,7 +135,6 @@ public abstract class ScoreParser {
             int prevPos = pos - 1;
             // Loop backwards from the modified word to find all potential modifiers
             while(prevPos >= 0 && adverbPositions.contains(prevPos)) {
-                // Take the absolute value of the modifiers score
                 // TODO tweak during analysis to see impact on effectiveness
                 currentModifiers.add(Math.abs(scores.get(prevPos)));
                 prevPos = prevPos - 1;
@@ -145,7 +144,6 @@ public abstract class ScoreParser {
                 prevPos = pos + 1;
                 // Loop forward from the modified word to find all potential modifiers
                 while(prevPos < scores.size() && adverbPositions.contains(prevPos)) {
-                    // Take the absolute value of the modifiers score
                     // TODO tweak during analysis to see impact on effectiveness
                     currentModifiers.add(Math.abs(scores.get(prevPos)));
                     prevPos = prevPos + 1;
