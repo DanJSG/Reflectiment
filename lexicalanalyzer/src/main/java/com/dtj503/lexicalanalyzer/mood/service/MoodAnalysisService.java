@@ -94,18 +94,6 @@ public class MoodAnalysisService extends AnalysisService {
             List<MoodScoredWord> scoredWords = pickMoodScoredWords(words, emotion.toString(), scoredMoodWordMap);
             moodSentenceMap.put(emotion.toString(), new Sentence<>(originalSentence.getOriginalText(), scoredWords));
         }
-//        // Add the words for fear to the map
-//        List<MoodScoredWord> fearWords = pickMoodScoredWords(words, Emotion.FEAR, scoredMoodWordMap);
-//        moodSentenceMap.put(Emotion.FEAR, new Sentence<>(originalSentence.getOriginalText(), fearWords));
-//        // Add the words for anger to the map
-//        List<MoodScoredWord> angerWords = pickMoodScoredWords(words, Emotion.ANGER, scoredMoodWordMap);
-//        moodSentenceMap.put(Emotion.ANGER, new Sentence<>(originalSentence.getOriginalText(), angerWords));
-//        // Add the words for sadness to the map
-//        List<MoodScoredWord> sadnessWords = pickMoodScoredWords(words, Emotion.SADNESS, scoredMoodWordMap);
-//        moodSentenceMap.put(Emotion.SADNESS, new Sentence<>(originalSentence.getOriginalText(), sadnessWords));
-//        // Add the words for joy to the map
-//        List<MoodScoredWord> joyWords = pickMoodScoredWords(words, Emotion.JOY, scoredMoodWordMap);
-//        moodSentenceMap.put(Emotion.JOY, new Sentence<>(originalSentence.getOriginalText(), joyWords));
         return moodSentenceMap;
     }
 
@@ -176,10 +164,6 @@ public class MoodAnalysisService extends AnalysisService {
             zeroScoreMap.put(emotion.toString(), 0f);
         }
 
-//        zeroScoreMap.put(Emotion.FEAR, 0f);
-//        zeroScoreMap.put(Emotion.ANGER, 0f);
-//        zeroScoreMap.put(Emotion.SADNESS, 0f);
-//        zeroScoreMap.put(Emotion.JOY, 0f);
         return new MoodScoredSentence(originalText, null, 0f, "none",
                                       zeroScoreMap);
     }
