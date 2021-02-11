@@ -26,11 +26,13 @@ public class AnalysisResponse implements JsonObject {
     public AnalysisResponse(String fullText,
                             List<SentimentScoredSentence> sentimentScoredSentences,
                             List<MoodScoredSentence> moodScoredSentences,
-                            List<ReflectionScoredSentence> reflectionScoredSentences) {
+                            List<ReflectionScoredSentence> reflectionScoredSentences,
+                            List<Float> reflectionModifiers) {
         this.fullText = fullText;
         analysedSentences = new ArrayList<>();
         for(int i = 0; i < sentimentScoredSentences.size(); i++) {
-            analysedSentences.add(new AnalysedSentence(sentimentScoredSentences.get(i), moodScoredSentences.get(i), reflectionScoredSentences.get(i)));
+            analysedSentences.add(new AnalysedSentence(sentimentScoredSentences.get(i), moodScoredSentences.get(i),
+                    reflectionScoredSentences.get(i), reflectionModifiers.get(i)));
         }
     }
 

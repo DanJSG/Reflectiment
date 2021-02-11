@@ -25,6 +25,9 @@ public class AnalysedSentence {
     @JsonProperty("sentence")
     private final String text;
 
+    @JsonProperty("reflectionModifier")
+    private final float reflectionModifier;
+
     /**
      * Constructor for a fully analysed sentence.
      *
@@ -32,11 +35,12 @@ public class AnalysedSentence {
      * @param moodScoredSentence the mood scoring of the sentence
      */
     public AnalysedSentence(SentimentScoredSentence sentimentScoredSentence, MoodScoredSentence moodScoredSentence,
-                            ReflectionScoredSentence reflectionScoredSentence) {
+                            ReflectionScoredSentence reflectionScoredSentence, float reflectionModifier) {
         this.sentimentScoredSentence = sentimentScoredSentence;
         this.moodScoredSentence = moodScoredSentence;
         this.reflectionScoredSentence = reflectionScoredSentence;
         this.text = sentimentScoredSentence.getOriginalText();
+        this.reflectionModifier = reflectionModifier;
     }
 
 }
