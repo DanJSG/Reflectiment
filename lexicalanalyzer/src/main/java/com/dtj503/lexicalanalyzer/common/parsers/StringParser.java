@@ -1,16 +1,17 @@
 package com.dtj503.lexicalanalyzer.common.parsers;
 
+import com.dtj503.lexicalanalyzer.common.pools.PipelineType;
 import com.dtj503.lexicalanalyzer.common.types.Document;
 import com.dtj503.lexicalanalyzer.common.types.Sentence;
 import com.dtj503.lexicalanalyzer.common.types.Token;
 import com.dtj503.lexicalanalyzer.common.types.Word;
+import com.dtj503.lexicalanalyzer.common.pools.PipelinePool;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.CoreSentence;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,10 +34,8 @@ public class StringParser {
      */
     public static <T extends Token> Document<T> parseText(String text) {
 
-        // Create a CoreNLP pipeline for tokenize, splitting sentences and tagging parts of speech
-        Properties props = new Properties();
-        props.setProperty("annotators", "tokenize,ssplit,pos");
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+        // Fetch a CoreNLP pipeline
+        StanfordCoreNLP pipeline = PipelinePool.get(PipelineType.FAST);
 
         // Annotate the input text
         CoreDocument annotatedText = new CoreDocument(text);
