@@ -42,7 +42,7 @@ public final class PipelinePool {
      * @return a StanfordCoreNLP pipeline
      */
     public static StanfordCoreNLP get(PipelineType type) {
-        return type == PipelineType.FAST ? pipeline[0] : pipeline[1];
+        return type == PipelineType.FAST ? pipeline[0] : null;
     }
 
 }
