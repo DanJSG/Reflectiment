@@ -25,9 +25,9 @@ public class ReflectionScoredSentence extends ScoredSentence<ReflectionScoredWor
      * @param words the tokenized words with associated scores that the sentence contains
      * @param score the score of the sentence
      */
-    public ReflectionScoredSentence(String text, List<ReflectionScoredWord> words, float score,
-                                    Map<String, Float> categoryScoreMap) {
-        super(text, words, score);
+    public ReflectionScoredSentence(String text, List<ReflectionScoredWord> words, List<String> sentenceSubjects,
+                                    float score, Map<String, Float> categoryScoreMap) {
+        super(text, words, sentenceSubjects, score);
         this.categoryScoreMap = categoryScoreMap;
     }
 }

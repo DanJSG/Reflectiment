@@ -11,6 +11,7 @@ import edu.stanford.nlp.pipeline.CoreEntityMention;
 import edu.stanford.nlp.pipeline.CoreSentence;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
+import javax.annotation.processing.SupportedSourceVersion;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -44,7 +45,7 @@ public class StringParser {
         pipeline.annotate(annotatedText);
 
         // Parse the text and extract sentences
-        List<Sentence> sentences = parseSentences(annotatedText.sentences(), includeEntityTags);
+        List<Sentence<Token>> sentences = parseSentences(annotatedText.sentences(), includeEntityTags);
 
         // Generate a document from these sentences
         return new Document(text, sentences);
@@ -57,8 +58,8 @@ public class StringParser {
      * @param coreSentences list of CoreNLP sentences
      * @return list of tagged sentences
      */
-    private static List<Sentence> parseSentences(List<CoreSentence> coreSentences, boolean includeEntityTags) {
-        List<Sentence> sentences = new ArrayList<>(coreSentences.size());
+    private static List<Sentence<Token>> parseSentences(List<CoreSentence> coreSentences, boolean includeEntityTags) {
+        List<Sentence<Token>> sentences = new ArrayList<>(coreSentences.size());
         // Loop through each sentence
         for(CoreSentence sentence : coreSentences) {
 
@@ -71,9 +72,9 @@ public class StringParser {
             List<Token> words = parseWords(sentence);
 
             if(sentenceSubjects == null) {
-                sentences.add(new Sentence(sentence.text(), words));
+                sentences.add(new Sentence<Token>(sentence.text(), words));
             } else {
-                sentences.add(new Sentence(sentence.text(), words, sentenceSubjects));
+                sentences.add(new Sentence<Token>(sentence.text(), words, sentenceSubjects));
             }
 
 
@@ -84,9 +85,11 @@ public class StringParser {
     private static List<String> getEntityTypes(CoreSentence sentence) {
         List<String> sentenceSubjects = new ArrayList<>();
         for(CoreEntityMention entity : sentence.entityMentions()) {
+            System.out.println(entity + ": " + entity.entityType());
             sentenceSubjects.add(entity.entityType());
         }
-        return sentenceSubjects.size() != 0 ? sentenceSubjects : null;
+        return sentenceSubjects;
+//        return sentenceSubjects.size() != 0 ? sentenceSubjects : null;
     }
 
     /**

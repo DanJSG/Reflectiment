@@ -8,6 +8,7 @@ import com.dtj503.lexicalanalyzer.common.types.Token;
 import com.dtj503.lexicalanalyzer.mood.service.MoodAnalysisService;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
 import com.dtj503.lexicalanalyzer.reflection.service.ReflectionAnalysisService;
+import com.dtj503.lexicalanalyzer.reflection.service.ReflectionModifierService;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionCategory;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
@@ -64,6 +65,7 @@ public class AnalysisController extends RestAPIController {
         // processing then simply run the operation consecutively
         AnalysisResponse response = null;
         try {
+            ReflectionModifierService.getReflectionModifiers(sentimentAnalysisProcess.get());
             response = new AnalysisResponse(submission.getText(), sentimentAnalysisProcess.get(),
                     moodAnalysisProcess.get(), reflectionAnalysisProcess.get());
         } catch (InterruptedException | ExecutionException e) {

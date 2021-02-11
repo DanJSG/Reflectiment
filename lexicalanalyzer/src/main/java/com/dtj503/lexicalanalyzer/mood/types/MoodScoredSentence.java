@@ -31,9 +31,10 @@ public class MoodScoredSentence extends ScoredSentence<MoodScoredWord> {
      * @param strongestEmotionLabel the highest emotional intensity label
      * @param moodScoreMap a map of the scores for each emotion (anger, fear, sadness, joy)
      */
-    public MoodScoredSentence(String text, List<MoodScoredWord> words, float strongestEmotionScore,
-                              String strongestEmotionLabel, Map<String, Float> moodScoreMap) {
-        super(text, words, strongestEmotionScore);
+    public MoodScoredSentence(String text, List<MoodScoredWord> words, List<String> sentenceSubjects,
+                              float strongestEmotionScore, String strongestEmotionLabel,
+                              Map<String, Float> moodScoreMap) {
+        super(text, words, sentenceSubjects, strongestEmotionScore);
         this.strongestEmotionLabel = strongestEmotionLabel;
         this.moodScoreMap = moodScoreMap;
     }

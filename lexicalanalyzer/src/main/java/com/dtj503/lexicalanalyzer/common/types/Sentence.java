@@ -56,6 +56,7 @@ public class Sentence<T extends Token> {
         return "Sentence{" +
                 "originalText='" + originalText + '\'' +
                 ", words=" + words +
+                ", sentenceSubjects=" + sentenceSubjects +
                 '}';
     }
 

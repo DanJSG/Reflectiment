@@ -16,8 +16,8 @@ public class SentimentScoredSentence extends ScoredSentence<ScoredWord> {
     @JsonProperty
     private String label;
 
-    public SentimentScoredSentence(String text, List<ScoredWord> words, float score) {
-        super(text, words, score);
+    public SentimentScoredSentence(String text, List<ScoredWord> words, List<String> sentenceSubjects, float score) {
+        super(text, words, sentenceSubjects, score);
         this.label = pickLabel(score);
     }
 

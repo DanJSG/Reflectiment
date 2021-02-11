@@ -1,6 +1,5 @@
 package com.dtj503.lexicalanalyzer.mood.service;
 
-import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
 import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
@@ -44,7 +43,7 @@ public class MoodAnalysisService extends AnalysisService {
             // If there are no scored words in the database, then score the sentence as 0 for all emotions and continue
             // the loop
             if(moodScoredWords == null) {
-                moodScoredSentences.add(getZeroScoreSentence(sentence.getOriginalText()));
+                moodScoredSentences.add(getZeroScoreSentence(sentence));
                 continue;
             }
             // Build a map of words to scored words
@@ -66,9 +65,9 @@ public class MoodAnalysisService extends AnalysisService {
                                                                         .getWords();
             // Create a new sentence scored with mood intensities and labelled with the strongest emotion intensity
             MoodScoredSentence scoredSentence = new MoodScoredSentence(sentence.getOriginalText(),
-                                                                       strongestEmotionWords,
-                                                                       strongestEmotionProperties.getRight(),
-                                                                       strongestEmotionProperties.getLeft(), moodMap);
+                    strongestEmotionWords, sentence.getSentenceSubjects(), strongestEmotionProperties.getRight(),
+                    strongestEmotionProperties.getLeft(), moodMap);
+
             // Add the mood scored sentence to the list of sentences
             moodScoredSentences.add(scoredSentence);
         }
@@ -152,18 +151,18 @@ public class MoodAnalysisService extends AnalysisService {
     /**
      * Method for creating a sentence with a specific original text and a mood score of zero for all emotion tags.
      *
-     * @param originalText the original text for the sentence to contain
+     * @param sentence the original, non-scored sentence
      * @return a zero scored sentence
      */
-    private static MoodScoredSentence getZeroScoreSentence(String originalText) {
+    private static MoodScoredSentence getZeroScoreSentence(Sentence<Token> sentence) {
         Map<String, Float> zeroScoreMap = new HashMap<>();
 
         for(Emotion emotion : Emotion.values()) {
             zeroScoreMap.put(emotion.toString(), 0f);
         }
 
-        return new MoodScoredSentence(originalText, null, 0f, "none",
-                                      zeroScoreMap);
+        return new MoodScoredSentence(sentence.getOriginalText(), null, sentence.getSentenceSubjects(),
+                0f, "none", zeroScoreMap);
     }
 
 }

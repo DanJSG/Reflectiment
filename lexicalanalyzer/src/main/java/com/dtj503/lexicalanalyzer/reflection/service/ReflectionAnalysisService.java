@@ -1,6 +1,5 @@
 package com.dtj503.lexicalanalyzer.reflection.service;
 
-import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
 import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
@@ -49,7 +48,7 @@ public class ReflectionAnalysisService extends AnalysisService {
             List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION,
                     SQLColumn.WORD, new ReflectionScoredWordBuilder());
             if(reflectionScoredWords == null) {
-                scoredSentences.add(getZeroScoreSentence(sentence.getOriginalText()));
+                scoredSentences.add(getZeroScoreSentence(sentence));
                 continue;
             }
             // Map these words to their relevant emotions so that each separate category can be analysed
@@ -68,8 +67,8 @@ public class ReflectionAnalysisService extends AnalysisService {
             float sentenceScore = ListMath.mean(Arrays.asList(reflectionMap.values().toArray(Float[]::new)));
 
             ReflectionScoredSentence scoredSentence = new ReflectionScoredSentence(sentence.getOriginalText(),
-                    reflectionSentenceMap.get(ReflectionCategory.REFLECTION.toString()).getWords(), sentenceScore,
-                    reflectionMap);
+                    reflectionSentenceMap.get(ReflectionCategory.REFLECTION.toString()).getWords(),
+                    sentence.getSentenceSubjects(), sentenceScore, reflectionMap);
 
             scoredSentences.add(scoredSentence);
         }
@@ -81,15 +80,16 @@ public class ReflectionAnalysisService extends AnalysisService {
     /**
      * Method to get a reflection scored sentence with a zero score for all elements.
      *
-     * @param originalText the sentence text
+     * @param sentence the original, non-scored sentence
      * @return the new sentence
      */
-    private static ReflectionScoredSentence getZeroScoreSentence(String originalText) {
+    private static ReflectionScoredSentence getZeroScoreSentence(Sentence<Token> sentence) {
         Map<String, Float> zeroScoreMap = new HashMap<>();
         for(ReflectionCategory value : ReflectionCategory.values()) {
             zeroScoreMap.put(value.toString(), 0f);
         }
-        return new ReflectionScoredSentence(originalText, null, 0, zeroScoreMap);
+        return new ReflectionScoredSentence(sentence.getOriginalText(), null, sentence.getSentenceSubjects(),
+                0f, zeroScoreMap);
     }
 
     /**

@@ -20,8 +20,8 @@ public class ScoredSentence<T extends ScoredWord> extends Sentence<T>{
      * @param words the tokenized words with associated scores that the sentence contains
      * @param score the score of the sentence
      */
-    public ScoredSentence(String text, List<T> words, float score) {
-        super(text, words);
+    public ScoredSentence(String text, List<T> words, List<String> sentenceSubjects, float score) {
+        super(text, words, sentenceSubjects);
         this.score = score;
     }
 

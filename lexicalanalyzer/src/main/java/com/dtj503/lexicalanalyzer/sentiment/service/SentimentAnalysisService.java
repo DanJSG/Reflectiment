@@ -1,6 +1,5 @@
 package com.dtj503.lexicalanalyzer.sentiment.service;
 
-import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
 import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
@@ -28,6 +27,10 @@ public class SentimentAnalysisService extends AnalysisService {
         List<SentimentScoredSentence> scoredSentences = new ArrayList<>();
         // Loop over each sentence in the document
         for(Sentence<Token> sentence : doc.getSentences()) {
+
+            System.out.println("In function { analyseSentiment(x) }.");
+            System.out.println(sentence.getSentenceSubjects());
+
             // Get the words from the sentence
             List<Token> words = sentence.getWords();
             // Get the scores for each word
@@ -35,7 +38,8 @@ public class SentimentAnalysisService extends AnalysisService {
                                                            new ScoredWordBuilder());
             // If there are no associated scores for any of the words, then score the sentence 0
             if(scoredWords == null) {
-                scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), null, 0));
+                scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), null,
+                        sentence.getSentenceSubjects(),0));
                 continue;
             }
             // Pick the correct score for each word
@@ -45,7 +49,8 @@ public class SentimentAnalysisService extends AnalysisService {
             // Parse the overall score of the sentence
             float score = SentimentScoreParser.parseSentenceScore(sentenceWithScoredWords);
             // Add a new scored sentence with the given score to the list ready to return
-            scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), scoredWords, score));
+            scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), scoredWords,
+                    sentence.getSentenceSubjects(), score));
         }
         return scoredSentences;
     }
