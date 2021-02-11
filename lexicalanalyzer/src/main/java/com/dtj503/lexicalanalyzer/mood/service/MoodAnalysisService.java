@@ -28,12 +28,10 @@ public class MoodAnalysisService extends AnalysisService {
     /**
      * Method which analysis the mood intensity in each sentence in a string of text.
      *
-     * @param text the text to analyse
+     * @param doc the document to analyse
      * @return a list of sentences scored with their mood intensities
      */
-    public static List<MoodScoredSentence> analyseMood(String text) {
-        // Parse the submitted text into a set of word tokens with PoS tags
-        Document<Token> doc = StringParser.parseText(text);
+    public static List<MoodScoredSentence> analyseMood(Document<Token> doc) {
         // Create a new list for storing the scored sentences
         List<MoodScoredSentence> moodScoredSentences = new ArrayList<>();
         // Loop over each sentence in the document

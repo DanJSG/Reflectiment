@@ -38,11 +38,10 @@ public class ReflectionAnalysisService extends AnalysisService {
      * Method which analyses reflection in text, calculating the scores of the different categories of reflection and
      * the overall score for the sentence.
      *
-     * @param text the text to analyse
+     * @param doc the document to analyse
      * @return a list of sentences scored for reflection
      */
-    public static List<ReflectionScoredSentence> analyseReflection(String text) {
-        Document<Token> doc = StringParser.parseText(text);
+    public static List<ReflectionScoredSentence> analyseReflection(Document<Token> doc) {
         List<ReflectionScoredSentence> scoredSentences = new ArrayList<>();
         for(Sentence<Token> sentence : doc.getSentences()) {
             List<Token> words = sentence.getWords();

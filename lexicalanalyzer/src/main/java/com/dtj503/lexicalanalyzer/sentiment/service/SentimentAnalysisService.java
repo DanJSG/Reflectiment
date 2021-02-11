@@ -21,12 +21,10 @@ public class SentimentAnalysisService extends AnalysisService {
     /**
      * Method for analysing the sentiment from a string of text.
      *
-     * @param text the string of text
+     * @param doc the document to analyse
      * @return
      */
-    public static List<SentimentScoredSentence> analyseSentiment(String text) {
-        // Parse the string of text into a document, split into sentences and words
-        Document<Token> doc = StringParser.parseText(text);
+    public static List<SentimentScoredSentence> analyseSentiment(Document<Token> doc) {
         List<SentimentScoredSentence> scoredSentences = new ArrayList<>();
         // Loop over each sentence in the document
         for(Sentence<Token> sentence : doc.getSentences()) {
