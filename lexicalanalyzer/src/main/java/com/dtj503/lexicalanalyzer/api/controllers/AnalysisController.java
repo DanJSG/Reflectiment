@@ -67,25 +67,25 @@ public class AnalysisController extends RestAPIController {
         // processing then simply run the operation consecutively
         AnalysisResponse response = null;
         try {
-            List<Float> reflectionModifiers =
-                    ReflectionMultiplierService.getReflectionModifiers(sentimentAnalysisProcess.get());
+            List<Float> reflectionModifiers = ReflectionMultiplierService.getReflectionModifiers(
+                    sentimentAnalysisProcess.get(), moodAnalysisProcess.get());
             response = new AnalysisResponse(submission.getText(), sentimentAnalysisProcess.get(),
                     moodAnalysisProcess.get(), reflectionAnalysisProcess.get(), reflectionModifiers);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
 
             // Run process consecutively in case of failure
-            List<ReflectionScoredSentence> reflectionScoredSentences =
-                    ReflectionAnalysisService.analyseReflection(document);
+            List<SentimentScoredSentence> sentimentScoredSentences =
+                    SentimentAnalysisService.analyseSentiment(document);
 
             List<MoodScoredSentence> moodScoredSentences =
                     MoodAnalysisService.analyseMood(document);
 
-            List<SentimentScoredSentence> sentimentScoredSentences =
-                    SentimentAnalysisService.analyseSentiment(document);
+            List<ReflectionScoredSentence> reflectionScoredSentences =
+                    ReflectionAnalysisService.analyseReflection(document);
 
             List<Float> reflectionModifiers =
-                    ReflectionMultiplierService.getReflectionModifiers(sentimentScoredSentences);
+                    ReflectionMultiplierService.getReflectionModifiers(sentimentScoredSentences, moodScoredSentences);
 
             response = new AnalysisResponse(submission.getText(), sentimentScoredSentences,
                     moodScoredSentences, reflectionScoredSentences, reflectionModifiers);
