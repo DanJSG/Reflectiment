@@ -2,6 +2,7 @@ package com.dtj503.lexicalanalyzer.common.types;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,10 +24,18 @@ public class Sentence<T extends Token> {
     @JsonIgnore
     private Map<String, List<Integer>> posPositions;
 
+    @JsonIgnore
+    private List<String> sentenceSubjects;
+
     public Sentence(String text, List<T> words) {
+        this(text, words, null);
+    }
+
+    public Sentence(String text, List<T> words, List<String> sentenceSubjects) {
         this.originalText = text;
         this.words = words;
         this.posPositions = markPosPositions(words);
+        this.sentenceSubjects = sentenceSubjects;
     }
 
     public List<T> getWords() {
@@ -73,6 +82,11 @@ public class Sentence<T extends Token> {
     @JsonIgnore
     public List<Integer> getAdverbPositions() {
         return posPositions.get("r");
+    }
+
+    @JsonIgnore
+    public List<String> getSentenceSubjects() {
+        return sentenceSubjects;
     }
 
     /**

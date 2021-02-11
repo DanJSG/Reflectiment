@@ -7,6 +7,7 @@ import com.dtj503.lexicalanalyzer.common.types.Token;
 import com.dtj503.lexicalanalyzer.common.types.Word;
 import com.dtj503.lexicalanalyzer.common.pools.PipelinePool;
 import edu.stanford.nlp.pipeline.CoreDocument;
+import edu.stanford.nlp.pipeline.CoreEntityMention;
 import edu.stanford.nlp.pipeline.CoreSentence;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
@@ -32,17 +33,18 @@ public class StringParser {
      * @param text the text to parse
      * @return the document object
      */
-    public static <T extends Token> Document<T> parseText(String text) {
+    public static <T extends Token> Document<T> parseText(String text, boolean includeEntityTags) {
 
         // Fetch a CoreNLP pipeline
-        StanfordCoreNLP pipeline = PipelinePool.get(PipelineType.FAST);
+        StanfordCoreNLP pipeline =
+                includeEntityTags ? PipelinePool.get(PipelineType.FULL) : PipelinePool.get(PipelineType.FAST);
 
         // Annotate the input text
         CoreDocument annotatedText = new CoreDocument(text);
         pipeline.annotate(annotatedText);
 
         // Parse the text and extract sentences
-        List<Sentence> sentences = parseSentences(annotatedText.sentences());
+        List<Sentence> sentences = parseSentences(annotatedText.sentences(), includeEntityTags);
 
         // Generate a document from these sentences
         return new Document(text, sentences);
@@ -55,15 +57,36 @@ public class StringParser {
      * @param coreSentences list of CoreNLP sentences
      * @return list of tagged sentences
      */
-    private static List<Sentence> parseSentences(List<CoreSentence> coreSentences) {
+    private static List<Sentence> parseSentences(List<CoreSentence> coreSentences, boolean includeEntityTags) {
         List<Sentence> sentences = new ArrayList<>(coreSentences.size());
         // Loop through each sentence
         for(CoreSentence sentence : coreSentences) {
+
+            List<String> sentenceSubjects = null;
+            if(includeEntityTags) {
+                sentenceSubjects = getEntityTypes(sentence);
+            }
+
             // Parse the words in each sentence and add them to output list
             List<Token> words = parseWords(sentence);
-            sentences.add(new Sentence(sentence.text(), words));
+
+            if(sentenceSubjects == null) {
+                sentences.add(new Sentence(sentence.text(), words));
+            } else {
+                sentences.add(new Sentence(sentence.text(), words, sentenceSubjects));
+            }
+
+
         }
         return sentences;
+    }
+
+    private static List<String> getEntityTypes(CoreSentence sentence) {
+        List<String> sentenceSubjects = new ArrayList<>();
+        for(CoreEntityMention entity : sentence.entityMentions()) {
+            sentenceSubjects.add(entity.entityType());
+        }
+        return sentenceSubjects.size() != 0 ? sentenceSubjects : null;
     }
 
     /**
