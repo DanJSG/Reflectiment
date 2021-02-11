@@ -6,3 +6,6 @@
 
 ### VS Code ###
 .vscode/
+
+### Offline development project ###
+/offlinedevelopment/
