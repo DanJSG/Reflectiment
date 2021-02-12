@@ -8,6 +8,7 @@ import com.dtj503.lexicalanalyzer.common.types.Token;
 import com.dtj503.lexicalanalyzer.mood.service.MoodAnalysisService;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
 import com.dtj503.lexicalanalyzer.reflection.service.ReflectionAnalysisService;
+import com.dtj503.lexicalanalyzer.reflection.types.ReflectionModifier;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 import com.dtj503.lexicalanalyzer.sentiment.service.SentimentAnalysisService;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
@@ -66,23 +67,30 @@ public class AnalysisController extends RestAPIController {
         // processing then simply run the operation consecutively
         AnalysisResponse response = null;
         try {
+            // Calculate the reflection modifier coefficients based on the sentiment and mood scores
+            // For more info see paper mentioned in class Javadoc
+            List<ReflectionModifier> reflectionModifiers = ReflectionAnalysisService.getReflectionModifiers(
+                    sentimentAnalysisProcess.get(), moodAnalysisProcess.get());
             response = new AnalysisResponse(submission.getText(), sentimentAnalysisProcess.get(),
-                    moodAnalysisProcess.get(), reflectionAnalysisProcess.get());
+                    moodAnalysisProcess.get(), reflectionAnalysisProcess.get(), reflectionModifiers);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
 
             // Run process consecutively in case of failure
-            List<ReflectionScoredSentence> reflectionScoredSentences =
-                    ReflectionAnalysisService.analyseReflection(document);
+            List<SentimentScoredSentence> sentimentScoredSentences =
+                    SentimentAnalysisService.analyseSentiment(document);
 
             List<MoodScoredSentence> moodScoredSentences =
                     MoodAnalysisService.analyseMood(document);
 
-            List<SentimentScoredSentence> sentimentScoredSentences =
-                    SentimentAnalysisService.analyseSentiment(document);
+            List<ReflectionScoredSentence> reflectionScoredSentences =
+                    ReflectionAnalysisService.analyseReflection(document);
+
+            List<ReflectionModifier> reflectionModifiers =
+                    ReflectionAnalysisService.getReflectionModifiers(sentimentScoredSentences, moodScoredSentences);
 
             response = new AnalysisResponse(submission.getText(), sentimentScoredSentences,
-                    moodScoredSentences, reflectionScoredSentences);
+                    moodScoredSentences, reflectionScoredSentences, reflectionModifiers);
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());

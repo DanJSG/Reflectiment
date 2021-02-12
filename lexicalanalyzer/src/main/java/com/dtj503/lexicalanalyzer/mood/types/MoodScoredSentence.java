@@ -2,6 +2,7 @@ package com.dtj503.lexicalanalyzer.mood.types;
 
 import com.dtj503.lexicalanalyzer.common.types.ScoredSentence;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
+@JsonPropertyOrder({"score", "label", "mixedScores"})
 public class MoodScoredSentence extends ScoredSentence<MoodScoredWord> {
 
     @JsonProperty("label")
