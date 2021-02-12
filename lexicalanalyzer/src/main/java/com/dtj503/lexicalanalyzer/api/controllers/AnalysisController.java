@@ -67,6 +67,8 @@ public class AnalysisController extends RestAPIController {
         // processing then simply run the operation consecutively
         AnalysisResponse response = null;
         try {
+            // Calculate the reflection modifier coefficients based on the sentiment and mood scores
+            // For more info see paper mentioned in class Javadoc
             List<ReflectionModifier> reflectionModifiers = ReflectionAnalysisService.getReflectionModifiers(
                     sentimentAnalysisProcess.get(), moodAnalysisProcess.get());
             response = new AnalysisResponse(submission.getText(), sentimentAnalysisProcess.get(),

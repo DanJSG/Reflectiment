@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Class for a fully analysed sentence, containing a scored sentence for sentiment, mood and reflection, along with
- * the original text.
+ * the original text and the reflection appraisal modifier.
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */

@@ -77,10 +77,12 @@ public class ReflectionAnalysisService extends AnalysisService {
     }
 
     /**
+     * Method for calculating the reflection appraisal modifiers based on the mood and sentiment scores calculated for
+     * the sentences.
      *
-     * @param sentimentScoredSentences
-     * @param moodScoredSentences
-     * @return
+     * @param sentimentScoredSentences the sentences with sentiment scores
+     * @param moodScoredSentences the sentences with mood scores
+     * @return a list of reflection modifiers for each sentence
      */
     public static List<ReflectionModifier> getReflectionModifiers(List<SentimentScoredSentence> sentimentScoredSentences,
                                                                   List<MoodScoredSentence> moodScoredSentences) {
