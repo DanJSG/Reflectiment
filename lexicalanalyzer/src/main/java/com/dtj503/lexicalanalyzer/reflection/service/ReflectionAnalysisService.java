@@ -44,8 +44,10 @@ public class ReflectionAnalysisService extends AnalysisService {
         for(Sentence<Token> sentence : doc.getSentences()) {
             List<Token> words = sentence.getWords();
             // Fetch the scores of the reflection based words
-            List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION,
-                    SQLColumn.WORD, new ReflectionScoredWordBuilder());
+
+            List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION, "ullman_ext", new ReflectionScoredWordBuilder());
+//            List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION,
+//                    SQLColumn.WORD, new ReflectionScoredWordBuilder());
             if(reflectionScoredWords == null) {
                 scoredSentences.add(getZeroScoreSentence(sentence.getOriginalText()));
                 continue;

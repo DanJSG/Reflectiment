@@ -39,8 +39,11 @@ public class MoodAnalysisService extends AnalysisService {
             // Get the tokenized words from the sentence
             List<Token> words = sentence.getWords();
             // Fetch the scores for each word from the database
-            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, SQLColumn.WORD,
-                                                                   new MoodScoredWordBuilder());
+            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, "nrc",
+                    new MoodScoredWordBuilder());
+
+//            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, SQLColumn.WORD,
+//                                                                   new MoodScoredWordBuilder());
             // If there are no scored words in the database, then score the sentence as 0 for all emotions and continue
             // the loop
             if(moodScoredWords == null) {

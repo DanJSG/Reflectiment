@@ -3,6 +3,8 @@ package com.dtj503.lexicalanalyzer.common.services;
 import com.dtj503.lexicalanalyzer.common.sql.*;
 import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.common.types.Token;
+import com.dtj503.lexicalanalyzer.common.types.Word;
+import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWord;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 
 import java.util.ArrayList;
@@ -57,6 +59,17 @@ public abstract class AnalysisService {
         // Open the database connection and fetch the scores
         SQLRepository<T> repo = new MySQLRepository<>(table);
         return repo.findWhereEqualOr(cols, wordStrings, 0, builder);
+    }
+
+    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(List<U> words, SQLTable table, String tag, V builder) {
+        List<String> wordStrings = new ArrayList<>(words.size());
+        List<String> tagList = new ArrayList<>(words.size());
+        for(U word : words) {
+            wordStrings.add(word.getWord());
+            tagList.add(tag);
+        }
+        SQLRepository<T> repo = new MySQLRepository<>(table);
+        return repo.findWhereEqualAndOr(SQLColumn.WORD, SQLColumn.TAG, wordStrings, tagList, 0, builder);
     }
 
     /**
