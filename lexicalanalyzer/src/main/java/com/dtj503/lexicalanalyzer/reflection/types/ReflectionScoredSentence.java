@@ -32,4 +32,5 @@ public class ReflectionScoredSentence extends ScoredSentence<ReflectionScoredWor
         super(text, words, score);
         this.categoryScoreMap = categoryScoreMap;
     }
+
 }

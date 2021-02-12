@@ -39,4 +39,5 @@ public class ReflectionScoredWord extends ScoredWord {
                 ", category='" + category + '\'' +
                 '}';
     }
+
 }

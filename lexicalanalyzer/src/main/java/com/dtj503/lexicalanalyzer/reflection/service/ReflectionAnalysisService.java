@@ -160,7 +160,5 @@ public class ReflectionAnalysisService extends AnalysisService {
         }
         return pickedWords;
     }
-
-
-
+    
 }

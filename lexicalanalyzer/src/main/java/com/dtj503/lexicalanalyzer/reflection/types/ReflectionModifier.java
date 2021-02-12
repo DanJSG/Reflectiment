@@ -27,5 +27,4 @@ public class ReflectionModifier {
         this.combinedAppraisalModifier = sentimentModifier * moodModifier;
     }
 
-
 }
