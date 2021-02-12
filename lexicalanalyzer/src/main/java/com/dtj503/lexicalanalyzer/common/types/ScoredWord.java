@@ -7,7 +7,7 @@ package com.dtj503.lexicalanalyzer.common.types;
  */
 public class ScoredWord extends Word {
 
-    private float score;
+    private final float score;
 
     /**
      * Constructor for a word with a default scoring of 0.

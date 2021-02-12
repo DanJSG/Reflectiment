@@ -1,7 +1,6 @@
 package com.dtj503.lexicalanalyzer.reflection.service;
 
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
-import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.common.types.*;
 import com.dtj503.lexicalanalyzer.common.utils.ListMath;
@@ -44,10 +43,7 @@ public class ReflectionAnalysisService extends AnalysisService {
         for(Sentence<Token> sentence : doc.getSentences()) {
             List<Token> words = sentence.getWords();
             // Fetch the scores of the reflection based words
-
             List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION, "ullman_ext", new ReflectionScoredWordBuilder());
-//            List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION,
-//                    SQLColumn.WORD, new ReflectionScoredWordBuilder());
             if(reflectionScoredWords == null) {
                 scoredSentences.add(getZeroScoreSentence(sentence.getOriginalText()));
                 continue;
@@ -119,7 +115,7 @@ public class ReflectionAnalysisService extends AnalysisService {
      *
      * @param sentence the sentence to analyse
      * @param scoredWordMap the map of sentences to their reflection categories
-     * @return
+     * @return build a map of scored sentences, using the different reflection categories as the keys
      */
     private static Map<String, Sentence<ReflectionScoredWord>> buildReflectionSentenceMap(
             Sentence<Token> sentence, Map<String, List<ReflectionScoredWord>> scoredWordMap) {

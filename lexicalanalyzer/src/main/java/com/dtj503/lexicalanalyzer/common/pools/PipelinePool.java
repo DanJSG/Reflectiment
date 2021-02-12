@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 
-@Component
 /**
  * Pool for retrieving a StanfordCoreNLP pipeline for annotating text. Contains two models: a fast, lightweight model
  * which can only perform tokenization and Part of Speech (PoS) tagging; and a fuller model which also allows entity
@@ -17,9 +16,10 @@ import java.util.Properties;
  * @author Dan Jackson (dtj503@york.ac.uk)
  *
  */
+@Component
 public final class PipelinePool {
 
-    private static StanfordCoreNLP[] pipeline;
+    private static final StanfordCoreNLP[] PIPELINE;
 
     static {
         // Create a CoreNLP pipeline for tokenize, splitting sentences, tagging parts of speech and finding entities
@@ -31,8 +31,8 @@ public final class PipelinePool {
         fastProperties.setProperty("useSUTime", "false");
         fastProperties.setProperty("applyNumericClassifiers", "false");
         fastProperties.setProperty("annotators", "tokenize, ssplit, pos");
-        pipeline = new StanfordCoreNLP[1];
-        pipeline[0] = new StanfordCoreNLP(fastProperties);
+        PIPELINE = new StanfordCoreNLP[1];
+        PIPELINE[0] = new StanfordCoreNLP(fastProperties);
     }
 
     /**
@@ -42,7 +42,7 @@ public final class PipelinePool {
      * @return a StanfordCoreNLP pipeline
      */
     public static StanfordCoreNLP get(PipelineType type) {
-        return type == PipelineType.FAST ? pipeline[0] : null;
+        return type == PipelineType.FAST ? PIPELINE[0] : null;
     }
 
 }

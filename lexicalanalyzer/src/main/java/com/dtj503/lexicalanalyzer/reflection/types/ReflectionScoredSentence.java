@@ -17,7 +17,7 @@ import java.util.Map;
 public class ReflectionScoredSentence extends ScoredSentence<ReflectionScoredWord> {
 
     @JsonProperty("categoryScores")
-    private Map<String, Float> categoryScoreMap;
+    private final Map<String, Float> categoryScoreMap;
 
     /**
      * Constructor for a scored sentence which takes the original sentence text, the set of scored words, the sentence's

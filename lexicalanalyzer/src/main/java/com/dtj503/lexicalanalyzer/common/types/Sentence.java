@@ -15,13 +15,13 @@ import java.util.Map;
 public class Sentence<T extends Token> {
 
     @JsonIgnore
-    private String originalText;
+    private final String originalText;
 
     @JsonIgnore
-    private List<T> words;
+    private final List<T> words;
 
     @JsonIgnore
-    private Map<String, List<Integer>> posPositions;
+    private final Map<String, List<Integer>> posPositions;
 
     public Sentence(String text, List<T> words) {
         this.originalText = text;

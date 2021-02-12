@@ -3,9 +3,6 @@ package com.dtj503.lexicalanalyzer.common.services;
 import com.dtj503.lexicalanalyzer.common.sql.*;
 import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.common.types.Token;
-import com.dtj503.lexicalanalyzer.common.types.Word;
-import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWord;
-import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 
 import java.util.*;
 
@@ -20,9 +17,10 @@ public abstract class AnalysisService {
      *
      * @param words the words for the keys
      * @param scoredWords the scored words
-     * @return
+     * @return a map of a word to a list of scored word equivalents
      */
-    protected static <T extends ScoredWord> Map<String, List<T>> buildScoredWordMap(List<Token> words, List<T> scoredWords) {
+    protected static <T extends ScoredWord> Map<String, List<T>> buildScoredWordMap(List<Token> words,
+                                                                                    List<T> scoredWords) {
         Map<String, List<T>> scoredWordMap = new HashMap<>();
         // Loop over each word and add it to the map
         for(Token word : words) {
@@ -44,9 +42,10 @@ public abstract class AnalysisService {
      * @param <V> the builder for the fetched objects, must inherit from <code>SQLEntityBuilder</code>
      * @param <T> the output word type, must inherit from <code>U</code>
      * @param <U> the input word type, must inherit from <code>token</code>
-     * @return
+     * @return a list of scored word objects
      */
-    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(List<U> words, SQLTable table, V builder) {
+    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(
+            List<U> words, SQLTable table, V builder) {
         return fetchWordScores(words, table, null, builder);
     }
 
@@ -64,7 +63,8 @@ public abstract class AnalysisService {
      * @return a list of scored word tokens containing the words and associated scores (may contain duplicate words
      *         where there are multiple scores for a word)
      */
-    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(List<U> words, SQLTable table, String tag, V builder) {
+    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(
+            List<U> words, SQLTable table, String tag, V builder) {
         List<String> wordStrings = new ArrayList<>(words.size());
         words.forEach(word -> wordStrings.add(word.getWord()));
         List<String> tagList = new ArrayList<>(Collections.nCopies(words.size(), tag));

@@ -11,7 +11,7 @@ import java.util.List;
 public class ScoredSentence<T extends ScoredWord> extends Sentence<T>{
 
     @JsonProperty
-    private float score;
+    private final float score;
 
     /**
      * Constructor for a scored sentence.

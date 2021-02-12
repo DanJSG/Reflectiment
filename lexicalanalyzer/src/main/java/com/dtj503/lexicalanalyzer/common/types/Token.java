@@ -14,20 +14,20 @@ public interface Token extends SQLEntity {
      *
      * @return the word in <code>string</code> format
      */
-    public String getWord();
+    String getWord();
 
     /**
      * Method to get the Part of Speech (PoS) tag of the word.
      *
      * @return the PoS tag in <code>string</code> format
      */
-    public String getPartOfSpeech();
+    String getPartOfSpeech();
 
     /**
      * Method for getting the score of a word.
      *
      * @return the words score as a <code>float</code>
      */
-    public float getScore();
+    float getScore();
 
 }

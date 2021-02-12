@@ -13,9 +13,9 @@ import java.util.Map;
  */
 public class Word implements Token {
 
-    private String word;
-    private String partOfSpeech;
-    private int partOfSpeechIndex;
+    private final String word;
+    private final String partOfSpeech;
+    private final int partOfSpeechIndex;
 
     public Word(String word, String partOfSpeech) {
         this.word = word;

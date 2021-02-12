@@ -189,14 +189,14 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		String baseQuery = "SELECT * FROM `" + tableName + "` WHERE ";
 
 		// Complete SQL query using string concatenation in a loop
-		String queryCondition = "";
+		StringBuilder queryCondition = new StringBuilder();
 		for(int i=0; i < searchColumns.size(); i++) {
-			queryCondition += searchColumns.get(i).name() + "=?";
+			queryCondition.append(searchColumns.get(i).name()).append("=?");
 			if(i < searchColumns.size() - 1) {
-				queryCondition += " OR ";
+				queryCondition.append(" OR ");
 			}
 		}
-		queryCondition += ";";
+		queryCondition.append(";");
 
 		// Concatenate sections of query
 		String query = baseQuery + queryCondition;
@@ -223,14 +223,14 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		String baseQuery = "SELECT * FROM `" + tableName + "` WHERE ";
 
 		// Complete SQL query using string concatenation in a loop
-		String queryCondition = "";
+		StringBuilder queryCondition = new StringBuilder();
 		for(int i=0; i < searchColumns.size(); i++) {
-			queryCondition += searchColumns.get(i).name() + "=?";
+			queryCondition.append(searchColumns.get(i).name()).append("=?");
 			if(i < searchColumns.size() - 1) {
-				queryCondition += " AND ";
+				queryCondition.append(" AND ");
 			}
 		}
-		queryCondition += ";";
+		queryCondition.append(";");
 
 		// Concatenate sections of query
 		String query = baseQuery + queryCondition;
@@ -310,7 +310,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		}
 
 		// Initialise database query
-		String query = "UPDATE `" + tableName + "` SET ";
+		StringBuilder query = new StringBuilder("UPDATE `" + tableName + "` SET ");
 
 		// If the number of columns and values are not equal then return false
 		if(updateColumns.size() != updateValues.size()) {
@@ -319,14 +319,14 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 
 		// Finish off the SQL query using string concatenation in a loop
 		for(int i=0; i < updateColumns.size(); i++) {
-			query += updateColumns.get(i).name() + "=?";
+			query.append(updateColumns.get(i).name()).append("=?");
 			if(i < updateColumns.size() - 1)
-				query += ", ";
+				query.append(", ");
 		}
-		query += " WHERE " + clauseColumn.name() + "=?;";
+		query.append(" WHERE ").append(clauseColumn.name()).append("=?;");
 		try {
 			// Initialise the prepared SQL statement
-			PreparedStatement statement = connection.prepareStatement(query);
+			PreparedStatement statement = connection.prepareStatement(query.toString());
 
 			// Set all the values to be included in the prepared SQL statement
 			int i = 0;
@@ -379,21 +379,21 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	 */
 	private String stringifyKeys(Map<SQLColumn, Object> valueMap) {
 
-		String keyString = new String();
+		StringBuilder keyString = new StringBuilder();
 
 		// Convert Map keys to an array of SQLColumns
 		SQLColumn[] keys = (SQLColumn[]) valueMap.keySet().toArray();
 
 		// Generate a string with a list of these column names
 		for(int i=0; i< valueMap.keySet().size(); i++) {
-			keyString += keys[i].name();
+			keyString.append(keys[i].name());
 			if(i != valueMap.keySet().size() - 1) {
-				keyString += ",";
+				keyString.append(",");
 			}
 		}
 
 		// Return the string of comma separated column names
-		return keyString;
+		return keyString.toString();
 	}
 
 	/**
@@ -405,17 +405,17 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	 */
 	private String createParamMarkers(Object[] values) {
 
-		String paramString = new String();
+		StringBuilder paramString = new StringBuilder();
 
 		// Iterate through loop for each object and generate a list of comma separated question marks
 		for(int i=0; i < values.length; i++) {
-			paramString += "?";
+			paramString.append("?");
 			if(i < values.length - 1) {
-				paramString += ",";
+				paramString.append(",");
 			}
 		}
 
-		return paramString;
+		return paramString.toString();
 	}
 
 	/**
@@ -457,7 +457,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		for(int i=0; i < values.size(); i++) {
 			statement.setObject(i + 1, values.get(i));
 		}
-		return executeStatementAndBuildObjects((SQLEntityBuilder<T>) builder, connection, statement);
+		return executeStatementAndBuildObjects(builder, connection, statement);
 	}
 	
 }

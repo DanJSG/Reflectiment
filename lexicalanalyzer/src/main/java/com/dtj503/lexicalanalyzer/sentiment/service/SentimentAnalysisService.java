@@ -1,8 +1,6 @@
 package com.dtj503.lexicalanalyzer.sentiment.service;
 
-import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
-import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.common.types.*;
 import com.dtj503.lexicalanalyzer.sentiment.parsers.SentimentScoreParser;
@@ -22,7 +20,7 @@ public class SentimentAnalysisService extends AnalysisService {
      * Method for analysing the sentiment from a string of text.
      *
      * @param doc the document to analyse
-     * @return
+     * @return a list of sentiment scored sentences
      */
     public static List<SentimentScoredSentence> analyseSentiment(Document<Token> doc) {
         List<SentimentScoredSentence> scoredSentences = new ArrayList<>();
@@ -32,9 +30,6 @@ public class SentimentAnalysisService extends AnalysisService {
             List<Token> words = sentence.getWords();
             // Get the scores for each word
             List<ScoredWord> scoredWords = fetchWordScores(words, SQLTable.SENTIMENT, "sentiwords", new ScoredWordBuilder());
-
-//            List<ScoredWord> scoredWords = fetchWordScores(words, SQLTable.SENTIMENT, SQLColumn.WORD,
-//                                                           new ScoredWordBuilder());
             // If there are no associated scores for any of the words, then score the sentence 0
             if(scoredWords == null) {
                 scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), null, 0));

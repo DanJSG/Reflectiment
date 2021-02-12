@@ -25,12 +25,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@RestController
 /**
  * Spring REST API controller for handling the text analysis requests.
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
+@RestController
 public class AnalysisController extends RestAPIController {
 
     @PostMapping(value = "/analyse", consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -46,6 +46,10 @@ public class AnalysisController extends RestAPIController {
 
         // Parse the submitted text into a set of word tokens with PoS tags
         Document<Token> document = StringParser.parseText(submission.getText());
+
+        if(document == null) {
+            return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;
+        }
 
         // Open a new thread pool which uses as many logical processors as it can for executing parallel processing
         ExecutorService threadPool = Executors.newWorkStealingPool();
@@ -65,13 +69,13 @@ public class AnalysisController extends RestAPIController {
 
         // Generate the response using the results from the analysis processes, if something failed due to the parallel
         // processing then simply run the operation consecutively
-        AnalysisResponse response = null;
+        AnalysisResponse response;
         try {
             // Calculate the reflection modifier coefficients based on the sentiment and mood scores
             // For more info see paper mentioned in class Javadoc
             List<ReflectionModifier> reflectionModifiers = ReflectionAnalysisService.getReflectionModifiers(
                     sentimentAnalysisProcess.get(), moodAnalysisProcess.get());
-            response = new AnalysisResponse(submission.getText(), sentimentAnalysisProcess.get(),
+            response = new AnalysisResponse(document.getOriginalText(), sentimentAnalysisProcess.get(),
                     moodAnalysisProcess.get(), reflectionAnalysisProcess.get(), reflectionModifiers);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
@@ -89,7 +93,7 @@ public class AnalysisController extends RestAPIController {
             List<ReflectionModifier> reflectionModifiers =
                     ReflectionAnalysisService.getReflectionModifiers(sentimentScoredSentences, moodScoredSentences);
 
-            response = new AnalysisResponse(submission.getText(), sentimentScoredSentences,
+            response = new AnalysisResponse(document.getOriginalText(), sentimentScoredSentences,
                     moodScoredSentences, reflectionScoredSentences, reflectionModifiers);
         }
 

@@ -10,6 +10,6 @@ package com.dtj503.lexicalanalyzer.common.pools;
  */
 public enum PipelineType {
 
-    FAST;
+    FAST
 
 }

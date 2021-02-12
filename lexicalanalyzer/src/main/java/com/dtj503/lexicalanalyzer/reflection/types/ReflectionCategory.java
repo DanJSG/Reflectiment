@@ -25,7 +25,7 @@ public enum ReflectionCategory {
      *
      * @param category the category of the enum instance
      */
-    private ReflectionCategory(String category) {
+    ReflectionCategory(String category) {
         this.category = category;
     }
 
