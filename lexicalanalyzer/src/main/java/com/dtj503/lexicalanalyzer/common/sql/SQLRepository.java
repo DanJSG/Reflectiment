@@ -84,6 +84,34 @@ public interface SQLRepository<T extends SQLEntity> {
 										SQLEntityBuilder<T> builder);
 
 	/**
+	 * Find a limited number of items in a database where a collection of OR clauses are true.
+	 * For example:
+	 * 	... WHERE A OR B OR C OR D OR ...
+	 *
+	 * @param searchColumn the column to search for values
+	 * @param values the values to search for
+	 * @param limit the number of items to fetch
+	 * @param builder the object builder
+	 * @param <V> the search value type
+	 * @return a list of objects found and built from the database results
+	 */
+	public <V> List<T> findWhereEqualOr(SQLColumn searchColumn, List<V> values, int limit, SQLEntityBuilder<T> builder);
+
+	/**
+	 * Find all items in a database where a collection of OR clauses are true.
+	 * For example:
+	 * 	... WHERE A OR B OR C OR D OR ...
+	 *
+	 * @param searchColumn the column to search for values
+	 * @param values the values to search for
+	 * @param builder the object builder
+	 * @param <V> the search value type
+	 * @return a list of objects found and built from the database results
+	 */
+	public <V> List<T> findWhereEqualOr(SQLColumn searchColumn, List<V> values, SQLEntityBuilder<T> builder);
+
+
+	/**
 	 * Find a limited number of items from the database which have specific values within specific columns.
 	 *
 	 * @param searchColumns the SQL table column names to use as the search targets

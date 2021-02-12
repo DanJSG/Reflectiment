@@ -38,6 +38,12 @@ public abstract class AnalysisService {
         return scoredWordMap;
     }
 
+    // TODO sort this out so that this actually works -- need to fix the SQL repo method findWhereEqualOr
+    //      from old method: return repo.findWhereEqualOr(cols, wordStrings, 0, builder);
+    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(List<U> words, SQLTable table, V builder) {
+        return fetchWordScores(words, table, null, builder);
+    }
+
     /**
      * Method for fetching the scores for each word within a list from the database.
      *
@@ -45,22 +51,12 @@ public abstract class AnalysisService {
      * @param <T> the output word type, must inherit from <code>U</code>
      * @param <V> the builder for the fetched objects, must inherit from <code>SQLEntityBuilder</code>
      * @param words the words to fetch the scores for
+     * @param table the SQL database table the scores are in
+     * @param tag the tag the words have in the database table
+     * @param builder the entity builder
      * @return a list of scored word tokens containing the words and associated scores (may contain duplicate words
-     *         where their are multiple scores for a word)
+     *         where there are multiple scores for a word)
      */
-    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(
-            List<U> words, SQLTable table, SQLColumn column, V builder) {
-        List<SQLColumn> cols = new ArrayList<>(words.size());
-        List<String> wordStrings = new ArrayList<>(words.size());
-        for(U word : words) {
-            wordStrings.add(word.getWord());
-            cols.add(column);
-        }
-        // Open the database connection and fetch the scores
-        SQLRepository<T> repo = new MySQLRepository<>(table);
-        return repo.findWhereEqualOr(cols, wordStrings, 0, builder);
-    }
-
     protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(List<U> words, SQLTable table, String tag, V builder) {
         List<String> wordStrings = new ArrayList<>(words.size());
         List<String> tagList = new ArrayList<>(words.size());
