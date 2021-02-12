@@ -43,8 +43,7 @@ public class AnalysisResponse implements JsonObject {
     public String writeValueAsString() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            String json = mapper.writeValueAsString(this);
-            return json;
+            return mapper.writeValueAsString(this);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

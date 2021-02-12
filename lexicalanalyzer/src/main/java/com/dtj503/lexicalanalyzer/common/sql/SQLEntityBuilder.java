@@ -11,6 +11,6 @@ import java.sql.ResultSet;
  */
 public interface SQLEntityBuilder<T extends SQLEntity> {
 
-	public T fromResultSet(ResultSet sqlResults);
+	T fromResultSet(ResultSet sqlResults);
 	
 }

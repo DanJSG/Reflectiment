@@ -1,8 +1,6 @@
 package com.dtj503.lexicalanalyzer.mood.service;
 
-import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
-import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.common.types.*;
 import com.dtj503.lexicalanalyzer.mood.parsers.MoodScoreParser;
@@ -39,8 +37,8 @@ public class MoodAnalysisService extends AnalysisService {
             // Get the tokenized words from the sentence
             List<Token> words = sentence.getWords();
             // Fetch the scores for each word from the database
-            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, SQLColumn.WORD,
-                                                                   new MoodScoredWordBuilder());
+            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, "nrc",
+                    new MoodScoredWordBuilder());
             // If there are no scored words in the database, then score the sentence as 0 for all emotions and continue
             // the loop
             if(moodScoredWords == null) {
@@ -52,7 +50,7 @@ public class MoodAnalysisService extends AnalysisService {
             // Build a map of emotions to sentences of scored words
             Map<String, Sentence<MoodScoredWord>> moodSentenceMap = buildMoodSentenceMap(sentence, scoredWordMap);
             // Fetch and choose the modifier word scores
-            List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, SQLColumn.WORD,
+            List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, "sentiwords",
                                                                    new ScoredWordBuilder());
             modifierScoredWords = pickScoredWord(words, modifierScoredWords);
             // Convert the modifier words into a sentence
@@ -131,7 +129,7 @@ public class MoodAnalysisService extends AnalysisService {
      * Method for picking the emotion with the highest intensity scoring from a map of intensity scored emotions.
      *
      * @param moodScoreMap the map of intensity scored emotions
-     * @return a pair of values, containing a <code>String</code> lable and a <code>Float</code> intensity score
+     * @return a pair of values, containing a <code>String</code> label and a <code>Float</code> intensity score
      */
     private static Pair<String, Float> pickStrongestEmotion(Map<String, Float> moodScoreMap) {
         float highestScore = -1f;

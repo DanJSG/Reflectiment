@@ -32,21 +32,24 @@ public class StringParser {
      * @param text the text to parse
      * @return the document object
      */
-    public static <T extends Token> Document<T> parseText(String text) {
+    public static Document<Token> parseText(String text) {
 
         // Create a CoreNLP pipeline for tokenize, splitting sentences and tagging parts of speech
         StanfordCoreNLP pipeline = PipelinePool.get(PipelineType.FAST);
+
+        if(pipeline == null) {
+            return null;
+        }
 
         // Annotate the input text
         CoreDocument annotatedText = new CoreDocument(text);
         pipeline.annotate(annotatedText);
 
         // Parse the text and extract sentences
-        List<Sentence> sentences = parseSentences(annotatedText.sentences());
+        List<Sentence<Token>> sentences = parseSentences(annotatedText.sentences());
 
         // Generate a document from these sentences
-        return new Document(text, sentences);
-
+        return new Document<>(text, sentences);
     }
 
     /**
@@ -55,13 +58,13 @@ public class StringParser {
      * @param coreSentences list of CoreNLP sentences
      * @return list of tagged sentences
      */
-    private static List<Sentence> parseSentences(List<CoreSentence> coreSentences) {
-        List<Sentence> sentences = new ArrayList<>(coreSentences.size());
+    private static List<Sentence<Token>> parseSentences(List<CoreSentence> coreSentences) {
+        List<Sentence<Token>> sentences = new ArrayList<>(coreSentences.size());
         // Loop through each sentence
         for(CoreSentence sentence : coreSentences) {
             // Parse the words in each sentence and add them to output list
             List<Token> words = parseWords(sentence);
-            sentences.add(new Sentence(sentence.text(), words));
+            sentences.add(new Sentence<>(sentence.text(), words));
         }
         return sentences;
     }

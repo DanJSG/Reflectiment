@@ -10,7 +10,7 @@ import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
  */
 public class ReflectionScoredWord extends ScoredWord {
 
-    private String category;
+    private final String category;
 
     /**
      * Constructor for a scored word which takes the word, part of speech, category of reflection which it represents

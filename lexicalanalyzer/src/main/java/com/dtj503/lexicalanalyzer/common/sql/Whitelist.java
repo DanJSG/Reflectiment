@@ -13,6 +13,6 @@ public interface Whitelist {
 	 * @param value the string to validate
 	 * @return <code>true</code> if the string matches item in whitelist, <code>false</code> otherwise
 	 */
-	public boolean validate(String value);
+	boolean validate(String value);
 	
 }

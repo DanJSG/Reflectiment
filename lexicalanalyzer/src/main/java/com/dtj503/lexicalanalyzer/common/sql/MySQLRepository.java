@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Class for a MySQL or MariaDB database repository. Provides implementations for all basic Create, Read, Update and
@@ -105,17 +102,17 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		return findWhereEqualAnd(Arrays.asList(searchColumn), Arrays.asList(value), limit, builder);
 	}
 
+	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues,
+											  List<U> secondValues, SQLEntityBuilder<T> builder) {
+		return findWhereEqualAndOr(firstColumn, secondColumn, firstValues, secondValues, 0, builder);
+	}
+
 	@Override
-	//TODO REFACTOR 
 	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues,
 											  List<U> secondValues, int limit, SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
-		if(connection == null) {
-			return null;
-		}
-		// Ensure that there are the same number of columns and values
-		if(firstValues.size() != secondValues.size()) {
+		if(connection == null || firstValues.size() != secondValues.size()) {
 			return null;
 		}
 		// Initialise incomplete  SQL query
@@ -125,14 +122,14 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		for(int i = 0; i < firstValues.size(); i++) {
 			andConditions.add("(" + firstColumn.name() + "=?" + " AND " + secondColumn.name() + "=?" + ")");
 		}
-		String queryCondition = "";
+		StringBuilder queryCondition = new StringBuilder();
 		for(int i = 0; i < andConditions.size(); i++)  {
-			queryCondition += andConditions.get(i);
+			queryCondition.append(andConditions.get(i));
 			if(i < andConditions.size() - 1) {
-				queryCondition += " OR ";
+				queryCondition.append(" OR ");
 			}
 		}
-		queryCondition += ";";
+		queryCondition.append(";");
 		String query = baseQuery + queryCondition;
 
 		System.out.println(query);
@@ -147,18 +144,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 				statement.setObject(n + 1, secondValues.get(i));
 			}
 			System.out.println(statement.toString());
-			ResultSet results = statement.executeQuery();
-			connection.commit();
-			ArrayList<T> objectList = new ArrayList<>();
-			while(results.next()) {
-				objectList.add(builder.fromResultSet(results));
-			}
-			if(objectList.size() == 0) {
-				connection.close();
-				return null;
-			}
-			connection.close();
-			return objectList;
+			return executeStatementAndBuildObjects(builder, connection, statement);
 
 		} catch (SQLException e) 	{
 			e.printStackTrace();
@@ -166,17 +152,36 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		}
 	}
 
+	private List<T> executeStatementAndBuildObjects(SQLEntityBuilder<T> builder, Connection connection, PreparedStatement statement) throws SQLException {
+		ResultSet results = statement.executeQuery();
+		connection.commit();
+		ArrayList<T> objectList = new ArrayList<>();
+		while(results.next()) {
+			objectList.add(builder.fromResultSet(results));
+		}
+		if(objectList.size() == 0) {
+			connection.close();
+			return null;
+		}
+		connection.close();
+		return objectList;
+	}
+
+	public <V> List<T> findWhereEqualOr(SQLColumn searchColumn, List<V> values, SQLEntityBuilder<T> builder) {
+		return findWhereEqualOr(searchColumn, values, 0, builder);
+	}
+
+	public <V> List<T> findWhereEqualOr(SQLColumn searchColumn, List<V> values, int limit, SQLEntityBuilder<T> builder) {
+		List<SQLColumn> searchColumns = new ArrayList<>(Collections.nCopies(values.size(), searchColumn));
+		return findWhereEqualOr(searchColumns, values, limit, builder);
+	}
+
 	@Override
-	// TODO REFACTOR
 	public <V> List<T> findWhereEqualOr(List<SQLColumn> searchColumns, List<V> values, int limit,
 										SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
-		if(connection == null) {
-			return null;
-		}
-		// Ensure that there are the same number of columns and values
-		if(searchColumns.size() != values.size()) {
+		if(connection == null || searchColumns.size() != values.size()) {
 			return null;
 		}
 
@@ -184,14 +189,14 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		String baseQuery = "SELECT * FROM `" + tableName + "` WHERE ";
 
 		// Complete SQL query using string concatenation in a loop
-		String queryCondition = "";
+		StringBuilder queryCondition = new StringBuilder();
 		for(int i=0; i < searchColumns.size(); i++) {
-			queryCondition += searchColumns.get(i).name() + "=?";
+			queryCondition.append(searchColumns.get(i).name()).append("=?");
 			if(i < searchColumns.size() - 1) {
-				queryCondition += " OR ";
+				queryCondition.append(" OR ");
 			}
 		}
-		queryCondition += ";";
+		queryCondition.append(";");
 
 		// Concatenate sections of query
 		String query = baseQuery + queryCondition;
@@ -210,11 +215,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 										 SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
-		if(connection == null) {
-			return null;
-		}
-		// Ensure that there are the same number of columns and values
-		if(searchColumns.size() != values.size()) {
+		if(connection == null || searchColumns.size() != values.size()) {
 			return null;
 		}
 
@@ -222,14 +223,14 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		String baseQuery = "SELECT * FROM `" + tableName + "` WHERE ";
 
 		// Complete SQL query using string concatenation in a loop
-		String queryCondition = "";
+		StringBuilder queryCondition = new StringBuilder();
 		for(int i=0; i < searchColumns.size(); i++) {
-			queryCondition += searchColumns.get(i).name() + "=?";
+			queryCondition.append(searchColumns.get(i).name()).append("=?");
 			if(i < searchColumns.size() - 1) {
-				queryCondition += " AND ";
+				queryCondition.append(" AND ");
 			}
 		}
-		queryCondition += ";";
+		queryCondition.append(";");
 
 		// Concatenate sections of query
 		String query = baseQuery + queryCondition;
@@ -309,7 +310,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		}
 
 		// Initialise database query
-		String query = "UPDATE `" + tableName + "` SET ";
+		StringBuilder query = new StringBuilder("UPDATE `" + tableName + "` SET ");
 
 		// If the number of columns and values are not equal then return false
 		if(updateColumns.size() != updateValues.size()) {
@@ -318,14 +319,14 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 
 		// Finish off the SQL query using string concatenation in a loop
 		for(int i=0; i < updateColumns.size(); i++) {
-			query += updateColumns.get(i).name() + "=?";
+			query.append(updateColumns.get(i).name()).append("=?");
 			if(i < updateColumns.size() - 1)
-				query += ", ";
+				query.append(", ");
 		}
-		query += " WHERE " + clauseColumn.name() + "=?;";
+		query.append(" WHERE ").append(clauseColumn.name()).append("=?;");
 		try {
 			// Initialise the prepared SQL statement
-			PreparedStatement statement = connection.prepareStatement(query);
+			PreparedStatement statement = connection.prepareStatement(query.toString());
 
 			// Set all the values to be included in the prepared SQL statement
 			int i = 0;
@@ -378,21 +379,21 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	 */
 	private String stringifyKeys(Map<SQLColumn, Object> valueMap) {
 
-		String keyString = new String();
+		StringBuilder keyString = new StringBuilder();
 
 		// Convert Map keys to an array of SQLColumns
 		SQLColumn[] keys = (SQLColumn[]) valueMap.keySet().toArray();
 
 		// Generate a string with a list of these column names
 		for(int i=0; i< valueMap.keySet().size(); i++) {
-			keyString += keys[i].name();
+			keyString.append(keys[i].name());
 			if(i != valueMap.keySet().size() - 1) {
-				keyString += ",";
+				keyString.append(",");
 			}
 		}
 
 		// Return the string of comma separated column names
-		return keyString;
+		return keyString.toString();
 	}
 
 	/**
@@ -404,17 +405,17 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	 */
 	private String createParamMarkers(Object[] values) {
 
-		String paramString = new String();
+		StringBuilder paramString = new StringBuilder();
 
 		// Iterate through loop for each object and generate a list of comma separated question marks
 		for(int i=0; i < values.length; i++) {
-			paramString += "?";
+			paramString.append("?");
 			if(i < values.length - 1) {
-				paramString += ",";
+				paramString.append(",");
 			}
 		}
 
-		return paramString;
+		return paramString.toString();
 	}
 
 	/**
@@ -456,18 +457,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		for(int i=0; i < values.size(); i++) {
 			statement.setObject(i + 1, values.get(i));
 		}
-		ResultSet results = statement.executeQuery();
-		connection.commit();
-		ArrayList<T> objectList = new ArrayList<>();
-		while(results.next()) {
-			objectList.add(builder.fromResultSet(results));
-		}
-		if(objectList.size() == 0) {
-			connection.close();
-			return null;
-		}
-		connection.close();
-		return objectList;
+		return executeStatementAndBuildObjects(builder, connection, statement);
 	}
 	
 }

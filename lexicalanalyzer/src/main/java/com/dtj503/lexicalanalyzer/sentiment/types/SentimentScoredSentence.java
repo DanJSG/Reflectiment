@@ -16,7 +16,7 @@ import java.util.List;
 public class SentimentScoredSentence extends ScoredSentence<ScoredWord> {
 
     @JsonProperty
-    private String label;
+    private final String label;
 
     public SentimentScoredSentence(String text, List<ScoredWord> words, float score) {
         super(text, words, score);

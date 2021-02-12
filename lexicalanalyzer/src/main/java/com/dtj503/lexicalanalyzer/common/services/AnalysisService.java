@@ -3,12 +3,8 @@ package com.dtj503.lexicalanalyzer.common.services;
 import com.dtj503.lexicalanalyzer.common.sql.*;
 import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.dtj503.lexicalanalyzer.common.types.Token;
-import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Abstract class for an analysis service containing shared methods for sentiment, mood and reflection analysis.
@@ -21,9 +17,10 @@ public abstract class AnalysisService {
      *
      * @param words the words for the keys
      * @param scoredWords the scored words
-     * @return
+     * @return a map of a word to a list of scored word equivalents
      */
-    protected static <T extends ScoredWord> Map<String, List<T>> buildScoredWordMap(List<Token> words, List<T> scoredWords) {
+    protected static <T extends ScoredWord> Map<String, List<T>> buildScoredWordMap(List<Token> words,
+                                                                                    List<T> scoredWords) {
         Map<String, List<T>> scoredWordMap = new HashMap<>();
         // Loop over each word and add it to the map
         for(Token word : words) {
@@ -37,26 +34,46 @@ public abstract class AnalysisService {
     }
 
     /**
-     * Method for fetching the scores for each word within a list from the database.
+     * Method for fetching the scores for each word within a list from the database. Fetches the words for all lexicons.
+     *
+     * @param words the words to fetch the scores for
+     * @param table the SQL database table the scores are in
+     * @param builder the entity builder
+     * @param <V> the builder for the fetched objects, must inherit from <code>SQLEntityBuilder</code>
+     * @param <T> the output word type, must inherit from <code>U</code>
+     * @param <U> the input word type, must inherit from <code>token</code>
+     * @return a list of scored word objects
+     */
+    protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(
+            List<U> words, SQLTable table, V builder) {
+        return fetchWordScores(words, table, null, builder);
+    }
+
+    /**
+     * Method for fetching the scores for each word within a list from the database. Only fetches words for specifically
+     * tagged lexicons.
      *
      * @param <U> the input word type, must inherit from <code>token</code>
      * @param <T> the output word type, must inherit from <code>U</code>
      * @param <V> the builder for the fetched objects, must inherit from <code>SQLEntityBuilder</code>
      * @param words the words to fetch the scores for
+     * @param table the SQL database table the scores are in
+     * @param tag the tag the words have in the database table
+     * @param builder the entity builder
      * @return a list of scored word tokens containing the words and associated scores (may contain duplicate words
-     *         where their are multiple scores for a word)
+     *         where there are multiple scores for a word)
      */
     protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(
-            List<U> words, SQLTable table, SQLColumn column, V builder) {
-        List<SQLColumn> cols = new ArrayList<>(words.size());
+            List<U> words, SQLTable table, String tag, V builder) {
         List<String> wordStrings = new ArrayList<>(words.size());
-        for(U word : words) {
-            wordStrings.add(word.getWord());
-            cols.add(column);
-        }
-        // Open the database connection and fetch the scores
+        words.forEach(word -> wordStrings.add(word.getWord()));
+        List<String> tagList = new ArrayList<>(Collections.nCopies(words.size(), tag));
         SQLRepository<T> repo = new MySQLRepository<>(table);
-        return repo.findWhereEqualOr(cols, wordStrings, 0, builder);
+        if(tag == null) {
+            return repo.findWhereEqualOr(SQLColumn.WORD, words, builder);
+        } else {
+            return repo.findWhereEqualAndOr(SQLColumn.WORD, SQLColumn.TAG, wordStrings, tagList, builder);
+        }
     }
 
     /**

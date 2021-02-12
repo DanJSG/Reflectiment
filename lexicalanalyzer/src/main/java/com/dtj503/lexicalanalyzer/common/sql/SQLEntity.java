@@ -13,6 +13,6 @@ public interface SQLEntity {
 	 * Method for mapping a SQL database entity to a Java Map, used for inserting items into the database.
 	 * @return a Map representing the entity
 	 */
-	public Map<SQLColumn, Object> toSqlMap();
+	Map<SQLColumn, Object> toSqlMap();
 	
 }

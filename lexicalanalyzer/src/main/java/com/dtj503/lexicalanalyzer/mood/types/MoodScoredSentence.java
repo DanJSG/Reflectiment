@@ -17,11 +17,11 @@ public class MoodScoredSentence extends ScoredSentence<MoodScoredWord> {
 
     @JsonProperty("label")
     // Label for the strongest emotion
-    private String strongestEmotionLabel;
+    private final String strongestEmotionLabel;
 
     @JsonProperty("mixedScores")
     // The scores for each emotion (anger, fear, sadness, joy)
-    private Map<String, Float> moodScoreMap;
+    private final Map<String, Float> moodScoreMap;
 
     /**
      * Constructor which stores the original sentence text, the scored words, the String label of the strongest emotion,

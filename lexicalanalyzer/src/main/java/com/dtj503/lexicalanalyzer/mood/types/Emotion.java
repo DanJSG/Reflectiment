@@ -9,7 +9,7 @@ public enum Emotion {
 
     private final String emotion;
 
-    private Emotion(String emotion) {
+    Emotion(String emotion) {
         this.emotion = emotion;
     }
 

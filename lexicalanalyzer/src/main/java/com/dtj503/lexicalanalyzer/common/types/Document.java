@@ -9,8 +9,8 @@ import java.util.List;
  */
 public class Document<T extends Token> {
 
-    private String originalText;
-    private List<Sentence<T>> sentences;
+    private final String originalText;
+    private final List<Sentence<T>> sentences;
 
     public Document(String text, List<Sentence<T>> sentences) {
         this.originalText = text;

@@ -14,7 +14,7 @@ import java.util.Map;
 public class MoodScoredWord extends ScoredWord {
 
     // The label for the emotion
-    private String emotion;
+    private final String emotion;
 
     /**
      * Constructor which stores the word, part of speech tag, emotion and the score.

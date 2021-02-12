@@ -4,14 +4,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-@RequestMapping("/api/v1/")
 /**
  * Abstract class for a Spring Boot REST Controller, containing common HTTP responses. Maps every inheriting class
  * endpoints underneath /api/v1/.
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
+@RequestMapping("/api/v1/")
 public abstract class RestAPIController {
 
     // Set of common HTTP response constants
