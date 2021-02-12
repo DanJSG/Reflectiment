@@ -3,6 +3,7 @@ package com.dtj503.lexicalanalyzer.sentiment.types;
 import com.dtj503.lexicalanalyzer.common.types.ScoredSentence;
 import com.dtj503.lexicalanalyzer.common.types.ScoredWord;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
+@JsonPropertyOrder({"score", "label"})
 public class SentimentScoredSentence extends ScoredSentence<ScoredWord> {
 
     @JsonProperty

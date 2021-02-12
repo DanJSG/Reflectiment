@@ -1,16 +1,14 @@
 package com.dtj503.lexicalanalyzer.reflection.service;
 
-import com.dtj503.lexicalanalyzer.common.parsers.StringParser;
 import com.dtj503.lexicalanalyzer.common.services.AnalysisService;
 import com.dtj503.lexicalanalyzer.common.sql.SQLColumn;
 import com.dtj503.lexicalanalyzer.common.sql.SQLTable;
 import com.dtj503.lexicalanalyzer.common.types.*;
 import com.dtj503.lexicalanalyzer.common.utils.ListMath;
+import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
 import com.dtj503.lexicalanalyzer.reflection.parsers.ReflectionScoreParser;
-import com.dtj503.lexicalanalyzer.reflection.types.ReflectionCategory;
-import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
-import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredWord;
-import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredWordBuilder;
+import com.dtj503.lexicalanalyzer.reflection.types.*;
+import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
 
 import java.util.*;
 
@@ -76,6 +74,27 @@ public class ReflectionAnalysisService extends AnalysisService {
 
         return scoredSentences;
 
+    }
+
+    /**
+     *
+     * @param sentimentScoredSentences
+     * @param moodScoredSentences
+     * @return
+     */
+    public static List<ReflectionModifier> getReflectionModifiers(List<SentimentScoredSentence> sentimentScoredSentences,
+                                                                  List<MoodScoredSentence> moodScoredSentences) {
+        List<ReflectionModifier> modifiers = new ArrayList<>();
+        for(int i = 0; i < sentimentScoredSentences.size(); i++) {
+            float sentimentScore = sentimentScoredSentences.get(i).getScore();
+            float moodScore = moodScoredSentences.get(i).getScore();
+            float sentimentMultiplier = sentimentScore > 0 ? 1f : 0.315f;
+            float moodMultiplier = sentimentScore > 0 ? 1f : 0.5f;
+            float sentimentModifier = 1f + ((0.704f * Math.abs(sentimentScore)) * sentimentMultiplier);
+            float moodModifier = (1f + ((0.129f * Math.abs(moodScore)) * moodMultiplier));
+            modifiers.add(new ReflectionModifier(sentimentModifier, moodModifier));
+        }
+        return modifiers;
     }
 
     /**

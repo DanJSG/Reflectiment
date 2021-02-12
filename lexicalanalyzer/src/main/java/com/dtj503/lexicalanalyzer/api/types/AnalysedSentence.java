@@ -1,9 +1,11 @@
 package com.dtj503.lexicalanalyzer.api.types;
 
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredSentence;
+import com.dtj503.lexicalanalyzer.reflection.types.ReflectionModifier;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 import com.dtj503.lexicalanalyzer.sentiment.types.SentimentScoredSentence;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Class for a fully analysed sentence, containing a scored sentence for sentiment, mood and reflection, along with
@@ -11,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
+@JsonPropertyOrder({"sentence", "sentiment", "mood", "reflection", "reflectionModifier"})
 public class AnalysedSentence {
 
     @JsonProperty("mood")
@@ -26,7 +29,7 @@ public class AnalysedSentence {
     private final String text;
 
     @JsonProperty("reflectionModifier")
-    private final float reflectionModifier;
+    private final ReflectionModifier reflectionModifiers;
 
     /**
      * Constructor for a fully analysed sentence.
@@ -35,12 +38,12 @@ public class AnalysedSentence {
      * @param moodScoredSentence the mood scoring of the sentence
      */
     public AnalysedSentence(SentimentScoredSentence sentimentScoredSentence, MoodScoredSentence moodScoredSentence,
-                            ReflectionScoredSentence reflectionScoredSentence, float reflectionModifier) {
+                            ReflectionScoredSentence reflectionScoredSentence, ReflectionModifier reflectionModifier) {
         this.sentimentScoredSentence = sentimentScoredSentence;
         this.moodScoredSentence = moodScoredSentence;
         this.reflectionScoredSentence = reflectionScoredSentence;
         this.text = sentimentScoredSentence.getOriginalText();
-        this.reflectionModifier = reflectionModifier;
+        this.reflectionModifiers = reflectionModifier;
     }
 
 }
