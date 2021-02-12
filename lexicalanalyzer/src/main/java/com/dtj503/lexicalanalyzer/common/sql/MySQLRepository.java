@@ -102,8 +102,12 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		return findWhereEqualAnd(Arrays.asList(searchColumn), Arrays.asList(value), limit, builder);
 	}
 
+	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues,
+											  List<U> secondValues, SQLEntityBuilder<T> builder) {
+		return findWhereEqualAndOr(firstColumn, secondColumn, firstValues, secondValues, 0, builder);
+	}
+
 	@Override
-	//TODO REFACTOR 
 	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues,
 											  List<U> secondValues, int limit, SQLEntityBuilder<T> builder) {
 		// Fetch connection and return null if it cannot be fetched

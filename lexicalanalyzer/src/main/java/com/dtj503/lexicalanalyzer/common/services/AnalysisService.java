@@ -7,10 +7,7 @@ import com.dtj503.lexicalanalyzer.common.types.Word;
 import com.dtj503.lexicalanalyzer.mood.types.MoodScoredWord;
 import com.dtj503.lexicalanalyzer.reflection.types.ReflectionScoredSentence;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Abstract class for an analysis service containing shared methods for sentiment, mood and reflection analysis.
@@ -38,14 +35,24 @@ public abstract class AnalysisService {
         return scoredWordMap;
     }
 
-    // TODO sort this out so that this actually works -- need to fix the SQL repo method findWhereEqualOr
-    //      from old method: return repo.findWhereEqualOr(cols, wordStrings, 0, builder);
+    /**
+     * Method for fetching the scores for each word within a list from the database. Fetches the words for all lexicons.
+     *
+     * @param words the words to fetch the scores for
+     * @param table the SQL database table the scores are in
+     * @param builder the entity builder
+     * @param <V> the builder for the fetched objects, must inherit from <code>SQLEntityBuilder</code>
+     * @param <T> the output word type, must inherit from <code>U</code>
+     * @param <U> the input word type, must inherit from <code>token</code>
+     * @return
+     */
     protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(List<U> words, SQLTable table, V builder) {
         return fetchWordScores(words, table, null, builder);
     }
 
     /**
-     * Method for fetching the scores for each word within a list from the database.
+     * Method for fetching the scores for each word within a list from the database. Only fetches words for specifically
+     * tagged lexicons.
      *
      * @param <U> the input word type, must inherit from <code>token</code>
      * @param <T> the output word type, must inherit from <code>U</code>
@@ -59,13 +66,14 @@ public abstract class AnalysisService {
      */
     protected static <V extends SQLEntityBuilder<T>, T extends U, U extends Token> List<T> fetchWordScores(List<U> words, SQLTable table, String tag, V builder) {
         List<String> wordStrings = new ArrayList<>(words.size());
-        List<String> tagList = new ArrayList<>(words.size());
-        for(U word : words) {
-            wordStrings.add(word.getWord());
-            tagList.add(tag);
-        }
+        words.forEach(word -> wordStrings.add(word.getWord()));
+        List<String> tagList = new ArrayList<>(Collections.nCopies(words.size(), tag));
         SQLRepository<T> repo = new MySQLRepository<>(table);
-        return repo.findWhereEqualAndOr(SQLColumn.WORD, SQLColumn.TAG, wordStrings, tagList, 0, builder);
+        if(tag == null) {
+            return repo.findWhereEqualOr(SQLColumn.WORD, words, builder);
+        } else {
+            return repo.findWhereEqualAndOr(SQLColumn.WORD, SQLColumn.TAG, wordStrings, tagList, builder);
+        }
     }
 
     /**

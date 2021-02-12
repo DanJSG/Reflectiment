@@ -69,6 +69,23 @@ public interface SQLRepository<T extends SQLEntity> {
 											  List<U> secondValues, int limit, SQLEntityBuilder<T> builder);
 
 	/**
+	 * Find all items in a database where a collection of AND clauses are non-exclusively true.
+	 * For example:
+	 * 	... WHERE (A AND B) OR (C AND D) OR ...
+	 *
+	 * @param firstColumn the first column to search for values
+	 * @param secondColumn the second column to search for values
+	 * @param firstValues the first column's search values
+	 * @param secondValues the second column's search values
+	 * @param builder the object builder
+	 * @param <V> the first search value type
+	 * @param <U> the second search value type
+	 * @return a list of objects found and built from the database results
+	 */
+	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues,
+											  List<U> secondValues, SQLEntityBuilder<T> builder);
+
+	/**
 	 * Find a limited number of items in a database where a collection of OR clauses are true.
 	 * For example:
 	 * 	... WHERE A OR B OR C OR D OR ...
