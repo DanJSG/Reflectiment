@@ -36,24 +36,31 @@ public class AnalysisController extends RestAPIController {
     @PostMapping(value = "/analyse", consumes = MediaType.APPLICATION_JSON_VALUE,
                  produces = MediaType.APPLICATION_JSON_VALUE)
     public static ResponseEntity<String> analyse(@RequestBody TextSubmission submission) {
-
         if(submission == null) {
             return BAD_REQUEST_HTTP_RESPONSE;
         }
-
         System.out.println("Received request. JSON Received: ");
         System.out.println(submission.writeValueAsString());
-
         // Parse the submitted text into a set of word tokens with PoS tags
         Document<Token> document = StringParser.parseText(submission.getText());
-
         if(document == null) {
             return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;
         }
+        // Generate the response using the results from the analysis processes, if something failed due to the parallel
+        // processing then simply run the operation consecutively
+        AnalysisResponse response;
+        try {
+            response = analyseConcurrently(document);
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            response = analyseConsecutively(document);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
+    }
 
+    private static AnalysisResponse analyseConcurrently(Document<Token> document) throws ExecutionException, InterruptedException {
         // Open a new thread pool which uses as many logical processors as it can for executing parallel processing
         ExecutorService threadPool = Executors.newWorkStealingPool();
-
         // Execute the reflection, mood and sentiment analysis processes on independent threads to improve performance.
         // This appears to have a significant impact on longer pieces of text. However, this optimisation will only work
         // with multiple logical CPU cores, otherwise it will have no impact. When implementing this using 6 logical CPU
@@ -66,39 +73,28 @@ public class AnalysisController extends RestAPIController {
                 CompletableFuture.supplyAsync(() -> ReflectionAnalysisService.analyseReflection(document), threadPool);
         // Wait for all processes to finish executing without any blocking the other
         CompletableFuture.allOf(reflectionAnalysisProcess, moodAnalysisProcess, sentimentAnalysisProcess).join();
+        // Calculate the reflection modifier coefficients based on the sentiment and mood scores
+        // For more info see paper mentioned in class Javadoc
+        List<ReflectionModifier> reflectionModifiers = ReflectionAnalysisService.getReflectionModifiers(
+                sentimentAnalysisProcess.get(), moodAnalysisProcess.get());
+        return new AnalysisResponse(document.getOriginalText(), sentimentAnalysisProcess.get(),
+                moodAnalysisProcess.get(), reflectionAnalysisProcess.get(), reflectionModifiers);
+    }
 
-        // Generate the response using the results from the analysis processes, if something failed due to the parallel
-        // processing then simply run the operation consecutively
+    private static AnalysisResponse analyseConsecutively(Document<Token> document) {
         AnalysisResponse response;
-        try {
-            // Calculate the reflection modifier coefficients based on the sentiment and mood scores
-            // For more info see paper mentioned in class Javadoc
-            List<ReflectionModifier> reflectionModifiers = ReflectionAnalysisService.getReflectionModifiers(
-                    sentimentAnalysisProcess.get(), moodAnalysisProcess.get());
-            response = new AnalysisResponse(document.getOriginalText(), sentimentAnalysisProcess.get(),
-                    moodAnalysisProcess.get(), reflectionAnalysisProcess.get(), reflectionModifiers);
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-
-            // Run process consecutively in case of failure
-            List<SentimentScoredSentence> sentimentScoredSentences =
-                    SentimentAnalysisService.analyseSentiment(document);
-
-            List<MoodScoredSentence> moodScoredSentences =
-                    MoodAnalysisService.analyseMood(document);
-
-            List<ReflectionScoredSentence> reflectionScoredSentences =
-                    ReflectionAnalysisService.analyseReflection(document);
-
-            List<ReflectionModifier> reflectionModifiers =
-                    ReflectionAnalysisService.getReflectionModifiers(sentimentScoredSentences, moodScoredSentences);
-
-            response = new AnalysisResponse(document.getOriginalText(), sentimentScoredSentences,
-                    moodScoredSentences, reflectionScoredSentences, reflectionModifiers);
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
-
+        // Run process consecutively in case of failure
+        List<SentimentScoredSentence> sentimentScoredSentences =
+                SentimentAnalysisService.analyseSentiment(document);
+        List<MoodScoredSentence> moodScoredSentences =
+                MoodAnalysisService.analyseMood(document);
+        List<ReflectionScoredSentence> reflectionScoredSentences =
+                ReflectionAnalysisService.analyseReflection(document);
+        List<ReflectionModifier> reflectionModifiers =
+                ReflectionAnalysisService.getReflectionModifiers(sentimentScoredSentences, moodScoredSentences);
+        response = new AnalysisResponse(document.getOriginalText(), sentimentScoredSentences,
+                moodScoredSentences, reflectionScoredSentences, reflectionModifiers);
+        return response;
     }
 
 }
