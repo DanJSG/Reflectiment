@@ -13,7 +13,7 @@ def main():
 
     sql = "INSERT INTO reflection (word, pos, category, tag, score) VALUES (%s, %s, %s, %s, %s)"
 
-    lexicon_file = open("./scripts/Reflection Lexicon/output.txt", "r")
+    lexicon_file = open("./scripts/Reflection Lexicon/output_extended.txt", "r")
 
     pos_dict = {
         "v": 0,
@@ -37,7 +37,7 @@ def main():
         category = props[2]
         score = float(props[3].strip("\n"))
 
-        sql_values = (word, pos, category, "ullman", score)
+        sql_values = (word, pos, category, "ullman_ext", score)
         cursor.execute(sql, sql_values)
 
         if count == 250:

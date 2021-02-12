@@ -30,7 +30,7 @@ def main():
         synonyms = wn.synsets(word)
         for synonym in synonyms:
 
-            if synonym.pos() != pos or synonym.lemmas()[0].name() == word:
+            if synonym.pos() != pos or synonym.lemmas()[0].name() == word or "_" in synonym.lemmas()[0].name():
                 continue
             if {synonym.lemmas()[0].name(), synonym.pos(), category} in added_word_list:
                 print("Matching existing word! (synonym)")
@@ -38,18 +38,18 @@ def main():
             added_word_list.append({synonym.lemmas()[0].name(), synonym.pos(), category})
             output_file.write(synonym.lemmas()[0].name() + "\t" + synonym.pos() + "\t" + category + "\t" + str(round(shifted_score * 0.75, 4)) + "\n")
 
-            hyponyms = synonym.hyponyms()
-            for hyponym in hyponyms:
-                # print(hyponym.pos() + ", " + hyponym.lemmas()[0].name() + ", " + category)
+            # hyponyms = synonym.hyponyms()
+            # for hyponym in hyponyms:
+            #     # print(hyponym.pos() + ", " + hyponym.lemmas()[0].name() + ", " + category)
 
-                if hyponym.pos() != pos or hyponym.lemmas()[0].name() == word or "_" in hyponym.lemmas()[0].name():
-                    continue
-                if {hyponym.lemmas()[0].name(), hyponym.pos(), category} in added_word_list:
-                    print("Matching existing word! (hyponym)")
-                    continue
-                added_word_list.append({hyponym.lemmas()[0].name(), hyponym.pos(), category})
+            #     if hyponym.pos() != pos or hyponym.lemmas()[0].name() == word or "_" in hyponym.lemmas()[0].name():
+            #         continue
+            #     if {hyponym.lemmas()[0].name(), hyponym.pos(), category} in added_word_list:
+            #         print("Matching existing word! (hyponym)")
+            #         continue
+            #     added_word_list.append({hyponym.lemmas()[0].name(), hyponym.pos(), category})
 
-                output_file.write(hyponym.lemmas()[0].name() + "\t" + hyponym.pos() + "\t" + category + "\t" + str(round(shifted_score * 0.625 * 0.75, 4)) + "\n")
+            #     output_file.write(hyponym.lemmas()[0].name() + "\t" + hyponym.pos() + "\t" + category + "\t" + str(round(shifted_score * 0.625 * 0.75, 4)) + "\n")
 
 
         hyponyms = synonyms[0].hyponyms()
