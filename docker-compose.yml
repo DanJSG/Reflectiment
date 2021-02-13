@@ -1,15 +1,25 @@
 version: '3'
 
 services:
+  
   lexicalanalyzer:
     build: ./lexicalanalyzer
     ports:
       - "8081:8080"
     networks:
       - primary
+    depends_on: 
+      - db
     env_file: ./lexicalanalyzer.env
     volumes:
       - maven-cache:/root/.m2
+
+  mlanalyzer:
+    build: ./mlanalyzer
+    ports: 
+      - "8082:8080"
+    networks:
+      - primary
 
   db:
     image: mariadb:10.5.8
@@ -22,6 +32,7 @@ services:
     networks:
       - primary
     command: --lower_case_table_names=1
+
 
 # Stuff below here is from another project's Dockerfile - just leaving here for easy reference for now
 #  sql:
