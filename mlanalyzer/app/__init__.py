@@ -6,8 +6,6 @@ def analyze_document():
     body = request.get_json()
     text = body["text"]
     doc = Document(text)
-    for sentence in doc.sentences:
-        print(sentence.vectors)
     return jsonify({'success': 'true'})
 
 def get_app():
