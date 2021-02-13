@@ -20,4 +20,3 @@ class Sentence:
                 except:
                     vectors.append(rand(300))
         return vectors
-

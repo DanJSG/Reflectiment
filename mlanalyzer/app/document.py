@@ -8,4 +8,3 @@ class Document:
         self.sentences: list = []
         for sentence in nltk.sent_tokenize(text):
             self.sentences.append(Sentence(sentence))
-            
