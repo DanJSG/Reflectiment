@@ -20,7 +20,7 @@ def dataset_random_accuracy(filepath, num_categories):
     return acc
 
 filepath = "./processed_datasets/tri_train_y.txt"
-num_categories = 5
+num_categories = 3
 
 if __name__ == '__main__':
     print(dataset_random_accuracy(filepath, num_categories))

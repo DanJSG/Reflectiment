@@ -23,9 +23,9 @@ def get_tweet_sentiment(line, digits_regex, at_regex, url_regex):
     return [tweet, sentiment]
 
 def process_dataset():
-    data_file = open("./sentiment140/trainingset.dataset.csv", "r")
-    train_x_file = open("./processed_datasets/sentiment140/tri_train_x.txt", "w+")
-    train_y_file = open("./processed_datasets/sentiment140/tri_train_y.txt", "w+")
+    data_file = open("./dataset_processing/sentiment140/validationset.dataset.csv", "r")
+    train_x_file = open("./processed_datasets/sentiment140/tri_validation_x.txt", "w+")
+    train_y_file = open("./processed_datasets/sentiment140/tri_validation_y.txt", "w+")
     digits_regex = re.compile(r"\d+")
     at_regex = re.compile(r"@.[a-zA-Z0-9\_]*")
     url_regex = re.compile(r"http://.[a-zA-Z\.\/0-9]*|https://.[a-zA-Z\.\/0-9]*")

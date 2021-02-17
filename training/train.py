@@ -63,7 +63,9 @@ def preprocess_sentences(word2index, sentences):
 # The index of the word 
 pad_index = 0
 
-# Load the training data (tokenized sentences and )
+print("Loading training and validation data...")
+
+# Load the training data (tokenized sentences and labels)
 x_train, y_train = get_training_data()
 x_validation, y_validation = get_validation_data()
 
@@ -71,12 +73,20 @@ x_validation, y_validation = get_validation_data()
 y_train = tf.constant(y_train)
 y_validation = tf.constant(y_validation)
 
+print("Loaded dataset.")
+print("Loading word embedding word to index mappings...")
+
 # Word to index and index to word dictionary mappings 
 word2index, index2word = load_word_mappings()
+
+print("Loaded mappings.")
+print("Converting tokenized words into word embedding indexes and padding sentence lengths.")
 
 # Pad the data to a fixed length and convert words to indexes
 x_train_padded, max_sentence_len = preprocess_sentences(word2index, x_train)
 x_validation_padded, _ = preprocess_sentences(word2index, x_validation)
+
+print("Data processed.")
 
 # Set the log directory and create the tensorboard callback for viewing analytics
 log_dir = "./logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -135,6 +145,8 @@ tb_callback = tf.keras.callbacks.TensorBoard(histogram_freq=1, log_dir=log_dir)
 # model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
 # model.fit(x=x_train_padded, y=y_train, batch_size=128, epochs=20, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[tb_callback])
 
+print("Generating model...")
+
 # Model 4 - Conv-LSTM -> Best performing
 model = Sequential()
 model.add(Word2Vec(max_sentence_len))
@@ -159,4 +171,10 @@ model.add(Dropout(0.25))
 model.add(Dense(3, activation='softmax'))
 optimizer = tf.keras.optimizers.Adam(lr=1e-4)
 model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-model.fit(x=x_train_padded, y=y_train, batch_size=256, epochs=20, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[tb_callback])
+
+print("Model built.")
+print("Beginning training...")
+
+model.fit(x=x_train_padded, y=y_train, batch_size=256, epochs=10, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[tb_callback])
+
+print("Training complete.")
