@@ -1,0 +1,9 @@
+weights_file
+old/
+old_processed_datasets/
+processed_datasets/
+corpus/
+/venv/
+*.bin
+logs/
+*.dataset.*
