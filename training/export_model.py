@@ -1,3 +1,6 @@
+## File for exporting the neural network models to JSON configuration. For some reason doing the same thing 
+## in the main training file throws an error.
+
 from keras.models import Sequential
 from keras.layers import LSTM, Dropout, Dense, Embedding, BatchNormalization, Conv1D, AveragePooling1D
 from keras import regularizers

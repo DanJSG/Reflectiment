@@ -91,6 +91,11 @@ tb_callback = tf.keras.callbacks.TensorBoard(histogram_freq=1, log_dir=log_dir)
 print("Generating model...")
 
 # Model 4 - Conv-LSTM -> Best performing
+# This is a Deep Convolutional Long Short Term Memory model. It uses two 1D convolution layers to
+# extract grouped (but ordered) sentence features, then uses this as the input to an LSTM layer which
+# helps to contextualize each of these features. The output of this then proceeds through 5 fully
+# connected layers before arriving at an output layer. Dropout and an L2 regularizer are used to 
+# help avoid the model from overfitting.
 model = Sequential()
 model.add(Word2Vec(max_sentence_len))
 model.add(Conv1D(64, 3, kernel_regularizer=regularizers.l2(1e-4)))
@@ -124,6 +129,7 @@ os.mkdir(f"./models/binary/{timestamp_str}")
 
 weights_filepath = f"./models/binary/{timestamp_str}/C-LSTM.hdf5"
 
+# Callback used to store the model as training goes along. Stores only the best performing model.
 model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=weights_filepath,
     save_weights_only=True,
@@ -132,6 +138,7 @@ model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     save_best_only=True
 )
 
+# Train the model to the training set and validate against the validation set.
 model.fit(x=x_train_padded, y=y_train, batch_size=32, epochs=50, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[model_checkpoint_callback])
 
 print("Training complete.")

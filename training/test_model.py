@@ -1,3 +1,5 @@
+## Script for testing the accuracy of the saved model against the set of test data.
+
 import json
 import tensorflow as tf
 from keras.preprocessing.sequence import pad_sequences
