@@ -9,3 +9,7 @@
 
 ### Offline development project ###
 /offlinedevelopment/
+
+### Google Drive Sync ###
+.tmp.drivedownload/
+

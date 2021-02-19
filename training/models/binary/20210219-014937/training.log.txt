@@ -1,0 +1,197 @@
+2021-02-19 01:36:57.183823: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+Loading training and validation data...
+Loaded dataset.
+Loading word embedding word to index mappings...
+Loaded mappings.
+Converting tokenized words into word embedding indexes and padding sentence lengths.
+2021-02-19 01:44:01.011958: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-19 01:44:01.025606: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library nvcuda.dll
+2021-02-19 01:44:01.087155: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-02-19 01:44:01.096947: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-19 01:44:01.152500: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-19 01:44:01.158328: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-19 01:44:01.193978: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-19 01:44:01.204907: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-19 01:44:01.231263: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-19 01:44:01.259003: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-19 01:44:01.264983: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-19 01:44:01.282199: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-19 01:44:01.375977: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-02-19 01:44:01.406070: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-02-19 01:44:01.416201: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-19 01:44:01.421441: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-19 01:44:01.425949: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-19 01:44:01.430906: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-19 01:44:01.436581: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-19 01:44:01.441675: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-19 01:44:01.446306: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-19 01:44:01.450615: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-19 01:44:01.454944: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-19 01:44:05.874882: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-02-19 01:44:05.881997: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0
+2021-02-19 01:44:05.885506: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N
+2021-02-19 01:44:05.918913: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8678 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2021-02-19 01:44:05.950852: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+Data processed.
+2021-02-19 01:48:49.638296: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-02-19 01:48:49.643227: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-02-19 01:48:49.679346: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1365] Profiler found 1 GPUs
+2021-02-19 01:48:49.710055: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'cupti64_110.dll'; dlerror: cupti64_110.dll not found
+2021-02-19 01:48:49.722646: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'cupti.dll'; dlerror: cupti.dll not found
+2021-02-19 01:48:49.750889: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI could not be loaded or symbol could not be found.
+2021-02-19 01:48:49.780749: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+2021-02-19 01:48:49.784465: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1496] function cupti_interface_->Finalize()failed with error CUPTI could not be loaded or symbol could not be found.
+Generating model...
+Weight shape: (3000000, 300)
+2021-02-19 01:49:14.318441: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-19 01:49:16.527083: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-19 01:49:24.600536: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+Model built.
+Beginning training...
+2021-02-19 02:03:46.644217: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+Epoch 1/50
+2021-02-19 02:03:51.907174: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-19 02:03:52.706296: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-19 02:03:58.199393: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-19 02:03:59.816706: I tensorflow/core/platform/windows/subprocess.cc:308] SubProcess ended with return code: 0
+
+2021-02-19 02:03:59.927396: I tensorflow/core/platform/windows/subprocess.cc:308] SubProcess ended with return code: 0
+
+45774/45774 [==============================] - ETA: 0s - loss: 0.5063 - accuracy: 0.7799WARNING:tensorflow:Model was constructed with shape (None, 52) for input KerasTensor(type_spec=TensorSpec(shape=(None, 52), dtype=tf.float32, name='embedding_input'), name='embedding_input', description="created by layer 'embedding_input'"), but it was called on an input with incompatible shape (None, 48).
+45774/45774 [==============================] - 534s 11ms/step - loss: 0.5063 - accuracy: 0.7799 - val_loss: 0.4706 - val_accuracy: 0.8008
+2021-02-19 02:12:42.317316: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-19 02:12:44.914939: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+Epoch 2/50
+45774/45774 [==============================] - 506s 11ms/step - loss: 0.3387 - accuracy: 0.8660 - val_loss: 0.4852 - val_accuracy: 0.8086
+Epoch 3/50
+45774/45774 [==============================] - 491s 11ms/step - loss: 0.3019 - accuracy: 0.8810 - val_loss: 0.4827 - val_accuracy: 0.8116
+Epoch 4/50
+45774/45774 [==============================] - 488s 11ms/step - loss: 0.2830 - accuracy: 0.8896 - val_loss: 0.4948 - val_accuracy: 0.8089
+Epoch 5/50
+45774/45774 [==============================] - 500s 11ms/step - loss: 0.2701 - accuracy: 0.8952 - val_loss: 0.5106 - val_accuracy: 0.8097
+Epoch 6/50
+45774/45774 [==============================] - 490s 11ms/step - loss: 0.2609 - accuracy: 0.8997 - val_loss: 0.5104 - val_accuracy: 0.8081
+Epoch 7/50
+45774/45774 [==============================] - 507s 11ms/step - loss: 0.2539 - accuracy: 0.9032 - val_loss: 0.5101 - val_accuracy: 0.8073
+Epoch 8/50
+45774/45774 [==============================] - 508s 11ms/step - loss: 0.2483 - accuracy: 0.9051 - val_loss: 0.5034 - val_accuracy: 0.8098
+Epoch 9/50
+45774/45774 [==============================] - 486s 11ms/step - loss: 0.2446 - accuracy: 0.9066 - val_loss: 0.5417 - val_accuracy: 0.8079
+Epoch 10/50
+45774/45774 [==============================] - 500s 11ms/step - loss: 0.2414 - accuracy: 0.9085 - val_loss: 0.5293 - val_accuracy: 0.8101
+Epoch 11/50
+45774/45774 [==============================] - 503s 11ms/step - loss: 0.2375 - accuracy: 0.9103 - val_loss: 0.5343 - val_accuracy: 0.8111
+Epoch 12/50
+45774/45774 [==============================] - 498s 11ms/step - loss: 0.2350 - accuracy: 0.9120 - val_loss: 0.5381 - val_accuracy: 0.8089
+Epoch 13/50
+45774/45774 [==============================] - 487s 11ms/step - loss: 0.2320 - accuracy: 0.9131 - val_loss: 0.5481 - val_accuracy: 0.8103
+Epoch 14/50
+45774/45774 [==============================] - 501s 11ms/step - loss: 0.2295 - accuracy: 0.9144 - val_loss: 0.5672 - val_accuracy: 0.8069
+Epoch 15/50
+45774/45774 [==============================] - 484s 11ms/step - loss: 0.2275 - accuracy: 0.9157 - val_loss: 0.5558 - val_accuracy: 0.8107
+Epoch 16/50
+45774/45774 [==============================] - 488s 11ms/step - loss: 0.2265 - accuracy: 0.9161 - val_loss: 0.5302 - val_accuracy: 0.8090
+Epoch 17/50
+45774/45774 [==============================] - 506s 11ms/step - loss: 0.2251 - accuracy: 0.9166 - val_loss: 0.5745 - val_accuracy: 0.8105
+Epoch 18/50
+45774/45774 [==============================] - 500s 11ms/step - loss: 0.2230 - accuracy: 0.9171 - val_loss: 0.5587 - val_accuracy: 0.8103
+Epoch 19/50
+45774/45774 [==============================] - 503s 11ms/step - loss: 0.2221 - accuracy: 0.9183 - val_loss: 0.5708 - val_accuracy: 0.8092
+Epoch 20/50
+45774/45774 [==============================] - 485s 11ms/step - loss: 0.2208 - accuracy: 0.9187 - val_loss: 0.5969 - val_accuracy: 0.8073
+Epoch 21/50
+45774/45774 [==============================] - 501s 11ms/step - loss: 0.2195 - accuracy: 0.9197 - val_loss: 0.5633 - val_accuracy: 0.8055
+Epoch 22/50
+45774/45774 [==============================] - 491s 11ms/step - loss: 0.2186 - accuracy: 0.9196 - val_loss: 0.5712 - val_accuracy: 0.8091
+Epoch 23/50
+45774/45774 [==============================] - 511s 11ms/step - loss: 0.2177 - accuracy: 0.9204 - val_loss: 0.5812 - val_accuracy: 0.8109
+Epoch 24/50
+45774/45774 [==============================] - 527s 12ms/step - loss: 0.2172 - accuracy: 0.9203 - val_loss: 0.5774 - val_accuracy: 0.8107
+Epoch 25/50
+45774/45774 [==============================] - 525s 11ms/step - loss: 0.2164 - accuracy: 0.9212 - val_loss: 0.5788 - val_accuracy: 0.8101
+Epoch 26/50
+45774/45774 [==============================] - 529s 12ms/step - loss: 0.2149 - accuracy: 0.9216 - val_loss: 0.5820 - val_accuracy: 0.8063
+Epoch 27/50
+45774/45774 [==============================] - 528s 12ms/step - loss: 0.2145 - accuracy: 0.9217 - val_loss: 0.6087 - val_accuracy: 0.8112
+Epoch 28/50
+45774/45774 [==============================] - 524s 11ms/step - loss: 0.2132 - accuracy: 0.9224 - val_loss: 0.5937 - val_accuracy: 0.8089
+Epoch 29/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2125 - accuracy: 0.9225 - val_loss: 0.5982 - val_accuracy: 0.8087
+Epoch 30/50
+45774/45774 [==============================] - 517s 11ms/step - loss: 0.2129 - accuracy: 0.9227 - val_loss: 0.5985 - val_accuracy: 0.8048
+Epoch 31/50
+45774/45774 [==============================] - 499s 11ms/step - loss: 0.2116 - accuracy: 0.9231 - val_loss: 0.5950 - val_accuracy: 0.8076
+Epoch 32/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2107 - accuracy: 0.9235 - val_loss: 0.6141 - val_accuracy: 0.8070
+Epoch 33/50
+45774/45774 [==============================] - 504s 11ms/step - loss: 0.2099 - accuracy: 0.9238 - val_loss: 0.6284 - val_accuracy: 0.8085
+Epoch 34/50
+45774/45774 [==============================] - 510s 11ms/step - loss: 0.2097 - accuracy: 0.9238 - val_loss: 0.6017 - val_accuracy: 0.8057
+Epoch 35/50
+45774/45774 [==============================] - 509s 11ms/step - loss: 0.2094 - accuracy: 0.9243 - val_loss: 0.6390 - val_accuracy: 0.8065
+Epoch 36/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2084 - accuracy: 0.9245 - val_loss: 0.5847 - val_accuracy: 0.8065
+Epoch 37/50
+45774/45774 [==============================] - 494s 11ms/step - loss: 0.2085 - accuracy: 0.9249 - val_loss: 0.5579 - val_accuracy: 0.8084
+Epoch 38/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2076 - accuracy: 0.9253 - val_loss: 0.6121 - val_accuracy: 0.8069
+Epoch 39/50
+45774/45774 [==============================] - 488s 11ms/step - loss: 0.2074 - accuracy: 0.9252 - val_loss: 0.6160 - val_accuracy: 0.8082
+Epoch 40/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2075 - accuracy: 0.9250 - val_loss: 0.6185 - val_accuracy: 0.8059
+Epoch 41/50
+45774/45774 [==============================] - 504s 11ms/step - loss: 0.2065 - accuracy: 0.9257 - val_loss: 0.6174 - val_accuracy: 0.8074
+Epoch 42/50
+45774/45774 [==============================] - 492s 11ms/step - loss: 0.2067 - accuracy: 0.9259 - val_loss: 0.6059 - val_accuracy: 0.8098
+Epoch 43/50
+45774/45774 [==============================] - 486s 11ms/step - loss: 0.2065 - accuracy: 0.9255 - val_loss: 0.6103 - val_accuracy: 0.8099
+Epoch 44/50
+45774/45774 [==============================] - 503s 11ms/step - loss: 0.2057 - accuracy: 0.9260 - val_loss: 0.6291 - val_accuracy: 0.8067
+Epoch 30/50
+45774/45774 [==============================] - 517s 11ms/step - loss: 0.2129 - accuracy: 0.9227 - val_loss: 0.5985 - val_accuracy: 0.8048
+Epoch 31/50
+45774/45774 [==============================] - 499s 11ms/step - loss: 0.2116 - accuracy: 0.9231 - val_loss: 0.5950 - val_accuracy: 0.8076
+Epoch 32/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2107 - accuracy: 0.9235 - val_loss: 0.6141 - val_accuracy: 0.8070
+Epoch 33/50
+45774/45774 [==============================] - 504s 11ms/step - loss: 0.2099 - accuracy: 0.9238 - val_loss: 0.6284 - val_accuracy: 0.8085
+Epoch 34/50
+45774/45774 [==============================] - 510s 11ms/step - loss: 0.2097 - accuracy: 0.9238 - val_loss: 0.6017 - val_accuracy: 0.8057
+Epoch 35/50
+45774/45774 [==============================] - 509s 11ms/step - loss: 0.2094 - accuracy: 0.9243 - val_loss: 0.6390 - val_accuracy: 0.8065
+Epoch 36/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2084 - accuracy: 0.9245 - val_loss: 0.5847 - val_accuracy: 0.8065
+Epoch 37/50
+45774/45774 [==============================] - 494s 11ms/step - loss: 0.2085 - accuracy: 0.9249 - val_loss: 0.5579 - val_accuracy: 0.8084
+Epoch 38/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2076 - accuracy: 0.9253 - val_loss: 0.6121 - val_accuracy: 0.8069
+Epoch 39/50
+45774/45774 [==============================] - 488s 11ms/step - loss: 0.2074 - accuracy: 0.9252 - val_loss: 0.6160 - val_accuracy: 0.8082
+Epoch 40/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2075 - accuracy: 0.9250 - val_loss: 0.6185 - val_accuracy: 0.8059
+Epoch 41/50
+45774/45774 [==============================] - 504s 11ms/step - loss: 0.2065 - accuracy: 0.9257 - val_loss: 0.6174 - val_accuracy: 0.8074
+Epoch 42/50
+45774/45774 [==============================] - 492s 11ms/step - loss: 0.2067 - accuracy: 0.9259 - val_loss: 0.6059 - val_accuracy: 0.8098
+Epoch 43/50
+45774/45774 [==============================] - 486s 11ms/step - loss: 0.2065 - accuracy: 0.9255 - val_loss: 0.6103 - val_accuracy: 0.8099
+Epoch 44/50
+45774/45774 [==============================] - 503s 11ms/step - loss: 0.2057 - accuracy: 0.9260 - val_loss: 0.6291 - val_accuracy: 0.8067
+Epoch 45/50
+45774/45774 [==============================] - 505s 11ms/step - loss: 0.2054 - accuracy: 0.9262 - val_loss: 0.6331 - val_accuracy: 0.8071
+Epoch 46/50
+45774/45774 [==============================] - 512s 11ms/step - loss: 0.2055 - accuracy: 0.9260 - val_loss: 0.6213 - val_accuracy: 0.8084
+Epoch 47/50
+45774/45774 [==============================] - 478s 10ms/step - loss: 0.2047 - accuracy: 0.9263 - val_loss: 0.6480 - val_accuracy: 0.8078
+Epoch 48/50
+45774/45774 [==============================] - 498s 11ms/step - loss: 0.2053 - accuracy: 0.9264 - val_loss: 0.6253 - val_accuracy: 0.8055
+Epoch 49/50
+45774/45774 [==============================] - 504s 11ms/step - loss: 0.2036 - accuracy: 0.9268 - val_loss: 0.6030 - val_accuracy: 0.8074
+Epoch 50/50
+45774/45774 [==============================] - 503s 11ms/step - loss: 0.2036 - accuracy: 0.9272 - val_loss: 0.6265 - val_accuracy: 0.8071
+Training complete.
