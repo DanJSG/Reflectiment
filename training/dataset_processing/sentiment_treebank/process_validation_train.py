@@ -24,6 +24,15 @@ def get_fine_grained_category(score):
     else:
         return 4
 
+def get_tri_category(score):
+    """Get a 3 class integer classification label from a score between 0 and 1."""
+    if score >= 0 and score < 0.3333333333:
+        return 0
+    elif score >= 0.3333333333 and score < 0.6666666666:
+        return 1
+    else:
+        return 2
+
 def process_to_file(in_sentences_file, in_scores_file, out_sentences_file, out_category_file, category_getter_fn):
     """Processes a pair of Stanford Sentiment Dataset sentence and score files into a simplified sentence file 
     (no punctuation, all lower case, numbers all set to 0) and a category file with classification category labels.
