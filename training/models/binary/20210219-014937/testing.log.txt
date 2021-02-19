@@ -1,0 +1,93 @@
+2021-02-19 09:51:31.842564: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-19 09:51:54.517992: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-19 09:51:54.524151: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library nvcuda.dll
+2021-02-19 09:51:54.555285: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-02-19 09:51:54.565174: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-19 09:51:54.583994: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-19 09:51:54.596735: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-19 09:51:54.604966: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-19 09:51:54.616774: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-19 09:51:54.636702: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-19 09:51:54.653391: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-19 09:51:54.677395: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-19 09:51:54.690246: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-19 09:51:54.704302: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-02-19 09:51:54.723261: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-02-19 09:51:54.770136: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-19 09:51:54.788953: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-19 09:51:54.793803: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-19 09:51:54.811118: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-19 09:51:54.815724: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-19 09:51:54.833529: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-19 09:51:54.838010: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-19 09:51:54.868323: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-19 09:51:54.901965: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-19 09:51:55.409066: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-02-19 09:51:55.415786: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-02-19 09:51:55.420293: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N
+2021-02-19 09:51:55.437543: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8678 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2021-02-19 09:51:55.462011: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-19 09:51:55.885966: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-19 09:51:57.811738: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-19 09:51:58.424552: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+embedding (Embedding)        (None, 52, 300)           900000000 
+_________________________________________________________________
+conv1d (Conv1D)              (None, 50, 64)            57664
+_________________________________________________________________
+average_pooling1d (AveragePo (None, 25, 64)            0
+_________________________________________________________________
+batch_normalization (BatchNo (None, 25, 64)            256
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 23, 32)            6176
+_________________________________________________________________
+lstm (LSTM)                  (None, 32)                8320
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 32)                128
+_________________________________________________________________
+dropout (Dropout)            (None, 32)                0
+_________________________________________________________________
+dense (Dense)                (None, 128)               4224
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 128)               0
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               16512
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0
+_________________________________________________________________
+dense_2 (Dense)              (None, 64)                8256
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 64)                0
+_________________________________________________________________
+dense_3 (Dense)              (None, 64)                4160
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 64)                0
+_________________________________________________________________
+dense_4 (Dense)              (None, 32)                2080
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 32)                0
+_________________________________________________________________
+dense_5 (Dense)              (None, 1)                 33
+=================================================================
+Total params: 900,107,809
+Trainable params: 107,617
+Non-trainable params: 900,000,192
+_________________________________________________________________
+2021-02-19 09:52:44.224522: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-02-19 09:52:46.602769: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-19 09:52:47.399149: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-19 09:52:49.065470: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-19 09:52:51.017381: I tensorflow/core/platform/windows/subprocess.cc:308] SubProcess ended with return code: 0
+
+2021-02-19 09:52:51.132666: I tensorflow/core/platform/windows/subprocess.cc:308] SubProcess ended with return code: 0
+
+1122/1122 [==============================] - 14s 5ms/step - loss: 0.4736 - accuracy: 0.8147
+[0.48166951537132263, 0.8095437288284302]

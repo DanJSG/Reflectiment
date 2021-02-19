@@ -6,4 +6,4 @@ corpus/
 /venv/
 *.bin
 logs/
-*.dataset.*
+*.hdf5
