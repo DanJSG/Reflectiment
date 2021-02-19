@@ -1,10 +1,5 @@
-import pprint
 import json
-import numpy as np
 import tensorflow as tf
-from keras.models import Sequential
-from keras.layers import LSTM, Dropout, Dense, Embedding, BatchNormalization, Conv1D, AveragePooling1D
-from keras import regularizers
 from keras.preprocessing.sequence import pad_sequences
 from nltk.tokenize import word_tokenize
 
@@ -24,7 +19,6 @@ def get_word_index(word2index, word):
     try:
         return word2index[word]
     except:
-        # return random.randrange(0, 3000000)
         return 2999999
 
 def index_sentence_words(word2index, sentences):
