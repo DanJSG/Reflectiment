@@ -1,0 +1,184 @@
+2021-02-19 23:54:05.028287: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+Loading training and validation data...
+Loaded dataset.
+Loading word embedding word to index mappings...
+Loaded mappings.
+Converting tokenized words into word embedding indexes and padding sentence lengths.
+2021-02-20 00:01:39.268494: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-20 00:01:39.291578: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library nvcuda.dll
+2021-02-20 00:01:39.468956: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-02-20 00:01:39.487796: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-20 00:01:39.581192: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-20 00:01:39.586318: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-20 00:01:39.622435: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-20 00:01:39.634832: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-20 00:01:39.696868: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-20 00:01:39.722908: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-20 00:01:39.733668: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-20 00:01:39.748407: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-20 00:01:39.802572: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-02-20 00:01:39.818533: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-02-20 00:01:39.860759: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-20 00:01:39.875257: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-20 00:01:39.889518: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-20 00:01:39.908820: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-20 00:01:39.924304: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-20 00:01:39.939206: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-20 00:01:39.945043: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-20 00:01:39.950392: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-20 00:01:39.955475: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-20 00:01:43.612406: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-02-20 00:01:43.617654: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0
+2021-02-20 00:01:43.621069: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-02-20 00:01:43.687829: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8678 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2021-02-20 00:01:43.797442: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+Data processed.
+2021-02-20 00:06:49.019153: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-02-20 00:06:49.024397: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-02-20 00:06:49.028748: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1365] Profiler found 1 GPUs
+2021-02-20 00:06:49.035645: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'cupti64_110.dll'; dlerror: cupti64_110.dll not found
+2021-02-20 00:06:49.055410: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'cupti.dll'; dlerror: cupti.dll not found
+2021-02-20 00:06:49.075138: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI could not be loaded or symbol could not be found.
+2021-02-20 00:06:49.095442: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+2021-02-20 00:06:49.112630: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1496] function cupti_interface_->Finalize()failed with error CUPTI could not be loaded or symbol could not be found.
+Generating model...
+Weight shape: (3000000, 300)
+2021-02-20 00:07:13.579199: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-20 00:07:21.767892: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-20 00:07:29.665977: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+Model built.
+Beginning training...
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... ('Not JSON Serializable:', <tf.Tensor: shape=(), dtype=int64, numpy=52>)
+2021-02-20 00:23:01.178987: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+Epoch 1/50
+2021-02-20 00:23:06.017334: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-20 00:23:07.024160: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-20 00:23:14.187453: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-20 00:23:16.388003: I tensorflow/core/platform/windows/subprocess.cc:308] SubProcess ended with return code: 0
+
+2021-02-20 00:23:16.479537: I tensorflow/core/platform/windows/subprocess.cc:308] SubProcess ended with return code: 0
+
+    1/45774 [..............................] - ETA: 213:23:05 - loss: 1.6952 - accuracy: 0.25002021-02-20 00:23:19.087364: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-02-20 00:23:19.092857: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-02-20 00:23:19.152933: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI could not be loaded or symbol could not be found.
+    2/45774 [..............................] - ETA: 8:49:02 - loss: 1.6932 - accuracy: 0.2188  2021-02-20 00:23:19.372907: I tensorflow/core/profiler/lib/profiler_session.cc:71] Profiler session collecting data.
+2021-02-20 00:23:19.378444: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1496] function cupti_interface_->Finalize()failed with error CUPTI could not be loaded or symbol could not be found.
+2021-02-20 00:23:19.455392: I tensorflow/core/profiler/internal/gpu/cupti_collector.cc:228]  GpuTracer has collected 0 callback api events and 0 activity events. 
+2021-02-20 00:23:19.482710: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+2021-02-20 00:23:19.598893: I tensorflow/core/profiler/rpc/client/save_profile.cc:137] Creating directory: ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19
+2021-02-20 00:23:19.630241: I tensorflow/core/profiler/rpc/client/save_profile.cc:143] Dumped gzipped tool data for trace.json.gz to ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19\DESKTOP-FMO200R.trace.json.gz
+2021-02-20 00:23:19.663185: I tensorflow/core/profiler/rpc/client/save_profile.cc:137] Creating directory: ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19
+2021-02-20 00:23:19.690464: I tensorflow/core/profiler/rpc/client/save_profile.cc:143] Dumped gzipped tool data for memory_profile.json.gz to ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19\DESKTOP-FMO200R.memory_profile.json.gz
+2021-02-20 00:23:19.881053: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19Dumped tool data for xplane.pb to ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19\DESKTOP-FMO200R.xplane.pb
+Dumped tool data for overview_page.pb to ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19\DESKTOP-FMO200R.overview_page.pb
+Dumped tool data for input_pipeline.pb to ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19\DESKTOP-FMO200R.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19\DESKTOP-FMO200R.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to ./logs/fit/20210220-000648\train\plugins\profile\2021_02_20_00_23_19\DESKTOP-FMO200R.kernel_stats.pb
+
+45774/45774 [==============================] - ETA: 0s - loss: 1.2344 - accuracy: 0.4947WARNING:tensorflow:Model was constructed with shape (None, 52) for input KerasTensor(type_spec=TensorSpec(shape=(None, 52), dtype=tf.float32, name='embedding_input'), name='embedding_input', description="created by layer 'embedding_input'"), but it was called on an input with incompatible shape (None, 48).
+45774/45774 [==============================] - 515s 11ms/step - loss: 1.2344 - accuracy: 0.4947 - val_loss: 0.9519 - val_accuracy: 0.6220
+2021-02-20 00:31:37.225271: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-20 00:31:39.715421: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+Epoch 2/50
+45774/45774 [==============================] - 463s 10ms/step - loss: 0.9245 - accuracy: 0.6277 - val_loss: 0.9531 - val_accuracy: 0.6278
+Epoch 3/50
+45774/45774 [==============================] - 467s 10ms/step - loss: 0.8526 - accuracy: 0.6616 - val_loss: 0.9500 - val_accuracy: 0.6315
+Epoch 4/50
+45774/45774 [==============================] - 484s 11ms/step - loss: 0.8136 - accuracy: 0.6795 - val_loss: 0.9781 - val_accuracy: 0.6288
+Epoch 5/50
+45774/45774 [==============================] - 497s 11ms/step - loss: 0.7874 - accuracy: 0.6916 - val_loss: 0.9746 - val_accuracy: 0.6348
+Epoch 6/50
+45774/45774 [==============================] - 495s 11ms/step - loss: 0.7684 - accuracy: 0.7006 - val_loss: 1.0006 - val_accuracy: 0.6275
+Epoch 7/50
+45774/45774 [==============================] - 492s 11ms/step - loss: 0.7521 - accuracy: 0.7075 - val_loss: 1.0082 - val_accuracy: 0.6310
+Epoch 8/50
+45774/45774 [==============================] - 474s 10ms/step - loss: 0.7418 - accuracy: 0.7128 - val_loss: 1.0242 - val_accuracy: 0.6263
+Epoch 9/50
+45774/45774 [==============================] - 478s 10ms/step - loss: 0.7313 - accuracy: 0.7170 - val_loss: 1.0170 - val_accuracy: 0.6305
+Epoch 10/50
+45774/45774 [==============================] - 469s 10ms/step - loss: 0.7234 - accuracy: 0.7205 - val_loss: 1.0323 - val_accuracy: 0.6272
+Epoch 11/50
+45774/45774 [==============================] - 458s 10ms/step - loss: 0.7171 - accuracy: 0.7238 - val_loss: 1.0221 - val_accuracy: 0.6306
+Epoch 12/50
+45774/45774 [==============================] - 460s 10ms/step - loss: 0.7098 - accuracy: 0.7270 - val_loss: 1.0426 - val_accuracy: 0.6283
+Epoch 13/50
+45774/45774 [==============================] - 449s 10ms/step - loss: 0.7046 - accuracy: 0.7294 - val_loss: 1.0411 - val_accuracy: 0.6323
+Epoch 14/50
+45774/45774 [==============================] - 461s 10ms/step - loss: 0.7008 - accuracy: 0.7306 - val_loss: 1.0504 - val_accuracy: 0.6297
+Epoch 15/50
+45774/45774 [==============================] - 457s 10ms/step - loss: 0.6955 - accuracy: 0.7333 - val_loss: 1.0504 - val_accuracy: 0.6280
+Epoch 16/50
+45774/45774 [==============================] - 453s 10ms/step - loss: 0.6914 - accuracy: 0.7351 - val_loss: 1.0578 - val_accuracy: 0.6272
+Epoch 17/50
+45774/45774 [==============================] - 469s 10ms/step - loss: 0.6895 - accuracy: 0.7363 - val_loss: 1.0759 - val_accuracy: 0.6297
+Epoch 18/50
+45774/45774 [==============================] - 443s 10ms/step - loss: 0.6864 - accuracy: 0.7368 - val_loss: 1.0738 - val_accuracy: 0.6271
+Epoch 19/50
+45774/45774 [==============================] - 454s 10ms/step - loss: 0.6824 - accuracy: 0.7391 - val_loss: 1.0885 - val_accuracy: 0.6283
+Epoch 20/50
+45774/45774 [==============================] - 460s 10ms/step - loss: 0.6814 - accuracy: 0.7395 - val_loss: 1.0728 - val_accuracy: 0.6272
+Epoch 21/50
+45774/45774 [==============================] - 453s 10ms/step - loss: 0.6769 - accuracy: 0.7420 - val_loss: 1.0745 - val_accuracy: 0.6309
+Epoch 22/50
+45774/45774 [==============================] - 445s 10ms/step - loss: 0.6759 - accuracy: 0.7430 - val_loss: 1.0846 - val_accuracy: 0.6317
+Epoch 23/50
+45774/45774 [==============================] - 463s 10ms/step - loss: 0.6735 - accuracy: 0.7438 - val_loss: 1.1014 - val_accuracy: 0.6264
+Epoch 24/50
+45774/45774 [==============================] - 464s 10ms/step - loss: 0.6703 - accuracy: 0.7459 - val_loss: 1.0754 - val_accuracy: 0.6289
+Epoch 25/50
+45774/45774 [==============================] - 438s 10ms/step - loss: 0.6693 - accuracy: 0.7462 - val_loss: 1.0989 - val_accuracy: 0.6286
+Epoch 26/50
+45774/45774 [==============================] - 460s 10ms/step - loss: 0.6664 - accuracy: 0.7473 - val_loss: 1.1159 - val_accuracy: 0.6274
+Epoch 27/50
+45774/45774 [==============================] - 448s 10ms/step - loss: 0.6660 - accuracy: 0.7473 - val_loss: 1.1078 - val_accuracy: 0.6281
+Epoch 28/50
+45774/45774 [==============================] - 437s 10ms/step - loss: 0.6634 - accuracy: 0.7480 - val_loss: 1.1108 - val_accuracy: 0.6267
+Epoch 29/50
+45774/45774 [==============================] - 449s 10ms/step - loss: 0.6632 - accuracy: 0.7493 - val_loss: 1.1265 - val_accuracy: 0.6287
+Epoch 30/50
+45774/45774 [==============================] - 459s 10ms/step - loss: 0.6615 - accuracy: 0.7501 - val_loss: 1.1453 - val_accuracy: 0.6261
+Epoch 31/50
+45774/45774 [==============================] - 458s 10ms/step - loss: 0.6598 - accuracy: 0.7498 - val_loss: 1.1157 - val_accuracy: 0.6272
+Epoch 32/50
+45774/45774 [==============================] - 460s 10ms/step - loss: 0.6592 - accuracy: 0.7505 - val_loss: 1.1020 - val_accuracy: 0.6323
+Epoch 33/50
+45774/45774 [==============================] - 446s 10ms/step - loss: 0.6563 - accuracy: 0.7519 - val_loss: 1.1220 - val_accuracy: 0.6270
+Epoch 34/50
+45774/45774 [==============================] - 452s 10ms/step - loss: 0.6572 - accuracy: 0.7513 - val_loss: 1.1287 - val_accuracy: 0.6263
+Epoch 35/50
+45774/45774 [==============================] - 459s 10ms/step - loss: 0.6557 - accuracy: 0.7525 - val_loss: 1.1393 - val_accuracy: 0.6313
+Epoch 36/50
+45774/45774 [==============================] - 440s 10ms/step - loss: 0.6534 - accuracy: 0.7538 - val_loss: 1.1474 - val_accuracy: 0.6274
+Epoch 37/50
+Epoch 38/50
+45774/45774 [==============================] - 439s 10ms/step - loss: 0.6510 - accuracy: 0.7541 - val_loss: 1.1634 - val_accuracy: 0.6265
+Epoch 39/50
+45774/45774 [==============================] - 463s 10ms/step - loss: 0.6511 - accuracy: 0.7544 - val_loss: 1.1452 - val_accuracy: 0.6318
+Epoch 40/50
+45774/45774 [==============================] - 460s 10ms/step - loss: 0.6480 - accuracy: 0.7559 - val_loss: 1.1292 - val_accuracy: 0.6259
+Epoch 41/50
+45774/45774 [==============================] - 466s 10ms/step - loss: 0.6491 - accuracy: 0.7558 - val_loss: 1.1467 - val_accuracy: 0.6261
+Epoch 42/50
+45774/45774 [==============================] - 458s 10ms/step - loss: 0.6475 - accuracy: 0.7561 - val_loss: 1.1320 - val_accuracy: 0.6290
+Epoch 43/50
+45774/45774 [==============================] - 465s 10ms/step - loss: 0.6486 - accuracy: 0.7556 - val_loss: 1.1464 - val_accuracy: 0.6310
+Epoch 44/50
+45774/45774 [==============================] - 463s 10ms/step - loss: 0.6465 - accuracy: 0.7571 - val_loss: 1.1512 - val_accuracy: 0.6274
+Epoch 45/50
+45774/45774 [==============================] - 442s 10ms/step - loss: 0.6449 - accuracy: 0.7577 - val_loss: 1.1363 - val_accuracy: 0.6330
+Epoch 46/50
+45774/45774 [==============================] - 442s 10ms/step - loss: 0.6441 - accuracy: 0.7576 - val_loss: 1.1524 - val_accuracy: 0.6272
+Epoch 47/50
+45774/45774 [==============================] - 458s 10ms/step - loss: 0.6433 - accuracy: 0.7581 - val_loss: 1.1625 - val_accuracy: 0.6287
+Epoch 48/50
+45774/45774 [==============================] - 456s 10ms/step - loss: 0.6434 - accuracy: 0.7582 - val_loss: 1.1338 - val_accuracy: 0.6278
+Epoch 49/50
+45774/45774 [==============================] - 449s 10ms/step - loss: 0.6429 - accuracy: 0.7577 - val_loss: 1.1694 - val_accuracy: 0.6274
+Epoch 50/50
+45774/45774 [==============================] - 438s 10ms/step - loss: 0.6419 - accuracy: 0.7592 - val_loss: 1.1810 - val_accuracy: 0.6290
+Training complete.

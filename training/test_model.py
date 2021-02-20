@@ -11,8 +11,11 @@ def load_word_mappings():
     return word2index, index2word
 
 def get_test_data():
-    sentences_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_test_x.txt", "r")
-    categories_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_test_y.txt", "r")
+    # Comment/uncomment duplicate vars depending on the set of test data to use
+    sentences_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_test_x.txt", "r")
+    categories_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_test_y.txt", "r")
+    # sentences_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_test_x.txt", "r")
+    # categories_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_test_y.txt", "r")
     tokenized_sentences = [word_tokenize(line) for line in sentences_file.readlines()]
     categories = [[int(line)] for line in categories_file.readlines()]
     return tokenized_sentences, categories
@@ -42,10 +45,13 @@ word2index, index2word = load_word_mappings()
 x_test, y_test = get_test_data()
 x_test_padded, _ = preprocess_sentences(word2index, x_test)
 
-model: tf.keras.Model = tf.keras.models.model_from_json(open("./models/20210219-014937/C-LSTM.json", "r").read())
-model.load_weights("./models/20210219-014937/C-LSTM.hdf5")
+model: tf.keras.Model = tf.keras.models.model_from_json(open("./models/binary/20210220-000803/C-LSTM.json", "r").read())
+model.load_weights("./models/binary/20210220-000803/C-LSTM.hdf5")
+# model: tf.keras.Model = tf.keras.models.model_from_json(open("./models/20210219-014937/C-LSTM.json", "r").read())
+# model.load_weights("./models/20210219-014937/C-LSTM.hdf5")
 model.summary()
 optimizer = tf.keras.optimizers.Adam(lr=1e-4)
-model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+# model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
 evaluation = model.evaluate(x_test_padded, y_test, verbose=1)
 print(evaluation)

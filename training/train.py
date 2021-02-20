@@ -25,15 +25,21 @@ def Word2Vec(input_length):
     return Embedding(input_length=input_length, input_dim=embedding_weights.shape[0], output_dim=embedding_weights.shape[1], weights=[embedding_weights], trainable=False, mask_zero=True)
 
 def get_training_data():
-    sentences_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_train_x.txt", "r")
-    categories_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_train_y.txt", "r")
+    # Comment/uncomment duplicate vars depending on the set of training data to use
+    # sentences_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_train_x.txt", "r")
+    # categories_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_train_y.txt", "r")
+    sentences_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_train_x.txt", "r")
+    categories_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_train_y.txt", "r")
     tokenized_sentences = [word_tokenize(line) for line in sentences_file.readlines()]
     categories = [int(line) for line in categories_file.readlines()]
     return tokenized_sentences, categories
 
 def get_validation_data():
-    sentences_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_validation_x.txt", "r")
-    categories_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_validation_y.txt", "r")
+    # Comment/uncomment duplicate vars depending on the set of validation data to use
+    # sentences_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_validation_x.txt", "r")
+    # categories_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_validation_y.txt", "r")
+    sentences_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_validation_x.txt", "r")
+    categories_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_validation_y.txt", "r")
     tokenized_sentences = [word_tokenize(line) for line in sentences_file.readlines()]
     categories = [[int(line)] for line in categories_file.readlines()]
     return tokenized_sentences, categories
@@ -42,7 +48,6 @@ def get_word_index(word2index, word):
     try:
         return word2index[word]
     except:
-        # return random.randrange(0, 3000000)
         return 2999999
 
 def index_sentence_words(word2index, sentences):
@@ -115,11 +120,18 @@ model.add(Dense(64, activation='relu', kernel_regularizer=regularizers.l2(1e-4))
 model.add(Dropout(0.25))
 model.add(Dense(32, activation='relu', kernel_regularizer=regularizers.l2(1e-4)))
 model.add(Dropout(0.25))
-model.add(Dense(1, activation='sigmoid'))
-# model.add(Dense(3, activation='softmax'))
+# Params for different classification types: 
+#   - Binary classification: (1, activation='sigmoid') 
+#   - Five category fine-grained classification: (5, activation='softmax')
+#   - Three category fine-grained classification: (3, activation='softmax')
+# model.add(Dense(1, activation='sigmoid'))
+model.add(Dense(5, activation='softmax'))
 optimizer = tf.keras.optimizers.Adam(lr=1e-4)
-# model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+# Loss for different classification types:
+#   - Binary classification: binary_crossentropy
+#   - Fine grained classification: sparse_categorical_crossentropy
+model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+# model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
 
 print("Model built.")
 print("Beginning training...")
@@ -139,6 +151,6 @@ model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
 )
 
 # Train the model to the training set and validate against the validation set.
-model.fit(x=x_train_padded, y=y_train, batch_size=32, epochs=50, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[model_checkpoint_callback])
+model.fit(x=x_train_padded, y=y_train, batch_size=32, epochs=50, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[model_checkpoint_callback, tb_callback])
 
 print("Training complete.")
