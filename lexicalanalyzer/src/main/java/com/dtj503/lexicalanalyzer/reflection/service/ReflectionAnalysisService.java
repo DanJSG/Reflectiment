@@ -79,6 +79,7 @@ public class ReflectionAnalysisService extends AnalysisService {
      *
      * @param sentimentSentences the sentences with sentiment scores
      * @param moodSentences the sentences with mood scores
+     * @param reflectionSentences the sentences with reflection scores
      * @return a list of reflection modifiers for each sentence
      */
     public static List<ReflectionModifier> getReflectionModifiers(List<SentimentScoredSentence> sentimentSentences,
