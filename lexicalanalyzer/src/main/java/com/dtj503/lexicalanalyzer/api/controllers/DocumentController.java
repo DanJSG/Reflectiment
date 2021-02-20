@@ -31,9 +31,9 @@ import java.util.concurrent.Executors;
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
 @RestController
-public class AnalysisController extends RestAPIController {
+public class DocumentController extends RestAPIController {
 
-    @PostMapping(value = "/analyse", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(value = "/document", consumes = MediaType.APPLICATION_JSON_VALUE,
                  produces = MediaType.APPLICATION_JSON_VALUE)
     public static ResponseEntity<String> analyse(@RequestBody TextSubmission submission) {
         if(submission == null) {
