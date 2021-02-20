@@ -77,20 +77,33 @@ public class ReflectionAnalysisService extends AnalysisService {
      * Method for calculating the reflection appraisal modifiers based on the mood and sentiment scores calculated for
      * the sentences.
      *
-     * @param sentimentScoredSentences the sentences with sentiment scores
-     * @param moodScoredSentences the sentences with mood scores
+     * @param sentimentSentences the sentences with sentiment scores
+     * @param moodSentences the sentences with mood scores
+     * @param reflectionSentences the sentences with reflection scores
      * @return a list of reflection modifiers for each sentence
      */
-    public static List<ReflectionModifier> getReflectionModifiers(List<SentimentScoredSentence> sentimentScoredSentences,
-                                                                  List<MoodScoredSentence> moodScoredSentences) {
+    public static List<ReflectionModifier> getReflectionModifiers(List<SentimentScoredSentence> sentimentSentences,
+                                                                  List<MoodScoredSentence> moodSentences,
+                                                                  List<ReflectionScoredSentence> reflectionSentences) {
+        final float e = 2.71828f;
         List<ReflectionModifier> modifiers = new ArrayList<>();
-        for(int i = 0; i < sentimentScoredSentences.size(); i++) {
-            float sentimentScore = sentimentScoredSentences.get(i).getScore();
-            float moodScore = moodScoredSentences.get(i).getScore();
+        for(int i = 0; i < sentimentSentences.size(); i++) {
+            float sentimentScore = sentimentSentences.get(i).getScore();
+            float moodScore = moodSentences.get(i).getScore();
+            float reflectionScore = reflectionSentences.get(i).getScore();
+
+            // Calculate a modifier weighting such that higher reflection scores weight the modifiers less than low
+            // reflection scores. If you plot this equation, it is a negative decay.
+            float modifierWeighting = (float) Math.sqrt(0.4 * (Math.pow(e, -1.5 * reflectionScore) + 0.7769) + 0.6);
+
+            // Sentiment and mood are both weighted more heavily towards positive sentiment here
             float sentimentMultiplier = sentimentScore > 0 ? 1f : 0.315f;
             float moodMultiplier = sentimentScore > 0 ? 1f : 0.5f;
-            float sentimentModifier = 1f + ((0.704f * Math.abs(sentimentScore)) * sentimentMultiplier);
-            float moodModifier = (1f + ((0.129f * Math.abs(moodScore)) * moodMultiplier));
+
+            // Sentiment and mood modifiers are calculated based on sentiment and mood scores and their multipliers, and
+            // by the modifier weighting
+            float sentimentModifier = (1f + ((0.704f * Math.abs(sentimentScore)) * sentimentMultiplier)) * modifierWeighting;
+            float moodModifier = (1f + ((0.129f * Math.abs(moodScore)) * moodMultiplier)) * modifierWeighting;
             modifiers.add(new ReflectionModifier(sentimentModifier, moodModifier));
         }
         return modifiers;

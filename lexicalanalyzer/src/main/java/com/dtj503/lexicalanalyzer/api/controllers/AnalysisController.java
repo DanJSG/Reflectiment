@@ -76,7 +76,7 @@ public class AnalysisController extends RestAPIController {
         // Calculate the reflection modifier coefficients based on the sentiment and mood scores
         // For more info see paper mentioned in class Javadoc
         List<ReflectionModifier> reflectionModifiers = ReflectionAnalysisService.getReflectionModifiers(
-                sentimentAnalysisProcess.get(), moodAnalysisProcess.get());
+                sentimentAnalysisProcess.get(), moodAnalysisProcess.get(), reflectionAnalysisProcess.get());
         return new AnalysisResponse(document.getOriginalText(), sentimentAnalysisProcess.get(),
                 moodAnalysisProcess.get(), reflectionAnalysisProcess.get(), reflectionModifiers);
     }
@@ -91,7 +91,7 @@ public class AnalysisController extends RestAPIController {
         List<ReflectionScoredSentence> reflectionScoredSentences =
                 ReflectionAnalysisService.analyseReflection(document);
         List<ReflectionModifier> reflectionModifiers =
-                ReflectionAnalysisService.getReflectionModifiers(sentimentScoredSentences, moodScoredSentences);
+                ReflectionAnalysisService.getReflectionModifiers(sentimentScoredSentences, moodScoredSentences, reflectionScoredSentences);
         response = new AnalysisResponse(document.getOriginalText(), sentimentScoredSentences,
                 moodScoredSentences, reflectionScoredSentences, reflectionModifiers);
         return response;
