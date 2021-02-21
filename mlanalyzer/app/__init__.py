@@ -1,3 +1,4 @@
+from app.document_encoder import encode_document
 from app.sentiment_analyzer import SentimentAnalyzer
 from flask import Flask, request, jsonify, current_app
 from app.document import Document
@@ -7,14 +8,7 @@ def analyze_document():
     body: dict = request.get_json()
     text: str = body["text"]
     doc: Document = Document(text)
-    sentence_response = []
-    for sentence in doc.sentences:
-        json_dict: dict = {}
-        json_dict["text"] = sentence.text
-        json_dict["label"] = sentence.sentiment
-        sentence_response.append(json_dict)
-    response = {"text": text, "sentences": sentence_response}
-    return jsonify(response)
+    return jsonify(encode_document(doc))
 
 def get_app() -> Flask:
     """ Initialize and fetch the Flask application.
