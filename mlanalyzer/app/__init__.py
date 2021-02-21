@@ -1,14 +1,14 @@
+from app.document_encoder import encode_document
 from app.sentiment_analyzer import SentimentAnalyzer
 from flask import Flask, request, jsonify, current_app
 from app.document import Document
 from app.word_mappings import load_word_mappings
 
 def analyze_document():
-    body = request.get_json()
-    text = body["text"]
-    doc = Document(text)
-    print(doc.sentences[0].indexed)
-    return jsonify({'success': 'true'})
+    body: dict = request.get_json()
+    text: str = body["text"]
+    doc: Document = Document(text)
+    return jsonify(encode_document(doc))
 
 def get_app() -> Flask:
     """ Initialize and fetch the Flask application.
