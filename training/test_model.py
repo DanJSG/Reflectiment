@@ -41,17 +41,24 @@ def preprocess_sentences(word2index, sentences):
     padded_sentences = pad_sequences(indexed_sentences, maxlen=max_sentence_len, padding='post', value=0)
     return padded_sentences.tolist(), max_sentence_len
 
-word2index, index2word = load_word_mappings()
-x_test, y_test = get_test_data()
-x_test_padded, _ = preprocess_sentences(word2index, x_test)
+# word2index, index2word = load_word_mappings()
+# x_test, y_test = get_test_data()
+# x_test_padded, _ = preprocess_sentences(word2index, x_test)
 
-model: tf.keras.Model = tf.keras.models.model_from_json(open("./models/binary/20210220-000803/C-LSTM.json", "r").read())
+model: tf.keras.Sequential = tf.keras.models.model_from_json(open("./models/binary/20210220-000803/C-LSTM.json", "r").read())
 model.load_weights("./models/binary/20210220-000803/C-LSTM.hdf5")
 # model: tf.keras.Model = tf.keras.models.model_from_json(open("./models/20210219-014937/C-LSTM.json", "r").read())
 # model.load_weights("./models/20210219-014937/C-LSTM.hdf5")
 model.summary()
-optimizer = tf.keras.optimizers.Adam(lr=1e-4)
+# optimizer = tf.keras.optimizers.Adam(lr=1e-4)
 # model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-evaluation = model.evaluate(x_test_padded, y_test, verbose=1)
-print(evaluation)
+# model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+# evaluation = model.evaluate(x_test_padded, y_test, verbose=1)
+# print(evaluation)
+
+input = [[152, 412, 542, 111, 53, 5, 353, 8751]]
+# input = [[152], [412], [542], [111], [53], [5], [353], [8751]]
+# input = [152, 412, 542, 111, 53, 5, 353, 8751]
+
+result = model.predict_classes(input)
+print(result)

@@ -4,11 +4,17 @@ from app.document import Document
 from app.word_mappings import load_word_mappings
 
 def analyze_document():
-    body = request.get_json()
-    text = body["text"]
-    doc = Document(text)
-    print(doc.sentences[0].indexed)
-    return jsonify({'success': 'true'})
+    body: dict = request.get_json()
+    text: str = body["text"]
+    doc: Document = Document(text)
+    sentence_response = []
+    for sentence in doc.sentences:
+        json_dict: dict = {}
+        json_dict["text"] = sentence.text
+        json_dict["label"] = sentence.sentiment
+        sentence_response.append(json_dict)
+    response = {"text": text, "sentences": sentence_response}
+    return jsonify(response)
 
 def get_app() -> Flask:
     """ Initialize and fetch the Flask application.
