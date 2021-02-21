@@ -10,6 +10,8 @@ class SentimentAnalyzer():
     Attributes:
         _json_path: the path to the JSON format neural network model
         _weights_path: the path to the .hdf5 format neural network model weights
+        labels: the potential classification labels
+        model: the sentiment analysis neural network model
     """
 
     def __init__(self) -> None:
@@ -21,6 +23,18 @@ class SentimentAnalyzer():
         self._dummy_request()
 
     def get_sentiment_classification(self, indexed_sentence) -> str:
+        """ Get the sentiment classification of a sentence.
+
+        Takes a padded, indexed sentence and estimates its sentiment classification
+        using the loaded neural network model.
+
+        Args:
+            indexed_sentence: the indexed sentence array
+
+        Returns:
+            A string label representing the estimated classification
+
+        """
         score: float = self.model.predict([indexed_sentence])[0][0]
         return self._get_class_name(self._classify_score(score))
 
@@ -37,8 +51,17 @@ class SentimentAnalyzer():
         return model
 
     def _dummy_request(self) -> None:
+        """ Send a dummy classification request to initialize the neural network."""
         self.get_sentiment_classification([2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999])
     
+    def _get_class_name(self, class_index) -> str:
+        """ Get the class name associated with a class index.
+
+        Returns:
+            A string label of the estimated class
+        """
+        return self.labels[class_index]
+
     @staticmethod
     def _configure_gpu() -> None:
         """ Initialize GPU memory growth to optimize performance."""
@@ -47,8 +70,12 @@ class SentimentAnalyzer():
 
     @staticmethod
     def _classify_score(score) -> int:
-        return 1 if score > 0.5 else 0
+        """ Classify the output score into an integer index. 
+        
+        Args:
+            score: the output score of the classifier
 
-    @staticmethod
-    def _get_class_name(class_index) -> str:
-        return 'positive' if class_index == 1 else 'negative'
+        Return:
+            An integer index representing the estimated class
+        """
+        return 1 if score > 0.5 else 0

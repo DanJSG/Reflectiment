@@ -36,6 +36,14 @@ class Sentence:
             return padded_sentences[0].tolist()
     
     def _get_sentiment(self):
+        """ Get the sentiment classification label of the sentence.
+
+        Fetches the sentiment analysis model from the current application context and guesses the
+        sentiment of the sentence, returning a classification label.
+
+        Returns:
+            The string classification label
+        """
         result = None
         with current_app.app_context():
             result = current_app.sentiment_analyzer.get_sentiment_classification(self.indexed)
