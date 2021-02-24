@@ -1,0 +1,361 @@
+2021-02-24 10:22:02.899588: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+Loading training and validation data...
+Loading training data...
+Loading validation data...
+Loaded dataset.
+Loading word embedding word to index mappings...
+Loaded mappings.
+Converting tokenized words into word embedding indexes and padding sentence lengths.
+Data processed.
+2021-02-24 10:22:46.389161: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-02-24 10:22:46.394280: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-02-24 10:22:46.429596: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library nvcuda.dll
+2021-02-24 10:22:46.482563: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1365] Profiler found 1 GPUs
+2021-02-24 10:22:46.503067: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'cupti64_110.dll'; dlerror: cupti64_110.dll not found
+2021-02-24 10:22:46.511429: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'cupti.dll'; dlerror: cupti.dll not found
+2021-02-24 10:22:46.521598: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI could not be loaded or symbol could not be found.
+2021-02-24 10:22:46.536000: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+2021-02-24 10:22:46.540662: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1496] function cupti_interface_->Finalize()failed with error CUPTI could not be loaded or symbol could not be found.
+Generating model...
+Weight shape: (3000000, 300)
+2021-02-24 10:23:18.880566: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-24 10:23:18.910375: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-02-24 10:23:18.931264: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-24 10:23:19.007632: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-24 10:23:19.013876: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-24 10:23:19.052098: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-24 10:23:19.064377: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-24 10:23:19.103520: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-24 10:23:19.134227: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-24 10:23:19.141841: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-24 10:23:19.177244: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-24 10:23:19.183401: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-02-24 10:23:19.208418: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.683GHz coreCount: 28 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-02-24 10:23:19.244667: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-24 10:23:19.249098: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-24 10:23:19.261911: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-24 10:23:19.275946: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-24 10:23:19.289066: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-24 10:23:19.294454: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-24 10:23:19.304883: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-24 10:23:19.319514: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-24 10:23:19.331897: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-24 10:23:23.963637: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-02-24 10:23:23.970530: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-02-24 10:23:23.973782: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N
+2021-02-24 10:23:24.041506: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8678 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2021-02-24 10:23:24.053422: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-24 10:23:24.123695: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-24 10:23:26.080166: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-24 10:23:30.503785: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_1 (InputLayer)            [(None, 52)]         0
+__________________________________________________________________________________________________
+embedding (Embedding)           (None, 52, 300)      900000000   input_1[0][0]
+__________________________________________________________________________________________________
+lstm (LSTM)                     (None, 64)           93440       embedding[0][0]
+__________________________________________________________________________________________________
+bidirectional (Bidirectional)   (None, 64)           85248       embedding[0][0]
+__________________________________________________________________________________________________
+lstm_2 (LSTM)                   (None, 64)           93440       embedding[0][0]
+__________________________________________________________________________________________________
+bidirectional_1 (Bidirectional) (None, 64)           85248       embedding[0][0]
+__________________________________________________________________________________________________
+lstm_4 (LSTM)                   (None, 64)           93440       embedding[0][0]
+__________________________________________________________________________________________________
+bidirectional_2 (Bidirectional) (None, 64)           85248       embedding[0][0]
+__________________________________________________________________________________________________
+lstm_6 (LSTM)                   (None, 64)           93440       embedding[0][0]
+__________________________________________________________________________________________________
+bidirectional_3 (Bidirectional) (None, 64)           85248       embedding[0][0]
+__________________________________________________________________________________________________
+batch_normalization (BatchNorma (None, 64)           256         lstm[0][0]
+__________________________________________________________________________________________________
+batch_normalization_1 (BatchNor (None, 64)           256         bidirectional[0][0]
+__________________________________________________________________________________________________
+batch_normalization_2 (BatchNor (None, 64)           256         lstm_2[0][0]
+__________________________________________________________________________________________________
+batch_normalization_3 (BatchNor (None, 64)           256         bidirectional_1[0][0]
+__________________________________________________________________________________________________
+batch_normalization_4 (BatchNor (None, 64)           256         lstm_4[0][0]
+__________________________________________________________________________________________________
+batch_normalization_5 (BatchNor (None, 64)           256         bidirectional_2[0][0]
+__________________________________________________________________________________________________
+batch_normalization_6 (BatchNor (None, 64)           256         lstm_6[0][0]
+__________________________________________________________________________________________________
+batch_normalization_7 (BatchNor (None, 64)           256         bidirectional_3[0][0]
+__________________________________________________________________________________________________
+dropout (Dropout)               (None, 64)           0           batch_normalization[0][0]
+__________________________________________________________________________________________________
+dropout_6 (Dropout)             (None, 64)           0           batch_normalization_1[0][0]
+__________________________________________________________________________________________________
+dropout_12 (Dropout)            (None, 64)           0           batch_normalization_2[0][0]
+__________________________________________________________________________________________________
+dropout_18 (Dropout)            (None, 64)           0           batch_normalization_3[0][0]
+__________________________________________________________________________________________________
+dropout_24 (Dropout)            (None, 64)           0           batch_normalization_4[0][0]
+__________________________________________________________________________________________________
+dropout_30 (Dropout)            (None, 64)           0           batch_normalization_5[0][0]
+__________________________________________________________________________________________________
+dropout_36 (Dropout)            (None, 64)           0           batch_normalization_6[0][0]      
+__________________________________________________________________________________________________
+dropout_42 (Dropout)            (None, 64)           0           batch_normalization_7[0][0]
+__________________________________________________________________________________________________
+dense (Dense)                   (None, 128)          8320        dropout[0][0]
+__________________________________________________________________________________________________
+dense_5 (Dense)                 (None, 128)          8320        dropout_6[0][0]
+__________________________________________________________________________________________________
+dense_13 (Dense)                (None, 128)          8320        dropout_12[0][0]
+__________________________________________________________________________________________________
+dense_18 (Dense)                (None, 128)          8320        dropout_18[0][0]
+__________________________________________________________________________________________________
+dense_26 (Dense)                (None, 128)          8320        dropout_24[0][0]
+__________________________________________________________________________________________________
+dense_31 (Dense)                (None, 128)          8320        dropout_30[0][0]
+__________________________________________________________________________________________________
+dense_39 (Dense)                (None, 128)          8320        dropout_36[0][0]
+__________________________________________________________________________________________________
+dense_44 (Dense)                (None, 128)          8320        dropout_42[0][0]
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 128)          0           dense[0][0]
+__________________________________________________________________________________________________
+dropout_7 (Dropout)             (None, 128)          0           dense_5[0][0]
+__________________________________________________________________________________________________
+dropout_13 (Dropout)            (None, 128)          0           dense_13[0][0]
+__________________________________________________________________________________________________
+dropout_19 (Dropout)            (None, 128)          0           dense_18[0][0]
+__________________________________________________________________________________________________
+dropout_25 (Dropout)            (None, 128)          0           dense_26[0][0]
+__________________________________________________________________________________________________
+dropout_31 (Dropout)            (None, 128)          0           dense_31[0][0]
+__________________________________________________________________________________________________
+dropout_37 (Dropout)            (None, 128)          0           dense_39[0][0]
+__________________________________________________________________________________________________
+dropout_43 (Dropout)            (None, 128)          0           dense_44[0][0]
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 128)          16512       dropout_1[0][0]
+__________________________________________________________________________________________________
+dense_6 (Dense)                 (None, 128)          16512       dropout_7[0][0]
+__________________________________________________________________________________________________
+dense_14 (Dense)                (None, 128)          16512       dropout_13[0][0]
+__________________________________________________________________________________________________
+dense_19 (Dense)                (None, 128)          16512       dropout_19[0][0]
+__________________________________________________________________________________________________
+dense_27 (Dense)                (None, 128)          16512       dropout_25[0][0]
+__________________________________________________________________________________________________
+dense_32 (Dense)                (None, 128)          16512       dropout_31[0][0]
+__________________________________________________________________________________________________
+dense_40 (Dense)                (None, 128)          16512       dropout_37[0][0]
+__________________________________________________________________________________________________
+dense_45 (Dense)                (None, 128)          16512       dropout_43[0][0]
+__________________________________________________________________________________________________
+dropout_2 (Dropout)             (None, 128)          0           dense_1[0][0]
+__________________________________________________________________________________________________
+dropout_8 (Dropout)             (None, 128)          0           dense_6[0][0]
+__________________________________________________________________________________________________
+dropout_14 (Dropout)            (None, 128)          0           dense_14[0][0]
+__________________________________________________________________________________________________
+dropout_20 (Dropout)            (None, 128)          0           dense_19[0][0]
+__________________________________________________________________________________________________
+dropout_26 (Dropout)            (None, 128)          0           dense_27[0][0]
+__________________________________________________________________________________________________
+dropout_32 (Dropout)            (None, 128)          0           dense_32[0][0]
+__________________________________________________________________________________________________
+dropout_38 (Dropout)            (None, 128)          0           dense_40[0][0]
+__________________________________________________________________________________________________
+dropout_44 (Dropout)            (None, 128)          0           dense_45[0][0]
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 64)           8256        dropout_2[0][0]
+__________________________________________________________________________________________________
+dense_7 (Dense)                 (None, 64)           8256        dropout_8[0][0]
+__________________________________________________________________________________________________
+dense_15 (Dense)                (None, 64)           8256        dropout_14[0][0]
+__________________________________________________________________________________________________
+dense_20 (Dense)                (None, 64)           8256        dropout_20[0][0]
+__________________________________________________________________________________________________
+dense_28 (Dense)                (None, 64)           8256        dropout_26[0][0]
+__________________________________________________________________________________________________
+dense_33 (Dense)                (None, 64)           8256        dropout_32[0][0]
+__________________________________________________________________________________________________
+dense_41 (Dense)                (None, 64)           8256        dropout_38[0][0]
+__________________________________________________________________________________________________
+dense_46 (Dense)                (None, 64)           8256        dropout_44[0][0]
+__________________________________________________________________________________________________
+dropout_3 (Dropout)             (None, 64)           0           dense_2[0][0]
+__________________________________________________________________________________________________
+dropout_9 (Dropout)             (None, 64)           0           dense_7[0][0]
+__________________________________________________________________________________________________
+dropout_15 (Dropout)            (None, 64)           0           dense_15[0][0]
+__________________________________________________________________________________________________
+dropout_21 (Dropout)            (None, 64)           0           dense_20[0][0]
+__________________________________________________________________________________________________
+dropout_27 (Dropout)            (None, 64)           0           dense_28[0][0]
+__________________________________________________________________________________________________
+dropout_33 (Dropout)            (None, 64)           0           dense_33[0][0]
+__________________________________________________________________________________________________
+dropout_39 (Dropout)            (None, 64)           0           dense_41[0][0]
+__________________________________________________________________________________________________
+dropout_45 (Dropout)            (None, 64)           0           dense_46[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 32)           2080        dropout_3[0][0]
+__________________________________________________________________________________________________
+dense_8 (Dense)                 (None, 64)           4160        dropout_9[0][0]
+__________________________________________________________________________________________________
+dense_16 (Dense)                (None, 32)           2080        dropout_15[0][0]
+__________________________________________________________________________________________________
+dense_21 (Dense)                (None, 64)           4160        dropout_21[0][0]
+__________________________________________________________________________________________________
+dense_29 (Dense)                (None, 32)           2080        dropout_27[0][0]
+__________________________________________________________________________________________________
+dense_34 (Dense)                (None, 64)           4160        dropout_33[0][0]
+__________________________________________________________________________________________________
+dense_42 (Dense)                (None, 32)           2080        dropout_39[0][0]
+__________________________________________________________________________________________________
+dense_47 (Dense)                (None, 64)           4160        dropout_45[0][0]
+__________________________________________________________________________________________________
+dropout_4 (Dropout)             (None, 32)           0           dense_3[0][0]
+__________________________________________________________________________________________________
+dropout_10 (Dropout)            (None, 64)           0           dense_8[0][0]
+__________________________________________________________________________________________________
+dropout_16 (Dropout)            (None, 32)           0           dense_16[0][0]
+__________________________________________________________________________________________________
+dropout_22 (Dropout)            (None, 64)           0           dense_21[0][0]
+__________________________________________________________________________________________________
+dropout_28 (Dropout)            (None, 32)           0           dense_29[0][0]
+__________________________________________________________________________________________________
+dropout_34 (Dropout)            (None, 64)           0           dense_34[0][0]
+__________________________________________________________________________________________________
+dropout_40 (Dropout)            (None, 32)           0           dense_42[0][0]
+__________________________________________________________________________________________________
+dropout_46 (Dropout)            (None, 64)           0           dense_47[0][0]
+__________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 16)           528         dropout_4[0][0]
+__________________________________________________________________________________________________
+dense_9 (Dense)                 (None, 32)           2080        dropout_10[0][0]
+__________________________________________________________________________________________________
+dense_17 (Dense)                (None, 16)           528         dropout_16[0][0]
+__________________________________________________________________________________________________
+dense_22 (Dense)                (None, 32)           2080        dropout_22[0][0]
+__________________________________________________________________________________________________
+dense_30 (Dense)                (None, 16)           528         dropout_28[0][0]
+__________________________________________________________________________________________________
+dense_35 (Dense)                (None, 32)           2080        dropout_34[0][0]
+__________________________________________________________________________________________________
+dense_43 (Dense)                (None, 16)           528         dropout_40[0][0]
+__________________________________________________________________________________________________
+dense_48 (Dense)                (None, 32)           2080        dropout_46[0][0]
+__________________________________________________________________________________________________
+dropout_5 (Dropout)             (None, 16)           0           dense_4[0][0]
+__________________________________________________________________________________________________
+dropout_11 (Dropout)            (None, 32)           0           dense_9[0][0]
+__________________________________________________________________________________________________
+dropout_17 (Dropout)            (None, 16)           0           dense_17[0][0]
+__________________________________________________________________________________________________
+dropout_23 (Dropout)            (None, 32)           0           dense_22[0][0]
+__________________________________________________________________________________________________
+dropout_29 (Dropout)            (None, 16)           0           dense_30[0][0]
+__________________________________________________________________________________________________
+dropout_35 (Dropout)            (None, 32)           0           dense_35[0][0]
+__________________________________________________________________________________________________
+dropout_41 (Dropout)            (None, 16)           0           dense_43[0][0]
+__________________________________________________________________________________________________
+dropout_47 (Dropout)            (None, 32)           0           dense_48[0][0]
+__________________________________________________________________________________________________
+concatenate (Concatenate)       (None, 48)           0           dropout_5[0][0]
+                                                                 dropout_11[0][0]
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 48)           0           dropout_17[0][0]
+                                                                 dropout_23[0][0]
+__________________________________________________________________________________________________
+concatenate_2 (Concatenate)     (None, 48)           0           dropout_29[0][0]
+                                                                 dropout_35[0][0]
+__________________________________________________________________________________________________
+concatenate_3 (Concatenate)     (None, 48)           0           dropout_41[0][0]
+                                                                 dropout_47[0][0]
+__________________________________________________________________________________________________
+dense_10 (Dense)                (None, 48)           2352        concatenate[0][0]
+__________________________________________________________________________________________________
+dense_23 (Dense)                (None, 48)           2352        concatenate_1[0][0]
+__________________________________________________________________________________________________
+dense_36 (Dense)                (None, 48)           2352        concatenate_2[0][0]
+__________________________________________________________________________________________________
+dense_49 (Dense)                (None, 48)           2352        concatenate_3[0][0]
+__________________________________________________________________________________________________
+dense_11 (Dense)                (None, 32)           1568        dense_10[0][0]
+__________________________________________________________________________________________________
+dense_24 (Dense)                (None, 32)           1568        dense_23[0][0]
+__________________________________________________________________________________________________
+dense_37 (Dense)                (None, 32)           1568        dense_36[0][0]
+__________________________________________________________________________________________________
+dense_50 (Dense)                (None, 32)           1568        dense_49[0][0]
+__________________________________________________________________________________________________
+dense_12 (Dense)                (None, 1)            33          dense_11[0][0]
+__________________________________________________________________________________________________
+dense_25 (Dense)                (None, 1)            33          dense_24[0][0]
+__________________________________________________________________________________________________
+dense_38 (Dense)                (None, 1)            33          dense_37[0][0]
+__________________________________________________________________________________________________
+dense_51 (Dense)                (None, 1)            33          dense_50[0][0]
+__________________________________________________________________________________________________
+concatenate_4 (Concatenate)     (None, 4)            0           dense_12[0][0]
+                                                                 dense_25[0][0]
+                                                                 dense_38[0][0]
+                                                                 dense_51[0][0]
+==================================================================================================
+Total params: 901,032,708
+Trainable params: 1,031,684
+Non-trainable params: 900,001,024
+__________________________________________________________________________________________________
+Model built.
+Beginning training...
+2021-02-24 10:24:47.436074: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+Epoch 1/50
+2021-02-24 10:25:27.237790: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-24 10:25:28.070846: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-24 10:25:32.886067: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+    1/16910 [..............................] - ETA: 225:21:25 - loss: 0.3901 - r: 0.3245 - mean_squared_error: 0.08222021-02-24 10:25:38.100089: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-02-24 10:25:38.119208: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-02-24 10:25:38.154861: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI could not be loaded or symbol could not be found.
+    2/16910 [..............................] - ETA: 9:59:40 - loss: 0.3864 - r: 0.1709 - mean_squared_error: 0.0786  2021-02-24 10:25:38.395486: I tensorflow/core/profiler/lib/profiler_session.cc:71] Profiler session collecting data.
+2021-02-24 10:25:38.400669: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1496] function cupti_interface_->Finalize()failed with error CUPTI could not be loaded or symbol could not be found.
+2021-02-24 10:25:38.490219: I tensorflow/core/profiler/internal/gpu/cupti_collector.cc:228]  GpuTracer has collected 0 callback api events and 0 activity events. 
+2021-02-24 10:25:38.529969: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+2021-02-24 10:25:38.662470: I tensorflow/core/profiler/rpc/client/save_profile.cc:137] Creating directory: ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38
+2021-02-24 10:25:38.734635: I tensorflow/core/profiler/rpc/client/save_profile.cc:143] Dumped gzipped tool data for trace.json.gz to ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38\DESKTOP-FMO200R.trace.json.gz
+2021-02-24 10:25:38.807412: I tensorflow/core/profiler/rpc/client/save_profile.cc:137] Creating directory: ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38
+2021-02-24 10:25:38.852505: I tensorflow/core/profiler/rpc/client/save_profile.cc:143] Dumped gzipped tool data for memory_profile.json.gz to ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38\DESKTOP-FMO200R.memory_profile.json.gz
+2021-02-24 10:25:39.002025: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38Dumped tool data for xplane.pb to ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38\DESKTOP-FMO200R.xplane.pb
+Dumped tool data for overview_page.pb to ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38\DESKTOP-FMO200R.overview_page.pb
+Dumped tool data for input_pipeline.pb to ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38\DESKTOP-FMO200R.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38\DESKTOP-FMO200R.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to ./logs/fit/20210224-102246\train\plugins\profile\2021_02_24_10_25_38\DESKTOP-FMO200R.kernel_stats.pb
+
+16910/16910 [==============================] - 1455s 83ms/step - loss: 0.2454 - r: nan - mean_squared_error: 0.0495 - val_loss: 0.0491 - val_r: 0.6868 - val_mean_squared_error: 0.0285
+2021-02-24 10:49:03.428982: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+2021-02-24 10:49:06.544818: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3600000000 exceeds 10% of free system memory.
+Epoch 2/50
+16910/16910 [==============================] - 1385s 82ms/step - loss: 0.0342 - r: 0.8008 - mean_squared_error: 0.0200 - val_loss: 0.0323 - val_r: 0.7207 - val_mean_squared_error: 0.0264
+Epoch 3/50
+16910/16910 [==============================] - 1392s 82ms/step - loss: 0.0170 - r: 0.8876 - mean_squared_error: 0.0120 - val_loss: 0.0298 - val_r: 0.7262 - val_mean_squared_error: 0.0265
+Epoch 4/50
+16910/16910 [==============================] - 1424s 84ms/step - loss: 0.0122 - r: 0.9160 - mean_squared_error: 0.0091 - val_loss: 0.0293 - val_r: 0.7318 - val_mean_squared_error: 0.0269
+Epoch 5/50
+16910/16910 [==============================] - 1410s 83ms/step - loss: 0.0096 - r: 0.9360 - mean_squared_error: 0.0073 - val_loss: 0.0284 - val_r: 0.7177 - val_mean_squared_error: 0.0263
+Epoch 6/50
+16910/16910 [==============================] - 1386s 82ms/step - loss: 0.0084 - r: 0.9450 - mean_squared_error: 0.0063 - val_loss: 0.0295 - val_r: 0.7307 - val_mean_squared_error: 0.0276
+Epoch 7/50
+16910/16910 [==============================] - 1384s 82ms/step - loss: 0.0074 - r: 0.9530 - mean_squared_error: 0.0055 - val_loss: 0.0279 - val_r: 0.7381 - val_mean_squared_error: 0.0261
+Epoch 8/50
+16910/16910 [==============================] - 1392s 82ms/step - loss: 0.0067 - r: 0.9582 - mean_squared_error: 0.0049 - val_loss: 0.0279 - val_r: 0.7330 - val_mean_squared_error: 0.0262
+Epoch 9/50
+16910/16910 [==============================] - 1361s 81ms/step - loss: 0.0064 - r: 0.9604 - mean_squared_error: 0.0047 - val_loss: 0.0275 - val_r: 0.7350 - val_mean_squared_error: 0.0259
+Epoch 10/50
+16910/16910 [==============================] - 1370s 81ms/step - loss: 0.0060 - r: 0.9637 - mean_squared_error: 0.0043 - val_loss: 0.0284 - val_r: 0.7311 - val_mean_squared_error: 0.0268
