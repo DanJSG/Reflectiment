@@ -68,7 +68,7 @@ sentence_dict = {}
 emotion_files = {}
 
 for emotion in emotions:
-    file = open(f"./dataset_processing/sem_eval/{emotion}.dev.txt", "r", encoding='utf8')
+    file = open(f"./dataset_processing/sem_eval/{emotion}.test.txt", "r", encoding='utf8')
     for line in file.readlines():
         sections = line.split("\t")
         sentence = remove_emoji(sections[1])
@@ -77,8 +77,8 @@ for emotion in emotions:
         score = float(sections[3].strip("\n"))
         sentence_dict = update_score(sentence_dict, sentence)
 
-x_file = open("./processed_datasets/sem_eval/correlation/x.combined.dev.txt", "w+", encoding='utf8')
-y_file = open("./processed_datasets/sem_eval/correlation/y.combined.dev.txt", "w+")
+x_file = open("./processed_datasets/sem_eval/correlation/x.combined.test.txt", "w+", encoding='utf8')
+y_file = open("./processed_datasets/sem_eval/correlation/y.combined.test.txt", "w+")
 
 sentences = []
 combined_scores = []

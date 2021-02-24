@@ -75,29 +75,6 @@ def preprocess_sentences(word2index, sentences, max_sentence_len):
     padded_sentences = pad_sequences(indexed_sentences, maxlen=max_sentence_len, padding='post', value=0)
     return padded_sentences.tolist(), max_sentence_len
 
-# Bidirectional LSTM model
-def get_parallel_model(embeddings):
-    # x = Conv1D(64, 3, kernel_regularizer=regularizers.l2(1e-4))(embeddings)
-    # x = AveragePooling1D(2)(x)
-    # x = BatchNormalization()(x)
-    # x = Conv1D(32, 3, activation='relu', kernel_regularizer=regularizers.l2(1e-4))(x)
-    # x = LSTM(32, activation='tanh', recurrent_activation='sigmoid', recurrent_dropout=0, unroll=False, use_bias=True)(x)
-    x = Bidirectional(LSTM(32, activation='tanh', recurrent_activation='sigmoid', recurrent_dropout=0, unroll=False, use_bias=True))(embeddings)
-    x = BatchNormalization()(x)
-    x = Dropout(0.25)(x)
-    x = Dense(128, activation='relu', kernel_regularizer=regularizers.l2(1e-4))(x)
-    x = Dropout(0.25)(x)
-    x = Dense(128, activation='relu', kernel_regularizer=regularizers.l2(1e-4))(x)
-    x = Dropout(0.25)(x)
-    x = Dense(64, activation='relu', kernel_regularizer=regularizers.l2(1e-4))(x)
-    x = Dropout(0.25)(x)
-    x = Dense(64, activation='relu', kernel_regularizer=regularizers.l2(1e-4))(x)
-    x = Dropout(0.25)(x)
-    x = Dense(32, activation='relu', kernel_regularizer=regularizers.l2(1e-4))(x)
-    x = Dropout(0.25)(x)
-    x = Dense(1, activation='relu')(x)
-    return x
-
 def get_big_parallel_model(embeddings):
     
     dropout_rate = 0.25
@@ -175,108 +152,20 @@ tb_callback = tf.keras.callbacks.TensorBoard(histogram_freq=1, log_dir=log_dir)
 
 print("Generating model...")
 
-# input = Input(shape=(max_sentence_len,))
-# embeddings = Word2Vec(max_sentence_len)(input)
-# x1 = get_parallel_model(embeddings)
-# x2 = get_parallel_model(embeddings)
-# x3 = get_parallel_model(embeddings)
-# x4 = get_parallel_model(embeddings)
-# output1 = Dense(1, activation='sigmoid', name='joy_out')(x1)
-# output2 = Dense(1, activation='sigmoid', name='anger_out')(x2)
-# output3 = Dense(1, activation='sigmoid', name='fear_out')(x3)
-# output4 = Dense(1, activation='sigmoid', name='sadness_out')(x4)
-
-# model = Model(inputs=input, outputs=[output1, output2, output3, output4])
-
-# optimizer = tf.keras.optimizers.Adam(lr=1e-4)
-# model.compile(
-#     loss='binary_crossentropy',
-#     optimizer=optimizer, 
-#     metrics=['accuracy'])
-
-# x_train_padded = np.array([np.array(x_train_padded), np.array(x_train_padded), np.array(x_train_padded), np.array(x_train_padded)])
-# y_train = np.array(y_train)
-
-# print(len(x_train_padded))
-# print(len(x_train_padded[0]))
-# print(len(y_train))
-# print(len(y_train[0]))
-# print(len(y_train[0][0]))
-
-# model.fit(
-#     x=x_train_padded, 
-#     # y={'joy_out': y_train[0], 'anger_out': y_train[1], 'fear_out': y_train[2], 'sadness_out': y_train[3]},
-#     y=(y_train[0], y_train[1], y_train[2], y_train[3]),
-#     batch_size=32,
-#     epochs=2, 
-#     verbose=1)
-
-
-# Model 4 - Conv-LSTM -> Best performing
-# This is a Deep Convolutional Long Short Term Memory model. It uses two 1D convolution layers to
-# extract grouped (but ordered) sentence features, then uses this as the input to an LSTM layer which
-# helps to contextualize each of these features. The output of this then proceeds through 5 fully
-# connected layers before arriving at an output layer. Dropout and an L2 regularizer are used to 
-# help avoid the model from overfitting.
-# model = Sequential()
-# model.add(Word2Vec(max_sentence_len))
-# model.add(Conv1D(64, 3, kernel_regularizer=regularizers.l2(1e-4)))
-# model.add(AveragePooling1D(2))
-# model.add(BatchNormalization())
-# model.add(Conv1D(32, 3, activation='relu', kernel_regularizer=regularizers.l2(1e-4)))
-# model.add(LSTM(32, activation='tanh', recurrent_activation='sigmoid', recurrent_dropout=0, unroll=False, use_bias=True))
-# model.add(BatchNormalization())
-# model.add(Dropout(0.25))
-# model.add(Dense(128, activation='relu', kernel_regularizer=regularizers.l2(1e-4)))
-# model.add(Dropout(0.25))
-# model.add(Dense(128, activation='relu', kernel_regularizer=regularizers.l2(1e-4)))
-# model.add(Dropout(0.25))
-# model.add(Dense(64, activation='relu', kernel_regularizer=regularizers.l2(1e-4)))
-# model.add(Dropout(0.25))
-# model.add(Dense(64, activation='relu', kernel_regularizer=regularizers.l2(1e-4)))
-# model.add(Dropout(0.25))
-# model.add(Dense(32, activation='relu', kernel_regularizer=regularizers.l2(1e-4)))
-# model.add(Dropout(0.25))
-
 inputs = Input(shape=(52,))
 embeddings = Word2Vec(max_sentence_len)(inputs)
-# x1 = get_parallel_model(embeddings)
-# x2 = get_parallel_model(embeddings)
-# x3 = get_parallel_model(embeddings)
-# x4 = get_parallel_model(embeddings)
 x1 = get_big_parallel_model(embeddings)
 x2 = get_big_parallel_model(embeddings)
 x3 = get_big_parallel_model(embeddings)
 x4 = get_big_parallel_model(embeddings)
 shared = concatenate([x1, x2, x3, x4])
-# x5 = Dense(128, 'relu', kernel_regularizer=regularizers.l2(1e-4))(shared)
-# x5 = Dropout(0.25)(x5)
-# x5 = Dense(64, 'relu', kernel_regularizer=regularizers.l2(1e-4))(x5)
-# x5 = Dropout(0.25)(x5)
-# x5 = Dense(32, 'relu', kernel_regularizer=regularizers.l2(1e-4))(x5)
-# x5 = Dropout(0.25)(x5)
-# outputs = Dense(4, activation='sigmoid')(x5)
-# outputs = Dense(4, activation='sigmoid')(shared)
-# model = Model(inputs=inputs, outputs=outputs)
 model = Model(inputs=inputs, outputs=shared)
 
 model.summary()
-tf.keras.utils.plot_model(model, show_shapes=True, show_dtype=True, show_layer_names=False)
+tf.keras.utils.plot_model(model, show_shapes=True, show_dtype=True, show_layer_names=False, dpi=192)
 
-# Params for different classification types: 
-#   - Binary classification: (1, activation='sigmoid') 
-#   - Five category fine-grained classification: (5, activation='softmax')
-#   - Three category fine-grained classification: (3, activation='softmax')
-# model.add(Dense(4, activation='sigmoid'))
 optimizer = tf.keras.optimizers.Adam(lr=1e-4)
-# Loss for different classification types:
-#   - Binary classification: binary_crossentropy
-#   - Fine grained classification: sparse_categorical_crossentropy
-# model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-# model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
 model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=[r, 'mean_squared_error'])
-
-# exit()
 
 print("Model built.")
 print("Beginning training...")
@@ -290,14 +179,14 @@ weights_filepath = f"./models/{timestamp_str}/C-LSTM.hdf5"
 model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=weights_filepath,
     save_weights_only=True,
-    monitor='val_accuracy',
+    monitor='val_r',
     mode='max',
     save_best_only=True
 )
 
 # Train the model to the training set and validate against the validation set.
 # model.fit(x=x_train_padded, y=y_train, batch_size=8, epochs=50, verbose=1, shuffle=True)
-model.fit(x=x_train_padded, y=y_train, batch_size=16, epochs=50, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation))
-# model.fit(x=x_train_padded, y=y_train, batch_size=4, epochs=50, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[model_checkpoint_callback, tb_callback])
+# model.fit(x=x_train_padded, y=y_train, batch_size=16, epochs=50, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation))
+model.fit(x=x_train_padded, y=y_train, batch_size=4, epochs=50, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[model_checkpoint_callback, tb_callback])
 
 print("Training complete.")
