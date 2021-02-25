@@ -29,7 +29,8 @@ public class MoodAnalysisService extends AnalysisService {
      * @param doc the document to analyse
      * @return a list of sentences scored with their mood intensities
      */
-    public static List<MoodScoredSentence> analyseMood(Document<Token> doc) {
+    public static List<MoodScoredSentence> analyseMood(Document<Token> doc, String dictionaryTag,
+                                                       String modifierTag) {
         // Create a new list for storing the scored sentences
         List<MoodScoredSentence> moodScoredSentences = new ArrayList<>();
         // Loop over each sentence in the document

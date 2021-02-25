@@ -38,7 +38,8 @@ public class ReflectionAnalysisService extends AnalysisService {
      * @param doc the document to analyse
      * @return a list of sentences scored for reflection
      */
-    public static List<ReflectionScoredSentence> analyseReflection(Document<Token> doc) {
+    public static List<ReflectionScoredSentence> analyseReflection(Document<Token> doc, String dictionaryTag,
+                                                                   String modifierTag) {
         List<ReflectionScoredSentence> scoredSentences = new ArrayList<>();
         for(Sentence<Token> sentence : doc.getSentences()) {
             List<Token> words = sentence.getWords();
