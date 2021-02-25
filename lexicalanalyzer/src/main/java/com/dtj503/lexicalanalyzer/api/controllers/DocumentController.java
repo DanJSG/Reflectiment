@@ -136,9 +136,9 @@ public class DocumentController extends RestAPIController {
         }
         SQLRepository<DictionaryTag> repo = new MySQLRepository<>(SQLTable.TAGS);
         List<DictionaryTag> fetchedTags = repo.findWhereEqualAndOr(SQLColumn.TAG, SQLColumn.TBL_IDX, Arrays.asList(tagParams), Arrays.asList(0, 1, 2), new DictionaryTagBuilder());
-
-        // TODO add null check
-
+        if(fetchedTags == null) {
+            return tagDefaults;
+        }
         fetchedTags.sort(Comparator.comparingInt(DictionaryTag::getIndex));
         for(int i = 0; i < tagParams.length; i++) {
             tags[i] = fetchedTags.contains(new DictionaryTag(tagParams[i], i)) ? tagParams[i] : tagDefaults[i];
