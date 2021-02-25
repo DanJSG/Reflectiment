@@ -22,14 +22,14 @@ public class SentimentAnalysisService extends AnalysisService {
      * @param doc the document to analyse
      * @return a list of sentiment scored sentences
      */
-    public static List<SentimentScoredSentence> analyseSentiment(Document<Token> doc) {
+    public static List<SentimentScoredSentence> analyseSentiment(Document<Token> doc, String dictionaryTag) {
         List<SentimentScoredSentence> scoredSentences = new ArrayList<>();
         // Loop over each sentence in the document
         for(Sentence<Token> sentence : doc.getSentences()) {
             // Get the words from the sentence
             List<Token> words = sentence.getWords();
             // Get the scores for each word
-            List<ScoredWord> scoredWords = fetchWordScores(words, SQLTable.SENTIMENT, "sentiwords", new ScoredWordBuilder());
+            List<ScoredWord> scoredWords = fetchWordScores(words, SQLTable.SENTIMENT, dictionaryTag, new ScoredWordBuilder());
             // If there are no associated scores for any of the words, then score the sentence 0
             if(scoredWords == null) {
                 scoredSentences.add(new SentimentScoredSentence(sentence.getOriginalText(), null, 0));

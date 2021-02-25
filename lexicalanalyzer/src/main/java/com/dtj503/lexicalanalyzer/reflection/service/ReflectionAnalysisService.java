@@ -38,12 +38,13 @@ public class ReflectionAnalysisService extends AnalysisService {
      * @param doc the document to analyse
      * @return a list of sentences scored for reflection
      */
-    public static List<ReflectionScoredSentence> analyseReflection(Document<Token> doc) {
+    public static List<ReflectionScoredSentence> analyseReflection(Document<Token> doc, String dictionaryTag,
+                                                                   String modifierTag) {
         List<ReflectionScoredSentence> scoredSentences = new ArrayList<>();
         for(Sentence<Token> sentence : doc.getSentences()) {
             List<Token> words = sentence.getWords();
             // Fetch the scores of the reflection based words
-            List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION, "ullman_ext", new ReflectionScoredWordBuilder());
+            List<ReflectionScoredWord> reflectionScoredWords = fetchWordScores(words, SQLTable.REFLECTION, dictionaryTag, new ReflectionScoredWordBuilder());
             if(reflectionScoredWords == null) {
                 scoredSentences.add(getZeroScoreSentence(sentence.getOriginalText()));
                 continue;
@@ -53,7 +54,7 @@ public class ReflectionAnalysisService extends AnalysisService {
             Map<String, Sentence<ReflectionScoredWord>> reflectionSentenceMap = buildReflectionSentenceMap(sentence,
                     scoredWordMap);
             // Fetch and choose the modifier word scores
-            List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, "sentiwords", new ScoredWordBuilder());
+            List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, modifierTag, new ScoredWordBuilder());
             modifierScoredWords = pickScoredWord(words, modifierScoredWords);
             // Convert the modifier words into a sentence
             Sentence<ScoredWord> modifierSentence = new Sentence<>(sentence.getOriginalText(), modifierScoredWords);

@@ -11,7 +11,7 @@ import java.util.Map;
 public enum SQLTable implements Whitelist {
 
 	// Collection of SQL Table names that are needed to be referenced within the application
-	SENTIMENT, MOOD, REFLECTION;
+	SENTIMENT, MOOD, REFLECTION, TAGS;
 
 	// Hashmap containing enums and their name
 	private static final Map<String, SQLTable> mappings = new HashMap<>(1);
