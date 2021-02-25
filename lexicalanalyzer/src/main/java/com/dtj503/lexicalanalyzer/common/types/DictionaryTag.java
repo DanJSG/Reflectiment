@@ -6,6 +6,10 @@ import com.dtj503.lexicalanalyzer.common.sql.SQLEntity;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Dictionary tag used within the database for determining what dictionary a collection of words belong to. The index
+ * represents the collection type they belong to, with 0 being sentiment, 1 being mood and 2 being reflection.
+ */
 public class DictionaryTag implements SQLEntity {
 
     private final String tag;
@@ -26,6 +30,7 @@ public class DictionaryTag implements SQLEntity {
 
     @Override
     public boolean equals(Object obj) {
+        // Check that the object is of the same type and then
         if(obj instanceof DictionaryTag) {
             DictionaryTag castObj = (DictionaryTag) obj;
             if(this.index == castObj.getIndex() && this.tag.contentEquals(castObj.getTag())) {

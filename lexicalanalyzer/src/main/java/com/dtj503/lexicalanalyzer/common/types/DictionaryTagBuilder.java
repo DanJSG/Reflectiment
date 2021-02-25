@@ -4,6 +4,9 @@ import com.dtj503.lexicalanalyzer.common.sql.SQLEntityBuilder;
 
 import java.sql.ResultSet;
 
+/**
+ * SQL builder class for a dictionary tag.
+ */
 public class DictionaryTagBuilder implements SQLEntityBuilder<DictionaryTag> {
 
     @Override
