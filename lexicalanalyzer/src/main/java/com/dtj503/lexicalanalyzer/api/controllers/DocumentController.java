@@ -121,13 +121,11 @@ public class DocumentController extends RestAPIController {
     }
 
     private static String[] checkTagParams(String sTagParam, String mTagParam, String rTagParam) {
-        String[] tagDefaults = {"sentiwords", "nrc", "ullman_ext"};
         String[] tagParams = {sTagParam, mTagParam, rTagParam};
+        String[] tags = {"sentiwords", "nrc", "ullman_ext"};
         int editedCount = 0;
-        String[] tags = new String[3];
-        for(int i = 0; i < tagDefaults.length; i++) {
+        for(int i = 0; i < tags.length; i++) {
             if(tagParams[i] == null) {
-                tags[i] = tagDefaults[i];
                 editedCount++;
             }
         }
@@ -137,11 +135,11 @@ public class DocumentController extends RestAPIController {
         SQLRepository<DictionaryTag> repo = new MySQLRepository<>(SQLTable.TAGS);
         List<DictionaryTag> fetchedTags = repo.findWhereEqualAndOr(SQLColumn.TAG, SQLColumn.TBL_IDX, Arrays.asList(tagParams), Arrays.asList(0, 1, 2), new DictionaryTagBuilder());
         if(fetchedTags == null) {
-            return tagDefaults;
+            return tags;
         }
         fetchedTags.sort(Comparator.comparingInt(DictionaryTag::getIndex));
         for(int i = 0; i < tagParams.length; i++) {
-            tags[i] = fetchedTags.contains(new DictionaryTag(tagParams[i], i)) ? tagParams[i] : tagDefaults[i];
+            tags[i] = fetchedTags.contains(new DictionaryTag(tagParams[i], i)) ? tagParams[i] : tags[i];
         }
         return tags;
     }

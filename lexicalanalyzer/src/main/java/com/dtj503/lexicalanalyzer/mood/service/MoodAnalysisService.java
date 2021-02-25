@@ -38,7 +38,7 @@ public class MoodAnalysisService extends AnalysisService {
             // Get the tokenized words from the sentence
             List<Token> words = sentence.getWords();
             // Fetch the scores for each word from the database
-            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, "nrc",
+            List<MoodScoredWord> moodScoredWords = fetchWordScores(words, SQLTable.MOOD, dictionaryTag,
                     new MoodScoredWordBuilder());
             // If there are no scored words in the database, then score the sentence as 0 for all emotions and continue
             // the loop
@@ -51,7 +51,7 @@ public class MoodAnalysisService extends AnalysisService {
             // Build a map of emotions to sentences of scored words
             Map<String, Sentence<MoodScoredWord>> moodSentenceMap = buildMoodSentenceMap(sentence, scoredWordMap);
             // Fetch and choose the modifier word scores
-            List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, "sentiwords",
+            List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, modifierTag,
                                                                    new ScoredWordBuilder());
             modifierScoredWords = pickScoredWord(words, modifierScoredWords);
             // Convert the modifier words into a sentence
