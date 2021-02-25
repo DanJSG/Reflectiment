@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -53,17 +52,18 @@ public class DocumentController extends RestAPIController {
             return BAD_REQUEST_HTTP_RESPONSE;
         }
 
+        System.out.println("Received request. JSON Received: ");
+        System.out.println(submission.writeValueAsString());
+        System.out.println("Parameters received: ");
+        System.out.println("sTag=" + sTagParam);
+        System.out.println("mTag=" + mTagParam);
+        System.out.println("rTag=" + rTagParam);
+
         String[] tags = checkTagParams(sTagParam, mTagParam, rTagParam);
         String sTag = tags[0];
         String mTag = tags[1];
         String rTag = tags[2];
 
-        System.out.println(sTag);
-        System.out.println(mTag);
-        System.out.println(rTag);
-
-        System.out.println("Received request. JSON Received: ");
-        System.out.println(submission.writeValueAsString());
         // Parse the submitted text into a set of word tokens with PoS tags
         Document<Token> document = StringParser.parseText(submission.getText());
         if(document == null) {
@@ -120,24 +120,41 @@ public class DocumentController extends RestAPIController {
         return response;
     }
 
+    /**
+     * Checks that the submitted dictionary tag parameters are valid and if not replaces them with default values.
+     *
+     * @param sTagParam the submitted sentiment dictionary tag (can be null)
+     * @param mTagParam the submitted mood dictionary tag (can be null)
+     * @param rTagParam the submitted reflection dictionary tag (can be null)
+     * @return an array containing the sentiment, mood and reflection dictionary tags in that order
+     *         ie. [sentiment, mood, reflection]
+     */
     private static String[] checkTagParams(String sTagParam, String mTagParam, String rTagParam) {
+        // Save the sentiment, mood and reflection tag parameters in an array for looping
         String[] tagParams = {sTagParam, mTagParam, rTagParam};
+        // Initialize the tags with their default values
         String[] tags = {"sentiwords", "nrc", "ullman_ext"};
+        // Check how many of the parameter tags are null
         int editedCount = 0;
         for(int i = 0; i < tags.length; i++) {
             if(tagParams[i] == null) {
                 editedCount++;
             }
         }
+        // If they are all null then just return the defaults
         if(editedCount == 3) {
             return tags;
         }
+        // Fetch all the tags which exist within the database and their corresponding index
         SQLRepository<DictionaryTag> repo = new MySQLRepository<>(SQLTable.TAGS);
         List<DictionaryTag> fetchedTags = repo.findWhereEqualAndOr(SQLColumn.TAG, SQLColumn.TBL_IDX, Arrays.asList(tagParams), Arrays.asList(0, 1, 2), new DictionaryTagBuilder());
+        // If no valid tags are found then return the defaults
         if(fetchedTags == null) {
             return tags;
         }
+        // Sort the tags such that they are ordered correctly -> [sentiment, mood, reflection]
         fetchedTags.sort(Comparator.comparingInt(DictionaryTag::getIndex));
+        // Set the tags or use the defaults depending if they are valid
         for(int i = 0; i < tagParams.length; i++) {
             tags[i] = fetchedTags.contains(new DictionaryTag(tagParams[i], i)) ? tagParams[i] : tags[i];
         }
