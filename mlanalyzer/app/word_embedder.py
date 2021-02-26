@@ -25,7 +25,7 @@ class WordEmbedder():
         """
         wrapped_embeddings = self.model.predict(tokenized_sentence).tolist()
         embeddings = [[word[0] for word in wrapped_embeddings]]
-        return embeddings
+        return tf.convert_to_tensor(embeddings)
 
     def _dummy_request(self) -> None:
         """ Send a dummy prediction request to the Keras model to initialize it."""
