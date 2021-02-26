@@ -9,9 +9,7 @@ def analyze_document():
     body: dict = request.get_json()
     text: str = body["text"]
     doc: Document = Document(text)
-    # print(doc.sentences[0].embedded)
-    # return jsonify(encode_document(doc))
-    return jsonify({"completed": True})
+    return jsonify(encode_document(doc))
 
 def get_app() -> Flask:
     """ Initialize and fetch the Flask application.
@@ -28,5 +26,5 @@ def get_app() -> Flask:
     with app.app_context():
         current_app.word2index, current_app.index2word = load_word_mappings()
         current_app.word_embedder = WordEmbedder()
-        # current_app.sentiment_analyzer = SentimentAnalyzer()
+        current_app.sentiment_analyzer = SentimentAnalyzer()
     return app
