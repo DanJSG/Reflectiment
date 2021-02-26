@@ -1,3 +1,4 @@
+from app.mood_analyzer import MoodAnalyzer
 from app.word_embedder import WordEmbedder
 from app.document_encoder import encode_document
 from app.sentiment_analyzer import SentimentAnalyzer
@@ -27,4 +28,5 @@ def get_app() -> Flask:
         current_app.word2index, current_app.index2word = load_word_mappings()
         current_app.word_embedder = WordEmbedder()
         current_app.sentiment_analyzer = SentimentAnalyzer()
+        current_app.mood_analyzer = MoodAnalyzer()
     return app
