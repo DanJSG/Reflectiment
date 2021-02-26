@@ -1,5 +1,6 @@
 import keras
 import tensorflow as tf
+from flask import current_app
 
 class SentimentAnalyzer():
     """ An analyzer for the sentiment of a sentence.
@@ -20,20 +21,20 @@ class SentimentAnalyzer():
         self.model: keras.Sequential = self._load_model()
         self._dummy_request()
 
-    def get_sentiment_classification(self, indexed_sentence) -> str:
+    def get_sentiment_classification(self, embedded_sentence) -> str:
         """ Get the sentiment classification of a sentence.
 
         Takes a padded, indexed sentence and estimates its sentiment classification
         using the loaded neural network model.
 
         Args:
-            indexed_sentence: the indexed sentence array
+            embedded_sentence: the embedded word list
 
         Returns:
             A string label representing the estimated classification
 
         """
-        score: float = self.model.predict([indexed_sentence])[0][0]
+        score: float = self.model.predict(embedded_sentence)[0][0]
         return self._get_class_name(self._classify_score(score))
 
     def _load_model(self) -> keras.Model:
@@ -50,7 +51,9 @@ class SentimentAnalyzer():
 
     def _dummy_request(self) -> None:
         """ Send a dummy classification request to initialize the neural network."""
-        self.get_sentiment_classification([2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999])
+        with current_app.app_context():
+            embedded = current_app.word_embedder.get_embeddings([2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999])
+            self.get_sentiment_classification(embedded)
     
     def _get_class_name(self, class_index) -> str:
         """ Get the class name associated with a class index.

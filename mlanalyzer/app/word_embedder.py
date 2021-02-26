@@ -23,7 +23,9 @@ class WordEmbedder():
             A list of 300-dimensional word embedding vectors
 
         """
-        return self.model.predict(tokenized_sentence).tolist()
+        wrapped_embeddings = self.model.predict(tokenized_sentence).tolist()
+        embeddings = [[word[0] for word in wrapped_embeddings]]
+        return embeddings
 
     def _dummy_request(self) -> None:
         """ Send a dummy prediction request to the Keras model to initialize it."""

@@ -19,9 +19,9 @@ class Sentence:
         super().__init__()
         self.text: str = text
         self.tokens: list = nltk.word_tokenize(text.translate(str.maketrans('','', string.punctuation)).lower())
-        self.indexed: list = self._to_index()
-        self.embedded: list = self._to_embedding()
-        # self.sentiment: str = self._get_sentiment()
+        indexed: list = self._to_index()
+        embedded: list = self._to_embedding(indexed)
+        self.sentiment: str = self._get_sentiment(embedded)
     
     def _to_index(self) -> list:
         """ Convert the tokenized sentence into an indexed version.
@@ -33,15 +33,14 @@ class Sentence:
             indexed_sentence = []
             for word in self.tokens:
                 indexed_sentence.append(get_word_index(current_app.word2index, word))
-            # padded_sentences = pad_sequences([indexed_sentence], maxlen=52, padding='post', value=0)
-            # return padded_sentences[0].tolist()
-            return indexed_sentence
+            padded_sentences = pad_sequences([indexed_sentence], maxlen=52, padding='post', value=0)
+            return padded_sentences[0].tolist()
     
-    def _to_embedding(self) -> list:
+    def _to_embedding(self, indexed) -> list:
         with current_app.app_context():
-            return current_app.word_embedder.get_embeddings(self.indexed)
+            return current_app.word_embedder.get_embeddings(indexed)
 
-    def _get_sentiment(self):
+    def _get_sentiment(self, embedded):
         """ Get the sentiment classification label of the sentence.
 
         Fetches the sentiment analysis model from the current application context and guesses the
@@ -50,8 +49,6 @@ class Sentence:
         Returns:
             The string classification label
         """
-        result = None
         with current_app.app_context():
-            pass
-            # result = current_app.sentiment_analyzer.get_sentiment_classification(self.indexed)
-        return result
+            result = current_app.sentiment_analyzer.get_sentiment_classification(embedded)
+            return result
