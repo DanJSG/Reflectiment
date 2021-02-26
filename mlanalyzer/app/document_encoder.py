@@ -22,6 +22,8 @@ def encode_document(doc: Document) -> dict:
         
         mood_dict: dict = {}
         mood_dict["moodScores"] = sentence.mood
+        mood_dict["score"] = sentence.mood_score
+        mood_dict["label"] = sentence.mood_label
 
         sentence_dict: dict = {}
         sentence_dict["text"] = sentence.text

@@ -26,6 +26,7 @@ class Sentence:
         embedded_padded: list = self._to_embedding(indexed_padded)
         self.sentiment: str = self._get_sentiment(embedded_padded)
         self.mood: dict = self._get_mood(embedded)
+        self.mood_label, self.mood_score = self._get_strongest_mood()
     
     def _to_index(self) -> list:
         """ Convert the tokenized sentence into an indexed version.
@@ -63,4 +64,9 @@ class Sentence:
 
     def _get_mood(self, embedded):
         with current_app.app_context():
-            return current_app.mood_analyzer.get_mood_classification(embedded) 
+            return current_app.mood_analyzer.get_mood_classification(embedded)
+
+    def _get_strongest_mood(self):
+        label = max(self.mood, key=lambda key: self.mood[key])
+        score = self.mood[label]
+        return label, score
