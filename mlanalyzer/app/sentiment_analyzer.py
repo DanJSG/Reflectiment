@@ -8,8 +8,6 @@ class SentimentAnalyzer():
     methods for analyzing a sentence.
 
     Attributes:
-        _json_path: the path to the JSON format neural network model
-        _weights_path: the path to the .hdf5 format neural network model weights
         labels: the potential classification labels
         model: the sentiment analysis neural network model
     """
