@@ -3,6 +3,7 @@ import string
 from flask import current_app
 from keras.preprocessing.sequence import pad_sequences
 from app.word_mappings import get_word_index
+import tensorflow as tf
 
 class Sentence:
     """ A single sentence.
@@ -20,8 +21,11 @@ class Sentence:
         self.text: str = text
         self.tokens: list = nltk.word_tokenize(text.translate(str.maketrans('','', string.punctuation)).lower())
         indexed: list = self._to_index()
+        indexed_padded = pad_sequences([indexed], maxlen=52, padding='post', value=0)[0].tolist()
         embedded: list = self._to_embedding(indexed)
-        self.sentiment: str = self._get_sentiment(embedded)
+        embedded_padded: list = self._to_embedding(indexed_padded)
+        self.sentiment: str = self._get_sentiment(embedded_padded)
+        self.mood: dict = self._get_mood(embedded)
     
     def _to_index(self) -> list:
         """ Convert the tokenized sentence into an indexed version.
@@ -33,10 +37,14 @@ class Sentence:
             indexed_sentence = []
             for word in self.tokens:
                 indexed_sentence.append(get_word_index(current_app.word2index, word))
-            padded_sentences = pad_sequences([indexed_sentence], maxlen=52, padding='post', value=0)
-            return padded_sentences[0].tolist()
+            return indexed_sentence
     
     def _to_embedding(self, indexed) -> list:
+        """ Convert the indexed sentence into an array of 300-dimension word embedding vectors.
+
+        Returns:
+            The list of word embeddings
+        """
         with current_app.app_context():
             return current_app.word_embedder.get_embeddings(indexed)
 
@@ -52,3 +60,7 @@ class Sentence:
         with current_app.app_context():
             result = current_app.sentiment_analyzer.get_sentiment_classification(embedded)
             return result
+
+    def _get_mood(self, embedded):
+        with current_app.app_context():
+            return current_app.mood_analyzer.get_mood_classification(embedded) 
