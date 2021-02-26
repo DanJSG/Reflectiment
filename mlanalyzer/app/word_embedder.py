@@ -2,18 +2,32 @@ import keras
 import tensorflow as tf
 
 class WordEmbedder():
+    """ A converter which converts indexed word lists into 300-dimensional vector lists.
+
+    Converts words using a Keras model based on the Google News trained Word2Vec embeddings.
+
+    Attributes:
+        model: the Keras embedding model
+    """
     def __init__(self) -> None:
         self._json_path = "./models/embedding/embedding.json"
         self._weights_path = "./models/embedding/embedding.hdf5"
         self._configure_gpu()
-        self._model = self._load_model()
+        self.model = self._load_model()
         self._dummy_request()
 
     def get_embeddings(self, tokenized_sentence) -> list:
-        return self._model.predict(tokenized_sentence).tolist()
+        """ Get the word embeddings for each word in an indexed sentence.
+
+        Returns:
+            A list of 300-dimensional word embedding vectors
+
+        """
+        return self.model.predict(tokenized_sentence).tolist()
 
     def _dummy_request(self) -> None:
-        self._model.predict([[150]])
+        """ Send a dummy prediction request to the Keras model to initialize it."""
+        self.model.predict([[150]])
 
     def _load_model(self) -> keras.Sequential:
         """ Load the machine learning model from the JSON and hdf5 files.
