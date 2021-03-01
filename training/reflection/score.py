@@ -16,6 +16,7 @@ for sentence in sentences_file.readlines():
     if count < start_pos:
         count += 1
         continue
+    print("\n")
     print(f"{sentence}")
     experience = input("Experience: ")
     feelings = input("Feelings: ")
@@ -31,4 +32,4 @@ for sentence in sentences_file.readlines():
         break
 
 progress_file = open("./progress.txt", "w+")
-progress_file.write(f"{start_pos + count}\n")
+progress_file.write(f"{start_pos + processed}\n")
