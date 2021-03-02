@@ -1,4 +1,5 @@
 from statistics import mean
+import matplotlib.pyplot as plot
 
 sentences_file = open("./sentences.txt", "r", encoding='utf8')
 scores_file = open("scores.txt", "r", encoding='utf8')
@@ -35,7 +36,11 @@ print(max(means))
 
 print(categories[sums.index(max(sums))])
 
-
+plot.hist(means, bins=25)
+plot.title("Number of Occurrences of Scores")
+plot.xlabel("Score")
+plot.ylabel("Occurrences")
+plot.show()
 
 # experience_sum = sum(experience)
 # feelings_sum = sum(feelings)
