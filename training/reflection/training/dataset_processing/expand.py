@@ -2,15 +2,18 @@ from nltk.corpus import wordnet as wn
 import nltk
 import copy
 
-file = open("./expansion/to_expand.txt", "r", encoding="utf8")
+file = open("./dataset_processing/sentences.txt", "r", encoding="utf8")
+scores_file = open("./dataset_processing/single_scores.txt", "r")
 
 more_sentences = []
+more_scores = []
 
-for line in file.readlines():
+for line, score in zip(file.readlines(), scores_file.readlines()):
     tokenized = nltk.word_tokenize(line)
     tagged = nltk.pos_tag(tokenized)
     word_index = 0
     more_sentences.append(line)
+    more_scores.append(score.strip("\n"))
     for tag in tagged:
         alternatives = set()
         if tag[1].startswith("N") or tag[1].startswith("V") or tag[1].startswith('J'):
@@ -36,6 +39,14 @@ for line in file.readlines():
         if len(alternative_sentences) > 0:
             for alt_sentence in alternative_sentences:
                 more_sentences.append(alt_sentence)
+                more_scores.append(score)
         word_index += 1
+
+out_scores_file = open("./dataset_processing/extended/scores.txt", "w+")
+out_sentences_file = open("./dataset_processing/extended/sentences.txt", "w+", encoding="utf8")
+
+for sentence, score in zip(more_sentences, more_scores):
+    out_sentences_file.write(f"{sentence}\n")
+    out_scores_file.write(f"{score}\n")
 
 print(len(more_sentences))
