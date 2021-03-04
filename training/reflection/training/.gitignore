@@ -1,1 +1,4 @@
 venv/
+logs/
+*.bin
+*.hdf5
