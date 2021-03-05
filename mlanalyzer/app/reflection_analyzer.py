@@ -36,7 +36,19 @@ class ReflectionAnalyzer():
         """
         score: float = self.model.predict(embedded_sentence)[0][0]
         print(score)
-        return score
+        return score, self._get_reflection_label(score)
+
+    def _get_reflection_label(self, score):
+        if score >= 0 and score < 0.2:
+            return self.labels[0]
+        elif score >= 0.2 and score < 0.4:
+            return self.labels[1]
+        elif score >= 0.4 and score < 0.6:
+            return self.labels[2]
+        elif score >= 0.6 and score < 0.8:
+            return self.labels[3]
+        else:
+            return self.labels[4]
 
     def _load_model(self) -> keras.Model:
         """ Load the machine learning model from the JSON and hdf5 files.
