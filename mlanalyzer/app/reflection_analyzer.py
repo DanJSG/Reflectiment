@@ -3,9 +3,9 @@ import tensorflow as tf
 from flask import current_app
 
 class ReflectionAnalyzer():
-    """ An analyzer for the mood of a sentence.
+    """ An analyzer for the reflection of a sentence.
 
-    A class containing a loaded neural network model for mood analysis and
+    A class containing a loaded neural network model for reflection analysis and
     methods for analyzing a sentence.
 
     Attributes:
@@ -24,14 +24,14 @@ class ReflectionAnalyzer():
     def get_reflection_score(self, embedded_sentence) -> str:
         """ Get the mood classification of a sentence.
 
-        Takes a padded, indexed sentence and estimates its mood classification
+        Takes a padded, indexed sentence and estimates its reflection score
         using the loaded neural network model.
 
         Args:
             embedded_sentence: the embedded word list
 
         Returns:
-            A dictionary of the emotion labels with corresponding scores
+            The reflection score as a float
 
         """
         score: float = self.model.predict(embedded_sentence)[0][0]
