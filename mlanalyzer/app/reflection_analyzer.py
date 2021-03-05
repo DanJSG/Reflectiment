@@ -22,7 +22,7 @@ class ReflectionAnalyzer():
         self._dummy_request()
 
     def get_reflection_score(self, embedded_sentence) -> str:
-        """ Get the mood classification of a sentence.
+        """ Get the reflection score and label of a sentence.
 
         Takes a padded, indexed sentence and estimates its reflection score
         using the loaded neural network model.
@@ -31,14 +31,21 @@ class ReflectionAnalyzer():
             embedded_sentence: the embedded word list
 
         Returns:
-            The reflection score as a float
+            The reflection score as a float and its associated reflection strength label
 
         """
         score: float = self.model.predict(embedded_sentence)[0][0]
-        print(score)
-        return score, self._get_reflection_label(score)
+        return float(score), self._get_reflection_label(score)
 
     def _get_reflection_label(self, score):
+        """ Get the reflection label based on the reflection score.
+        
+        Args:
+            score: the reflection score output of the neural network
+
+        Returns:
+            The reflection label string
+        """
         if score >= 0 and score < 0.2:
             return self.labels[0]
         elif score >= 0.2 and score < 0.4:
