@@ -1,8 +1,9 @@
 import keras
 import tensorflow as tf
 from flask import current_app
+from app.analyzer import Analyzer
 
-class SentimentAnalyzer():
+class SentimentAnalyzer(Analyzer):
     """ An analyzer for the sentiment of a sentence.
 
     A class containing a loaded neural network model for sentiment analysis and
@@ -37,18 +38,6 @@ class SentimentAnalyzer():
         score: float = self.model.predict(embedded_sentence)[0][0]
         return self._get_class_name(self._classify_score(score))
 
-    def _load_model(self) -> keras.Model:
-        """ Load the machine learning model from the JSON and hdf5 files.
-        Returns:
-            A loaded and initialized Keras model
-        """
-        print("Loading model...")
-        model: keras.Sequential = keras.models.model_from_json(open(self._json_path, "r").read())
-        model.load_weights(self._weights_path)
-        print("Model loaded.")
-        model.summary()
-        return model
-
     def _dummy_request(self) -> None:
         """ Send a dummy classification request to initialize the neural network."""
         with current_app.app_context():
@@ -63,14 +52,7 @@ class SentimentAnalyzer():
         """
         return self.labels[class_index]
 
-    @staticmethod
-    def _configure_gpu() -> None:
-        """ Initialize GPU memory growth to optimize performance."""
-        physical_devices = tf.config.experimental.list_physical_devices('GPU')
-        tf.config.experimental.set_memory_growth(physical_devices[0], True)
-
-    @staticmethod
-    def _classify_score(score) -> int:
+    def _classify_score(self, score) -> int:
         """ Classify the output score into an integer index. 
         
         Args:

@@ -1,8 +1,9 @@
 import keras
 import tensorflow as tf
 from flask import current_app
+from app.analyzer import Analyzer
 
-class MoodAnalyzer():
+class MoodAnalyzer(Analyzer):
     """ An analyzer for the mood of a sentence.
 
     A class containing a loaded neural network model for mood analysis and
@@ -40,26 +41,8 @@ class MoodAnalyzer():
             labelled_scores[self.labels[i]] = scores[i]
         return labelled_scores
 
-    def _load_model(self) -> keras.Model:
-        """ Load the machine learning model from the JSON and hdf5 files.
-        Returns:
-            A loaded and initialized Keras model
-        """
-        print("Loading model...")
-        model: keras.Model = keras.models.model_from_json(open(self._json_path, "r").read())
-        model.load_weights(self._weights_path)
-        print("Model loaded.")
-        model.summary()
-        return model
-
     def _dummy_request(self) -> None:
         """ Send a dummy classification request to initialize the neural network."""
         with current_app.app_context():
             embedded = current_app.word_embedder.get_embeddings([2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999])
             self.get_mood_classification(embedded)
-    
-    @staticmethod
-    def _configure_gpu() -> None:
-        """ Initialize GPU memory growth to optimize performance."""
-        physical_devices = tf.config.experimental.list_physical_devices('GPU')
-        tf.config.experimental.set_memory_growth(physical_devices[0], True)
