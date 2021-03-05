@@ -1,5 +1,6 @@
 from abc import ABC
 import keras
+import tensorflow as tf
 
 class Analyzer(ABC):
     

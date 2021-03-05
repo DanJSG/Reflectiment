@@ -3,7 +3,6 @@ import string
 from flask import current_app
 from keras.preprocessing.sequence import pad_sequences
 from app.word_mappings import get_word_index
-import tensorflow as tf
 
 class Sentence:
     """ A single sentence.

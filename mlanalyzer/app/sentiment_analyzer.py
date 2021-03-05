@@ -1,5 +1,4 @@
 import keras
-import tensorflow as tf
 from flask import current_app
 from app.analyzer import Analyzer
 
