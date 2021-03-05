@@ -1,5 +1,6 @@
 from app.mood_analyzer import MoodAnalyzer
 from app.word_embedder import WordEmbedder
+from app.reflection_analyzer import ReflectionAnalyzer
 from app.document_encoder import encode_document
 from app.sentiment_analyzer import SentimentAnalyzer
 from flask import Flask, request, jsonify, current_app
@@ -29,4 +30,5 @@ def get_app() -> Flask:
         current_app.word_embedder = WordEmbedder()
         current_app.sentiment_analyzer = SentimentAnalyzer()
         current_app.mood_analyzer = MoodAnalyzer()
+        current_app.reflection_analyzer = ReflectionAnalyzer()
     return app
