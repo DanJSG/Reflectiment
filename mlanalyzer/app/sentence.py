@@ -3,7 +3,6 @@ import string
 from flask import current_app
 from keras.preprocessing.sequence import pad_sequences
 from app.word_mappings import get_word_index
-import tensorflow as tf
 
 class Sentence:
     """ A single sentence.
@@ -27,6 +26,7 @@ class Sentence:
         self.sentiment: str = self._get_sentiment(embedded_padded)
         self.mood: dict = self._get_mood(embedded)
         self.mood_label, self.mood_score = self._get_strongest_mood()
+        self.reflection_score, self.reflection_label = self._get_reflection(embedded)
     
     def _to_index(self) -> list:
         """ Convert the tokenized sentence into an indexed version.
@@ -65,6 +65,10 @@ class Sentence:
     def _get_mood(self, embedded):
         with current_app.app_context():
             return current_app.mood_analyzer.get_mood_classification(embedded)
+
+    def _get_reflection(self, embedded):
+        with current_app.app_context():
+            return current_app.reflection_analyzer.get_reflection_score(embedded)
 
     def _get_strongest_mood(self):
         label = max(self.mood, key=lambda key: self.mood[key])

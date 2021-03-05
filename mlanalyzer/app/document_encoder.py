@@ -16,7 +16,7 @@ def encode_document(doc: Document) -> dict:
     encoded["text"] = doc.text
     encoded_sentences: list = []
     for sentence in doc.sentences:
-        
+
         sentiment_dict: dict = {}
         sentiment_dict["label"] = sentence.sentiment
         
@@ -25,10 +25,15 @@ def encode_document(doc: Document) -> dict:
         mood_dict["score"] = sentence.mood_score
         mood_dict["label"] = sentence.mood_label
 
+        reflection_dict: dict = {}
+        reflection_dict["score"] = sentence.reflection_score
+        reflection_dict["label"] = sentence.reflection_label
+
         sentence_dict: dict = {}
         sentence_dict["text"] = sentence.text
         sentence_dict["sentiment"] = sentiment_dict
         sentence_dict["mood"] = mood_dict
+        sentence_dict["reflection"] = reflection_dict
 
         encoded_sentences.append(sentence_dict)
     encoded["sentences"] = encoded_sentences
