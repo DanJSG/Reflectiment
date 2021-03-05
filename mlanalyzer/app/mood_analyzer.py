@@ -1,6 +1,6 @@
 import keras
 from flask import current_app
-from app.analyzer import Analyzer
+from .analyzer import Analyzer
 
 class MoodAnalyzer(Analyzer):
     """ An analyzer for the mood of a sentence.

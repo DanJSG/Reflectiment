@@ -1,7 +1,8 @@
 import keras
 import tensorflow as tf
+from .analyzer import Analyzer
 
-class WordEmbedder():
+class WordEmbedder(Analyzer):
     """ A converter which converts indexed word lists into 300-dimensional vector lists.
 
     Converts words using a Keras model based on the Google News trained Word2Vec embeddings.
@@ -30,21 +31,3 @@ class WordEmbedder():
     def _dummy_request(self) -> None:
         """ Send a dummy prediction request to the Keras model to initialize it."""
         self.model.predict([[150]])
-
-    def _load_model(self) -> keras.Sequential:
-        """ Load the machine learning model from the JSON and hdf5 files.
-        Returns:
-            A loaded and initialized Keras model
-        """
-        print("Loading model...")
-        model: keras.Sequential = keras.models.model_from_json(open(self._json_path, "r").read())
-        model.load_weights(self._weights_path)
-        print("Model loaded.")
-        model.summary()
-        return model
-
-    @staticmethod
-    def _configure_gpu() -> None:
-        """ Initialize GPU memory growth to optimize performance."""
-        physical_devices = tf.config.experimental.list_physical_devices('GPU')
-        tf.config.experimental.set_memory_growth(physical_devices[0], True)

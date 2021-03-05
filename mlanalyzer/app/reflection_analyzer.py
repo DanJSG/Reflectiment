@@ -1,6 +1,6 @@
 import keras
 from flask import current_app
-from app.analyzer import Analyzer
+from .analyzer import Analyzer
 
 class ReflectionAnalyzer(Analyzer):
     """ An analyzer for the reflection of a sentence.
