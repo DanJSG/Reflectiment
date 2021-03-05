@@ -46,11 +46,11 @@ model = Model(inputs=inputs, outputs=x3)
 model.summary()
 tf.keras.utils.plot_model(model, show_shapes=True, show_dtype=True, show_layer_names=False, dpi=192)
 
-model.load_weights("./models/20210304-161015/C-LSTM.hdf5", by_name=True)
+model.load_weights("./models/20210304-161015/Uni+Bi-LSTM.hdf5", by_name=True)
 
-model.save_weights("./models/20210304-161015/no_embeddings/C-LSTM.hdf5")
+model.save_weights("./models/20210304-161015/no_embeddings/Uni+Bi-LSTM.hdf5")
 
-file = open("./models/20210304-161015/no_embeddings/C-LSTM.json", "w+")
+file = open("./models/20210304-161015/no_embeddings/Uni+Bi-LSTM.json", "w+")
 file.write(model.to_json())
 
 
