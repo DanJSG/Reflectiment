@@ -132,8 +132,6 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		queryCondition.append(";");
 		String query = baseQuery + queryCondition;
 
-		System.out.println(query);
-
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setFetchSize(limit);
@@ -143,7 +141,6 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 				statement.setObject(n, firstValues.get(i));
 				statement.setObject(n + 1, secondValues.get(i));
 			}
-			System.out.println(statement.toString());
 			return executeStatementAndBuildObjects(builder, connection, statement);
 
 		} catch (SQLException e) 	{
