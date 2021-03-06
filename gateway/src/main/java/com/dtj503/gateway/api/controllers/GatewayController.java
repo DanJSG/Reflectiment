@@ -45,6 +45,14 @@ public class GatewayController extends RestAPIController {
         return ResponseEntity.status(HttpStatus.OK).body(lexicalResponseJson);
     }
 
+    /**
+     * Sends a HTTP request to the lexical analyzer microservice to get the lexical analysis results and returns the
+     * JSON string.
+     *
+     * @param requestJson the JSON body of the request
+     * @param params the tag parameters in the order of [sTag, mTag, rTag]
+     * @return the JSON response from the lexical service in <code>String</code> format, or <code>null</code>
+     */
     public static String getLexicalAnalysis(String requestJson, List<String> params) {
         HttpRequestBuilder requestBuilder = new HttpRequestBuilder(LEXICAL_URI, HttpMethod.POST);
         requestBuilder.setBody(requestJson);
@@ -59,6 +67,13 @@ public class GatewayController extends RestAPIController {
         }
     }
 
+    /**
+     * Adds tag parameters to a HTTP request if they are present.
+     *
+     * @param request the HTTP request builder to add the parameters to
+     * @param params the tag parameters
+     * @return the updated HTTP request
+     */
     public static HttpRequestBuilder addParameters(HttpRequestBuilder request, List<String> params) {
         String[] paramNames = {"sTag", "mTag", "rTag"};
         for(int i = 0; i < params.size(); i++) {
