@@ -38,23 +38,27 @@ public class GatewayController extends RestAPIController {
                                                  @RequestParam(name = "mTag", required = false) final String mTagParam,
                                                  @RequestParam(name = "rTag", required = false) final String rTagParam) {
         System.out.println(submission.getText());
-        String lexicalResponseJson = getLexicalAnalysis(submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
-        if(lexicalResponseJson == null) {
+        String lexicalResponseJson = getAnalysisFromUrl(LEXICAL_URI, submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
+        String mlResponseJson = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
+        if(lexicalResponseJson == null || mlResponseJson == null) {
             return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;
         }
-        return ResponseEntity.status(HttpStatus.OK).body(lexicalResponseJson);
+
+        System.out.println(lexicalResponseJson);
+        System.out.println(mlResponseJson);
+
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
     /**
-     * Sends a HTTP request to the lexical analyzer microservice to get the lexical analysis results and returns the
-     * JSON string.
+     * Sends a HTTP request to one of the analyzer microservices to get the analysis results and return the JSON string.
      *
      * @param requestJson the JSON body of the request
      * @param params the tag parameters in the order of [sTag, mTag, rTag]
      * @return the JSON response from the lexical service in <code>String</code> format, or <code>null</code>
      */
-    public static String getLexicalAnalysis(String requestJson, List<String> params) {
-        HttpRequestBuilder requestBuilder = new HttpRequestBuilder(LEXICAL_URI, HttpMethod.POST);
+    public static String getAnalysisFromUrl(String url, String requestJson, List<String> params) {
+        HttpRequestBuilder requestBuilder = new HttpRequestBuilder(url, HttpMethod.POST);
         requestBuilder.setBody(requestJson);
         requestBuilder.addHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE);
         requestBuilder = addParameters(requestBuilder, params);
