@@ -44,11 +44,14 @@ public class GatewayController extends RestAPIController {
         System.out.println(submission.getText());
         LexicalResponse lexicalResponse = getAnalysisFromUrl(LEXICAL_URI, submission.writeValueAsString(),
                 Arrays.asList(sTagParam, mTagParam, rTagParam), LexicalResponse.class);
+        LexicalResponse mlResponse = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(),
+                Arrays.asList(sTagParam, mTagParam, rTagParam), LexicalResponse.class);
 //        String mlResponseJson = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
-        if(lexicalResponse == null) { // || mlResponseJson == null) {
+        if(lexicalResponse == null || mlResponse == null) {
             return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;
         }
-        CombinedResponse response = CombinedResponseBuilder.buildCombinedResponse(lexicalResponse);
+        System.out.println(mlResponse.writeValueAsString());
+        CombinedResponse response = CombinedResponseBuilder.buildCombinedResponse(lexicalResponse, mlResponse);
         return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
     }
 

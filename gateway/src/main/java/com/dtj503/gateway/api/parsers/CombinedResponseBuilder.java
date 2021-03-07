@@ -13,21 +13,22 @@ import java.util.List;
 
 public class CombinedResponseBuilder {
 
-    public static CombinedResponse buildCombinedResponse(LexicalResponse lexicalResponse) {
+    public static CombinedResponse buildCombinedResponse(LexicalResponse lexicalResponse, LexicalResponse mlResponse) {
 
         List<CombinedAnalysedSentence> sentences = new ArrayList<>();
 
-        for(LexicalAnalysedSentence sentence : lexicalResponse.getSentences()) {
-
-            ReflectionModifier modifier = sentence.getReflectionModifier();
-            LexicalReflectionScore score = sentence.getReflectionScores();
+        for(int i = 0; i < lexicalResponse.getSentences().size(); i++) {
+            ReflectionModifier modifier = lexicalResponse.getSentences().get(i).getReflectionModifier();
+            LexicalReflectionScore score = lexicalResponse.getSentences().get(i).getReflectionScores();
             float updatedScore = modifier.getCombinedAppraisalModifier() * score.getScore();
             LexicalReflectionScore modifiedScore = new LexicalReflectionScore(updatedScore, score.getCategoryScores());
-            LexicalScores sentenceScores = new LexicalScores(sentence.getSentimentScores(), sentence.getMoodScores(), modifiedScore);
-
-            CombinedAnalysedSentence combinedSentence = new CombinedAnalysedSentence(sentence.getText(), sentenceScores);
+            LexicalScores lexicalScores = new LexicalScores(lexicalResponse.getSentences().get(i).getSentimentScores(),
+                    lexicalResponse.getSentences().get(i).getMoodScores(), modifiedScore);
+            LexicalScores mlScores = new LexicalScores(mlResponse.getSentences().get(i).getSentimentScores(),
+                    mlResponse.getSentences().get(i).getMoodScores(), mlResponse.getSentences().get(i).getReflectionScores());
+            CombinedAnalysedSentence combinedSentence =
+                    new CombinedAnalysedSentence(lexicalResponse.getSentences().get(i).getText(), lexicalScores, mlScores);
             sentences.add(combinedSentence);
-
         }
 
         return new CombinedResponse(lexicalResponse.getFullText(), sentences);

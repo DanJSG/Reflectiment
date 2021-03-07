@@ -10,9 +10,13 @@ public class CombinedAnalysedSentence {
     @JsonProperty
     private LexicalScores lexicalScores;
 
-    public CombinedAnalysedSentence(String sentence, LexicalScores scores) {
+    @JsonProperty
+    private LexicalScores mlScores;
+
+    public CombinedAnalysedSentence(String sentence, LexicalScores lexicalScores, LexicalScores mlScores) {
         this.sentence = sentence;
-        this.lexicalScores = scores;
+        this.lexicalScores = lexicalScores;
+        this.mlScores = mlScores;
     }
 
 }

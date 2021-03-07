@@ -13,7 +13,7 @@ def encode_document(doc: Document) -> dict:
         A dictionary representation of the document
     """
     encoded: dict = {}
-    encoded["text"] = doc.text
+    encoded["fullText"] = doc.text
     encoded_sentences: list = []
     for sentence in doc.sentences:
 
@@ -21,7 +21,7 @@ def encode_document(doc: Document) -> dict:
         sentiment_dict["label"] = sentence.sentiment
         
         mood_dict: dict = {}
-        mood_dict["moodScores"] = sentence.mood
+        mood_dict["mixedScores"] = sentence.mood
         mood_dict["score"] = sentence.mood_score
         mood_dict["label"] = sentence.mood_label
 
@@ -30,7 +30,7 @@ def encode_document(doc: Document) -> dict:
         reflection_dict["label"] = sentence.reflection_label
 
         sentence_dict: dict = {}
-        sentence_dict["text"] = sentence.text
+        sentence_dict["sentence"] = sentence.text
         sentence_dict["sentiment"] = sentiment_dict
         sentence_dict["mood"] = mood_dict
         sentence_dict["reflection"] = reflection_dict
