@@ -1,4 +1,4 @@
-package com.dtj503.gateway.api.types.lexical;
+package com.dtj503.gateway.api.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -1,10 +1,10 @@
-package com.dtj503.gateway.api.types.lexical;
+package com.dtj503.gateway.api.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
-public class LexicalMoodScore {
+public class MoodScore {
 
     @JsonProperty
     private float score;

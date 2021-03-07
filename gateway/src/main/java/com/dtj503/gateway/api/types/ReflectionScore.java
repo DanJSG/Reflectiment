@@ -1,4 +1,4 @@
-package com.dtj503.gateway.api.types.lexical;
+package com.dtj503.gateway.api.types;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LexicalReflectionScore {
+public class ReflectionScore {
 
     @JsonProperty
     private float score;
@@ -18,9 +18,9 @@ public class LexicalReflectionScore {
     private Map<String, Float> categoryScores;
 
     @JsonCreator
-    private LexicalReflectionScore() {}
+    private ReflectionScore() {}
 
-    public LexicalReflectionScore(float score, Map<String, Float> categoryScores) {
+    public ReflectionScore(float score, Map<String, Float> categoryScores) {
         this.score = score;
         this.categoryScores = categoryScores;
     }

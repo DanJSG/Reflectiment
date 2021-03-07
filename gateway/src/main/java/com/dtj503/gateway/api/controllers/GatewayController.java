@@ -2,7 +2,7 @@ package com.dtj503.gateway.api.controllers;
 
 import com.dtj503.gateway.api.parsers.CombinedResponseBuilder;
 import com.dtj503.gateway.api.types.CombinedResponse;
-import com.dtj503.gateway.api.types.lexical.LexicalResponse;
+import com.dtj503.gateway.api.types.AnalysisResponse;
 import com.dtj503.gateway.api.types.TextSubmission;
 import com.dtj503.gateway.libs.http.HttpRequestBuilder;
 import com.dtj503.gateway.libs.http.HttpResponse;
@@ -42,10 +42,10 @@ public class GatewayController extends RestAPIController {
                                                  @RequestParam(name = "mTag", required = false) final String mTagParam,
                                                  @RequestParam(name = "rTag", required = false) final String rTagParam) {
         System.out.println(submission.getText());
-        LexicalResponse lexicalResponse = getAnalysisFromUrl(LEXICAL_URI, submission.writeValueAsString(),
-                Arrays.asList(sTagParam, mTagParam, rTagParam), LexicalResponse.class);
-        LexicalResponse mlResponse = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(),
-                Arrays.asList(sTagParam, mTagParam, rTagParam), LexicalResponse.class);
+        AnalysisResponse lexicalResponse = getAnalysisFromUrl(LEXICAL_URI, submission.writeValueAsString(),
+                Arrays.asList(sTagParam, mTagParam, rTagParam), AnalysisResponse.class);
+        AnalysisResponse mlResponse = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(),
+                Arrays.asList(sTagParam, mTagParam, rTagParam), AnalysisResponse.class);
 //        String mlResponseJson = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
         if(lexicalResponse == null || mlResponse == null) {
             return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;

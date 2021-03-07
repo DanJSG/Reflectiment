@@ -1,20 +1,20 @@
-package com.dtj503.gateway.api.types.lexical;
+package com.dtj503.gateway.api.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class LexicalAnalysedSentence {
+public class AnalysedSentence {
 
     @JsonProperty
     String sentence;
 
     @JsonProperty
-    LexicalSentimentScore sentiment;
+    SentimentScore sentiment;
 
     @JsonProperty
-    LexicalMoodScore mood;
+    MoodScore mood;
 
     @JsonProperty
-    LexicalReflectionScore reflection;
+    ReflectionScore reflection;
 
     @JsonProperty
     ReflectionModifier reflectionModifier;
@@ -23,15 +23,15 @@ public class LexicalAnalysedSentence {
         return sentence;
     }
 
-    public LexicalSentimentScore getSentimentScores() {
+    public SentimentScore getSentimentScores() {
         return sentiment;
     }
 
-    public LexicalMoodScore getMoodScores() {
+    public MoodScore getMoodScores() {
         return mood;
     }
 
-    public LexicalReflectionScore getReflectionScores() {
+    public ReflectionScore getReflectionScores() {
         return reflection;
     }
 

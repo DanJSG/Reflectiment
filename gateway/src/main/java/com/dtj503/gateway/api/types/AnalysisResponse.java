@@ -1,24 +1,23 @@
-package com.dtj503.gateway.api.types.lexical;
+package com.dtj503.gateway.api.types;
 
-import com.dtj503.gateway.api.types.JsonObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
-public class LexicalResponse implements JsonObject {
+public class AnalysisResponse implements JsonObject {
 
     @JsonProperty
     private String fullText;
 
     @JsonProperty
-    private List<LexicalAnalysedSentence> sentences;
+    private List<AnalysedSentence> sentences;
 
     public String getFullText() {
         return fullText;
     }
 
-    public List<LexicalAnalysedSentence> getSentences() {
+    public List<AnalysedSentence> getSentences() {
         return sentences;
     }
 

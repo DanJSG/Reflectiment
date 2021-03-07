@@ -8,12 +8,12 @@ public class CombinedAnalysedSentence {
     private String sentence;
 
     @JsonProperty
-    private LexicalScores lexicalScores;
+    private AnalysisScores lexicalScores;
 
     @JsonProperty
-    private LexicalScores mlScores;
+    private AnalysisScores mlScores;
 
-    public CombinedAnalysedSentence(String sentence, LexicalScores lexicalScores, LexicalScores mlScores) {
+    public CombinedAnalysedSentence(String sentence, AnalysisScores lexicalScores, AnalysisScores mlScores) {
         this.sentence = sentence;
         this.lexicalScores = lexicalScores;
         this.mlScores = mlScores;
