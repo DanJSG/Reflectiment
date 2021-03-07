@@ -42,25 +42,14 @@ public class GatewayController extends RestAPIController {
                                                  @RequestParam(name = "mTag", required = false) final String mTagParam,
                                                  @RequestParam(name = "rTag", required = false) final String rTagParam) {
         System.out.println(submission.getText());
-        String lexicalResponseJson = getAnalysisFromUrl(LEXICAL_URI, submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
-        String mlResponseJson = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
-        if(lexicalResponseJson == null || mlResponseJson == null) {
+        LexicalResponse lexicalResponse = getAnalysisFromUrl(LEXICAL_URI, submission.writeValueAsString(),
+                Arrays.asList(sTagParam, mTagParam, rTagParam), LexicalResponse.class);
+//        String mlResponseJson = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
+        if(lexicalResponse == null) { // || mlResponseJson == null) {
             return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;
         }
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            LexicalResponse test = mapper.readValue(lexicalResponseJson, LexicalResponse.class);
-
-            CombinedResponse combined = CombinedResponseBuilder.buildCombinedResponse(test);
-            System.out.println(combined.writeValueAsString());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-//        System.out.println(lexicalResponseJson);
-//        System.out.println(mlResponseJson);
-
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        CombinedResponse response = CombinedResponseBuilder.buildCombinedResponse(lexicalResponse);
+        return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
     }
 
     /**
@@ -68,16 +57,18 @@ public class GatewayController extends RestAPIController {
      *
      * @param requestJson the JSON body of the request
      * @param params the tag parameters in the order of [sTag, mTag, rTag]
+     * @param responseClass the Java class to build the JSON response as
      * @return the JSON response from the lexical service in <code>String</code> format, or <code>null</code>
      */
-    public static String getAnalysisFromUrl(String url, String requestJson, List<String> params) {
+    public static <T> T getAnalysisFromUrl(String url, String requestJson, List<String> params, Class<T> responseClass) {
         HttpRequestBuilder requestBuilder = new HttpRequestBuilder(url, HttpMethod.POST);
         requestBuilder.setBody(requestJson);
         requestBuilder.addHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE);
         requestBuilder = addParameters(requestBuilder, params);
         try {
             HttpResponse response = new HttpResponse(requestBuilder.toHttpURLConnection());
-            return response.getBody();
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.readValue(response.getBody(), responseClass);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
