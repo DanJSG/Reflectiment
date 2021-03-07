@@ -1,8 +1,10 @@
 package com.dtj503.gateway.api.controllers;
 
+import com.dtj503.gateway.api.types.lexical.LexicalResponse;
 import com.dtj503.gateway.api.types.TextSubmission;
 import com.dtj503.gateway.libs.http.HttpRequestBuilder;
 import com.dtj503.gateway.libs.http.HttpResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -43,9 +45,15 @@ public class GatewayController extends RestAPIController {
         if(lexicalResponseJson == null || mlResponseJson == null) {
             return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;
         }
-
-        System.out.println(lexicalResponseJson);
-        System.out.println(mlResponseJson);
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            LexicalResponse test = mapper.readValue(lexicalResponseJson, LexicalResponse.class);
+            System.out.println(test.writeValueAsString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+//        System.out.println(lexicalResponseJson);
+//        System.out.println(mlResponseJson);
 
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
