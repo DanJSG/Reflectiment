@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
-public class MoodScore {
+public class LexicalMoodScore {
 
     @JsonProperty
     private float score;

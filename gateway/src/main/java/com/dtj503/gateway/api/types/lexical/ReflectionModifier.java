@@ -2,7 +2,7 @@ package com.dtj503.gateway.api.types.lexical;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ReflectionModifiers {
+public class ReflectionModifier {
 
     @JsonProperty
     private float judgementAppreciationModifier;
@@ -13,4 +13,7 @@ public class ReflectionModifiers {
     @JsonProperty
     private float combinedAppraisalModifier;
 
+    public float getCombinedAppraisalModifier() {
+        return combinedAppraisalModifier;
+    }
 }

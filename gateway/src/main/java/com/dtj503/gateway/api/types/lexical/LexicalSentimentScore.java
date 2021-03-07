@@ -2,14 +2,12 @@ package com.dtj503.gateway.api.types.lexical;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Map;
-
-public class ReflectionScore {
+public class LexicalSentimentScore {
 
     @JsonProperty
     private float score;
 
     @JsonProperty
-    private Map<String, Float> categoryScores;
+    private String label;
 
 }

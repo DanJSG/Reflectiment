@@ -1,5 +1,7 @@
 package com.dtj503.gateway.api.controllers;
 
+import com.dtj503.gateway.api.parsers.CombinedResponseBuilder;
+import com.dtj503.gateway.api.types.CombinedResponse;
 import com.dtj503.gateway.api.types.lexical.LexicalResponse;
 import com.dtj503.gateway.api.types.TextSubmission;
 import com.dtj503.gateway.libs.http.HttpRequestBuilder;
@@ -48,7 +50,10 @@ public class GatewayController extends RestAPIController {
         try {
             ObjectMapper mapper = new ObjectMapper();
             LexicalResponse test = mapper.readValue(lexicalResponseJson, LexicalResponse.class);
-            System.out.println(test.writeValueAsString());
+
+            CombinedResponse combined = CombinedResponseBuilder.buildCombinedResponse(test);
+            System.out.println(combined.writeValueAsString());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
