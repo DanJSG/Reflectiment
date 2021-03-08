@@ -4,6 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
+/**
+ * Mood score, containing a floating point score value, the strongest mood label and a map of moods to each of their
+ * corresponding scores.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
 public class MoodScore {
 
     @JsonProperty
