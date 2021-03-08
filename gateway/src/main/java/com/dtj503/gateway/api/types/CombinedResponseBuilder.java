@@ -8,12 +8,27 @@ import com.dtj503.gateway.analysis.types.ReflectionModifier;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Builder for the combined response, which uses multiple analysis responses and combines them together, returning a
+ * <code>CombinedResponse</code> object.
+ *
+ * @author Dan Jackson (dtj503@york.ac.uk)
+ */
 public class CombinedResponseBuilder {
 
+    /**
+     * Builds a <code>CombinedResponse</code> object by combining the lexical and ML analysis responses.
+     *
+     * @param lexicalResponse the lexical analysis response
+     * @param mlResponse the ML analysis response
+     * @return the <code>CombinedResponse</code> object
+     */
     public static CombinedResponse buildCombinedResponse(AnalysisResponse lexicalResponse, AnalysisResponse mlResponse) {
 
         List<CombinedSentence> sentences = new ArrayList<>();
 
+        // Loop over each response item, calculate the modified reflection scores and then combine the lexical and ML
+        // responses
         for(int i = 0; i < lexicalResponse.getSentences().size(); i++) {
             ReflectionModifier modifier = lexicalResponse.getSentences().get(i).getReflectionModifier();
             ReflectionScore score = lexicalResponse.getSentences().get(i).getReflectionScores();
@@ -29,7 +44,6 @@ public class CombinedResponseBuilder {
         }
 
         return new CombinedResponse(lexicalResponse.getFullText(), sentences);
-
     }
 
 }

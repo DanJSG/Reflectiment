@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Dan Jackson (dtj503@york.ac.uk)
  */
 public class SentimentScore {
-    
+
     // TODO remove include non-null once sentiment model retrained
     @JsonProperty
     @JsonInclude(JsonInclude.Include.NON_NULL)
