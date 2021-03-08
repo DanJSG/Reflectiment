@@ -4,6 +4,9 @@
 
 import string, statistics, re, nltk
 
+def get_regression_score(score):
+    return round(score, 5)
+
 def get_binary_category(score):
     """Get an integer binary classification label from a score between 0 and 1."""
     if score < 0.5:
@@ -58,12 +61,12 @@ if __name__ == '__main__':
     # Open the dataset and output files
     v_scores_file = open("./dataset_processing/sentiment_treebank/scores.validation.dataset.txt", "r")
     v_sentences_file = open("./dataset_processing/sentiment_treebank/sentences.validation.dataset.txt", "r")
-    validation_x_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_validation_x.txt", "w+")
-    validation_y_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_validation_y.txt", "w+")
+    validation_x_file = open("./processed_datasets/sentiment_treebank_ext/regression/validation_x.txt", "w+")
+    validation_y_file = open("./processed_datasets/sentiment_treebank_ext/regression/validation_y.txt", "w+")
     t_scores_file = open("./dataset_processing/sentiment_treebank/scores.test.dataset.txt", "r")
     t_sentences_file = open("./dataset_processing/sentiment_treebank/sentences.test.dataset.txt", "r")
-    test_x_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_test_x.txt", "w+")
-    test_y_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_test_y.txt", "w+")
+    test_x_file = open("./processed_datasets/sentiment_treebank_ext/regression/test_x.txt", "w+")
+    test_y_file = open("./processed_datasets/sentiment_treebank_ext/regression/test_y.txt", "w+")
     # Process the validation set and the test set
-    process_to_file(v_sentences_file, v_scores_file, validation_x_file, validation_y_file, get_fine_grained_category)
-    process_to_file(t_sentences_file, t_scores_file, test_x_file, test_y_file, get_fine_grained_category)
+    process_to_file(v_sentences_file, v_scores_file, validation_x_file, validation_y_file, get_regression_score)
+    process_to_file(t_sentences_file, t_scores_file, test_x_file, test_y_file, get_regression_score)

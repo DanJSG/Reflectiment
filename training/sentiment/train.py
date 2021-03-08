@@ -8,6 +8,7 @@ from keras.layers import LSTM, Dropout, Dense, Embedding, BatchNormalization, Co
 from nltk.tokenize import word_tokenize
 from keras.preprocessing.sequence import pad_sequences
 from keras import regularizers
+import keras.backend as K
 
 def load_word_mappings():
     word2index = json.loads(open("word2index.json", "r").read())
@@ -28,20 +29,26 @@ def get_training_data():
     # Comment/uncomment duplicate vars depending on the set of training data to use
     # sentences_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_train_x.txt", "r")
     # categories_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_train_y.txt", "r")
-    sentences_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_train_x.txt", "r")
-    categories_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_train_y.txt", "r")
+    # sentences_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_train_x.txt", "r")
+    # categories_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_train_y.txt", "r")
+    sentences_file = open("./processed_datasets/sentiment_treebank_ext/regression/train_x.txt", "r")
+    categories_file = open("./processed_datasets/sentiment_treebank_ext/regression/train_y.txt", "r")
     tokenized_sentences = [word_tokenize(line) for line in sentences_file.readlines()]
-    categories = [int(line) for line in categories_file.readlines()]
+    # categories = [int(line) for line in categories_file.readlines()]
+    categories = [float(line) for line in categories_file.readlines()]
     return tokenized_sentences, categories
 
 def get_validation_data():
     # Comment/uncomment duplicate vars depending on the set of validation data to use
     # sentences_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_validation_x.txt", "r")
     # categories_file = open("./processed_datasets/sentiment_treebank_ext/binary/tri_validation_y.txt", "r")
-    sentences_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_validation_x.txt", "r")
-    categories_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_validation_y.txt", "r")
+    # sentences_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_validation_x.txt", "r")
+    # categories_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_validation_y.txt", "r")
+    sentences_file = open("./processed_datasets/sentiment_treebank_ext/regression/validation_x.txt", "r")
+    categories_file = open("./processed_datasets/sentiment_treebank_ext/regression/validation_y.txt", "r")
     tokenized_sentences = [word_tokenize(line) for line in sentences_file.readlines()]
-    categories = [[int(line)] for line in categories_file.readlines()]
+    # categories = [[int(line)] for line in categories_file.readlines()]
+    categories = [[float(line)] for line in categories_file.readlines()]
     return tokenized_sentences, categories
 
 def get_word_index(word2index, word):
@@ -64,6 +71,11 @@ def preprocess_sentences(word2index, sentences):
     max_sentence_len = tf.ragged.constant(indexed_sentences).bounding_shape()[-1]
     padded_sentences = pad_sequences(indexed_sentences, maxlen=max_sentence_len, padding='post', value=0)
     return padded_sentences.tolist(), max_sentence_len
+
+def r(y_true, y_pred):
+    true_sub = y_true - K.mean(y_true)
+    pred_sub = y_pred - K.mean(y_pred)
+    return K.mean(K.sum(true_sub * pred_sub) / K.sqrt(K.sum(K.pow(true_sub, 2)) * K.sum(K.pow(pred_sub, 2))))
 
 # The index of the word 
 pad_index = 0
@@ -124,13 +136,17 @@ model.add(Dropout(0.25))
 #   - Binary classification: (1, activation='sigmoid') 
 #   - Five category fine-grained classification: (5, activation='softmax')
 #   - Three category fine-grained classification: (3, activation='softmax')
+#   - Regression: (1, activation='relu')
 # model.add(Dense(1, activation='sigmoid'))
-model.add(Dense(5, activation='softmax'))
+# model.add(Dense(5, activation='softmax'))
+model.add(Dense(1, activation='relu'))
 optimizer = tf.keras.optimizers.Adam(lr=1e-4)
 # Loss for different classification types:
 #   - Binary classification: binary_crossentropy
 #   - Fine grained classification: sparse_categorical_crossentropy
-model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+#   - Regression: mean_squared_error
+model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=[r, 'mean_squared_error'])
+# model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
 # model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
 
 print("Model built.")
