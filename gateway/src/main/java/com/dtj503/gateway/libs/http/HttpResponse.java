@@ -11,13 +11,13 @@ import java.util.Map;
 
 public class HttpResponse {
 
-    private int status;
+    private final int status;
+    private final String message;
+    private final String method;
+    private final Map<String, List<String>> headers;
+    private final String url;
+    private final String queryString;
     private String body;
-    private String message;
-    private String method;
-    private Map<String, List<String>> headers;
-    private String url;
-    private String queryString;
 
     public HttpResponse(HttpURLConnection connection) throws Exception {
         status = connection.getResponseCode();
@@ -51,12 +51,12 @@ public class HttpResponse {
         connection.disconnect();
     }
 
-    public int getStatus() {
-        return status;
-    }
-
     public String getBody() {
         return body;
+    }
+
+    public int getStatus() {
+        return status;
     }
 
     public String getMessage() {

@@ -1,6 +1,5 @@
 package com.dtj503.gateway.libs.http;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 
@@ -17,20 +16,13 @@ public class HttpRequestBuilder {
 
     private List<String> parameters;
     private Map<String, String> headers;
-    private List<String> cookies;
     private String url;
     private String method;
-    private Boolean useCache = true;
-    private int timeouts = 0;
-    private Boolean allowInput = true;
-    private Boolean allowOutput = true;
-    private Boolean followRedirects = true;
     private String body;
 
     public HttpRequestBuilder() {
         parameters = new ArrayList<>();
         headers = new HashMap<>();
-        cookies = new ArrayList<>();
     }
 
     public HttpRequestBuilder(String url) {
@@ -59,48 +51,12 @@ public class HttpRequestBuilder {
         parameters.add(name + "=" + value);
     }
 
-    public <V> void addParameters(Map<String, V> params) {
-        params.forEach(this::addParameter);
-    }
-
     public void addHeader(String header, String value) {
         headers.put(header, value);
     }
 
-    public void addHeaders(Map<String, String> headers) {
-        headers.forEach(this.headers::putIfAbsent);
-    }
-
-    public void addCookie(String cookie, String value) {
-        cookies.add(cookie + "=" + value + ";");
-    }
-
-    public void addCookies(Map<String, String> cookies) {
-        cookies.forEach(this::addCookie);
-    }
-
     public void setRequestMethod(HttpMethod method) {
         this.method = method.toString();
-    }
-
-    public void shouldUseCache(Boolean bool) {
-        this.useCache = bool;
-    }
-
-    public void setTimeouts(int msTimeout) {
-        this.timeouts = msTimeout;
-    }
-
-    public void allowInput(Boolean bool) {
-        this.allowInput = bool;
-    }
-
-    public void allowOutput(Boolean bool) {
-        this.allowOutput = bool;
-    }
-
-    public void shouldFollowRedirects(Boolean bool) {
-        this.followRedirects = bool;
     }
 
     public HttpURLConnection toHttpURLConnection() throws Exception {
@@ -121,12 +77,13 @@ public class HttpRequestBuilder {
         URL urlWithParams = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection)urlWithParams.openConnection();
         conn.setRequestMethod(method);
+        int timeouts = 0;
         conn.setConnectTimeout(timeouts);
         conn.setReadTimeout(timeouts);
-        conn.setDoInput(allowInput);
-        conn.setDoOutput(allowOutput);
-        conn.setUseCaches(useCache);
-        conn.setInstanceFollowRedirects(followRedirects);
+        conn.setDoInput(true);
+        conn.setDoOutput(true);
+        conn.setUseCaches(true);
+        conn.setInstanceFollowRedirects(true);
         conn.setRequestProperty("Content-Type", MediaType.APPLICATION_JSON_VALUE);
         if(headers != null && headers.size() > 0) {
             headers.forEach(conn::setRequestProperty);
@@ -135,13 +92,6 @@ public class HttpRequestBuilder {
             OutputStream out = conn.getOutputStream();
             byte[] bodyBytes = body.getBytes(StandardCharsets.UTF_8);
             out.write(bodyBytes, 0, bodyBytes.length);
-        }
-        StringBuilder cookieStringBuilder = new StringBuilder();
-        if(cookies != null && cookies.size() > 0) {
-            for(String cookie : cookies) {
-                cookieStringBuilder.append(cookie);
-            }
-            conn.setRequestProperty(HttpHeaders.COOKIE, cookieStringBuilder.toString());
         }
         return conn;
     }
