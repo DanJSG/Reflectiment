@@ -11,9 +11,9 @@ public class CombinedResponse implements JsonObject {
     private String text;
 
     @JsonProperty
-    private List<CombinedAnalysedSentence> sentences;
+    private List<CombinedSentence> sentences;
 
-    public CombinedResponse(String text, List<CombinedAnalysedSentence> sentences) {
+    protected CombinedResponse(String text, List<CombinedSentence> sentences) {
         this.text = text;
         this.sentences = sentences;
     }

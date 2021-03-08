@@ -1,8 +1,8 @@
 package com.dtj503.gateway.api.controllers;
 
-import com.dtj503.gateway.api.parsers.CombinedResponseBuilder;
+import com.dtj503.gateway.api.types.CombinedResponseBuilder;
 import com.dtj503.gateway.api.types.CombinedResponse;
-import com.dtj503.gateway.api.types.AnalysisResponse;
+import com.dtj503.gateway.analysis.types.AnalysisResponse;
 import com.dtj503.gateway.api.types.TextSubmission;
 import com.dtj503.gateway.libs.http.HttpRequestBuilder;
 import com.dtj503.gateway.libs.http.HttpResponse;
@@ -46,7 +46,6 @@ public class GatewayController extends RestAPIController {
                 Arrays.asList(sTagParam, mTagParam, rTagParam), AnalysisResponse.class);
         AnalysisResponse mlResponse = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(),
                 Arrays.asList(sTagParam, mTagParam, rTagParam), AnalysisResponse.class);
-//        String mlResponseJson = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(), Arrays.asList(sTagParam, mTagParam, rTagParam));
         if(lexicalResponse == null || mlResponse == null) {
             return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;
         }

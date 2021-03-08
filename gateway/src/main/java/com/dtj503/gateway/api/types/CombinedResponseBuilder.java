@@ -1,11 +1,9 @@
-package com.dtj503.gateway.api.parsers;
+package com.dtj503.gateway.api.types;
 
-import com.dtj503.gateway.api.types.CombinedAnalysedSentence;
-import com.dtj503.gateway.api.types.CombinedResponse;
-import com.dtj503.gateway.api.types.AnalysisScores;
-import com.dtj503.gateway.api.types.ReflectionScore;
-import com.dtj503.gateway.api.types.AnalysisResponse;
-import com.dtj503.gateway.api.types.ReflectionModifier;
+import com.dtj503.gateway.analysis.types.AnalysisScores;
+import com.dtj503.gateway.analysis.types.ReflectionScore;
+import com.dtj503.gateway.analysis.types.AnalysisResponse;
+import com.dtj503.gateway.analysis.types.ReflectionModifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +12,7 @@ public class CombinedResponseBuilder {
 
     public static CombinedResponse buildCombinedResponse(AnalysisResponse lexicalResponse, AnalysisResponse mlResponse) {
 
-        List<CombinedAnalysedSentence> sentences = new ArrayList<>();
+        List<CombinedSentence> sentences = new ArrayList<>();
 
         for(int i = 0; i < lexicalResponse.getSentences().size(); i++) {
             ReflectionModifier modifier = lexicalResponse.getSentences().get(i).getReflectionModifier();
@@ -25,8 +23,8 @@ public class CombinedResponseBuilder {
                     lexicalResponse.getSentences().get(i).getMoodScores(), modifiedScore);
             AnalysisScores mlScores = new AnalysisScores(mlResponse.getSentences().get(i).getSentimentScores(),
                     mlResponse.getSentences().get(i).getMoodScores(), mlResponse.getSentences().get(i).getReflectionScores());
-            CombinedAnalysedSentence combinedSentence =
-                    new CombinedAnalysedSentence(lexicalResponse.getSentences().get(i).getText(), lexicalScores, mlScores);
+            CombinedSentence combinedSentence =
+                    new CombinedSentence(lexicalResponse.getSentences().get(i).getText(), lexicalScores, mlScores);
             sentences.add(combinedSentence);
         }
 

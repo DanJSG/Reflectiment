@@ -1,5 +1,8 @@
-package com.dtj503.gateway.api.types;
+package com.dtj503.gateway.analysis.types;
 
+import com.dtj503.gateway.analysis.types.MoodScore;
+import com.dtj503.gateway.analysis.types.ReflectionScore;
+import com.dtj503.gateway.analysis.types.SentimentScore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AnalysisScores {

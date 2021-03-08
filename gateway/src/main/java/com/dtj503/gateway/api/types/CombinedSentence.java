@@ -1,8 +1,9 @@
 package com.dtj503.gateway.api.types;
 
+import com.dtj503.gateway.analysis.types.AnalysisScores;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CombinedAnalysedSentence {
+public class CombinedSentence {
 
     @JsonProperty
     private String sentence;
@@ -13,7 +14,7 @@ public class CombinedAnalysedSentence {
     @JsonProperty
     private AnalysisScores mlScores;
 
-    public CombinedAnalysedSentence(String sentence, AnalysisScores lexicalScores, AnalysisScores mlScores) {
+    public CombinedSentence(String sentence, AnalysisScores lexicalScores, AnalysisScores mlScores) {
         this.sentence = sentence;
         this.lexicalScores = lexicalScores;
         this.mlScores = mlScores;

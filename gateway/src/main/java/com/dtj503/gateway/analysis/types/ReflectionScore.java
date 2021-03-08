@@ -1,4 +1,4 @@
-package com.dtj503.gateway.api.types;
+package com.dtj503.gateway.analysis.types;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

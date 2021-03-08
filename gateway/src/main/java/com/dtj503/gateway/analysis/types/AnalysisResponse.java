@@ -1,5 +1,6 @@
-package com.dtj503.gateway.api.types;
+package com.dtj503.gateway.analysis.types;
 
+import com.dtj503.gateway.api.types.JsonObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
