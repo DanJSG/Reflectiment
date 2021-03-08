@@ -161,10 +161,17 @@ weights_filepath = f"./models/binary/{timestamp_str}/C-LSTM.hdf5"
 model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=weights_filepath,
     save_weights_only=True,
-    monitor='val_accuracy',
+    monitor='val_r',
     mode='max',
     save_best_only=True
 )
+# model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
+#     filepath=weights_filepath,
+#     save_weights_only=True,
+#     monitor='val_accuracy',
+#     mode='max',
+#     save_best_only=True
+# )
 
 # Train the model to the training set and validate against the validation set.
 model.fit(x=x_train_padded, y=y_train, batch_size=32, epochs=50, verbose=1, shuffle=True, validation_data=(x_validation_padded, y_validation), callbacks=[model_checkpoint_callback, tb_callback])
