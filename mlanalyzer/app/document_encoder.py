@@ -18,7 +18,8 @@ def encode_document(doc: Document) -> dict:
     for sentence in doc.sentences:
 
         sentiment_dict: dict = {}
-        sentiment_dict["label"] = sentence.sentiment
+        sentiment_dict["label"] = sentence.sentiment_label
+        sentiment_dict["score"] = sentence.sentiment_score
         
         mood_dict: dict = {}
         mood_dict["mixedScores"] = sentence.mood

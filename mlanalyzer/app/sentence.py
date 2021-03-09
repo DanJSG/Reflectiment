@@ -23,7 +23,7 @@ class Sentence:
         indexed_padded = pad_sequences([indexed], maxlen=52, padding='post', value=0)[0].tolist()
         embedded: list = self._to_embedding(indexed)
         embedded_padded: list = self._to_embedding(indexed_padded)
-        self.sentiment: str = self._get_sentiment(embedded_padded)
+        self.sentiment_score, self.sentiment_label = self._get_sentiment(embedded_padded)
         self.mood: dict = self._get_mood(embedded)
         self.mood_label, self.mood_score = self._get_strongest_mood()
         self.reflection_score, self.reflection_label = self._get_reflection(embedded)
@@ -59,8 +59,8 @@ class Sentence:
             The string classification label
         """
         with current_app.app_context():
-            result = current_app.sentiment_analyzer.get_sentiment_classification(embedded)
-            return result
+            score, label = current_app.sentiment_analyzer.get_sentiment_classification(embedded)
+            return score, label
 
     def _get_mood(self, embedded):
         with current_app.app_context():
