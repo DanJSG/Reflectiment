@@ -17,7 +17,7 @@ class SentimentAnalyzer(Analyzer):
         self._json_path: str = "./models/sentiment/C-LSTM.json"
         self._weights_path: str = "./models/sentiment/C-LSTM.hdf5"
         self._configure_gpu()
-        self.labels: list = ["negative", "positive"]
+        self.labels: list = ["negative", "neutral", "positive"]
         self.model: keras.Sequential = self._load_model()
         self._dummy_request()
 
@@ -35,7 +35,8 @@ class SentimentAnalyzer(Analyzer):
 
         """
         score: float = self.model.predict(embedded_sentence)[0][0]
-        return self._get_class_name(self._classify_score(score))
+        score = (float(score) - 0.5) * 2
+        return score, self._classify_score(score)
 
     def _dummy_request(self) -> None:
         """ Send a dummy classification request to initialize the neural network."""
@@ -43,13 +44,13 @@ class SentimentAnalyzer(Analyzer):
             embedded = current_app.word_embedder.get_embeddings([2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999])
             self.get_sentiment_classification(embedded)
     
-    def _get_class_name(self, class_index) -> str:
-        """ Get the class name associated with a class index.
+    # def _get_class_name(self, class_index) -> str:
+    #     """ Get the class name associated with a class index.
 
-        Returns:
-            A string label of the estimated class
-        """
-        return self.labels[class_index]
+    #     Returns:
+    #         A string label of the estimated class
+    #     """
+    #     return self.labels[class_index]
 
     def _classify_score(self, score) -> int:
         """ Classify the output score into an integer index. 
@@ -60,4 +61,9 @@ class SentimentAnalyzer(Analyzer):
         Return:
             An integer index representing the estimated class
         """
-        return 1 if score > 0.5 else 0
+        if score >= -1 and score < -0.33:
+            return self.labels[0]
+        elif score >= -0.33 and score < 0.33:
+            return self.labels[1]
+        else:
+            return self.labels[2]
