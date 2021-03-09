@@ -43,14 +43,6 @@ class SentimentAnalyzer(Analyzer):
         with current_app.app_context():
             embedded = current_app.word_embedder.get_embeddings([2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999, 2999999])
             self.get_sentiment_classification(embedded)
-    
-    # def _get_class_name(self, class_index) -> str:
-    #     """ Get the class name associated with a class index.
-
-    #     Returns:
-    #         A string label of the estimated class
-    #     """
-    #     return self.labels[class_index]
 
     def _classify_score(self, score) -> int:
         """ Classify the output score into an integer index. 
