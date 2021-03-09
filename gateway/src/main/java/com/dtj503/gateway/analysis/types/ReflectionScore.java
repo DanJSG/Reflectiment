@@ -27,6 +27,15 @@ public class ReflectionScore {
     private ReflectionScore() {}
 
     /**
+     * Create a reflection score object with a specific score.
+     *
+     * @param score the overall score of the object
+     */
+    public ReflectionScore(float score) {
+        this.score = score;
+    }
+
+    /**
      * Constructor which takes the float score and the category score map.
      *
      * @param score the reflection score

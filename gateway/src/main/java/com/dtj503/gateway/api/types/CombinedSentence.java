@@ -19,6 +19,9 @@ public class CombinedSentence {
     @JsonProperty
     private AnalysisScores mlScores;
 
+    @JsonProperty
+    private AnalysisScores averageScores;
+
     /**
      * Constructor which takes the sentence string and the lexical and ML analysis scores.
      *
@@ -26,10 +29,11 @@ public class CombinedSentence {
      * @param lexicalScores the lexical analysis scores
      * @param mlScores the ML analysis scores
      */
-    public CombinedSentence(String sentence, AnalysisScores lexicalScores, AnalysisScores mlScores) {
+    public CombinedSentence(String sentence, AnalysisScores lexicalScores, AnalysisScores mlScores, AnalysisScores averageScores) {
         this.sentence = sentence;
         this.lexicalScores = lexicalScores;
         this.mlScores = mlScores;
+        this.averageScores = averageScores;
     }
 
 }

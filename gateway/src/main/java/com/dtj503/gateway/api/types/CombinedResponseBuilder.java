@@ -1,5 +1,6 @@
 package com.dtj503.gateway.api.types;
 
+import com.dtj503.gateway.analysis.AnalysisAverage;
 import com.dtj503.gateway.analysis.types.AnalysisScores;
 import com.dtj503.gateway.analysis.types.ReflectionScore;
 import com.dtj503.gateway.analysis.types.AnalysisResponse;
@@ -30,16 +31,26 @@ public class CombinedResponseBuilder {
         // Loop over each response item, calculate the modified reflection scores and then combine the lexical and ML
         // responses
         for(int i = 0; i < lexicalResponse.getSentences().size(); i++) {
+
             ReflectionModifier modifier = lexicalResponse.getSentences().get(i).getReflectionModifier();
+
             ReflectionScore score = lexicalResponse.getSentences().get(i).getReflectionScores();
+
             float updatedScore = modifier.getCombinedAppraisalModifier() * score.getScore();
+
             ReflectionScore modifiedScore = new ReflectionScore(updatedScore, score.getCategoryScores());
+
             AnalysisScores lexicalScores = new AnalysisScores(lexicalResponse.getSentences().get(i).getSentimentScores(),
                     lexicalResponse.getSentences().get(i).getMoodScores(), modifiedScore);
+
             AnalysisScores mlScores = new AnalysisScores(mlResponse.getSentences().get(i).getSentimentScores(),
                     mlResponse.getSentences().get(i).getMoodScores(), mlResponse.getSentences().get(i).getReflectionScores());
+
+            AnalysisScores averageScores = AnalysisAverage.averageScores(lexicalResponse.getSentences().get(i),
+                    mlResponse.getSentences().get(i));
+
             CombinedSentence combinedSentence =
-                    new CombinedSentence(lexicalResponse.getSentences().get(i).getText(), lexicalScores, mlScores);
+                    new CombinedSentence(lexicalResponse.getSentences().get(i).getText(), lexicalScores, mlScores, averageScores);
             sentences.add(combinedSentence);
         }
 
