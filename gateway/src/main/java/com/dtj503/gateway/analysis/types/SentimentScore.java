@@ -1,5 +1,6 @@
 package com.dtj503.gateway.analysis.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,4 +17,15 @@ public class SentimentScore {
     @JsonProperty
     private String label;
 
+    @JsonCreator
+    private SentimentScore() {}
+
+    public SentimentScore(float score, String label) {
+        this.score = score;
+        this.label = label;
+    }
+
+    public float getScore() {
+        return score;
+    }
 }

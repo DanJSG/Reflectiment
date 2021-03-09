@@ -1,5 +1,6 @@
 package com.dtj503.gateway.analysis.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
@@ -21,4 +22,20 @@ public class MoodScore {
     @JsonProperty
     private Map<String, Float> mixedScores;
 
+    @JsonCreator
+    private MoodScore() {}
+
+    public MoodScore(float score, String label, Map<String, Float> mixedScores) {
+        this.score = score;
+        this.label = label;
+        this.mixedScores = mixedScores;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public Map<String, Float> getMixedScores() {
+        return mixedScores;
+    }
 }

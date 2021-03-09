@@ -26,6 +26,10 @@ public class ReflectionScore {
     @JsonCreator
     private ReflectionScore() {}
 
+    public ReflectionScore(float score) {
+        this.score = score;
+    }
+
     /**
      * Constructor which takes the float score and the category score map.
      *
