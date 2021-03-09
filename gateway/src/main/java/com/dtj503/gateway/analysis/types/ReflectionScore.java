@@ -26,6 +26,11 @@ public class ReflectionScore {
     @JsonCreator
     private ReflectionScore() {}
 
+    /**
+     * Create a reflection score object with a specific score.
+     *
+     * @param score the overall score of the object
+     */
     public ReflectionScore(float score) {
         this.score = score;
     }

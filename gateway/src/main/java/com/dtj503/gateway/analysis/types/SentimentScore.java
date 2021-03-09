@@ -1,7 +1,6 @@
 package com.dtj503.gateway.analysis.types;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -25,6 +24,11 @@ public class SentimentScore {
         this.label = label;
     }
 
+    /**
+     * Get the float score value.
+     *
+     * @return the <code>float</code> score value
+     */
     public float getScore() {
         return score;
     }

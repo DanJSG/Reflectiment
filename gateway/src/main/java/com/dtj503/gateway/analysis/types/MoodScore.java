@@ -25,16 +25,23 @@ public class MoodScore {
     @JsonCreator
     private MoodScore() {}
 
+    /**
+     * Create a mood score object with a specific score, label and map of mood labels to scores.
+     * @param score the strongest mood score
+     * @param label the strongest mood label
+     * @param mixedScores a map of mood labels to scores
+     */
     public MoodScore(float score, String label, Map<String, Float> mixedScores) {
         this.score = score;
         this.label = label;
         this.mixedScores = mixedScores;
     }
 
-    public float getScore() {
-        return score;
-    }
-
+    /**
+     * Get the map of labels to scores.
+     *
+     * @return the map of mood labels to scores
+     */
     public Map<String, Float> getMixedScores() {
         return mixedScores;
     }
