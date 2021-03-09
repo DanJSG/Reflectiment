@@ -2,6 +2,9 @@ import string, re, statistics, random, copy
 import nltk
 from nltk.corpus import wordnet as wn
 
+def get_regression_score(score):
+    return round(score, 5)
+
 def get_binary_category(score):
     """Get an integer binary classification label from a score between 0 and 1."""
     if score < 0.5:
@@ -98,7 +101,7 @@ def write_data_to_file(x_data, y_data, x_outfile, y_outfile):
 if __name__ == '__main__':
     scores_file = open("./dataset_processing/sentiment_treebank/scores.train.dataset.txt", "r")
     sentences_file = open("./dataset_processing/sentiment_treebank/sentences.train.dataset.txt", "r")
-    train_x_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_train_x.txt", "w+")
-    train_y_file = open("./processed_datasets/sentiment_treebank_ext/fine_grained/five_train_y.txt", "w+")
-    data_x, data_y = expand_dataset(sentences_file, scores_file, get_fine_grained_category)
+    train_x_file = open("./processed_datasets/sentiment_treebank_ext/regression/train_x.txt", "w+")
+    train_y_file = open("./processed_datasets/sentiment_treebank_ext/regression/train_y.txt", "w+")
+    data_x, data_y = expand_dataset(sentences_file, scores_file, get_regression_score)
     write_data_to_file(data_x, data_y, train_x_file, train_y_file)
