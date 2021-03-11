@@ -35,9 +35,7 @@ class MoodAnalyzer(Analyzer):
 
         """
         scores: float = self.model.predict(embedded_sentence)[0].tolist()
-        labelled_scores = {}
-        for i in range(len(self.labels)):
-            labelled_scores[self.labels[i]] = scores[i]
+        labelled_scores = {self.labels[i]: scores[i] for i in range(len(scores))}
         return labelled_scores
 
     def _dummy_request(self) -> None:

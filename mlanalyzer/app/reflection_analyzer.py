@@ -35,9 +35,7 @@ class ReflectionAnalyzer(Analyzer):
 
         """
         scores: list = self.model.predict(embedded_sentence)[0]
-        print(scores)
         scores_dict = {self.labels[i]: float(scores[i]) for i in range(len(scores))}
-        print(scores_dict)
         return scores_dict
 
     def _get_reflection_label(self, score):
