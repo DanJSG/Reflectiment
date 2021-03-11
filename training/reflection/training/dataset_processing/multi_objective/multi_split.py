@@ -46,6 +46,3 @@ for sentence, score in zip(bawe_sentences, bawe_scores):
     score = score.strip("\n")
     train_sentences_file.write(f"{sentence}\n")
     train_scores_file.write(f"{score}\n")
-
-# sentence = sentence.translate(str.maketrans('','', string.punctuation)).lower().strip("\n").strip()      
-# sentence = " ".join(word_tokenize(sentence))

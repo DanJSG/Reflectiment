@@ -34,7 +34,6 @@ def get_data(sentences_path, scores_path):
     for line_scores in scores_file.readlines():
         score_line = [float(value) for value in line_scores.strip("\n").split(",")]
         scores.append(score_line)
-    # scores = [float(line.strip("\n")) for line in scores_file.readlines()]
     return tokenized_sentences, scores
 
 def get_word_index(word2index, word):
@@ -139,48 +138,10 @@ x6 = get_parallel_branch(embeddings)
 
 output = concatenate([x1, x2, x3, x4, x5, x6])
 
-# x1 = LSTM(64, activation='tanh', recurrent_activation='sigmoid', recurrent_dropout=0, unroll=False, use_bias=True)(embeddings)
-# x1 = BatchNormalization()(x1)
-# x1 = Dropout(dropout_rate)(x1)
-# x1 = Dense(128, activation='relu', kernel_regularizer=l2(1e-4))(x1)
-# x1 = Dropout(dropout_rate)(x1)
-# x1 = Dense(128, activation='relu', kernel_regularizer=l2(1e-4))(x1)
-# x1 = Dropout(dropout_rate)(x1)
-# x1 = Dense(64, activation='relu', kernel_regularizer=l2(1e-4))(x1)
-# x1 = Dropout(dropout_rate)(x1)
-# x1 = Dense(32, activation='relu', kernel_regularizer=l2(1e-4))(x1)
-# x1 = Dropout(dropout_rate)(x1)
-# x1 = Dense(16, activation='relu', kernel_regularizer=l2(1e-4))(x1)
-# x1 = Dropout(dropout_rate)(x1)
-
-# x2 = Bidirectional(LSTM(32, activation='tanh', recurrent_activation='sigmoid', recurrent_dropout=0, unroll=False, use_bias=True))(embeddings)
-# x2 = BatchNormalization()(x2)
-# x2 = Dropout(dropout_rate)(x2)
-# x2 = Dense(128, activation='relu', kernel_regularizer=l2(1e-4))(x2)
-# x2 = Dropout(dropout_rate)(x2)
-# x2 = Dense(128, activation='relu', kernel_regularizer=l2(1e-4))(x2)
-# x2 = Dropout(dropout_rate)(x2)
-# x2 = Dense(64, activation='relu', kernel_regularizer=l2(1e-4))(x2)
-# x2 = Dropout(dropout_rate)(x2)
-# x2 = Dense(64, activation='relu', kernel_regularizer=l2(1e-4))(x2)
-# x2 = Dropout(dropout_rate)(x2)
-# x2 = Dense(32, activation='relu', kernel_regularizer=l2(1e-4))(x2)
-# x2 = Dropout(dropout_rate)(x2)
-
-# combined = concatenate([x1, x2])
-
-# x3 = Dense(48, activation='relu')(combined)
-# x3 = Dense(1, activation='relu')(x3)
-# x3 = Dense(5, activation='softmax')(x3)
-# x3 = Dense(1, activation='sigmoid')(x3)
-
 optimizer = tf.keras.optimizers.Adam(lr=1e-4)
 
 model = Model(inputs=inputs, outputs=output)
-# model.compile(loss=r_loss, optimizer=optimizer, metrics=[r, 'mean_squared_error'])
 model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=[r, 'mean_squared_error'])
-# model.compile(loss='sparse_categorical_crossentropy', optimizer=optimizer, metrics=['accuracy', tfa.metrics.CohenKappa(5, sparse_labels=True)])
-# model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy', tfa.metrics.CohenKappa(2)])
 model.summary()
 
 tb_callback = tf.keras.callbacks.TensorBoard(histogram_freq=1, log_dir=log_dir)
