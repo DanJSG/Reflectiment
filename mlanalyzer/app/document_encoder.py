@@ -28,7 +28,7 @@ def encode_document(doc: Document) -> dict:
 
         reflection_dict: dict = {}
         reflection_dict["score"] = sentence.reflection_score
-        reflection_dict["label"] = sentence.reflection_label
+        reflection_dict["categoryScores"] = sentence.reflection
 
         sentence_dict: dict = {}
         sentence_dict["sentence"] = sentence.text

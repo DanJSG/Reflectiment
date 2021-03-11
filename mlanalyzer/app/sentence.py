@@ -26,7 +26,8 @@ class Sentence:
         self.sentiment_score, self.sentiment_label = self._get_sentiment(embedded_padded)
         self.mood: dict = self._get_mood(embedded)
         self.mood_label, self.mood_score = self._get_strongest_mood()
-        self.reflection_score, self.reflection_label = self._get_reflection(embedded)
+        self.reflection = self._get_reflection(embedded)
+        self.reflection_score = self._get_reflection_average()
     
     def _to_index(self) -> list:
         """ Convert the tokenized sentence into an indexed version.
@@ -74,3 +75,6 @@ class Sentence:
         label = max(self.mood, key=lambda key: self.mood[key])
         score = self.mood[label]
         return label, score
+
+    def _get_reflection_average(self):
+        return sum(list(self.reflection.values())) / len(list(self.reflection.values()))
