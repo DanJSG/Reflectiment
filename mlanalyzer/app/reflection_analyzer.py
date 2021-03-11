@@ -17,7 +17,7 @@ class ReflectionAnalyzer(Analyzer):
         self._json_path: str = "./models/reflection/Uni+Bi-LSTM.json"
         self._weights_path: str = "./models/reflection/Uni+Bi-LSTM.hdf5"
         self._configure_gpu()
-        self.labels: list = ["descriptive", "quite reflective", "somewhat reflective", "reflective", "very reflective"]
+        self.labels: list = ["experience", "feelings", "personal", "perspective", "outcome", "critical"]
         self.model: keras.Model = self._load_model()
         self._dummy_request()
 
@@ -34,8 +34,9 @@ class ReflectionAnalyzer(Analyzer):
             The reflection score as a float and its associated reflection strength label
 
         """
-        score: float = self.model.predict(embedded_sentence)[0][0]
-        return float(score), self._get_reflection_label(score)
+        scores: list = self.model.predict(embedded_sentence)[0]
+        scores_dict = {self.labels[i]: float(scores[i]) for i in range(len(scores))}
+        return scores_dict
 
     def _get_reflection_label(self, score):
         """ Get the reflection label based on the reflection score.
