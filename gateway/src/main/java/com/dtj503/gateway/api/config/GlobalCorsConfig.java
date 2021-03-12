@@ -1,4 +1,4 @@
-package com.dtj503.lexicalanalyzer.api.config;
+package com.dtj503.gateway.api.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

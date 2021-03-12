@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 /**
  * API controller for handling the text submission, distributing the analysis requests, and combining the responses.
@@ -42,6 +43,7 @@ public class GatewayController extends RestAPIController {
                                                  @RequestParam(name = "mTag", required = false) final String mTagParam,
                                                  @RequestParam(name = "rTag", required = false) final String rTagParam) {
         System.out.println(submission.getText());
+        System.out.println(submission.writeValueAsString());
         AnalysisResponse lexicalResponse = getAnalysisFromUrl(LEXICAL_URI, submission.writeValueAsString(),
                 Arrays.asList(sTagParam, mTagParam, rTagParam), AnalysisResponse.class);
         AnalysisResponse mlResponse = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(),
@@ -67,6 +69,7 @@ public class GatewayController extends RestAPIController {
         requestBuilder.setBody(requestJson);
         requestBuilder.addHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE);
         requestBuilder = addParameters(requestBuilder, params);
+        System.out.println(url);
         try {
             HttpResponse response = new HttpResponse(requestBuilder.toHttpURLConnection());
             ObjectMapper mapper = new ObjectMapper();
