@@ -21,7 +21,7 @@ public class TextSubmission implements JsonObject {
     // THIS MUST TAKE A DATE STRING IN ISO FORMAT SO THE FRONT END MUST USE SOMETHING SUCH AS
     //  new Date().toISOString()
     // FOR THE DATE TO WORK PROPERLY AND NOT THROW AN ERROR
-    private LocalDateTime timestamp;
+    private String timestamp;
 
     /**
      * Empty private constructor for the JSON deserialization library to use to automatically generate the object from

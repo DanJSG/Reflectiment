@@ -1,6 +1,9 @@
 import React from 'react';
 
-function ResultsCard() {
+function ResultsCard(props) {
+
+    console.log(props.analysis);
+
     return (
         <div className="card w-100 p-3 shadow-sm border-1 row">
             <div className="container-fluid">

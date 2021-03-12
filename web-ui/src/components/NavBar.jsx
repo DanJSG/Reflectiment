@@ -12,7 +12,7 @@ function NavBar() {
                     <img src={UoYLogo} alt="" width="180px"/>
                 </a>
                 <div className="navbar-nav" style={{fontSize: "1.2rem"}}>
-                    <Link className="nav-item nav-link active" to="/">Analyser</Link>
+                    <Link className="nav-item nav-link active" to="/">Analyzer</Link>
                     <Link className="nav-item nav-link" to="/about">About</Link>
                 </div>
             </nav>
