@@ -23,8 +23,7 @@ function HomePage() {
         <div className='w-100 h-100'>
             <NavBar />
             <MainContent>
-                {/* Heading and summary */}
-                <h1 className="p-3 display-4 font-weight-normal">Automated Text Analyzer</h1>
+                <h1 className="p-4 display-4 font-weight-normal">Automated Text Analyzer</h1>
                 <p className="pl-3 pr-3 text-justify">
                     This tool automatically analyzes sentiment, mood, and reflection in a piece of written text. 
                     To get started, simply type some text into the box below and click "Analyze". 
@@ -35,10 +34,11 @@ function HomePage() {
                     analysis === null ? null : 
                     <React.Fragment>
                         <img className="p-5" src={downArrow} alt="" width="25%"/>
-                        <h1 className="pb-3 font-weight-normal">Results</h1>
                         <ResultsCard analysis={analysis}/>
                     </React.Fragment>
                 }
+                
+                <div className="p-4"></div>
             </MainContent>
             <div ref={resultsRef}></div>
         </div>

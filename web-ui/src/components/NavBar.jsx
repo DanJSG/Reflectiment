@@ -8,7 +8,7 @@ function NavBar() {
     return (
         <React.Fragment>
             <nav className="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
-                <a className="navbar-brand border-right border-secondary" href="./">
+                <a className="navbar-brand border-right border-secondary pr-3" href="./">
                     <img src={UoYLogo} alt="" width="180px"/>
                 </a>
                 <div className="navbar-nav" style={{fontSize: "1.2rem"}}>
