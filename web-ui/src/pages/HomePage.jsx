@@ -37,10 +37,9 @@ function HomePage() {
                         <ResultsCard analysis={analysis}/>
                     </React.Fragment>
                 }
-                
                 <div className="p-4"></div>
+                <div ref={resultsRef}></div>
             </MainContent>
-            <div ref={resultsRef}></div>
         </div>
     )
 
