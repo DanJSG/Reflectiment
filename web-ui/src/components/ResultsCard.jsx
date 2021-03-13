@@ -17,11 +17,7 @@ function ResultsCard(props) {
             moodSum += sentences[i].lexicalScores.mood.score;
             reflectionSum += sentences[i].lexicalScores.reflection.score;
         }
-        if(sentimentSum / (parseInt(i) + 1) >= -1 && sentimentSum / (parseInt(i) + 1) < -0.33) {
-            sentimentLabel = "Negative";
-        } else if(sentimentSum / (parseInt(i) + 1) >= 0.33) {
-            sentimentLabel = "Positive";
-        }
+        sentimentLabel = getSentimentLabel(sentimentSum / (parseInt(i) + 1));
         return {
             sentiment: sentimentSum / (parseInt(i) + 1),
             sentimentLabel: sentimentLabel,
@@ -31,7 +27,7 @@ function ResultsCard(props) {
     }
 
     // TODO refactor into separate service class
-    const getMaxScores = (sentences) => {
+    const getMaxScores = (sentences, analysisTypeKey) => {
         let maxes = {
             sentiment: -1,
             sentimentLabel: "Neutral",
@@ -40,18 +36,25 @@ function ResultsCard(props) {
             reflection: 0
         }
         for(let i = 0; i < sentences.length; i++) {
-            maxes.sentiment = sentences[i].lexicalScores.sentiment.score > maxes.sentiment ? sentences[i].lexicalScores.sentiment.score : maxes.sentiment;
-            maxes.moodLabel = sentences[i].lexicalScores.mood.score > maxes.mood ? sentences[i].lexicalScores.mood.label : maxes.moodLabel;
+            maxes.sentiment = sentences[i][analysisTypeKey].sentiment.score > maxes.sentiment ? sentences[i][analysisTypeKey].sentiment.score : maxes.sentiment;
+            maxes.moodLabel = sentences[i][analysisTypeKey].mood.score > maxes.mood ? sentences[i][analysisTypeKey].mood.label : maxes.moodLabel;
             maxes.moodLabel = maxes.moodLabel.charAt(0).toUpperCase() + maxes.moodLabel.substr(1);
-            maxes.mood = sentences[i].lexicalScores.mood.score > maxes.mood ? sentences[i].lexicalScores.mood.score : maxes.mood;
-            maxes.reflection = sentences[i].lexicalScores.reflection.score > maxes.reflection ? sentences[i].lexicalScores.reflection.score : maxes.reflection;
+            maxes.mood = sentences[i][analysisTypeKey].mood.score > maxes.mood ? sentences[i][analysisTypeKey].mood.score : maxes.mood;
+            maxes.reflection = sentences[i][analysisTypeKey].reflection.score > maxes.reflection ? sentences[i][analysisTypeKey].reflection.score : maxes.reflection;
         }
-        if(maxes.sentiment >= -1 && maxes.sentiment < -0.33) {
-            maxes.sentimentLabel = "Negative";
-        } else if(maxes.sentiment >= 0.33) {
-            maxes.sentimentLabel = "Positive";
-        }
+        maxes.sentimentLabel = getSentimentLabel(maxes.sentiment);
         return maxes;
+    }
+
+    // TODO refactor into separate service class
+    const getSentimentLabel = (score) => {
+        if(score >= -1 && score < -0.33) {
+            return "Negative";
+        } else if(score >= -0.33 && score < 0.33) {
+            return "Neutral";
+        } else {
+            return "Positive";
+        }
     }
 
     useEffect(() => {
@@ -59,7 +62,7 @@ function ResultsCard(props) {
             return;
         }
         const averages = getAverageScores(props.analysis.sentences);
-        const maxes = getMaxScores(props.analysis.sentences);
+        const maxes = getMaxScores(props.analysis.sentences, "lexicalScores");
         console.log(averages);
         setAverageScores(averages);
         setMaxScores(maxes);
@@ -86,6 +89,7 @@ function ResultsCard(props) {
                     <div className="col-6 border-right">
                         <h3 className="font-weight-normal text-center card-title">Average Scores</h3>
                         {!averageScores ? null : 
+                            // TODO Refactor table into another component
                             <table className="table">
                                 <thead>
                                     <tr>
@@ -117,6 +121,7 @@ function ResultsCard(props) {
                     <div className="col-6">
                         <h3 className="font-weight-normal text-center card-title">Maximum Scores</h3>
                         {!maxScores ? null : 
+                            // TODO Refactor table into another component
                             <table className="table">
                                 <thead>
                                     <tr>

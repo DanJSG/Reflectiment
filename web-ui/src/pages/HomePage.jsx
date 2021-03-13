@@ -31,15 +31,16 @@ function HomePage() {
                     The results will then be shown below automatically.
                 </p>
                 <TextSubmissionCard handleAnalysisResponse={handleAnalysisResponse} />
-                <div className="p-4"></div>
                 {
                     analysis === null ? null : 
                     <React.Fragment>
-                        {/* <img className="p-5" src={downArrow} alt="" width="25%"/>
-                        <h1 className="pb-3 font-weight-normal">Results</h1> */}
+                        <img className="p-5" src={downArrow} alt="" width="25%"/>
+                        <h1 className="pb-3 font-weight-normal">Results</h1>
                         <ResultsCard analysis={analysis}/>
                     </React.Fragment>
                 }
+                
+                <div className="p-4"></div>
             </MainContent>
             <div ref={resultsRef}></div>
         </div>
