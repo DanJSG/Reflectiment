@@ -9,6 +9,7 @@ function ResultsCard(props) {
     const getAverageScores = (sentences) => {
         let sentimentSum = 0;
         let moodSum = 0;
+        let sentimentLabel = "Neutral";
         let reflectionSum = 0;
         let i = 0;
         for(i; i < sentences.length; i++) {
@@ -16,8 +17,14 @@ function ResultsCard(props) {
             moodSum += sentences[i].lexicalScores.mood.score;
             reflectionSum += sentences[i].lexicalScores.reflection.score;
         }
+        if(sentimentSum / (parseInt(i) + 1) >= -1 && sentimentSum / (parseInt(i) + 1) < -0.33) {
+            sentimentLabel = "Negative";
+        } else if(sentimentSum / (parseInt(i) + 1) >= 0.33) {
+            sentimentLabel = "Positive";
+        }
         return {
             sentiment: sentimentSum / (parseInt(i) + 1),
+            sentimentLabel: sentimentLabel,
             mood: moodSum / (parseInt(i) + 1),
             reflection: reflectionSum / (parseInt(i) + 1)
         }
@@ -27,8 +34,9 @@ function ResultsCard(props) {
     const getMaxScores = (sentences) => {
         let maxes = {
             sentiment: -1,
+            sentimentLabel: "Neutral",
             mood: 0,
-            moodLabel: "none",
+            moodLabel: "None",
             reflection: 0
         }
         for(let i = 0; i < sentences.length; i++) {
@@ -37,6 +45,11 @@ function ResultsCard(props) {
             maxes.moodLabel = maxes.moodLabel.charAt(0).toUpperCase() + maxes.moodLabel.substr(1);
             maxes.mood = sentences[i].lexicalScores.mood.score > maxes.mood ? sentences[i].lexicalScores.mood.score : maxes.mood;
             maxes.reflection = sentences[i].lexicalScores.reflection.score > maxes.reflection ? sentences[i].lexicalScores.reflection.score : maxes.reflection;
+        }
+        if(maxes.sentiment >= -1 && maxes.sentiment < -0.33) {
+            maxes.sentimentLabel = "Negative";
+        } else if(maxes.sentiment >= 0.33) {
+            maxes.sentimentLabel = "Positive";
         }
         return maxes;
     }
@@ -85,16 +98,18 @@ function ResultsCard(props) {
                                     <tr>
                                         <td>Sentiment</td>
                                         <td>{averageScores.sentiment.toFixed(5)}</td>
-                                        <td>N/A</td>
+                                        <td>{averageScores.sentimentLabel}</td>
                                     </tr>
                                     <tr>
                                         <td>Mood</td>
                                         <td>{averageScores.mood.toFixed(5)}</td>
-                                        <td>{averageScores.moodLabel}</td>
+                                        <td>N/A</td>
                                     </tr>
-                                    <td>Reflection</td>
-                                    <td>{averageScores.reflection.toFixed(5)}</td>
-                                    <td>N/A</td>
+                                    <tr>
+                                        <td>Reflection</td>
+                                        <td>{averageScores.reflection.toFixed(5)}</td>
+                                        <td>N/A</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         }
@@ -114,16 +129,18 @@ function ResultsCard(props) {
                                     <tr>
                                         <td>Sentiment</td>
                                         <td>{maxScores.sentiment.toFixed(5)}</td>
-                                        <td>N/A</td>
+                                        <td>{maxScores.sentimentLabel}</td>
                                     </tr>
                                     <tr>
                                         <td>Mood</td>
                                         <td>{maxScores.mood.toFixed(5)}</td>
                                         <td>{maxScores.moodLabel}</td>
                                     </tr>
-                                    <td>Reflection</td>
-                                    <td>{maxScores.reflection.toFixed(5)}</td>
-                                    <td>N/A</td>
+                                    <tr>
+                                        <td>Reflection</td>
+                                        <td>{maxScores.reflection.toFixed(5)}</td>
+                                        <td>N/A</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         }
