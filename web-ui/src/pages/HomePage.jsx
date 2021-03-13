@@ -35,7 +35,7 @@ function HomePage() {
                     analysis === null ? null : 
                     <React.Fragment>
                         <img className="p-5" src={downArrow} alt="" width="25%"/>
-                        <h1 className="pb-3 font-weight-normal">Results</h1>
+                        {/* <h1 className="pb-3 font-weight-normal">Results</h1> */}
                         <ResultsCard analysis={analysis}/>
                     </React.Fragment>
                 }
