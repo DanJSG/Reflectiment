@@ -8,6 +8,7 @@ function ResultsCard(props) {
     const [maxScores, setMaxScores] = useState(null);
     const [analysisTypeKeys] = useState(["lexicalScores", "mlScores", "averageScores"]);
     const [activeTab, setActiveTab] = useState(0);
+    const [taggedSentences, setTaggedSentences] = useState(null);
 
     const switchTab = (e) => {
         e.preventDefault();
@@ -23,6 +24,38 @@ function ResultsCard(props) {
         const maxes = getMaxScores(props.analysis.sentences, analysisTypeKey);
         setAverageScores(averages);
         setMaxScores(maxes);
+        tagText(analysisTypeKeys[0]);
+    }
+
+    const tagText = () => {
+        const sentences = props.analysis.sentences;
+        const analysisTypeKey = analysisTypeKeys[activeTab];
+        const htmlElements = [];
+        for(let i = 0; i < sentences.length; i++) {
+            const sentence = sentences[i];
+            const normalizedSentimentScore = (sentence[analysisTypeKey].sentiment.score + 1) / 2;
+            const sentimentStyle = {
+                backgroundColor: `rgba(0, 255, 0, ${normalizedSentimentScore * 0.5})`
+            }
+            const moodStyle = {
+                backgroundColor: `rgba(0, 0, 255, ${sentence[analysisTypeKey].mood.score * 0.5})`
+            }
+            const reflectionStyle = {
+                backgroundColor: `rgba(255, 0, 0, ${sentence[analysisTypeKey].reflection.score * 0.5})`
+            }
+            const htmlObj = 
+                <span style={moodStyle} key={i}>
+                    <span style={reflectionStyle}>
+                        <span  style={sentimentStyle}>
+                            {sentence.sentence}&nbsp;
+                        </span>
+                    </span>
+                </span>;
+            htmlElements.push(htmlObj);
+            console.log(sentence);
+            console.log(normalizedSentimentScore);
+        }
+        setTaggedSentences(htmlElements);
     }
 
     useEffect(() => {
@@ -30,6 +63,7 @@ function ResultsCard(props) {
             return;
         }
         showResults(analysisTypeKeys[0]);
+        
     }, [props.analysis, analysisTypeKeys])
 
     return (
@@ -67,7 +101,8 @@ function ResultsCard(props) {
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
                         {!props.analysis ? null :
                             <div>
-                                <p>{props.analysis.text}</p>
+                                {/* <p>{props.analysis.text}</p> */}
+                                <p>{taggedSentences}</p>
                             </div>
                         }
                     </div>
