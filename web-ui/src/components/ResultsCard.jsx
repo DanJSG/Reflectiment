@@ -61,7 +61,7 @@ function ResultsCard(props) {
     const tagReflection = (sentence, scores, index) => {
         const colorVal = scores.score;
         const colorStyle = {
-            backgroundColor: `rgba(255, 255, 0, ${colorVal})`
+            backgroundColor: `rgba(${128 - (colorVal * 95)}, ${128 + (colorVal * 95)}, 0, ${colorVal})`
         }
         return <span key={index} style={colorStyle}>{sentence}&nbsp;</span>;
     }
@@ -115,17 +115,6 @@ function ResultsCard(props) {
                     </form>
             </div>
             <div className="container-fluid p-3">
-                <div className="row">
-                    <div className="col-6 border-right">
-                        <h3 className="font-weight-normal text-center card-title">Average Scores</h3>
-                        {!averageScores ? null : <ResultsTable scores={averageScores} />}
-                    </div>
-                    <div className="col-6">
-                        <h3 className="font-weight-normal text-center card-title">Maximum Scores</h3>
-                        {!maxScores ? null : <ResultsTable scores={maxScores} />}
-                    </div>
-                </div>
-                <hr/>
                 <div className="row p-3">
                     <div className="col-12">
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
@@ -149,6 +138,17 @@ function ResultsCard(props) {
                                 <p>{taggedSentences}</p>
                             </div>
                         }
+                    </div>
+                </div>
+                <hr/>
+                <div className="row">
+                    <div className="col-6 border-right">
+                        <h3 className="font-weight-normal text-center card-title">Average Scores</h3>
+                        {!averageScores ? null : <ResultsTable scores={averageScores} />}
+                    </div>
+                    <div className="col-6">
+                        <h3 className="font-weight-normal text-center card-title">Maximum Scores</h3>
+                        {!maxScores ? null : <ResultsTable scores={maxScores} />}
                     </div>
                 </div>
             </div>
