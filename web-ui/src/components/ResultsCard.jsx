@@ -10,7 +10,7 @@ function ResultsCard(props) {
     const [maxScores, setMaxScores] = useState(null);
     const [activeTab, setActiveTab] = useState(0);
     const [taggedSentences, setTaggedSentences] = useState(null);
-    const [defaultRadioButtonChecked, setDefaultRadioButtonChecked] = useState(true);
+    const [activeRadioButton, setActiveRadioButton] = useState(0);
 
     const switchTab = (e) => {
         e.preventDefault();
@@ -18,23 +18,31 @@ function ResultsCard(props) {
         e.target.elements[activeTab].classList.toggle("active");
         e.target.elements[tabId].classList.toggle("active");
         setActiveTab(tabId)
-        showResults(analysisTypeKeys[tabId]);
+        showResults(analysisTypeKeys[tabId], tabId);
     }
 
-    const showResults = (analysisTypeKey) => {
+    const showResults = (analysisTypeKey, tabId) => {
         const averages = getAverageScores(props.analysis.sentences, analysisTypeKey);
         const maxes = getMaxScores(props.analysis.sentences, analysisTypeKey);
         setAverageScores(averages);
         setMaxScores(maxes);
-        tagText("sentiment");
+        tagText("sentiment", tabId);
+        setActiveRadioButton(0);
     }
 
     const selectAnalysisFeature = (e) => {
-        console.log(e.target.id.replace("Radio", ''));
-        setDefaultRadioButtonChecked(null);
-        tagText(e.target.id.replace("Radio", ''));
+        const analysisFeature = e.target.id.replace("Radio", '');
+        if(analysisFeature === "sentiment") {
+            setActiveRadioButton(0);
+        } else if(analysisFeature === "mood") {
+            setActiveRadioButton(1);
+        } else {
+            setActiveRadioButton(2);
+        }
+        tagText(e.target.id.replace("Radio", ''), activeTab);
     }
 
+    // TODO refactor into new file
     const tagSentiment = (sentence, scores, index) => {
         const colorVal = scores.score;
         const colorStyle = {
@@ -43,10 +51,13 @@ function ResultsCard(props) {
         return <span key={index} style={colorStyle}>{sentence}&nbsp;</span>;
     }
 
+    // TODO refactor into new file
     const tagMood = (sentence, scores, index) => {
         console.log(sentence);
     }
 
+    // TODO refactor into new file
+    // TODO review using a temperature style colouring scheme
     const tagReflection = (sentence, scores, index) => {
         const colorVal = scores.score;
         const colorStyle = {
@@ -54,7 +65,7 @@ function ResultsCard(props) {
         }
         return <span key={index} style={colorStyle}>{sentence}&nbsp;</span>;
     }
-
+    
     const pickTaggingFunction = (analysisFeature) => {
         if(analysisFeature === "sentiment") {
             return tagSentiment;
@@ -65,62 +76,23 @@ function ResultsCard(props) {
         }
     }
 
-    const tagText = (analysisFeature) => {
+    const tagText = (analysisFeature, tabId) => {
         const sentences = props.analysis.sentences;
-        const analysisTypeKey = analysisTypeKeys[activeTab];
+        const analysisTypeKey = analysisTypeKeys[tabId];
         const htmlElements = [];
         const taggingFunction = pickTaggingFunction(analysisFeature);
         for(let i = 0; i < sentences.length; i++) {
             const sentence = sentences[i];
             htmlElements.push(taggingFunction(sentence.sentence, sentence[analysisTypeKey][analysisFeature], i));
-            // const colorStyle = {
-            //     backgroundColor: `rgba(0, 255, 0, ${normalizedSentimentScore * 0.5})`
-            // }
-            // const htmlObj = 
-            //             <span  style={sentimentStyle}>
-            //                 {sentence.sentence}&nbsp;
-            //             </span>;
-            // htmlElements.push(htmlObj);
         }
         setTaggedSentences(htmlElements);
     }
-
-    // const tagText = () => {
-    //     const sentences = props.analysis.sentences;
-    //     const analysisTypeKey = analysisTypeKeys[activeTab];
-    //     const htmlElements = [];
-    //     for(let i = 0; i < sentences.length; i++) {
-    //         const sentence = sentences[i];
-    //         const normalizedSentimentScore = (sentence[analysisTypeKey].sentiment.score + 1) / 2;
-    //         const sentimentStyle = {
-    //             backgroundColor: `rgba(0, 255, 0, ${normalizedSentimentScore * 0.5})`
-    //         }
-    //         const moodStyle = {
-    //             backgroundColor: `rgba(0, 0, 255, ${sentence[analysisTypeKey].mood.score * 0.5})`
-    //         }
-    //         const reflectionStyle = {
-    //             backgroundColor: `rgba(255, 0, 0, ${sentence[analysisTypeKey].reflection.score * 0.5})`
-    //         }
-    //         const htmlObj = 
-    //             <span style={moodStyle} key={i}>
-    //                 <span style={reflectionStyle}>
-    //                     <span  style={sentimentStyle}>
-    //                         {sentence.sentence}&nbsp;
-    //                     </span>
-    //                 </span>
-    //             </span>;
-    //         htmlElements.push(htmlObj);
-    //         console.log(sentence);
-    //         console.log(normalizedSentimentScore);
-    //     }
-    //     setTaggedSentences(htmlElements);
-    // }
 
     useEffect(() => {
         if(!props.analysis) {
             return;
         }
-        showResults(analysisTypeKeys[0]);
+        showResults(analysisTypeKeys[0], 0);
         
     }, [props.analysis, analysisTypeKeys])
 
@@ -159,15 +131,15 @@ function ResultsCard(props) {
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
                         <form className="d-flex pb-3">
                             <div className="form-check mr-3">
-                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="sentimentRadio" className="form-check-input mt-2" checked={defaultRadioButtonChecked}/>
+                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="sentimentRadio" className="form-check-input mt-2" checked={activeRadioButton === 0}/>
                                 <label htmlFor="sentimentRadio" className="form-check-label" style={{fontSize: "1rem"}}>Sentiment</label>
                             </div>
                             <div className="form-check mr-3">
-                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="moodRadio" className="form-check-input mt-2"/>
+                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="moodRadio" className="form-check-input mt-2" checked={activeRadioButton === 1}/>
                                 <label htmlFor="moodRadio" className="form-check-label" style={{fontSize: "1rem"}}>Mood</label>
                             </div>
                             <div className="form-check mr-3">
-                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="reflectionRadio" className="form-check-input mt-2"/>
+                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="reflectionRadio" className="form-check-input mt-2" checked={activeRadioButton === 2}/>
                                 <label htmlFor="reflectionRadio" className="form-check-label" style={{fontSize: "1rem"}}>Reflection</label>
                             </div>
                         </form>
