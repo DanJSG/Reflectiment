@@ -5,6 +5,7 @@ import ResultsTable from './ResultsTable';
 function ResultsCard(props) {
 
     const [analysisTypeKeys] = useState(["lexicalScores", "mlScores", "averageScores"]);
+    const [analysisFeatures] = useState(["sentiment", "mood", "reflection"])
 
     const [averageScores, setAverageScores] = useState(null);
     const [maxScores, setMaxScores] = useState(null);
@@ -26,8 +27,8 @@ function ResultsCard(props) {
         const maxes = getMaxScores(props.analysis.sentences, analysisTypeKey);
         setAverageScores(averages);
         setMaxScores(maxes);
-        tagText("sentiment", tabId);
-        setActiveRadioButton(0);
+        setActiveRadioButton(activeRadioButton);
+        tagText(analysisFeatures[activeRadioButton], tabId);
     }
 
     const selectAnalysisFeature = (e) => {
@@ -92,8 +93,7 @@ function ResultsCard(props) {
         if(!props.analysis) {
             return;
         }
-        showResults(analysisTypeKeys[0], 0);
-        
+        showResults(analysisTypeKeys[activeTab], activeTab);
     }, [props.analysis, analysisTypeKeys])
 
     return (
