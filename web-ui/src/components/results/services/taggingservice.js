@@ -48,7 +48,6 @@ const tagReflection = (sentence, scores, index) => {
     const colorStyle = {
         backgroundColor: `rgba(${128 - (colorVal * 95)}, ${128 + (colorVal * 95)}, 0, ${colorVal})`
     }
-    console.log(scores);
     const tooltipContent = <ReflectionTooltipContent scores={scores} />;
     return (
         <Tippy key={index} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
