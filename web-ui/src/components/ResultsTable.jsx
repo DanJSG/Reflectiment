@@ -18,7 +18,7 @@ function ResultsTable(props) {
                     <td>{props.scores.sentimentLabel}</td>
                 </tr>
                 <tr>
-                    <td>Mood</td>
+                    <td>Top Mood</td>
                     <td>{props.scores.mood.toFixed(5)}</td>
                     <td>{!props.scores.moodLabel ? "N/A" : props.scores.moodLabel}</td>
                 </tr>

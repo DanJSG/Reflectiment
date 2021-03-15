@@ -54,7 +54,27 @@ function ResultsCard(props) {
 
     // TODO refactor into new file
     const tagMood = (sentence, scores, index) => {
-        console.log(sentence);
+        console.log(scores.mixedScores);
+        let colorStyle = {
+            backgroundColor: `rgba(0, 0, 0, 0)`,
+            color: "#212529"
+        };
+        if(scores.label === "anger") {
+            colorStyle.backgroundColor = `rgba(255, 0, 0, ${scores.score})`;
+        } else if(scores.label === "sadness") {
+            colorStyle.backgroundColor = `rgba(0, 0, 255, ${scores.score})`;
+            colorStyle.color = scores.score > 0.5 ? "#f8f9fa" : colorStyle.color;
+        } else if(scores.label === "fear") {
+            colorStyle.backgroundColor = `rgba(128, 0, 128, ${scores.score})`;
+            colorStyle.color = scores.score > 0.5 ? "#f8f9fa" : colorStyle.color;
+        } else {
+            colorStyle.backgroundColor = `rgba(255, 255, 0, ${scores.score})`;
+        }
+        return (
+            <span key={index} style={colorStyle}>{sentence}&nbsp;</span>
+        )
+
+        // console.log(sentence);
     }
 
     // TODO refactor into new file
