@@ -2,6 +2,7 @@ import React from 'react';
 import Tippy from '@tippyjs/react'
 import {followCursor} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
+import ReflectionTooltipContent from '../tooltips/ReflectionTooltipContent';
 
 const tagSentiment = (sentence, scores, index) => {
     const colorVal = scores.score;
@@ -55,17 +56,7 @@ const tagReflection = (sentence, scores, index) => {
         backgroundColor: `rgba(${128 - (colorVal * 95)}, ${128 + (colorVal * 95)}, 0, ${colorVal})`
     }
     console.log(scores);
-    const tooltipContent = (
-        <div>
-            <li style={{listStyleType: "none"}}><b>Overall:</b> {(scores.score * 100).toFixed(2)}%</li>
-            {
-                !scores.categoryScores ? null :
-                Object.keys(scores.categoryScores).map((key, index) => {
-                    return <li key={index} style={{listStyleType: "none"}}><b>{key.charAt(0).toUpperCase() + key.substr(1)}:</b> {(scores.categoryScores[key] * 100).toFixed(2)}%</li>
-                })
-            }
-        </div>
-    );
+    const tooltipContent = <ReflectionTooltipContent scores={scores} />;
     return (
         <Tippy key={index} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
             <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
