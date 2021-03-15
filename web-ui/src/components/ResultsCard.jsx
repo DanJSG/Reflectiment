@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {getAverageScores, getMaxScores} from '../services/resultprocessing';
 import {pickTaggingFunction} from '../services/taggingservice';
 import ResultsTable from './ResultsTable';
+import ResultsTabs from './ResultsTabs';
 
 function ResultsCard(props) {
 
@@ -67,19 +68,7 @@ function ResultsCard(props) {
         <div className="card w-100 shadow-sm border-1 row">
             <div className="card-header">
                 <h1 className="font-weight-normal">Results</h1>
-                    <form onSubmit={switchTab}>
-                        <ul className="nav nav-tabs card-header-tabs">
-                            <li className="nav-item">
-                                <button className="btn-link nav-link active" id={0}>Lexical</button>
-                            </li>
-                            <li className="nav-item">
-                                <button className="btn-link nav-link" id={1}>Machine Learning</button>
-                            </li>
-                            <li className="nav-item">
-                                <button className="btn-link nav-link" id={2}>Combined</button>
-                            </li>
-                        </ul>
-                    </form>
+                <ResultsTabs switchTab={switchTab} />
             </div>
             <div className="container-fluid p-3">
                 <div className="row p-3">
