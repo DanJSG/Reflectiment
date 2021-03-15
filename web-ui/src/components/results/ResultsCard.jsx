@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {getAverageScores, getMaxScores} from '../services/resultprocessing';
-import {pickTaggingFunction} from '../services/taggingservice';
+import {getAverageScores, getMaxScores} from './services/resultprocessingservice';
+import {pickTaggingFunction} from './services/taggingservice';
 import ResultsRadios from './ResultsRadios';
 import ResultsTable from './ResultsTable';
 import ResultsTabs from './ResultsTabs';

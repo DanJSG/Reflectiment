@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UoYLogo from '../resources/uoy-logo.svg';
+import uoyLogo from '../../resources/uoy-logo.svg';
 
 
 function NavBar() {
@@ -9,7 +9,7 @@ function NavBar() {
         <React.Fragment>
             <nav className="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
                 <a className="navbar-brand border-right border-secondary pr-3" href="./">
-                    <img src={UoYLogo} alt="" width="180px"/>
+                    <img src={uoyLogo} alt="" width="180px"/>
                 </a>
                 <div className="navbar-nav" style={{fontSize: "1.2rem"}}>
                     <Link className="nav-item nav-link active" to="/">Analyzer</Link>

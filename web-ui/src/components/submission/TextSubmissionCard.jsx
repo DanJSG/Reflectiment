@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import {sendAnalysisRequest} from '../services/analysisservice';
+import {sendAnalysisRequest} from './services/analysisservice';
 
 function TextSubmissionCard(props) {
     
