@@ -3,18 +3,15 @@ import Tippy from '@tippyjs/react'
 import {followCursor} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import ReflectionTooltipContent from '../tooltips/ReflectionTooltipContent';
+import MoodTooltipContent from '../tooltips/MoodTooltipContent';
+import SentimentTooltipContent from '../tooltips/SentimentTooltipContent';
 
 const tagSentiment = (sentence, scores, index) => {
     const colorVal = scores.score;
     const colorStyle = {
         backgroundColor: colorVal > 0 ? `rgba(0, 255, 0, ${Math.abs(colorVal)})` : `rgb(255, 0, 0, ${Math.abs(colorVal)})`
     }
-    const tooltipContent = (
-        <div>
-            <li style={{listStyleType: 'none'}}><b>Label:</b> {scores.label.charAt(0).toUpperCase() + scores.label.substr(1)}</li>
-            <li style={{listStyleType: 'none'}}><b>Intensity:</b> {(scores.score * 100).toFixed(2)}%</li>
-        </div>
-    );
+    const tooltipContent = <SentimentTooltipContent scores={scores}/>;
     return (
         <Tippy placement="top" key={index} content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
             <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
@@ -38,11 +35,7 @@ const tagMood = (sentence, scores, index) => {
     } else {
         colorStyle.backgroundColor = `rgba(255, 255, 0, ${scores.score})`;
     }
-    const tooltipContent = (
-        <div>
-            {Object.keys(scores.mixedScores).map((key, index) => <li key={index} style={{listStyleType: "none"}}><b>{key.charAt(0).toUpperCase() + key.substr(1)}:</b> {(scores.mixedScores[key] * 100).toFixed(2)}%</li>)}
-        </div>
-    )
+    const tooltipContent = <MoodTooltipContent scores={scores}/>;
     return (
         <Tippy key={index} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
             <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
