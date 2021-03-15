@@ -77,8 +77,8 @@ function ResultsCard(props) {
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
                         <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
                         {!props.analysis ? null :
-                            <div>
-                                <p>{taggedSentences}</p>
+                            <div className="text-justify" style={{cursor: "default"}}>
+                                {taggedSentences}
                             </div>
                         }
                     </div>

@@ -1,1 +1,13 @@
-@import '~bootstrap/scss/bootstrap.scss'
+@import '~bootstrap/scss/bootstrap.scss';
+
+.outline-on-hover {
+    border-radius: 4px;
+    border: 1px solid transparent;
+    word-spacing: 0px;
+    font-size: 1.1rem;
+}
+
+.outline-on-hover:hover {
+    border: 1px solid #212529;
+    word-spacing: 0px;
+}

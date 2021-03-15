@@ -1,13 +1,27 @@
+import React from 'react';
+import Tippy from '@tippyjs/react'
+import {followCursor} from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+
 const tagSentiment = (sentence, scores, index) => {
     const colorVal = scores.score;
     const colorStyle = {
         backgroundColor: colorVal > 0 ? `rgba(0, 255, 0, ${Math.abs(colorVal)})` : `rgb(255, 0, 0, ${Math.abs(colorVal)})`
     }
-    return <span key={index} style={colorStyle}>{sentence}&nbsp;</span>;
+    const tooltipContent = (
+        <div>
+            <li style={{listStyleType: 'none'}}><b>Label:</b> {scores.label.charAt(0).toUpperCase() + scores.label.substr(1)}</li>
+            <li style={{listStyleType: 'none'}}><b>Intensity:</b> {(scores.score * 100).toFixed(2)}%</li>
+        </div>
+    );
+    return (
+        <Tippy placement="top" key={index} content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
+            <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
+        </Tippy>
+    );
 }
 
 const tagMood = (sentence, scores, index) => {
-    console.log(scores.mixedScores);
     let colorStyle = {
         backgroundColor: `rgba(0, 0, 0, 0)`,
         color: "#212529"
@@ -23,8 +37,15 @@ const tagMood = (sentence, scores, index) => {
     } else {
         colorStyle.backgroundColor = `rgba(255, 255, 0, ${scores.score})`;
     }
+    const tooltipContent = (
+        <div>
+            {Object.keys(scores.mixedScores).map((key, index) => <li key={index} style={{listStyleType: "none"}}><b>{key.charAt(0).toUpperCase() + key.substr(1)}:</b> {(scores.mixedScores[key] * 100).toFixed(2)}%</li>)}
+        </div>
+    )
     return (
-        <span key={index} style={colorStyle}>{sentence}&nbsp;</span>
+        <Tippy key={index} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
+            <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
+        </Tippy>
     )
 }
 
@@ -33,7 +54,23 @@ const tagReflection = (sentence, scores, index) => {
     const colorStyle = {
         backgroundColor: `rgba(${128 - (colorVal * 95)}, ${128 + (colorVal * 95)}, 0, ${colorVal})`
     }
-    return <span key={index} style={colorStyle}>{sentence}&nbsp;</span>;
+    console.log(scores);
+    const tooltipContent = (
+        <div>
+            <li style={{listStyleType: "none"}}><b>Overall:</b> {(scores.score * 100).toFixed(2)}%</li>
+            {
+                !scores.categoryScores ? null :
+                Object.keys(scores.categoryScores).map((key, index) => {
+                    return <li key={index} style={{listStyleType: "none"}}><b>{key.charAt(0).toUpperCase() + key.substr(1)}:</b> {(scores.categoryScores[key] * 100).toFixed(2)}%</li>
+                })
+            }
+        </div>
+    );
+    return (
+        <Tippy key={index} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
+            <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
+        </Tippy>
+    );
 }
 
 export const pickTaggingFunction = (analysisFeature) => {
