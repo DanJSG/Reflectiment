@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {getAverageScores, getMaxScores} from '../services/resultprocessing';
 import {pickTaggingFunction} from '../services/taggingservice';
+import ResultsRadios from './ResultsRadios';
 import ResultsTable from './ResultsTable';
 import ResultsTabs from './ResultsTabs';
 
@@ -74,20 +75,7 @@ function ResultsCard(props) {
                 <div className="row p-3">
                     <div className="col-12">
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
-                        <form className="d-flex pb-3">
-                            <div className="form-check mr-3">
-                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="sentimentRadio" className="form-check-input mt-2" checked={activeRadioButton === 0}/>
-                                <label htmlFor="sentimentRadio" className="form-check-label" style={{fontSize: "1rem"}}>Sentiment</label>
-                            </div>
-                            <div className="form-check mr-3">
-                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="moodRadio" className="form-check-input mt-2" checked={activeRadioButton === 1}/>
-                                <label htmlFor="moodRadio" className="form-check-label" style={{fontSize: "1rem"}}>Mood</label>
-                            </div>
-                            <div className="form-check mr-3">
-                                <input onChange={selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="reflectionRadio" className="form-check-input mt-2" checked={activeRadioButton === 2}/>
-                                <label htmlFor="reflectionRadio" className="form-check-label" style={{fontSize: "1rem"}}>Reflection</label>
-                            </div>
-                        </form>
+                        <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
                         {!props.analysis ? null :
                             <div>
                                 <p>{taggedSentences}</p>
