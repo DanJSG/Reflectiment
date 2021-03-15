@@ -11,10 +11,10 @@ export const getAverageScores = (sentences, analysisTypeKey) => {
     }
     sentimentLabel = getSentimentLabel(sentimentSum / (parseInt(i) + 1));
     return {
-        sentiment: sentimentSum / (parseInt(i) + 1),
+        sentiment: sentimentSum / (parseInt(i)),
         sentimentLabel: sentimentLabel,
-        mood: moodSum / (parseInt(i) + 1),
-        reflection: reflectionSum / (parseInt(i) + 1)
+        mood: moodSum / (parseInt(i)),
+        reflection: reflectionSum / (parseInt(i))
     }
 }
 

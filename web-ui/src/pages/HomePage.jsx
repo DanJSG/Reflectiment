@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
-import NavBar from '../components/NavBar';
-import MainContent from '../components/MainContent';
-import TextSubmissionCard from '../components/TextSubmissionCard';
-import ResultsCard from '../components/ResultsCard';
+import NavBar from '../components/layout/NavBar';
+import MainContent from '../components/layout/MainContent';
+import TextSubmissionCard from '../components/submission/TextSubmissionCard';
+import ResultsCard from '../components/results/ResultsCard';
 import downArrow from '../resources/down.svg'
 
 function HomePage() {
