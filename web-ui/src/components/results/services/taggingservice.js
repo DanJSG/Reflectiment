@@ -13,7 +13,7 @@ const tagSentiment = (sentence, scores, index) => {
     }
     const tooltipContent = <SentimentTooltipContent scores={scores}/>;
     return (
-        <Tippy placement="top" key={index} content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
+        <Tippy placement="top" key={index} interactive={true} content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
             <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
         </Tippy>
     );
@@ -37,7 +37,7 @@ const tagMood = (sentence, scores, index) => {
     }
     const tooltipContent = <MoodTooltipContent scores={scores}/>;
     return (
-        <Tippy key={index} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
+        <Tippy key={index} interactive={true} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
             <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
         </Tippy>
     )
@@ -50,7 +50,7 @@ const tagReflection = (sentence, scores, index) => {
     }
     const tooltipContent = <ReflectionTooltipContent scores={scores} />;
     return (
-        <Tippy key={index} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
+        <Tippy key={index} interactive={true} placement="top" content={tooltipContent} followCursor="initial" plugins={[followCursor]}>
             <span className="outline-on-hover" style={colorStyle}>{sentence}&nbsp;</span>
         </Tippy>
     );
