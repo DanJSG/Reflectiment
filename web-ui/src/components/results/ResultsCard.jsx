@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {getAverageScores, getMaxScores} from './services/resultprocessingservice';
 import {pickTaggingFunction} from './services/taggingservice';
 import ResultsRadios from './ResultsRadios';
@@ -15,6 +15,8 @@ function ResultsCard(props) {
     const [activeTab, setActiveTab] = useState(0);
     const [taggedSentences, setTaggedSentences] = useState(null);
     const [activeRadioButton, setActiveRadioButton] = useState(0);
+
+    const hiddenDownloadLink = useRef(null);
 
     const switchTab = (e) => {
         e.preventDefault();
@@ -65,6 +67,29 @@ function ResultsCard(props) {
         showResults(analysisTypeKeys[activeTab], activeTab);
     }, [props.analysis, analysisTypeKeys])
 
+    // TODO refactor into separate file
+    const generateSentimentCsv = (sentenceList, analysisTypeKey, analysisFeature) => {
+        const sentences = sentenceList.map((details) => details.sentence);
+        const scores = sentenceList.map((details) => details[analysisTypeKey][analysisFeature])
+        const dataRows = [["Sentence", "Intensity", "Label"]];
+        for(let i = 0; i < sentences.length; i++) {
+            dataRows.push([`"${sentences[i]}"`, String(scores[i].score), `"${scores[i].label}"`]);
+        }
+        const blob = new Blob(dataRows.map(row => String(row) + "\n"), {type: "text/csv"});
+        return blob;
+    }
+
+    const downloadCSV = (e) => {
+        e.preventDefault();
+        const analysisTypeKey = analysisTypeKeys[activeTab];
+        const analysisFeature = analysisFeatures[activeRadioButton];
+        const blob = generateSentimentCsv(props.analysis.sentences, analysisTypeKey, analysisFeature);
+        const fileUrl = window.URL.createObjectURL(blob);
+        hiddenDownloadLink.current.href = fileUrl;
+        hiddenDownloadLink.current.download = `sentiment-${new Date().toISOString()}.csv`;
+        hiddenDownloadLink.current.click();
+    }
+
     return (
         <div className="card w-100 shadow-sm border-1 row">
             <div className="card-header">
@@ -78,7 +103,9 @@ function ResultsCard(props) {
                         <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
                         {!props.analysis ? null :
                             <div className="text-justify" style={{cursor: "default"}}>
-                                {taggedSentences}
+                                <p>{taggedSentences}</p>
+                                <button onClick={downloadCSV} className="btn btn-primary"><i className="fa fa-download" /> Download as CSV</button>
+                                <a style={{display: "none"}} ref={hiddenDownloadLink}>Hidden File Download</a>
                             </div>
                         }
                     </div>
