@@ -21,7 +21,6 @@ function HomePage() {
 
     return (
         <div className='w-100 h-100'>
-            <NavBar />
             <MainContent>
                 <h1 className="p-4 display-4 font-weight-normal">Automated Text Analyzer</h1>
                 <p className="pl-3 pr-3 text-justify">
