@@ -5,6 +5,7 @@ import {pickTaggingFunction} from './services/taggingservice';
 import ResultsRadios from './ResultsRadios';
 import ResultsTable from './ResultsTable';
 import ResultsTabs from './ResultsTabs';
+import SentimentSentenceTable from './tables/SentimentSentenceTable';
 
 function ResultsCard(props) {
 
@@ -101,7 +102,7 @@ function ResultsCard(props) {
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
                         <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
                         {!props.analysis ? null :
-                            <div className="text-justify" style={{cursor: "default"}}>
+                            <div className="text-justify pt-2" style={{cursor: "default"}}>
                                 <p>{taggedSentences}</p>
                                 <button onClick={downloadCSV} className="btn btn-primary"><i className="fa fa-download" /> Download as CSV</button>
                                 <a style={{display: "none"}} href="/" ref={hiddenDownloadLink}>Hidden File Download</a>
@@ -109,15 +110,16 @@ function ResultsCard(props) {
                         }
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <div className="row">
                     <div className="col-6 border-right">
                         <h3 className="font-weight-normal text-center card-title">Average Scores</h3>
                         {!averageScores ? null : <ResultsTable scores={averageScores} />}
                     </div>
                     <div className="col-6">
-                        <h3 className="font-weight-normal text-center card-title">Maximum Scores</h3>
-                        {!maxScores ? null : <ResultsTable scores={maxScores} />}
+                        <h3 className="font-weight-normal text-center card-title">Sentence Scores</h3>
+                        {/* {!maxScores ? null : <ResultsTable scores={maxScores} />} */}
+                        {maxScores && activeRadioButton === 0 ? <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
                     </div>
                 </div>
             </div>

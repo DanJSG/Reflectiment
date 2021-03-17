@@ -3,7 +3,7 @@ import React from 'react';
 function ResultsRadios(props) {
 
     return (
-        <form className="d-flex pb-3">
+        <form className="d-flex">
             <div className="form-check mr-3">
                 <input onChange={props.selectAnalysisFeature} type="radio" name="analysisFeatureRadios" id="sentimentRadio" className="form-check-input mt-2" checked={props.activeRadioButton === 0}/>
                 <label htmlFor="sentimentRadio" className="form-check-label" style={{fontSize: "1rem"}}>Sentiment</label>
