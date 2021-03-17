@@ -6,6 +6,7 @@ import ResultsRadios from './ResultsRadios';
 import ResultsTable from './ResultsTable';
 import ResultsTabs from './ResultsTabs';
 import SentimentSentenceTable from './tables/SentimentSentenceTable';
+import MoodSentenceTable from './tables/MoodSentenceTable';
 
 function ResultsCard(props) {
 
@@ -112,14 +113,15 @@ function ResultsCard(props) {
                 </div>
                 <hr />
                 <div className="row">
-                    <div className="col-6 border-right">
+                    {/* <div className="col-6 border-right">
                         <h3 className="font-weight-normal text-center card-title">Average Scores</h3>
                         {!averageScores ? null : <ResultsTable scores={averageScores} />}
-                    </div>
-                    <div className="col-6">
+                    </div> */}
+                    <div className="col-12">
                         <h3 className="font-weight-normal text-center card-title">Sentence Scores</h3>
                         {/* {!maxScores ? null : <ResultsTable scores={maxScores} />} */}
                         {maxScores && activeRadioButton === 0 ? <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
+                        {maxScores && activeRadioButton === 1 ? <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
                     </div>
                 </div>
             </div>
