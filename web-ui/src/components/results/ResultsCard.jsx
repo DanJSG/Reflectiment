@@ -135,9 +135,9 @@ function ResultsCard(props) {
                 <div className="row">
                     <div className="col-12">
                         <h3 className="font-weight-normal text-center card-title">Sentence Scores</h3>
-                        <div className="p-2 w-25">
-                            <span className="pr-3"><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
-                            <span><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
+                        <div className="pl-2 pr-2 pb-2 w-25">
+                            <span className="pr-3"><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
+                            <span><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
                         </div>
                         {
                             taggedSentences && maxScoreIndexes && activeRadioButton === 0 ? 
@@ -152,13 +152,20 @@ function ResultsCard(props) {
                         {
                             taggedSentences && maxScoreIndexes && activeRadioButton === 1 ? 
                             <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
-                                               sentences={props.analysis.sentences}/> 
+                                               sentences={props.analysis.sentences}
+                                               maxIndex={maxScoreIndexes.mood}
+                                               minIndex={minScoreIndexes.mood}
+                                               /> 
                             : 
                             null
                         }
                         {
                             taggedSentences && maxScoreIndexes && activeRadioButton === 2 ? 
-                            <ReflectionSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> 
+                            <ReflectionSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
+                                                     sentences={props.analysis.sentences}
+                                                     maxIndex={maxScoreIndexes.reflection}
+                                                     minIndex={minScoreIndexes.reflection}
+                                                     />
                             : 
                             null
                         }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {getRowStyle} from './services/rowstyler';
 
 function ReflectionSentenceTable(props) {
 
@@ -28,7 +29,7 @@ function ReflectionSentenceTable(props) {
             rows.push(row.map(score => <td>{(score * 100).toFixed(2)}%</td>))
         }
         return rows.map((row, i) => (
-            <tr>
+            <tr style={getRowStyle(i, props.maxIndex, props.minIndex)}>
                 <td>{props.sentences[i].sentence}</td>
                 <td>{(props.sentences[i][props.analysisTypeKey]["reflection"].score * 100).toFixed(2)}%</td>
                 {row}

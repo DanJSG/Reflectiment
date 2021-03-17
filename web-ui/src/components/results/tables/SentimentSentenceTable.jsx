@@ -1,28 +1,14 @@
 import React, { useState } from 'react';
+import {getRowStyle} from './services/rowstyler';
 
 function SentimentSentenceTable(props) {
 
     const [columnWidth] = useState("33%")
 
-    // borderColor: "black", borderStyle: "dashed", borderWidth: "2px", 
-    const [maxStyle] = useState({backgroundColor: "rgba(255, 0, 0, 0.25)"});
-    const [minStyle] = useState({backgroundColor: "rgba(0, 255, 0, 0.25)"});
-
-    const getRowStyle = (index) => {
-        if(index === props.maxIndex) {
-            console.log("returning max");
-            return maxStyle
-        } else if(index === props.minIndex) {
-            return minStyle;
-        } else {
-            return null;
-        }
-    }
-
     const fillTable = () => {
         return props.sentences.map((sentence, index) => {
             return (
-                <tr key={index} style={getRowStyle(index)}>
+                <tr key={index} style={getRowStyle(index, props.maxIndex, props.minIndex)}>
                     <td>{sentence.sentence}</td>
                     <td>{(sentence[props.analysisTypeKey]["sentiment"].score * 100).toFixed(2)}%</td>
                     <td>

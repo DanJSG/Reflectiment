@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {getRowStyle} from './services/rowstyler';
 
 function MoodSentenceTable(props) {
 
@@ -6,9 +7,9 @@ function MoodSentenceTable(props) {
 
     const fillTable = () => {
         console.log(props.sentences[0][props.analysisTypeKey]["mood"].mixedScores["joy"]);
-        return props.sentences.map(sentence => {
+        return props.sentences.map((sentence, index) => {
             return (
-                <tr>
+                <tr key={index} style={getRowStyle(index, props.maxIndex, props.minIndex)}>
                     <td>{sentence.sentence}</td>
                     <td>{sentence[props.analysisTypeKey]["mood"].label.charAt(0).toUpperCase() + sentence[props.analysisTypeKey]["mood"].label.substr(1)}</td>
                     <td>{(sentence[props.analysisTypeKey]["mood"].mixedScores["joy"] * 100).toFixed(2)}%</td>
