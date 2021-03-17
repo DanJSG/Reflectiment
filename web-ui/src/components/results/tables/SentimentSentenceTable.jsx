@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function SentimentSentenceTable(props) {
+
+    const [columnWidth] = useState("33%")
 
     const fillTable = () => {
         return props.sentences.map(sentence => {
@@ -21,9 +23,9 @@ function SentimentSentenceTable(props) {
         <table className="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col" style={{width: "33%"}}>Sentence</th>
-                    <th className="col" style={{width: "33%"}}>Sentiment Intensity</th>
-                    <th className="col" style={{width: "33%"}}>Label</th>
+                    <th className="col" style={{width: columnWidth}}>Sentence</th>
+                    <th className="col" style={{width: columnWidth}}>Sentiment Intensity</th>
+                    <th className="col" style={{width: columnWidth}}>Label</th>
                 </tr>
             </thead>
             <tbody>

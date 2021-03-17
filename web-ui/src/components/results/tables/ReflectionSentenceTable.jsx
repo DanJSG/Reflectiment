@@ -51,7 +51,6 @@ function ReflectionSentenceTable(props) {
         } else {
             setFeatures(Object.keys(props.sentences[0][props.analysisTypeKey]["reflection"].categoryScores));
         }
-        // console.log(props.sentences[0][props.analysisTypeKey]["reflection"].categoryScores);
     }, [props.sentences, props.analysisTypeKey])
 
     return (

@@ -18,6 +18,26 @@ export const getAverageScores = (sentences, analysisTypeKey) => {
     }
 }
 
+export const getMinScores = (sentences, analysisTypeKey) => {
+    let mins = {
+        sentiment: 1,
+        sentimentLabel: "Neutral",
+        mood: 1,
+        moodLabel: "None",
+        reflection: 1
+    }
+    for(let i = 0; i < sentences.length; i++) {
+        mins.sentiment = sentences[i][analysisTypeKey].sentiment.score < mins.sentiment ? sentences[i][analysisTypeKey].sentiment.score : mins.sentiment;
+        mins.moodLabel = sentences[i][analysisTypeKey].mood.score < mins.mood ? sentences[i][analysisTypeKey].mood.label : mins.moodLabel;
+        mins.moodLabel = mins.moodLabel.charAt(0).toUpperCase() + mins.moodLabel.substr(1);
+        mins.mood = sentences[i][analysisTypeKey].mood.score < mins.mood ? sentences[i][analysisTypeKey].mood.score : mins.mood;
+        mins.reflection = sentences[i][analysisTypeKey].reflection.score < mins.reflection ? sentences[i][analysisTypeKey].reflection.score : mins.reflection;
+    }
+    mins.sentimentLabel = getSentimentLabel(mins.sentiment);
+    console.log(mins);
+    return mins;
+}
+
 export const getMaxScores = (sentences, analysisTypeKey) => {
     let maxes = {
         sentiment: -1,
