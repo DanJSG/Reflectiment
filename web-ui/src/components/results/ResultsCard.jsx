@@ -7,6 +7,7 @@ import ResultsTable from './ResultsTable';
 import ResultsTabs from './ResultsTabs';
 import SentimentSentenceTable from './tables/SentimentSentenceTable';
 import MoodSentenceTable from './tables/MoodSentenceTable';
+import ReflectionSentenceTable from './tables/ReflectionSentenceTable';
 
 function ResultsCard(props) {
 
@@ -122,6 +123,7 @@ function ResultsCard(props) {
                         {/* {!maxScores ? null : <ResultsTable scores={maxScores} />} */}
                         {maxScores && activeRadioButton === 0 ? <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
                         {maxScores && activeRadioButton === 1 ? <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
+                        {maxScores && activeRadioButton === 2 ? <ReflectionSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
                     </div>
                 </div>
             </div>
