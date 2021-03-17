@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {getAverageScores, getMaxScoreIndexes, getMinScoreIndexes, getMaxScores, getMinScores} from './services/resultprocessingservice';
+import {getMaxScoreIndexes, getMinScoreIndexes} from './services/resultprocessingservice';
 import {generateMoodCsv, generateReflectionCsv, generateSentimentCsv} from './services/csvbuilderservice';
 import {pickTaggingFunction} from './services/taggingservice';
 import ResultsRadios from './ResultsRadios';
-import ResultsTable from './ResultsTable';
 import ResultsTabs from './ResultsTabs';
 import SentimentSentenceTable from './tables/SentimentSentenceTable';
 import MoodSentenceTable from './tables/MoodSentenceTable';
@@ -14,9 +13,6 @@ function ResultsCard(props) {
     const [analysisTypeKeys] = useState(["lexicalScores", "mlScores", "averageScores"]);
     const [analysisFeatures] = useState(["sentiment", "mood", "reflection"])
 
-    // const [averageScores, setAverageScores] = useState(null);
-    // const [minScores, setMinScores] = useState(null);
-    // const [maxScores, setMaxScores] = useState(null);
     const [maxScoreIndexes, setMaxScoreIndexes] = useState(null);
     const [minScoreIndexes, setMinScoreIndexes] = useState(null);
     
@@ -36,14 +32,6 @@ function ResultsCard(props) {
     }
 
     const showResults = (analysisTypeKey, tabId) => {
-        // const averages = getAverageScores(props.analysis.sentences, analysisTypeKey);
-        // const maxes = getMaxScores(props.analysis.sentences, analysisTypeKey);
-        // const mins = getMinScores(props.analysis.sentences, analysisTypeKey);
-        // console.log(maxes);
-        // setAverageScores(averages);
-        // setMaxScores(maxes);
-        // setMinScores(mins);
-        // console.log(getMaxScoreIndexes(props.analysis.sentences, analysisTypeKey));
         setMaxScoreIndexes(getMaxScoreIndexes(props.analysis.sentences, analysisTypeKey));
         setMinScoreIndexes(getMinScoreIndexes(props.analysis.sentences, analysisTypeKey));
         setActiveRadioButton(activeRadioButton);
@@ -121,17 +109,6 @@ function ResultsCard(props) {
                     </div>
                 </div>
                 <hr />
-                {/* <div className="row">
-                    <div className="col-6">
-                        <h3 className="font-weight-normal text-center card-title">{analysisFeatures[activeRadioButton].charAt(0).toUpperCase() + analysisFeatures[activeRadioButton].substr(1)} Max Scores</h3>
-                        {maxScores ? <ResultsTable scores={maxScores} /> : null}
-                    </div>
-                    <div className="col-6">
-                        <h3 className="font-weight-normal text-center card-title">{analysisFeatures[activeRadioButton].charAt(0).toUpperCase() + analysisFeatures[activeRadioButton].substr(1)} Min Scores</h3>
-                        {minScores ? <ResultsTable scores={minScores} /> : null}
-                    </div>
-                </div>
-                <hr/> */}
                 <div className="row">
                     <div className="col-12">
                         <h3 className="font-weight-normal text-center card-title">Sentence Scores</h3>
