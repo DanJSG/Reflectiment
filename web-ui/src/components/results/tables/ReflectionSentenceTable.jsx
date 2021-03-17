@@ -26,10 +26,10 @@ function ReflectionSentenceTable(props) {
         for(let i = 0; i < scores.length; i++) {
             const row = [];
             features.forEach(feature => row.push(scores[i][feature]));
-            rows.push(row.map(score => <td>{(score * 100).toFixed(2)}%</td>))
+            rows.push(row.map((score, index) => <td key={index}>{(score * 100).toFixed(2)}%</td>))
         }
         return rows.map((row, i) => (
-            <tr style={getRowStyle(i, props.maxIndex, props.minIndex)}>
+            <tr key={i} style={getRowStyle(i, props.maxIndex, props.minIndex)}>
                 <td>{props.sentences[i].sentence}</td>
                 <td>{(props.sentences[i][props.analysisTypeKey]["reflection"].score * 100).toFixed(2)}%</td>
                 {row}
