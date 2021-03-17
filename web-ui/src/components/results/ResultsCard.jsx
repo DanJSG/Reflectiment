@@ -135,6 +135,10 @@ function ResultsCard(props) {
                 <div className="row">
                     <div className="col-12">
                         <h3 className="font-weight-normal text-center card-title">Sentence Scores</h3>
+                        <div className="p-2 w-25">
+                            <span className="pr-3"><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
+                            <span><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
+                        </div>
                         {
                             taggedSentences && maxScoreIndexes && activeRadioButton === 0 ? 
                             <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
@@ -147,7 +151,8 @@ function ResultsCard(props) {
                         }
                         {
                             taggedSentences && maxScoreIndexes && activeRadioButton === 1 ? 
-                            <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> 
+                            <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
+                                               sentences={props.analysis.sentences}/> 
                             : 
                             null
                         }

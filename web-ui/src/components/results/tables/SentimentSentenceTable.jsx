@@ -4,8 +4,9 @@ function SentimentSentenceTable(props) {
 
     const [columnWidth] = useState("33%")
 
-    const [maxStyle] = useState({borderColor: "black", borderStyle: "dashed", borderWidth: "2px", backgroundColor: "rgba(255, 0, 0, 0.25)"});
-    const [minStyle] = useState({borderColor: "black", borderStyle: "dashed", borderWidth: "2px", backgroundColor: "rgba(0, 255, 0, 0.25)"});
+    // borderColor: "black", borderStyle: "dashed", borderWidth: "2px", 
+    const [maxStyle] = useState({backgroundColor: "rgba(255, 0, 0, 0.25)"});
+    const [minStyle] = useState({backgroundColor: "rgba(0, 255, 0, 0.25)"});
 
     const getRowStyle = (index) => {
         if(index === props.maxIndex) {
