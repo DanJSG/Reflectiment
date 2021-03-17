@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {getAverageScores, getMaxScores, getMinScores} from './services/resultprocessingservice';
+import {getAverageScores, getMaxScoreIndexes, getMinScoreIndexes, getMaxScores, getMinScores} from './services/resultprocessingservice';
 import {generateMoodCsv, generateReflectionCsv, generateSentimentCsv} from './services/csvbuilderservice';
 import {pickTaggingFunction} from './services/taggingservice';
 import ResultsRadios from './ResultsRadios';
@@ -14,9 +14,12 @@ function ResultsCard(props) {
     const [analysisTypeKeys] = useState(["lexicalScores", "mlScores", "averageScores"]);
     const [analysisFeatures] = useState(["sentiment", "mood", "reflection"])
 
-    const [averageScores, setAverageScores] = useState(null);
-    const [minScores, setMinScores] = useState(null);
-    const [maxScores, setMaxScores] = useState(null);
+    // const [averageScores, setAverageScores] = useState(null);
+    // const [minScores, setMinScores] = useState(null);
+    // const [maxScores, setMaxScores] = useState(null);
+    const [maxScoreIndexes, setMaxScoreIndexes] = useState(null);
+    const [minScoreIndexes, setMinScoreIndexes] = useState(null);
+    
     const [activeTab, setActiveTab] = useState(0);
     const [taggedSentences, setTaggedSentences] = useState(null);
     const [activeRadioButton, setActiveRadioButton] = useState(0);
@@ -33,13 +36,16 @@ function ResultsCard(props) {
     }
 
     const showResults = (analysisTypeKey, tabId) => {
-        const averages = getAverageScores(props.analysis.sentences, analysisTypeKey);
-        const maxes = getMaxScores(props.analysis.sentences, analysisTypeKey);
-        const mins = getMinScores(props.analysis.sentences, analysisTypeKey);
-        console.log(maxes);
-        setAverageScores(averages);
-        setMaxScores(maxes);
-        setMinScores(mins);
+        // const averages = getAverageScores(props.analysis.sentences, analysisTypeKey);
+        // const maxes = getMaxScores(props.analysis.sentences, analysisTypeKey);
+        // const mins = getMinScores(props.analysis.sentences, analysisTypeKey);
+        // console.log(maxes);
+        // setAverageScores(averages);
+        // setMaxScores(maxes);
+        // setMinScores(mins);
+        // console.log(getMaxScoreIndexes(props.analysis.sentences, analysisTypeKey));
+        setMaxScoreIndexes(getMaxScoreIndexes(props.analysis.sentences, analysisTypeKey));
+        setMinScoreIndexes(getMinScoreIndexes(props.analysis.sentences, analysisTypeKey));
         setActiveRadioButton(activeRadioButton);
         tagText(analysisFeatures[activeRadioButton], tabId);
     }
@@ -129,9 +135,28 @@ function ResultsCard(props) {
                 <div className="row">
                     <div className="col-12">
                         <h3 className="font-weight-normal text-center card-title">Sentence Scores</h3>
-                        {taggedSentences && activeRadioButton === 0 ? <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
-                        {taggedSentences && activeRadioButton === 1 ? <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
-                        {taggedSentences && activeRadioButton === 2 ? <ReflectionSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> : null}
+                        {
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 0 ? 
+                            <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
+                                                    maxIndex={maxScoreIndexes.sentiment} 
+                                                    minIndex={minScoreIndexes.sentiment}
+                                                    sentences={props.analysis.sentences}
+                                                    /> 
+                            : 
+                            null
+                        }
+                        {
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 1 ? 
+                            <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> 
+                            : 
+                            null
+                        }
+                        {
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 2 ? 
+                            <ReflectionSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} sentences={props.analysis.sentences}/> 
+                            : 
+                            null
+                        }
                         {
                             !props.analysis ? null :
                             <div className="p-2">

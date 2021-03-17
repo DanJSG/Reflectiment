@@ -4,10 +4,24 @@ function SentimentSentenceTable(props) {
 
     const [columnWidth] = useState("33%")
 
+    const [maxStyle] = useState({borderColor: "black", borderStyle: "dashed", borderWidth: "2px", backgroundColor: "rgba(255, 0, 0, 0.25)"});
+    const [minStyle] = useState({borderColor: "black", borderStyle: "dashed", borderWidth: "2px", backgroundColor: "rgba(0, 255, 0, 0.25)"});
+
+    const getRowStyle = (index) => {
+        if(index === props.maxIndex) {
+            console.log("returning max");
+            return maxStyle
+        } else if(index === props.minIndex) {
+            return minStyle;
+        } else {
+            return null;
+        }
+    }
+
     const fillTable = () => {
-        return props.sentences.map(sentence => {
+        return props.sentences.map((sentence, index) => {
             return (
-                <tr>
+                <tr key={index} style={getRowStyle(index)}>
                     <td>{sentence.sentence}</td>
                     <td>{(sentence[props.analysisTypeKey]["sentiment"].score * 100).toFixed(2)}%</td>
                     <td>
