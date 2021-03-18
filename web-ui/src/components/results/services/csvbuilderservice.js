@@ -21,14 +21,20 @@ export const generateMoodCsv = (sentences, scores, analysisTypeKey, analysisFeat
 }
 
 export const generateReflectionCsv = (sentences, scores, analysisTypeKey, analysisFeature) => {
-    const features = Object.keys(scores[0].categoryScores).map(key => key);
     const dataRows = [["Sentence", "Overall"]];
-    dataRows[0] = dataRows[0].concat(features.map(feature => feature.charAt(0).toUpperCase() + feature.substr(1)));
+    let features;
+    if(scores[0].categoryScores) {
+        features = Object.keys(scores[0].categoryScores).map(key => key);
+        dataRows[0] = dataRows[0].concat(features.map(feature => feature.charAt(0).toUpperCase() + feature.substr(1)));
+    }
     for(let i = 0; i < sentences.length; i++) {
-        let featureIndex = [];
-        Object.entries(scores[i].categoryScores).forEach(tuple => featureIndex.push(features.indexOf(tuple[0])));
-        const featureScores = featureIndex.map(index => scores[i].categoryScores[features[index]]);
-        const row = [`"${sentences[i]}"`, String(scores[i].score)].concat(featureScores.map(score => String(score)));
+        let row = [`"${sentences[i]}"`, String(scores[i].score)];
+        if(scores[0].categoryScores) {
+            let featureIndex = [];
+            Object.entries(scores[i].categoryScores).forEach(tuple => featureIndex.push(features.indexOf(tuple[0])));
+            const featureScores = featureIndex.map(index => scores[i].categoryScores[features[index]]);
+            row = row.concat(featureScores.map(score => String(score)));
+        }
         dataRows.push(row);
     }
     const blob = new Blob(dataRows.map(row => String(row) + "\n"), {type: "text/csv"});
