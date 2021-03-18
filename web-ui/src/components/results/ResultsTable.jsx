@@ -3,7 +3,7 @@ import React from 'react';
 function ResultsTable(props) {
 
     return (
-        <table className="table">
+        <table className="table table-hover">
             <thead>
                 <tr>
                     <th scope="col" style={{width: "33%"}}>Aspect</th>

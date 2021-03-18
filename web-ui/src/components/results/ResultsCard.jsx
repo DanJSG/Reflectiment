@@ -1,18 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {getAverageScores, getMaxScores} from './services/resultprocessingservice';
+import {getMaxScoreIndexes, getMinScoreIndexes} from './services/resultprocessingservice';
 import {generateMoodCsv, generateReflectionCsv, generateSentimentCsv} from './services/csvbuilderservice';
 import {pickTaggingFunction} from './services/taggingservice';
 import ResultsRadios from './ResultsRadios';
-import ResultsTable from './ResultsTable';
 import ResultsTabs from './ResultsTabs';
+import SentimentSentenceTable from './tables/SentimentSentenceTable';
+import MoodSentenceTable from './tables/MoodSentenceTable';
+import ReflectionSentenceTable from './tables/ReflectionSentenceTable';
+import SentimentTaggingKey from './keys/SentimentTaggingKey';
+import MoodTaggingKey from './keys/MoodTaggingKey';
+import ReflectionTaggingKey from './keys/ReflectionTaggingKey';
 
 function ResultsCard(props) {
 
     const [analysisTypeKeys] = useState(["lexicalScores", "mlScores", "averageScores"]);
     const [analysisFeatures] = useState(["sentiment", "mood", "reflection"])
 
-    const [averageScores, setAverageScores] = useState(null);
-    const [maxScores, setMaxScores] = useState(null);
+    const [maxScoreIndexes, setMaxScoreIndexes] = useState(null);
+    const [minScoreIndexes, setMinScoreIndexes] = useState(null);
+    
     const [activeTab, setActiveTab] = useState(0);
     const [taggedSentences, setTaggedSentences] = useState(null);
     const [activeRadioButton, setActiveRadioButton] = useState(0);
@@ -29,10 +35,8 @@ function ResultsCard(props) {
     }
 
     const showResults = (analysisTypeKey, tabId) => {
-        const averages = getAverageScores(props.analysis.sentences, analysisTypeKey);
-        const maxes = getMaxScores(props.analysis.sentences, analysisTypeKey);
-        setAverageScores(averages);
-        setMaxScores(maxes);
+        setMaxScoreIndexes(getMaxScoreIndexes(props.analysis.sentences, analysisTypeKey));
+        setMinScoreIndexes(getMinScoreIndexes(props.analysis.sentences, analysisTypeKey));
         setActiveRadioButton(activeRadioButton);
         tagText(analysisFeatures[activeRadioButton], tabId);
     }
@@ -96,28 +100,70 @@ function ResultsCard(props) {
                 <ResultsTabs switchTab={switchTab} />
             </div>
             <div className="container-fluid p-3">
-                <div className="row p-3">
+                <div className="row px-3 py-2">
                     <div className="col-12">
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
-                        <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
+                        <div className="d-flex">
+                            <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
+                            {activeRadioButton === 0 ? <SentimentTaggingKey /> : null}
+                            {activeRadioButton === 1 ? <MoodTaggingKey /> : null}
+                            {activeRadioButton === 2 ? <ReflectionTaggingKey /> : null}
+                        </div>
                         {!props.analysis ? null :
-                            <div className="text-justify" style={{cursor: "default"}}>
+                            <div className="text-justify pt-2" style={{cursor: "default"}}>
                                 <p>{taggedSentences}</p>
-                                <button onClick={downloadCSV} className="btn btn-primary"><i className="fa fa-download" /> Download as CSV</button>
-                                <a style={{display: "none"}} href="/" ref={hiddenDownloadLink}>Hidden File Download</a>
                             </div>
                         }
                     </div>
                 </div>
-                <hr/>
-                <div className="row">
-                    <div className="col-6 border-right">
-                        <h3 className="font-weight-normal text-center card-title">Average Scores</h3>
-                        {!averageScores ? null : <ResultsTable scores={averageScores} />}
-                    </div>
-                    <div className="col-6">
-                        <h3 className="font-weight-normal text-center card-title">Maximum Scores</h3>
-                        {!maxScores ? null : <ResultsTable scores={maxScores} />}
+                <hr />
+                <div className="row py-1 px-3">
+                    <div className="col-12">
+                        <div className="d-flex">
+                            <h2 className="font-weight-normal card-title">Sentence Scores</h2>
+                            <div className="p-1 px-3 ml-auto border rounded align-self-center">
+                                <span className="pr-3"><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
+                                <span><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
+                            </div>
+                        </div>
+                        <div className="py-1"></div>
+                        {
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 0 ? 
+                            <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
+                                                    maxIndex={maxScoreIndexes.sentiment} 
+                                                    minIndex={minScoreIndexes.sentiment}
+                                                    sentences={props.analysis.sentences}
+                                                    /> 
+                            : 
+                            null
+                        }
+                        {
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 1 ? 
+                            <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
+                                               sentences={props.analysis.sentences}
+                                               maxIndex={maxScoreIndexes.mood}
+                                               minIndex={minScoreIndexes.mood}
+                                               /> 
+                            : 
+                            null
+                        }
+                        {
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 2 ? 
+                            <ReflectionSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
+                                                     sentences={props.analysis.sentences}
+                                                     maxIndex={maxScoreIndexes.reflection}
+                                                     minIndex={minScoreIndexes.reflection}
+                                                     />
+                            : 
+                            null
+                        }
+                        {
+                            !props.analysis ? null :
+                            <div className="p-2">
+                                <button onClick={downloadCSV} className="btn btn-primary"><i className="fa fa-download" /> Download as CSV</button>
+                                <a style={{display: "none"}} href="/" ref={hiddenDownloadLink}>Hidden File Download</a>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
