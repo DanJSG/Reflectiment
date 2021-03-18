@@ -14,11 +14,12 @@ import ReflectionTaggingKey from './keys/ReflectionTaggingKey';
 function ResultsCard(props) {
 
     const [analysisTypeKeys] = useState(["lexicalScores", "mlScores", "averageScores"]);
-    const [analysisFeatures] = useState(["sentiment", "mood", "reflection"])
+    const [analysisFeatures] = useState(["sentiment", "mood", "reflection", "modifiedReflection"])
 
     const [maxScoreIndexes, setMaxScoreIndexes] = useState(null);
     const [minScoreIndexes, setMinScoreIndexes] = useState(null);
     
+    const [useReflectionModifiers, setUseReflectionModifiers] = useState(false);
     const [activeTab, setActiveTab] = useState(0);
     const [taggedSentences, setTaggedSentences] = useState(null);
     const [activeRadioButton, setActiveRadioButton] = useState(0);
@@ -28,6 +29,7 @@ function ResultsCard(props) {
     const switchTab = (e) => {
         e.preventDefault();
         const tabId = e.nativeEvent.submitter.id;
+        setUseReflectionModifiers(false);
         e.target.elements[activeTab].classList.toggle("active");
         e.target.elements[tabId].classList.toggle("active");
         setActiveTab(tabId)
@@ -38,19 +40,22 @@ function ResultsCard(props) {
         setMaxScoreIndexes(getMaxScoreIndexes(props.analysis.sentences, analysisTypeKey));
         setMinScoreIndexes(getMinScoreIndexes(props.analysis.sentences, analysisTypeKey));
         setActiveRadioButton(activeRadioButton);
-        tagText(analysisFeatures[activeRadioButton], tabId);
+        const analysisFeature = (useReflectionModifiers) && (activeTab === 0) && (activeRadioButton === 2) ? analysisFeatures[3] : analysisFeatures[activeRadioButton];
+        tagText(analysisFeature, tabId);
     }
 
     const selectAnalysisFeature = (e) => {
-        const analysisFeature = e.target.id.replace("Radio", '');
+        let analysisFeature = e.target.id.replace("Radio", '');
         if(analysisFeature === "sentiment") {
+            setUseReflectionModifiers(false);
             setActiveRadioButton(0);
         } else if(analysisFeature === "mood") {
+            setUseReflectionModifiers(false);
             setActiveRadioButton(1);
         } else {
             setActiveRadioButton(2);
         }
-        tagText(e.target.id.replace("Radio", ''), activeTab);
+        tagText(analysisFeature, activeTab);
     }
 
     const tagText = (analysisFeature, tabId) => {
@@ -93,6 +98,13 @@ function ResultsCard(props) {
         showResults(analysisTypeKeys[activeTab], activeTab);
     }, [props.analysis, analysisTypeKeys])
 
+    const toggleReflectionModifiers = () => {
+        const toggledState = !useReflectionModifiers;
+        setUseReflectionModifiers(toggledState);
+        const analysisFeature = toggledState ? analysisFeatures[3] : analysisFeatures[2];
+        tagText(analysisFeature, activeTab);
+    }
+
     return (
         <div className="card w-100 shadow-sm border-1 row">
             <div className="card-header">
@@ -105,6 +117,13 @@ function ResultsCard(props) {
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
                         <div className="d-flex">
                             <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
+                            {activeRadioButton == 2 && activeTab == 0 ? 
+                                <div className="form-check mr-3">
+                                    <input type="checkbox" onChange={toggleReflectionModifiers} id="reflectionModifierCheckbox" className="form-check-input mt-2" />
+                                    <label htmlFor="reflectionModifierCheckbox" className="form-check-label" style={{fontSize: "1rem"}}>Use reflection modifiers</label>
+                                </div>
+                                : null
+                            }
                             {activeRadioButton === 0 ? <SentimentTaggingKey /> : null}
                             {activeRadioButton === 1 ? <MoodTaggingKey /> : null}
                             {activeRadioButton === 2 ? <ReflectionTaggingKey /> : null}
@@ -153,6 +172,7 @@ function ResultsCard(props) {
                                                      sentences={props.analysis.sentences}
                                                      maxIndex={maxScoreIndexes.reflection}
                                                      minIndex={minScoreIndexes.reflection}
+                                                     useReflectionModifiers={useReflectionModifiers}
                                                      />
                             : 
                             null

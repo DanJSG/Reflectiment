@@ -5,7 +5,7 @@ function ReflectionSentenceTable(props) {
 
     const [columnWidth, setColumnWidth] = useState("16.67%");
     const [features, setFeatures] = useState(null);
-
+    const [analysisFeature, setAnalysisFeature] = useState("reflection");
     const [tableHeader, setTableHeader] = useState(null);
     const [tableBody, setTableBody] = useState(null);
 
@@ -21,7 +21,7 @@ function ReflectionSentenceTable(props) {
     }
 
     const fillTable = () => {
-        const scores = props.sentences.map(sentence => sentence[props.analysisTypeKey]["reflection"].categoryScores);
+        const scores = props.sentences.map(sentence => sentence[props.analysisTypeKey][analysisFeature].categoryScores);
         const rows = [];
         for(let i = 0; i < scores.length; i++) {
             const row = [];
@@ -31,7 +31,7 @@ function ReflectionSentenceTable(props) {
         return rows.map((row, i) => (
             <tr key={i} style={getRowStyle(i, props.maxIndex, props.minIndex)}>
                 <td>{props.sentences[i].sentence}</td>
-                <td>{(props.sentences[i][props.analysisTypeKey]["reflection"].score * 100).toFixed(2)}%</td>
+                <td>{(props.sentences[i][props.analysisTypeKey][analysisFeature].score * 100).toFixed(2)}%</td>
                 {row}
             </tr>
         ));
@@ -52,7 +52,8 @@ function ReflectionSentenceTable(props) {
         } else {
             setFeatures(Object.keys(props.sentences[0][props.analysisTypeKey]["reflection"].categoryScores));
         }
-    }, [props.sentences, props.analysisTypeKey])
+        setAnalysisFeature(!props.useReflectionModifiers ? "reflection" : "modifiedReflection");
+    }, [props.sentences, props.analysisTypeKey, props.useReflectionModifiers])
 
     return (
         <table className="table table-hover">
