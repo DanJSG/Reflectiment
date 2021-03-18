@@ -7,6 +7,9 @@ import ResultsTabs from './ResultsTabs';
 import SentimentSentenceTable from './tables/SentimentSentenceTable';
 import MoodSentenceTable from './tables/MoodSentenceTable';
 import ReflectionSentenceTable from './tables/ReflectionSentenceTable';
+import SentimentTaggingKey from './keys/SentimentTaggingKey';
+import MoodTaggingKey from './keys/MoodTaggingKey';
+import ReflectionTaggingKey from './keys/ReflectionTaggingKey';
 
 function ResultsCard(props) {
 
@@ -100,7 +103,16 @@ function ResultsCard(props) {
                 <div className="row p-3">
                     <div className="col-12">
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
-                        <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
+                        <div className="d-flex">
+                            <ResultsRadios selectAnalysisFeature={selectAnalysisFeature} activeRadioButton={activeRadioButton} />
+                            {activeRadioButton === 0 ? <SentimentTaggingKey /> : null}
+                            {activeRadioButton === 1 ? <MoodTaggingKey /> : null}
+                            {activeRadioButton === 2 ? <ReflectionTaggingKey /> : null}
+                            {/* <div className="pr-2 pb-2 ml-auto">
+                                <span className="pr-3"><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
+                                <span><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
+                            </div> */}
+                        </div>
                         {!props.analysis ? null :
                             <div className="text-justify pt-2" style={{cursor: "default"}}>
                                 <p>{taggedSentences}</p>
@@ -111,7 +123,7 @@ function ResultsCard(props) {
                 <hr />
                 <div className="row">
                     <div className="col-12">
-                        <h3 className="font-weight-normal text-center card-title">Sentence Scores</h3>
+                        <h2 className="font-weight-normal card-title">Sentence Scores</h2>
                         <div className="pl-2 pr-2 pb-2 w-25">
                             <span className="pr-3"><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
                             <span><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
