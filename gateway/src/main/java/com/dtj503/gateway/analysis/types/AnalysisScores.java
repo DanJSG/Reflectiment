@@ -1,5 +1,6 @@
 package com.dtj503.gateway.analysis.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -18,6 +19,10 @@ public class AnalysisScores {
     @JsonProperty
     private ReflectionScore reflection;
 
+    @JsonProperty
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private ReflectionScore modifiedReflection;
+
     /**
      * Constructor for the grouped analysis scores, taking in each of the individual analysis scores.
      *
@@ -29,6 +34,20 @@ public class AnalysisScores {
         this.sentiment = sentiment;
         this.mood = mood;
         this.reflection = reflection;
+    }
+
+    /**
+     * Constructor for the grouped analysis scores, taking in each of the individual analysis scores.
+     *
+     * @param sentiment the sentiment analysis scores
+     * @param mood the mood analysis scores
+     * @param reflection the reflection analysis scores
+     */
+    public AnalysisScores(SentimentScore sentiment, MoodScore mood, ReflectionScore reflection, ReflectionScore  modifiedReflection) {
+        this.sentiment = sentiment;
+        this.mood = mood;
+        this.reflection = reflection;
+        this.modifiedReflection = modifiedReflection;
     }
 
 }
