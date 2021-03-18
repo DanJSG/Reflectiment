@@ -41,7 +41,7 @@ public class CombinedResponseBuilder {
             ReflectionScore modifiedScore = new ReflectionScore(updatedScore, score.getCategoryScores());
 
             AnalysisScores lexicalScores = new AnalysisScores(lexicalResponse.getSentences().get(i).getSentimentScores(),
-                    lexicalResponse.getSentences().get(i).getMoodScores(), modifiedScore);
+                    lexicalResponse.getSentences().get(i).getMoodScores(), score, modifiedScore);
 
             AnalysisScores mlScores = new AnalysisScores(mlResponse.getSentences().get(i).getSentimentScores(),
                     mlResponse.getSentences().get(i).getMoodScores(), mlResponse.getSentences().get(i).getReflectionScores());
