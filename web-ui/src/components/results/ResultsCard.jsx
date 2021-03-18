@@ -108,10 +108,6 @@ function ResultsCard(props) {
                             {activeRadioButton === 0 ? <SentimentTaggingKey /> : null}
                             {activeRadioButton === 1 ? <MoodTaggingKey /> : null}
                             {activeRadioButton === 2 ? <ReflectionTaggingKey /> : null}
-                            {/* <div className="pr-2 pb-2 ml-auto">
-                                <span className="pr-3"><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
-                                <span><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
-                            </div> */}
                         </div>
                         {!props.analysis ? null :
                             <div className="text-justify pt-2" style={{cursor: "default"}}>
