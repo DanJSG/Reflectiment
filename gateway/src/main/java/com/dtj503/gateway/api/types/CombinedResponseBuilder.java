@@ -36,7 +36,7 @@ public class CombinedResponseBuilder {
 
             ReflectionScore score = lexicalResponse.getSentences().get(i).getReflectionScores();
 
-            float updatedScore = modifier.getCombinedAppraisalModifier() * score.getScore();
+            float updatedScore = Math.min(modifier.getCombinedAppraisalModifier() * score.getScore(), 1);
 
             ReflectionScore modifiedScore = new ReflectionScore(updatedScore, score.getCategoryScores());
 
