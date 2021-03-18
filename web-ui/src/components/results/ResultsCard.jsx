@@ -100,7 +100,7 @@ function ResultsCard(props) {
                 <ResultsTabs switchTab={switchTab} />
             </div>
             <div className="container-fluid p-3">
-                <div className="row p-3">
+                <div className="row px-3 py-2">
                     <div className="col-12">
                         <h2 className="font-weight-normal card-title">Tagged Text</h2>
                         <div className="d-flex">
@@ -121,13 +121,16 @@ function ResultsCard(props) {
                     </div>
                 </div>
                 <hr />
-                <div className="row">
+                <div className="row py-1 px-3">
                     <div className="col-12">
-                        <h2 className="font-weight-normal card-title">Sentence Scores</h2>
-                        <div className="pl-2 pr-2 pb-2 w-25">
-                            <span className="pr-3"><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
-                            <span><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
+                        <div className="d-flex">
+                            <h2 className="font-weight-normal card-title">Sentence Scores</h2>
+                            <div className="p-1 px-3 ml-auto border rounded align-self-center">
+                                <span className="pr-3"><i style={{color: "rgba(0, 255, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Maximum</span>
+                                <span><i style={{color: "rgba(255, 0, 0, 0.5)"}} className="fa fa-square"></i>&nbsp;Minimum</span>
+                            </div>
                         </div>
+                        <div className="py-1"></div>
                         {
                             taggedSentences && maxScoreIndexes && activeRadioButton === 0 ? 
                             <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
