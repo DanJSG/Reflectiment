@@ -37,6 +37,10 @@ public class SentimentScoreParser extends ScoreParser {
             modificationVector = removeAdverbs(modificationVector, adverbPositions);
         }
 
+        if(scores.size() == 0) {
+            return 0;
+        }
+
         // Calculate the hadamard product of the scores with the modification vector (piecewise multiplication)
         List<Float> modifiedScores = ListMath.hadamardProduct(modificationVector, scores);
 
