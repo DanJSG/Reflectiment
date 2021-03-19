@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {sendAnalysisRequest} from './services/analysisservice';
 
 function TextSubmissionCard(props) {
     
     const loadingButton = useRef(null);
     const analyzeButton = useRef(null);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const analyseText = async (e) => {
         e.preventDefault();
@@ -17,6 +18,13 @@ function TextSubmissionCard(props) {
         const response = await sendAnalysisRequest(text.trim());
         loadingButton.current.style.display = "none";
         analyzeButton.current.style.display = "";
+        if(response.error) {
+            console.log(response.error);
+            setErrorMessage(response.error);
+            props.handleAnalysisResponse(null);
+            return;
+        }
+        setErrorMessage(null);
         props.handleAnalysisResponse(response);
     }
 
@@ -29,6 +37,7 @@ function TextSubmissionCard(props) {
                 <div className="form-group">
                     <textarea className="form-control" placeholder="Enter your text here..." name="textSubmissionBox" id="textSubmissionBox0" rows="12" style={{resize: "none"}} />
                 </div>
+                {errorMessage ? <p className="text-danger font-weight-bold">{errorMessage}</p> : null}
                 <div className="form-group">
                     <button ref={analyzeButton} className="btn btn-primary pl-4 pr-4">Analyze</button>
                     <button ref={loadingButton} disabled className="btn btn-primary pl-4 pr-4 disabled" style={{display: 'none'}}>
