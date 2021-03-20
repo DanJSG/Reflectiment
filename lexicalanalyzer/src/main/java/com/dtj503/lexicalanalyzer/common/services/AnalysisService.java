@@ -114,6 +114,9 @@ public abstract class AnalysisService {
                     wordScoreSum += scoredWord.getScore();
                 }
                 float meanScore = wordScoreSum / numWords;
+                if(Float.isNaN(meanScore)) {
+                    meanScore = 0;
+                }
                 updatedScoredWords.add(new ScoredWord(word.getWord(), word.getPartOfSpeech(), meanScore));
             } else {
                 updatedScoredWords.add(scoredWordMap.get(word.getWord()).get(index));

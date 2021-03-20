@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.StreamSupport;
 
 /**
@@ -44,6 +45,9 @@ public class GatewayController extends RestAPIController {
                                                  @RequestParam(name = "rTag", required = false) final String rTagParam) {
         System.out.println(submission.getText());
         System.out.println(submission.writeValueAsString());
+        if(!isSubmissionTextValid(submission.getText())) {
+            return BAD_REQUEST_HTTP_RESPONSE;
+        }
         AnalysisResponse lexicalResponse = getAnalysisFromUrl(LEXICAL_URI, submission.writeValueAsString(),
                 Arrays.asList(sTagParam, mTagParam, rTagParam), AnalysisResponse.class);
         AnalysisResponse mlResponse = getAnalysisFromUrl(ML_URI, submission.writeValueAsString(),
@@ -96,6 +100,17 @@ public class GatewayController extends RestAPIController {
             request.addParameter(paramNames[i], params.get(i));
         }
         return request;
+    }
+
+    /**
+     * Checks that submission contains alphanumeric characters and does not start with sentence ending punctuation.
+     * @param text
+     * @return
+     */
+    public static boolean isSubmissionTextValid(String text) {
+        Pattern alphaNumericPattern = Pattern.compile("[a-zA-Z0-9].*");
+        Pattern leadingPunctuationPattern = Pattern.compile("^[.!?]");
+        return alphaNumericPattern.matcher(text).find() && !leadingPunctuationPattern.matcher(text).find();
     }
 
 }

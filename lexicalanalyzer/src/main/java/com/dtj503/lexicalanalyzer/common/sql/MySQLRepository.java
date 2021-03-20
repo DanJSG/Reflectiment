@@ -110,13 +110,18 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 	@Override
 	public <V, U> List<T> findWhereEqualAndOr(SQLColumn firstColumn, SQLColumn secondColumn, List<V> firstValues,
 											  List<U> secondValues, int limit, SQLEntityBuilder<T> builder) {
+		if(firstValues.size() != secondValues.size() || firstValues.size() == 0) {
+			return null;
+		}
 		// Fetch connection and return null if it cannot be fetched
 		Connection connection = getConnection();
-		if(connection == null || firstValues.size() != secondValues.size()) {
+		if(connection == null) {
 			return null;
 		}
 		// Initialise incomplete  SQL query
 		String baseQuery = "SELECT * FROM `" + tableName + "` WHERE ";
+
+		System.out.println(firstValues);
 
 		List<String> andConditions = new ArrayList<>();
 		for(int i = 0; i < firstValues.size(); i++) {
@@ -141,6 +146,7 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 				statement.setObject(n, firstValues.get(i));
 				statement.setObject(n + 1, secondValues.get(i));
 			}
+			System.out.println(statement);
 			return executeStatementAndBuildObjects(builder, connection, statement);
 
 		} catch (SQLException e) 	{

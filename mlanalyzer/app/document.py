@@ -1,5 +1,6 @@
 import nltk
 from app.sentence import Sentence
+import re
 
 class Document:
     """ A single document.
@@ -13,4 +14,5 @@ class Document:
     def __init__(self, text: str):
         super().__init__()
         self.text: str = text
-        self.sentences = [Sentence(sentence) for sentence in nltk.sent_tokenize(text)]
+        pattern = re.compile(r"[a-zA-Z0-9].*")
+        self.sentences = [Sentence(sentence) for sentence in nltk.sent_tokenize(text) if pattern.match(sentence)]
