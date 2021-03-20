@@ -6,6 +6,7 @@ function TextSubmissionCard(props) {
     const loadingButton = useRef(null);
     const analyzeButton = useRef(null);
     const [errorMessage, setErrorMessage] = useState(null);
+    const [isAnalyzeButtonDisabled, setIsAnalyzeButtonDisabled] = useState(true);
 
     const analyseText = async (e) => {
         e.preventDefault();
@@ -28,6 +29,14 @@ function TextSubmissionCard(props) {
         props.handleAnalysisResponse(response);
     }
 
+    const textAreaUpdated = (e) => {
+        if(e.target.value.trim() === "") {
+            setIsAnalyzeButtonDisabled(true);
+        } else {
+            setIsAnalyzeButtonDisabled(false);
+        }
+    }
+
     return (
         <div className="card w-100 shadow-sm border-1">
             <div className="card-header">
@@ -35,11 +44,11 @@ function TextSubmissionCard(props) {
             </div>
             <form className="p-3" onSubmit={analyseText}>
                 <div className="form-group">
-                    <textarea className="form-control" placeholder="Enter your text here..." name="textSubmissionBox" id="textSubmissionBox0" rows="12" style={{resize: "none"}} />
+                    <textarea onChange={textAreaUpdated} className="form-control" placeholder="Enter your text here..." name="textSubmissionBox" id="textSubmissionBox0" rows="12" style={{resize: "none"}} />
                 </div>
                 {errorMessage ? <p className="text-danger font-weight-bold">{errorMessage}</p> : null}
                 <div className="form-group">
-                    <button ref={analyzeButton} className="btn btn-primary pl-4 pr-4">Analyze</button>
+                    <button ref={analyzeButton} disabled={isAnalyzeButtonDisabled} className="btn btn-primary pl-4 pr-4">Analyze</button>
                     <button ref={loadingButton} disabled className="btn btn-primary pl-4 pr-4 disabled" style={{display: 'none'}}>
                         <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true" />
                         &nbsp;Loading...
