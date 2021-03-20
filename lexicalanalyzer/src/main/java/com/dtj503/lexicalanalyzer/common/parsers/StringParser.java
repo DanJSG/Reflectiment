@@ -25,6 +25,7 @@ public class StringParser {
 
     // Regex pattern for matching everything except punctuation
     private static final Pattern NO_PUNCTUATION = Pattern.compile("^[0-9a-zA-Z_-]*$");
+    private static final Pattern ALPHANUMERIC = Pattern.compile("[a-zA-Z0-9].*");
 
     /**
      * Method for parsing a string of text and converting it into a document object.
@@ -62,6 +63,11 @@ public class StringParser {
         List<Sentence<Token>> sentences = new ArrayList<>(coreSentences.size());
         // Loop through each sentence
         for(CoreSentence sentence : coreSentences) {
+
+            if(!ALPHANUMERIC.matcher(sentence.toString()).find()) {
+                continue;
+            }
+
             // Parse the words in each sentence and add them to output list
             List<Token> words = parseWords(sentence);
             sentences.add(new Sentence<>(sentence.text(), words));
