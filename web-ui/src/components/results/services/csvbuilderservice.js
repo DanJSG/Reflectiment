@@ -1,4 +1,13 @@
-export const generateSentimentCsv = (sentences, scores, analysisTypeKey, analysisFeature) => {
+/**
+ * Generates a downloadable CSV file for the sentiment results table.
+ * 
+ * @param {string[]} sentences 
+ * @param {Object[]} scores 
+ * @param {string} analysisTypeKey 
+ * @param {string} analysisFeature 
+ * @returns a downloadable CSV file blob
+ */
+export const generateSentimentCsv = (sentences, scores) => {
     const dataRows = [["Sentence", "Intensity", "Label"]];
     for(let i = 0; i < sentences.length; i++) {
         dataRows.push([`"${sentences[i]}"`, String(scores[i].score), `"${scores[i].label}"`]);
@@ -7,7 +16,16 @@ export const generateSentimentCsv = (sentences, scores, analysisTypeKey, analysi
     return blob;
 }
 
-export const generateMoodCsv = (sentences, scores, analysisTypeKey, analysisFeature) => {
+/**
+ * Generates a downloadable CSV file for the mood results table.
+ * 
+ * @param {string[]} sentences 
+ * @param {Object[]} scores 
+ * @param {string} analysisTypeKey 
+ * @param {string} analysisFeature 
+ * @returns a downloadable CSV file blob
+ */
+export const generateMoodCsv = (sentences, scores) => {
     const dataRows = [["Sentence", "Joy", "Anger", "Fear", "Sadness"]];
     for(let i = 0; i < sentences.length; i++) {
         const joyScore = String(scores[i].mixedScores["joy"]);
@@ -20,7 +38,16 @@ export const generateMoodCsv = (sentences, scores, analysisTypeKey, analysisFeat
     return blob;
 }
 
-export const generateReflectionCsv = (sentences, scores, analysisTypeKey, analysisFeature) => {
+/**
+ * Generates a downloadable CSV file for the reflection results table.
+ * 
+ * @param {string[]} sentences 
+ * @param {Object[]} scores 
+ * @param {string} analysisTypeKey 
+ * @param {string} analysisFeature 
+ * @returns a downloadable CSV file blob
+ */
+export const generateReflectionCsv = (sentences, scores) => {
     const dataRows = [["Sentence", "Overall"]];
     let features;
     if(scores[0].categoryScores) {

@@ -115,11 +115,11 @@ function ResultsCard(props) {
         const downloadName = `${analysisFeature}-${new Date().toISOString()}.csv`;
         let csvBlob;
         if(activeRadioButton === 0) {
-            csvBlob = generateSentimentCsv(sentences, scores, analysisTypeKey, analysisFeature);
+            csvBlob = generateSentimentCsv(sentences, scores);
         } else if (activeRadioButton === 1) {
-            csvBlob = generateMoodCsv(sentences, scores, analysisTypeKey, analysisFeature);
+            csvBlob = generateMoodCsv(sentences, scores);
         } else {
-            csvBlob = generateReflectionCsv(sentences, scores, analysisTypeKey, analysisFeature);
+            csvBlob = generateReflectionCsv(sentences, scores);
         }
         const fileUrl = window.URL.createObjectURL(csvBlob);
         hiddenDownloadLink.current.href = fileUrl;
