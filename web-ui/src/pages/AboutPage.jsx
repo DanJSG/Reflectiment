@@ -27,6 +27,9 @@ function AboutPage() {
                         The mood analysis used a deep multi-output Bidirectional-LSTM network which was trained using the <a href="http://saifmohammad.com/WebPages/EmotionIntensity-SharedTask.html">dataset
                         from the WASSA-2017 Shared Task on Emotion Intensity</a>. The reflection analysis used another multi-output Bidirectional-LSTM network, and was trained using a dataset manually created for this project.
                     </p>
+                    <p>
+                        The code for this application is available <a href="https://github.com/DanJSG/reflectiment">here on Github</a>.
+                    </p>
                 </div>
             </MainContent>
         </div>
