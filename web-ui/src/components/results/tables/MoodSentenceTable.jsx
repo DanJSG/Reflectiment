@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import {getRowStyle} from './services/rowstyler';
 
+/**
+ * The mood results table component, a table which lists sentences along with each of their 
+ * associated mood intensity percentages and the strongest mood label.
+ * 
+ * @param {Object} props component properties passed down from parent
+ * @returns the DOM elements to render
+ */
 function MoodSentenceTable(props) {
 
     const [columnWidth] = useState("16.67%");
 
+    /**
+     * Fills the table with rows of analysis data.
+     * 
+     * @returns table rows containing sentences, and its associated analysis information
+     */
     const fillTable = () => {
         console.log(props.sentences[0][props.analysisTypeKey]["mood"].mixedScores["joy"]);
         return props.sentences.map((sentence, index) => {
