@@ -3,9 +3,9 @@ An automated text analysis web application for determining sentiment, author moo
 
 Below is a guide for setting up your own development environment of the application.
 
-# Setting up a Local Development Environment
+## Setting up a Local Development Environment
 
-## 1. Prerequisites
+### 1. Prerequisites
 On your local system you will need to have the following installed:
 
 * JDK for Java 11 or above (I recommend <a href="https://openjdk.java.net/install/">OpenJDK</a>)
@@ -16,18 +16,17 @@ On your local system you will need to have the following installed:
 * <a href="https://mariadb.org/download/">MariaDB server</a>
 * A MySQL compatible database management system (I use <a href="https://www.mysql.com/products/workbench/">MySQL Workbench</a>)
 
-## 2. Application Architecture
-
+### 2. Application Architecture
 The application is split up into four microservices:
 
-* The Lexical Analyzer (/lexicalanalyzer) - an algorithmic text analyzer based on lexicons and language rules
-* The Machine Learning Analyzer (/mlanalyzer) - a machine learning based text analyzer using Keras and Tensorflow
-* The API Gateway (/gateway) - a REST API gateway which acts as an interface to both text analyzers
-* The Web User Interface (/web-ui) - a web-based UI built using the ReactJS framework
+* The Lexical Analyzer (`/lexicalanalyzer`) - an algorithmic text analyzer based on lexicons and language rules
+* The Machine Learning Analyzer (`/mlanalyzer`) - a machine learning based text analyzer using Keras and Tensorflow
+* The API Gateway (`/gateway`) - a REST API gateway which acts as an interface to both text analyzers
+* The Web User Interface (`/web-ui`) - a web-based UI built using the ReactJS framework
 
 Local setup requirements for each of these services will now be covered.
 
-## 3. Lexical Analyzer
+### 3. Lexical Analyzer
 The first step for the lexical analyzer is to configure and restore the database. Create the user using the following SQL query:
 ```SQL
 CREATE USER 'localdev'@'%' IDENTIFIED BY 'password';
@@ -38,18 +37,29 @@ Then use your database management system to give the user Database Administrator
 
 Once this has been done, open the `/lexicalanalyzer` project folder in your Java IDE, build and run it. Please note that the first build may take upwards of 10 minutes as it will need to pull all of the Maven dependencies. The application will then start on local port 8081.
 
-## 4. Machine Learning Analyzer
+### 4. Machine Learning Analyzer
+Using the command line, navigate to the `/mlanalyzer` folder and run the following commands:
+```bash
+python -m venv venv
+./venv/Scripts/activate
+./venv/Scripts/pip install -r requirements.txt
+```
+This will set up a virtual environment and install all of the required packages. Then, once all the libraries have been installed, run the following command:
+```bash
+./venv/Scripts/python main.py
+```
+This will start the application on local port 8082.
 
-## Technologies
-* Languages:
-    * Java
-    * Python
-    * JavaScript (ES6)
-* Frameworks:
-    * Spring Boot
-    * Flask
-    * ReactJS
-* Containers
-    * Docker
-* Databases
-    * MariaDB (SQL)
+### 5. API Gateway
+Simply open up the API Gateway folder `/gateway` in your Java IDE and build and run it. This will start the application running on port 8080.
+
+### 6. Web UI
+Using the command line, navigate to the `/web-ui` folder. Then run the following command to install all the necessary dependencies:
+```bash
+yarn install
+```
+Then run the following to start the application:
+```bash
+yarn start
+```
+This will start the application and automatically open your default browser to the application running locally. 
