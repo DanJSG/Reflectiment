@@ -47,7 +47,7 @@ Once this has been done, open the `/lexicalanalyzer` project folder in your Java
 
 ### 4. Machine Learning Analyzer
 
-First, you need to download the neural network models which are available for download here. Unzip this archive and replace the `/mlanalyzer/models` folder with it.
+First, you need to download the neural network models which are <a href="https://drive.google.com/file/d/11Gs4X66ZMa_XU9rkc58iaDLt1Bp48BRw/view?usp=sharing">available for download here</a>. Unzip this archive and replace the `/mlanalyzer/models` folder with it.
 
 Then using the command line, navigate to the `/mlanalyzer` folder and run the following commands:
 ```bash
