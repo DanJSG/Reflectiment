@@ -4,16 +4,32 @@ import TextSubmissionCard from '../components/submission/TextSubmissionCard';
 import ResultsCard from '../components/results/ResultsCard';
 import downArrow from '../resources/down.svg'
 
+/**
+ * Component for the home page. Loads the heading, summary, and input card.
+ * Renders the results card if the input has been sent and a response has been
+ * received.
+ * 
+ * @returns renders the homepage DOM elements/components
+ */
 function HomePage() {
 
     const [analysis, setAnalysis] = useState(null);
     const resultsRef = useRef(null);
 
+    /**
+     * Sets the component's state to contain the analysis results and then
+     * scrolls the results card into view.
+     * 
+     * @param {Object} analysis the piece of analysed text
+     */
     const handleAnalysisResponse = async (analysis) => {
         setAnalysis(analysis);
         scrollToResults();
     }
 
+    /**
+     * Scroll to the results card.
+     */
     const scrollToResults = () => {
         resultsRef.current.scrollIntoView({behaviour: "smooth"});
     }

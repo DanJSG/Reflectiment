@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {getRowStyle} from './services/rowstyler';
 
+/**
+ * The reflection results table component, a table which lists sentences along with each of their 
+ * associated reflection component scores and the overall intensity percentage.
+ * 
+ * @param {Object} props component properties passed down from parent
+ * @returns the DOM elements to render
+ */
 function ReflectionSentenceTable(props) {
 
     const [columnWidth, setColumnWidth] = useState("16.67%");
@@ -9,6 +16,11 @@ function ReflectionSentenceTable(props) {
     const [tableHeader, setTableHeader] = useState(null);
     const [tableBody, setTableBody] = useState(null);
 
+    /**
+     * Fills the table header with the component feature labels.
+     * 
+     * @returns the table's heading row
+     */
     const fillTableHeader = () => {
         const headings = features.map(feature => feature.charAt(0).toUpperCase() + feature.substr(1));
         return (
@@ -20,6 +32,11 @@ function ReflectionSentenceTable(props) {
         )
     }
 
+    /**
+     * Fills the table with rows of analysis data.
+     * 
+     * @returns table rows containing sentences, and its associated analysis information
+     */
     const fillTable = () => {
         const scores = props.sentences.map(sentence => sentence[props.analysisTypeKey][analysisFeature].categoryScores);
         const rows = [];
@@ -37,6 +54,10 @@ function ReflectionSentenceTable(props) {
         ));
     }
 
+    /**
+     * Called whenever the table features are updated (the individual component scores). Updates the 
+     * table headers and values and refits the column widths to suit the new number of headings.
+     */
     useEffect(() => {
         if(!features) {
             return;
@@ -46,6 +67,10 @@ function ReflectionSentenceTable(props) {
         setTableBody(fillTable());
     }, [features])
 
+    /**
+     * Called whenever the props update. Sets the table's features and whether or not to use the reflection 
+     * scores or the modified reflection scores.
+     */
     useEffect(() => {
         if(!props.sentences[0][props.analysisTypeKey]["reflection"].categoryScores) {
             setFeatures([]);

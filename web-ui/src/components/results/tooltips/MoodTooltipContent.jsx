@@ -1,5 +1,11 @@
 import React from 'react';
 
+/**
+ * A tooltip component containing the mood labels and various intensity percentages.
+ * 
+ * @param {Object} props the object properties passed down from its parents
+ * @returns the DOM elements to render
+ */
 function MoodTooltipContent(props) {
     return (
         <div>

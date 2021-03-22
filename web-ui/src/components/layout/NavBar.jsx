@@ -2,6 +2,12 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import uoyLogo from '../../resources/uoy-logo.svg';
 
+/**
+ * Global NavBar component, containing the navigation links to the analyzer and about page, as well as a link to the Github
+ * repository and the University of York logo.
+ * 
+ * @returns the DOM elements to render
+ */
 function NavBar() {
 
     const currentLocation = useLocation();

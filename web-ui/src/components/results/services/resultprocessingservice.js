@@ -1,3 +1,11 @@
+/**
+ * Calculates the index of the rows with the maxium values for sentiment, mood 
+ * and reflection.
+ * 
+ * @param {Object[]} sentences 
+ * @param {string} analysisTypeKey 
+ * @returns the index of the rows with maximum values for sentiment, mood and reflection
+ */
 export const getMaxScoreIndexes = (sentences, analysisTypeKey) => {
     let maxes = {
         sentiment: -1,
@@ -9,6 +17,8 @@ export const getMaxScoreIndexes = (sentences, analysisTypeKey) => {
         mood: -1,
         reflection: -1
     }
+    // Loop over each sentence and its associated score, keeping track of the max values
+    // and updating the index values whenever a new max is found
     for(let i = 0; i < sentences.length; i++) {
         if(sentences[i][analysisTypeKey].sentiment.score > maxes.sentiment) {
             maxes.sentiment = sentences[i][analysisTypeKey].sentiment.score;
@@ -26,6 +36,14 @@ export const getMaxScoreIndexes = (sentences, analysisTypeKey) => {
     return maxIndexes;
 }
 
+/**
+ * Calculates the index of the rows with the minimum values for sentiment, mood 
+ * and reflection.
+ * 
+ * @param {Object[]} sentences 
+ * @param {string} analysisTypeKey 
+ * @returns the index of the rows with minimum values for sentiment, mood and reflection
+ */
 export const getMinScoreIndexes = (sentences, analysisTypeKey) => {
     let maxes = {
         sentiment: 1,
@@ -37,6 +55,8 @@ export const getMinScoreIndexes = (sentences, analysisTypeKey) => {
         mood: -1,
         reflection: -1
     }
+    // Loop over each sentence and its associated score, keeping track of the max values
+    // and updating the index values whenever a new minimum is found
     for(let i = 0; i < sentences.length; i++) {
         if(sentences[i][analysisTypeKey].sentiment.score < maxes.sentiment) {
             maxes.sentiment = sentences[i][analysisTypeKey].sentiment.score;

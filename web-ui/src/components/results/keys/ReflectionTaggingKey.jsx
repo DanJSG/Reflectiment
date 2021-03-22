@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * Colour key component for the reflection text tagger.
+ * 
+ * @returns the DOM elements to render
+ */
 function ReflectionTaggingKey() {
     return (
         <div className="p-1 px-2 ml-auto bg-light rounded border">

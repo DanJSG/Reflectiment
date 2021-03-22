@@ -1,5 +1,11 @@
 import React from 'react';
 
+/**
+ * A tooltip component containing the sentiment label and intensity percentage.
+ * 
+ * @param {Object} props the object properties passed down from its parents
+ * @returns the DOM elements to render
+ */
 function SentimentTooltipContent(props) {
     return (
         <div>

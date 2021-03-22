@@ -1,6 +1,8 @@
+// Import bootstrap CSS library and font-awesome SVG icons
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~font-awesome/scss/font-awesome.scss';
 
+// Styles for text tagger to show outline when the text is moused over
 .outline-on-hover {
     border-radius: 4px;
     border: 1px solid transparent;
