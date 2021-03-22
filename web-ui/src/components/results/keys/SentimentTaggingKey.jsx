@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * Colour key component for the sentiment text tagger.
+ * 
+ * @returns the DOM elements to render
+ */
 function SentimentTaggingKey() {
     return (
         <div className="p-1 ml-auto bg-light rounded border">
