@@ -6,6 +6,14 @@ import ReflectionTooltipContent from '../tooltips/ReflectionTooltipContent';
 import MoodTooltipContent from '../tooltips/MoodTooltipContent';
 import SentimentTooltipContent from '../tooltips/SentimentTooltipContent';
 
+/**
+ * Tag a sentence with its relevant sentiment scores by styling the sentences background colour.
+ * 
+ * @param {string} sentence the sentence to tag 
+ * @param {Object} scores the sentences scores
+ * @param {int} index the index of the sentence
+ * @returns a styled text span with a detail tooltip on hover
+ */
 const tagSentiment = (sentence, scores, index) => {
     const colorVal = scores.score;
     const colorStyle = {
@@ -19,6 +27,14 @@ const tagSentiment = (sentence, scores, index) => {
     );
 }
 
+/**
+ * Tag a sentence with its relevant mood scores by styling the sentences background colour.
+ * 
+ * @param {string} sentence the sentence to tag 
+ * @param {Object} scores the sentences scores
+ * @param {int} index the index of the sentence
+ * @returns a styled text span with a detail tooltip on hover
+ */
 const tagMood = (sentence, scores, index) => {
     let colorStyle = {
         backgroundColor: `rgba(0, 0, 0, 0)`,
@@ -43,6 +59,14 @@ const tagMood = (sentence, scores, index) => {
     )
 }
 
+/**
+ * Tag a sentence with its relevant reflection scores by styling the sentences background colour.
+ * 
+ * @param {string} sentence the sentence to tag 
+ * @param {Object} scores the sentences scores
+ * @param {int} index the index of the sentence
+ * @returns a styled text span with a detail tooltip on hover
+ */
 const tagReflection = (sentence, scores, index) => {
     const colorVal = scores.score;
     const colorStyle = {
@@ -56,6 +80,12 @@ const tagReflection = (sentence, scores, index) => {
     );
 }
 
+/**
+ * Pick the relevant text tagging function based on the analysis feature.
+ * 
+ * @param {string} analysisFeature the feature that is being analysed
+ * @returns a tagging function
+ */
 export const pickTaggingFunction = (analysisFeature) => {
     if(analysisFeature === "sentiment") {
         return tagSentiment;
