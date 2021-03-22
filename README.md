@@ -1,7 +1,7 @@
 # Reflectiment
 An automated text analysis web application for determining sentiment, author mood and reflectivity in a piece of text. This application was developed as a final year project for an MEng in Electronic Engineering from the University of York. 
 
-Below is a guide for setting up your own development environment of the application.
+Below is a guide for setting up your own local development environment of this application.
 
 ## Setting up a Local Development Environment
 
