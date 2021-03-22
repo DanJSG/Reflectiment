@@ -1,7 +1,15 @@
 # Reflectiment
-An automated text analysis web application for determining sentiment, author mood and reflectivity in a piece of text. This application was developed as a final year project for an MEng in Electronic Engineering from the University of York. 
+An automated text analysis web application for determining sentiment, author mood, and reflectivity in a piece of text. The core analysis system is comprised of two parts: an algorithmic, lexicon-based analyzer; and a machine learning based analyser.
 
-Below is a guide for setting up your own local development environment of this application.
+The lexicon-based analyzer is written in Java and makes use of the SentiWords dictionary for sentiment analysis, the NRC Word-Emotion Association Lexicon for mood analysis, and a personally devised lexicon built based on the research done in a paper by Thomas Ullman. These lexicons are combined with a set of rules for negation and modification.
+
+The machine learning based analyzer is written in Python and makes use of the Keras API for Tensorflow to implement the neural networks. The sentiment analysis used a deep Convolutional-LSTM network trained on the Stanford Sentiment Treebank (SST) dataset. The mood analysis used a deep multi-output Bidirectional-LSTM network which was trained using the dataset from the WASSA-2017 Shared Task on Emotion Intensity. The reflection analysis used another multi-output Bidirectional-LSTM network, and was trained using a dataset manually created for this project.
+
+Below is a guide for setting up your own local development environment of this application. <b>Please note that the machine learning based analyzer makes use of the Google News word2vec word embeddings and so requires a lot of memory to run, usually utilising around 7GB of RAM in normal operation.</b>
+
+Nothing within the `/scripts` folder is used directly within the application - these are simply scripts and files that were used during the dataset and lexicon processing, and during the neural network training process.
+
+This application was developed as a final year project for an MEng in Electronic Engineering from the University of York.
 
 ## Setting up a Local Development Environment
 
