@@ -11,7 +11,7 @@ function AboutPage() {
         <div className='w-100 h-100'>
             <MainContent>
                 <h1 className="p-4 display-4 font-weight-normal">About This Application</h1>
-                <div className="pl-3 pr-3 text-justify">
+                <div className="pl-5 pr-5 text-justify">
                     <p>
                         This is an automated text analysis application for determining sentiment, author mood, and reflectivity in a piece of text.
                         The core analysis system is comprised of two parts: an algorithmic, lexicon-based analyzer; and a machine learning based analyser.
