@@ -1,5 +1,11 @@
 import React from 'react';
 
+/**
+ * The 3 tab picker for the results card component.
+ * 
+ * @param {Object} props component properties passed from parent
+ * @returns the DOM elements to render
+ */
 function ResultsTabs(props) {
 
     return (

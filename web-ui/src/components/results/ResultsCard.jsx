@@ -11,6 +11,14 @@ import SentimentTaggingKey from './keys/SentimentTaggingKey';
 import MoodTaggingKey from './keys/MoodTaggingKey';
 import ReflectionTaggingKey from './keys/ReflectionTaggingKey';
 
+/**
+ * 
+ * Component for the results card. This includes the tagged text section, the results table, as well
+ * as all of the relevant keys, navigation tabs and button pickers, and the download button.
+ * 
+ * @param {Object} props the component properties passed down from the parent
+ * @returns the DOM elements to render
+ */
 function ResultsCard(props) {
 
     const [analysisTypeKeys] = useState(["lexicalScores", "mlScores", "averageScores"]);
@@ -26,6 +34,11 @@ function ResultsCard(props) {
 
     const hiddenDownloadLink = useRef(null);
 
+    /**
+     * Switch the active tab of the results card.
+     * 
+     * @param {Object} e the tab click event
+     */
     const switchTab = (e) => {
         e.preventDefault();
         const tabId = e.nativeEvent.submitter.id;
@@ -36,6 +49,12 @@ function ResultsCard(props) {
         showResults(analysisTypeKeys[tabId], tabId);
     }
 
+    /**
+     * Loads the results tables and tags the text.
+     * 
+     * @param {string} analysisTypeKey the analysis type (eg. lexical, mlScores, averageScores)
+     * @param {*} tabId the ID of the currently active tab
+     */
     const showResults = (analysisTypeKey, tabId) => {
         setMaxScoreIndexes(getMaxScoreIndexes(props.analysis.sentences, analysisTypeKey));
         setMinScoreIndexes(getMinScoreIndexes(props.analysis.sentences, analysisTypeKey));
@@ -44,6 +63,11 @@ function ResultsCard(props) {
         tagText(analysisFeature, tabId);
     }
 
+    /**
+     * Chooses the analysis feature (eg. sentiment, mood, or reflection) based on the selected radio button.
+     * 
+     * @param {Object} e the radio button change event
+     */
     const selectAnalysisFeature = (e) => {
         let analysisFeature = e.target.id.replace("Radio", '');
         if(analysisFeature === "sentiment") {
@@ -58,6 +82,12 @@ function ResultsCard(props) {
         tagText(analysisFeature, activeTab);
     }
 
+    /**
+     * Tag the text for its relevant analysis features using a specific tagging function.
+     * 
+     * @param {string} analysisFeature the analysis feature to tag the text for
+     * @param {int} tabId the integer ID of the tab
+     */
     const tagText = (analysisFeature, tabId) => {
         const sentences = props.analysis.sentences;
         const analysisTypeKey = analysisTypeKeys[tabId];
@@ -70,6 +100,12 @@ function ResultsCard(props) {
         setTaggedSentences(htmlElements);
     }
 
+    /**
+     * Parse the current set of results, and generate a CSV file from them. Then automatically start downloading
+     * this file.
+     * 
+     * @param {Object} e the button click even from the download button
+     */
     const downloadCSV = (e) => {
         e.preventDefault();
         const analysisTypeKey = analysisTypeKeys[activeTab];
@@ -91,6 +127,9 @@ function ResultsCard(props) {
         hiddenDownloadLink.current.click();
     }
 
+    /**
+     * Automatically called whenever the analysis props changes.
+     */
     useEffect(() => {
         if(!props.analysis) {
             return;
@@ -98,6 +137,10 @@ function ResultsCard(props) {
         showResults(analysisTypeKeys[activeTab], activeTab);
     }, [props.analysis, analysisTypeKeys])
 
+    /**
+     * Toggles whether or not the modified reflection scores are used or not based on the state of
+     * the checkbox.
+     */
     const toggleReflectionModifiers = () => {
         const toggledState = !useReflectionModifiers;
         setUseReflectionModifiers(toggledState);
@@ -146,39 +189,33 @@ function ResultsCard(props) {
                             </div>
                         </div>
                         <div className="py-1"></div>
-                        {
-                            taggedSentences && maxScoreIndexes && activeRadioButton === 0 ? 
+                        {   
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 0 &&
                             <SentimentSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
                                                     maxIndex={maxScoreIndexes.sentiment} 
                                                     minIndex={minScoreIndexes.sentiment}
                                                     sentences={props.analysis.sentences}
                                                     /> 
-                            : 
-                            null
                         }
                         {
-                            taggedSentences && maxScoreIndexes && activeRadioButton === 1 ? 
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 1 && 
                             <MoodSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
                                                sentences={props.analysis.sentences}
                                                maxIndex={maxScoreIndexes.mood}
                                                minIndex={minScoreIndexes.mood}
                                                /> 
-                            : 
-                            null
                         }
                         {
-                            taggedSentences && maxScoreIndexes && activeRadioButton === 2 ? 
+                            taggedSentences && maxScoreIndexes && activeRadioButton === 2 &&
                             <ReflectionSentenceTable analysisTypeKey={analysisTypeKeys[activeTab]} 
                                                      sentences={props.analysis.sentences}
                                                      maxIndex={maxScoreIndexes.reflection}
                                                      minIndex={minScoreIndexes.reflection}
                                                      useReflectionModifiers={useReflectionModifiers}
                                                      />
-                            : 
-                            null
                         }
                         {
-                            !props.analysis ? null :
+                            props.analysis &&
                             <div className="p-2">
                                 <button onClick={downloadCSV} className="btn btn-primary"><i className="fa fa-download" /> Download as CSV</button>
                                 <a style={{display: "none"}} href="/" ref={hiddenDownloadLink}>Hidden File Download</a>

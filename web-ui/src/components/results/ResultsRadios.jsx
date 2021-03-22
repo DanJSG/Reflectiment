@@ -1,5 +1,11 @@
 import React from 'react';
 
+/**
+ * Component for the results card radio buttons for picking between sentiment, mood and reflection results.
+ * 
+ * @param {Object} props component properties passed down from the parent
+ * @returns the DOM elements to render
+ */
 function ResultsRadios(props) {
 
     return (
