@@ -1,9 +1,9 @@
 # Reflectiment
 An automated text analysis web application for determining sentiment, author mood, and reflectivity in a piece of text. The core analysis system is comprised of two parts: an algorithmic, lexicon-based analyzer; and a machine learning based analyser.
 
-The lexicon-based analyzer is written in Java and makes use of the SentiWords dictionary for sentiment analysis, the NRC Word-Emotion Association Lexicon for mood analysis, and a personally devised lexicon built based on the research done in a paper by Thomas Ullman. These lexicons are combined with a set of rules for negation and modification.
+The lexicon-based analyzer is written in Java and makes use of the <a href="https://hlt-nlp.fbk.eu/technologies/sentiwords">SentiWords</a> dictionary for sentiment analysis, the <a href="https://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a> for mood analysis, and a personally devised lexicon built based on the research done in <a href="http://oro.open.ac.uk/48840/">a paper by Thomas Ullman</a>. These lexicons are combined with a set of rules for negation and modification.
 
-The machine learning based analyzer is written in Python and makes use of the Keras API for Tensorflow to implement the neural networks. The sentiment analysis used a deep Convolutional-LSTM network trained on the Stanford Sentiment Treebank (SST) dataset. The mood analysis used a deep multi-output Bidirectional-LSTM network which was trained using the dataset from the WASSA-2017 Shared Task on Emotion Intensity. The reflection analysis used another multi-output Bidirectional-LSTM network, and was trained using a dataset manually created for this project.
+The machine learning based analyzer is written in Python and makes use of the Keras API for Tensorflow to implement the neural networks. The sentiment analysis used a deep Convolutional-LSTM network trained on the <a href="https://nlp.stanford.edu/sentiment/">Stanford Sentiment Treebank (SST) dataset</a>. The mood analysis used a deep multi-output Bidirectional-LSTM network which was trained using the <a href="http://saifmohammad.com/WebPages/EmotionIntensity-SharedTask.html">dataset from the WASSA-2017 Shared Task on Emotion Intensity</a>. The reflection analysis used another multi-output Bidirectional-LSTM network, and was trained using a dataset manually created for this project.
 
 Below is a guide for setting up your own local development environment of this application. <b>Please note that the machine learning based analyzer makes use of the Google News word2vec word embeddings and so requires a lot of memory to run, usually utilising around 7GB of RAM in normal operation.</b>
 
@@ -46,7 +46,10 @@ Then use your database management system to give the user Database Administrator
 Once this has been done, open the `/lexicalanalyzer` project folder in your Java IDE, build and run it. Please note that the first build may take upwards of 10 minutes as it will need to pull all of the Maven dependencies. The application will then start on local port 8081.
 
 ### 4. Machine Learning Analyzer
-Using the command line, navigate to the `/mlanalyzer` folder and run the following commands:
+
+First, you need to download the neural network models which are available for download here. Unzip this archive and replace the `/mlanalyzer/models` folder with it.
+
+Then using the command line, navigate to the `/mlanalyzer` folder and run the following commands:
 ```bash
 python -m venv venv
 ./venv/Scripts/activate
