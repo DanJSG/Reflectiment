@@ -1,7 +1,12 @@
 import React from 'react';
 import MainContent from '../components/layout/MainContent';
 
-function AboutPage(props) {
+/**
+ * Component for the about page, containing details about the application.
+ * 
+ * @returns DOM elements for the about page
+ */
+function AboutPage() {
     return (
         <div className='w-100 h-100'>
             <MainContent>
