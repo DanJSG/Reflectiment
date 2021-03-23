@@ -1,4 +1,3 @@
-from re import split
 from keras.layers import Input, Embedding, Bidirectional, LSTM, Dropout, Dense, BatchNormalization, GaussianNoise, concatenate, Conv1D, AveragePooling1D
 from keras.preprocessing.sequence import pad_sequences
 from keras import Model, backend as K
@@ -107,8 +106,8 @@ max_sentence_len = 52
 
 print("Starting to load all data...")
 
-train_sentences, y_train = get_data("./datasets/multi_extended/sentences.train.txt", "./datasets/multi_extended/scores.train.txt")
-validation_sentences, y_validation = get_data("./datasets/multi_extended/sentences.test.txt", "./datasets/multi_extended/scores.test.txt")
+train_sentences, y_train = get_data("./datasets/multi_extended_overall/sentences.train.txt", "./datasets/multi_extended_overall/scores.train.txt")
+validation_sentences, y_validation = get_data("./datasets/multi_extended_overall/sentences.test.txt", "./datasets/multi_extended_overall/scores.test.txt")
 word2index = load_word_mappings()
 
 print("Processing data...")
@@ -129,6 +128,7 @@ inputs = Input(shape=(52, ))
 embeddings = Word2Vec(max_sentence_len)(inputs)
 embeddings = GaussianNoise(0.25)(embeddings)
 
+x0 = get_parallel_branch(embeddings)
 x1 = get_parallel_branch(embeddings)
 x2 = get_parallel_branch(embeddings)
 x3 = get_parallel_branch(embeddings)
@@ -136,7 +136,7 @@ x4 = get_parallel_branch(embeddings)
 x5 = get_parallel_branch(embeddings)
 x6 = get_parallel_branch(embeddings)
 
-output = concatenate([x1, x2, x3, x4, x5, x6])
+output = concatenate([x0, x1, x2, x3, x4, x5, x6])
 
 optimizer = tf.keras.optimizers.Adam(lr=1e-4)
 
