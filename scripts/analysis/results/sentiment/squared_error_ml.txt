@@ -1,0 +1,26 @@
+sentence,error
+a gracious eloquent film,0.0008149540467599937
+sucking you in,0.10694550759705763
+about more stately,0.00023066563897007926
+settings,0.0002502694574886497
+add up to a moving tragedy with some buoyant human moments,0.002161523266074232
+in a hollywood film,0.0016723906376861334
+could have should have been allowed to stand on their own,0.0059344243500962235
+will leave you wanting to abandon the theater,0.022407994249000005
+does nt suck,0.017769541842978024
+its combination of entertainment and evangelical,0.0031894312725025092
+that was ushered in by the full monty and is still straining to produce another smash,1.1778212163600153e-05
+to be startled when you re almost dozing,0.008359055412736904
+stylistically the movie is a disaster,0.0077769910625624964
+as tricky and satisfying as any of david,0.00010563399506559964
+needed one of the actor s whiny jags to pump it up,0.00030891173353322546
+gives his best movie performance since well performance,9.30491744399988e-05
+for la salle,5.492078665273467e-05
+humor throughout,0.02988126758676011
+0,0.005746701211096507
+or an absurdist workplace sitcom,0.000928423215721446
+this dubious product of a collegespawned colgate u comedy ensemble known as broken lizard,0.0013229616660515966
+a psychologically rich and suspenseful moral thriller,0.0012226945857025
+its quirky excesses like a new year,0.004746289609515723
+is nt to say that it s the equal of some of its predecessors,0.0217884404984464
+mamãƒâ¡,0.00014561729170560033
