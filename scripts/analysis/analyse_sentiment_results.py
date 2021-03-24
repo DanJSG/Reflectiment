@@ -1,5 +1,5 @@
-from os import stat
 import statistics as stats
+from scipy.stats import pearsonr
 
 def five_category(score):
     if score >= 0 and score < 0.2:
@@ -39,14 +39,19 @@ def categorical_accuracy(outfile, actual_scores, gold_scores, category_fn, label
             correct += 1
     outfile.write(f"{label} accuracy: {(correct / total) * 100}%\n")
 
+def pearson_r(outfile, actual_scores, gold_scores):
+    r = pearsonr(actual_scores, gold_scores)[0]
+    outfile.write(f"Pearson correlation coefficient (r): {r}\n")
+
 def main():
     outfile = open("./analysed_results.txt", "w+")
     analysis_types = ["lexical", "ml", "averaged"]
     for i in range(len(analysis_types)):
-        outfile.write(f"================== {analysis_types[i].upper()} ANALYSIS ==================\n")
         errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/sentiment/squared_error_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
         actual_scores = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/sentiment/scores_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
         gold_scores = [float(line.split(",")[2].strip("\n")) for line in open(f"./results/sentiment/scores_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
+        outfile.write(f"===================== {analysis_types[i].upper()} ANALYSIS =====================\n")
+        pearson_r(outfile, actual_scores, gold_scores)
         write_basic_stats(outfile, errors)
         categorical_accuracy(outfile, actual_scores, gold_scores, two_category, "Binary")
         categorical_accuracy(outfile, actual_scores, gold_scores, three_category, "Three category")

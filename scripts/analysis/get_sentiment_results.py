@@ -1,6 +1,54 @@
 from requests import post, Response
-import statistics as stats
-import matplotlib.pyplot as plt
+# import statistics as stats
+# import matplotlib.pyplot as plt
+
+def update_progress(current, total):
+    percentage = current / total
+    progress_possibilities = [
+        f"{current}/{total} [>                              ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=>                             ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [==>                            ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [===>                           ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [====>                          ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=====>                         ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [======>                        ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=======>                       ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [========>                      ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=========>                     ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [==========>                    ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [===========>                   ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [============>                  ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=============>                 ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [==============>                ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [===============>               ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [================>              ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=================>             ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [==================>            ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [===================>           ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [====================>          ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=====================>         ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [======================>        ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=======================>       ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [========================>      ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=========================>     ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [==========================>    ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [===========================>   ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [============================>  ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [=============================> ] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [==============================>] {round(percentage * 100, 4)}%",
+        f"{current}/{total} [===============================] {round(percentage * 100, 4)}%"
+    ]
+    percentage_resolution = 1 / len(progress_possibilities)
+    resolutions = [x * percentage_resolution for x in range(1, len(progress_possibilities) + 1)]
+    prev_resolution = 0
+    count = 0
+    index = 0
+    for val in resolutions:
+        if percentage >= prev_resolution and percentage < val:
+            index = count
+            break
+        count += 1
+    print(progress_possibilities[index], end=("\r" if current != total else "\r\n"))
 
 def send_api_request(sentence):
     json = {
@@ -35,7 +83,8 @@ def write_score_outputs(sentences, gold_scores, actual_scores, path):
         outfile.write(f"{sentences[i]},{gold_scores[i]},{actual_scores[i]}\n")
 
 def main():
-    n = 1000
+    # n = 35877
+    n = 100
     analysis_types = ["Lexical", "ML", "Averaged"]
     sentences = [sentence.strip("\n") for sentence in open("./test_data/sentiment/test_x.txt", "r").readlines()]
     gold_scores = [float(score.strip("\n")) for score in open("./test_data/sentiment/test_y.txt", "r").readlines()]
@@ -43,6 +92,7 @@ def main():
     absolute_errors = [[], [], []]
     squared_errors = [[], [], []]
     for i in range(n):
+        update_progress(i, n)
         response_scores = get_sentiment_scores(sentences[i])
         gold_score = gold_scores[i]
         for j in range(len(response_scores)):
@@ -55,4 +105,5 @@ def main():
         write_score_outputs(sentences[:n], gold_scores[:n], actual_scores[i], f"./results/sentiment/scores_{analysis_types[i].lower()}.txt")
 
 if __name__ == '__main__':
+    # print(len(open("./test_data/sentiment/test_x.txt", "r").readlines()))
     main()
