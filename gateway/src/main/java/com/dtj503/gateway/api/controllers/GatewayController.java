@@ -7,6 +7,8 @@ import com.dtj503.gateway.api.types.TextSubmission;
 import com.dtj503.gateway.libs.http.HttpRequestBuilder;
 import com.dtj503.gateway.libs.http.HttpResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -32,6 +34,8 @@ public class GatewayController extends RestAPIController {
     private static final String LEXICAL_URI = "http://localhost:8081/api/v1/document";
     private static final String ML_URI = "http://localhost:8082/api/v1/document";
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(GatewayController.class);
+
     /**
      * API analysis endpoint method. Called when a POST request is made to /document.
      *
@@ -43,8 +47,7 @@ public class GatewayController extends RestAPIController {
                                                  @RequestParam(name = "sTag", required = false) final String sTagParam,
                                                  @RequestParam(name = "mTag", required = false) final String mTagParam,
                                                  @RequestParam(name = "rTag", required = false) final String rTagParam) {
-        System.out.println(submission.getText());
-        System.out.println(submission.writeValueAsString());
+        LOGGER.info("Request received: \"" + submission.getText() + "\"");
         if(!isSubmissionTextValid(submission.getText())) {
             return BAD_REQUEST_HTTP_RESPONSE;
         }
@@ -55,7 +58,6 @@ public class GatewayController extends RestAPIController {
         if(lexicalResponse == null || mlResponse == null) {
             return INTERNAL_SERVER_ERROR_HTTP_RESPONSE;
         }
-        System.out.println(mlResponse.writeValueAsString());
         CombinedResponse response = CombinedResponseBuilder.buildCombinedResponse(lexicalResponse, mlResponse);
         return ResponseEntity.status(HttpStatus.OK).body(response.writeValueAsString());
     }
@@ -73,7 +75,6 @@ public class GatewayController extends RestAPIController {
         requestBuilder.setBody(requestJson);
         requestBuilder.addHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE);
         requestBuilder = addParameters(requestBuilder, params);
-        System.out.println(url);
         try {
             HttpResponse response = new HttpResponse(requestBuilder.toHttpURLConnection());
             ObjectMapper mapper = new ObjectMapper();
