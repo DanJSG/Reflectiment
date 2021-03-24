@@ -50,6 +50,7 @@ inputs = Input(shape=(52, ))
 embeddings = Embedding(input_length=52, input_dim=3000000, output_dim=300, trainable=False, mask_zero=True)(inputs)
 embeddings = GaussianNoise(0.25)(embeddings)
 
+x0 = get_parallel_branch(embeddings)
 x1 = get_parallel_branch(embeddings)
 x2 = get_parallel_branch(embeddings)
 x3 = get_parallel_branch(embeddings)
@@ -57,11 +58,11 @@ x4 = get_parallel_branch(embeddings)
 x5 = get_parallel_branch(embeddings)
 x6 = get_parallel_branch(embeddings)
 
-output = concatenate([x1, x2, x3, x4, x5, x6])
+output = concatenate([x0, x1, x2, x3, x4, x5, x6])
 
 model = Model(inputs=inputs, outputs=output)
 
 model.summary()
 
-file = open("./models/20210310-163809/C-LSTM.json", "w+")
+file = open("./models/20210323-131429/C-LSTM.json", "w+")
 file.write(model.to_json())

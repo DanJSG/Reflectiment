@@ -54,11 +54,11 @@ def r(y_true, y_pred):
     return K.mean(K.sum(true_sub * pred_sub) / K.sqrt(K.sum(K.pow(true_sub, 2)) * K.sum(K.pow(pred_sub, 2))))
 
 word2index = load_word_mappings()
-test_x, test_y = get_data("./datasets/multi_extended/sentences.test.txt", "./datasets/multi_extended/scores.test.txt")
+test_x, test_y = get_data("./datasets/multi_extended_overall/sentences.test.txt", "./datasets/multi_extended_overall/scores.test.txt")
 test_x = preprocess_sentences(word2index, test_x, 52)
 
-model: Model = models.model_from_json(open("./models/20210310-163809/C-LSTM.json", "r").read())
-model.load_weights("./models/20210310-163809/C-LSTM.hdf5")
+model: Model = models.model_from_json(open("./models/20210323-131429/C-LSTM.json", "r").read())
+model.load_weights("./models/20210323-131429/C-LSTM.hdf5")
 model.compile(loss='mean_squared_error', metrics=[r, 'mean_squared_error'])
 
 model.evaluate(test_x, test_y)

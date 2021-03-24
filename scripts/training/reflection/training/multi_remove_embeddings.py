@@ -3,7 +3,6 @@ from keras.regularizers import l2
 from keras import Model
 import tensorflow as tf
 
-
 def get_parallel_branch(embeddings):
 
     dropout_rate = 0.35
@@ -49,6 +48,7 @@ def get_parallel_branch(embeddings):
 inputs = Input(shape=(None, 300), name='embedding_input')
 embeddings = GaussianNoise(0.25)(inputs)
 
+x0 = get_parallel_branch(embeddings)
 x1 = get_parallel_branch(embeddings)
 x2 = get_parallel_branch(embeddings)
 x3 = get_parallel_branch(embeddings)
@@ -56,16 +56,16 @@ x4 = get_parallel_branch(embeddings)
 x5 = get_parallel_branch(embeddings)
 x6 = get_parallel_branch(embeddings)
 
-output = concatenate([x1, x2, x3, x4, x5, x6])
+output = concatenate([x0, x1, x2, x3, x4, x5, x6])
 model = Model(inputs=inputs, outputs=output)
 model.summary()
 tf.keras.utils.plot_model(model, show_shapes=True, show_dtype=True, show_layer_names=False, dpi=192)
 
 model.summary()
 
-model.load_weights("./models/20210310-163809/C-LSTM.hdf5", by_name=True)
+model.load_weights("./models/20210323-131429/C-LSTM.hdf5", by_name=True)
 
-file = open("./models/20210310-163809/no_embeddings/C-LSTM.json", "w+")
+file = open("./models/20210323-131429/no_embeddings/C-LSTM.json", "w+")
 file.write(model.to_json())
 
-model.save_weights("./models/20210310-163809/no_embeddings/C-LSTM.hdf5")
+model.save_weights("./models/20210323-131429/no_embeddings/C-LSTM.hdf5")
