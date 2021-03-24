@@ -1,0 +1,27 @@
+================== LEXICAL ANALYSIS ==================
+Mean Squared Error: 0.03456899174646541
+Variance: 0.0033962166004175703
+Standard Deviation: 0.05827706753447337
+Maximum: 0.8356840719298807
+Minimum: 0.0
+Binary accuracy: 68.7%
+Three category accuracy: 61.9%
+Five category accuracy: 46.300000000000004%
+================== ML ANALYSIS ==================
+Mean Squared Error: 0.012346280586712586
+Variance: 0.00044029038808559955
+Standard Deviation: 0.020983097676120166
+Maximum: 0.18144909057761222
+Minimum: 4.751344900010766e-09
+Binary accuracy: 79.5%
+Three category accuracy: 78.60000000000001%
+Five category accuracy: 63.1%
+================== AVERAGED ANALYSIS ==================
+Mean Squared Error: 0.01700976655154407
+Variance: 0.0007824796916732613
+Standard Deviation: 0.027972838462931523
+Maximum: 0.24527615802817695
+Minimum: 7.444712249999517e-08
+Binary accuracy: 78.60000000000001%
+Three category accuracy: 72.5%
+Five category accuracy: 55.7%
