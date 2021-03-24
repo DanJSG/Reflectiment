@@ -52,13 +52,6 @@ public class DocumentController extends RestAPIController {
             return BAD_REQUEST_HTTP_RESPONSE;
         }
 
-        System.out.println("Received request. JSON Received: ");
-        System.out.println(submission.writeValueAsString());
-        System.out.println("Parameters received: ");
-        System.out.println("sTag=" + sTagParam);
-        System.out.println("mTag=" + mTagParam);
-        System.out.println("rTag=" + rTagParam);
-
         String[] tags = checkTagParams(sTagParam, mTagParam, rTagParam);
         String sTag = tags[0];
         String mTag = tags[1];
