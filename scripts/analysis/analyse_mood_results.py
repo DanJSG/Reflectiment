@@ -46,12 +46,14 @@ def pearson_r(outfile, actual_scores, gold_scores):
 def main():
     analysis_types = ["lexical", "ml", "averaged"]
     moods = ["joy", "anger", "fear", "sadness"]
+    n_items = len(open(f"./results/mood/{moods[0]}/squared_error_{analysis_types[0]}.txt", "r", encoding="utf8").readlines())
     for mood in moods:
-        outfile = open(f"./analysed_mood_{mood}.txt", "w+")
+        outfile = open(f"./analysed_results/mood/analysed_mood_{mood}.txt", "w+")
         for i in range(len(analysis_types)):
             errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/mood/{mood}/squared_error_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
             actual_scores = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/mood/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
             gold_scores = [float(line.split(",")[2].strip("\n")) for line in open(f"./results/mood/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
+            outfile.write(f"Total Samples: {n_items}\n")
             outfile.write(f"===================== {analysis_types[i].upper()} ANALYSIS =====================\n")
             pearson_r(outfile, actual_scores, gold_scores)
             write_basic_stats(outfile, errors)

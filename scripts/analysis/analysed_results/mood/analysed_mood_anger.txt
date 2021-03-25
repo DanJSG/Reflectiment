@@ -1,3 +1,4 @@
+Total Samples: 3080
 ===================== LEXICAL ANALYSIS =====================
 Pearson correlation coefficient (r): 0.3833903756708157
 Mean Squared Error: 0.11058284196836973
@@ -8,6 +9,7 @@ Minimum Error: 0.0
 Binary accuracy: 73.92010392984736%
 Three category accuracy: 60.89639493341994%
 Five category accuracy: 55.08281909710945%
+Total Samples: 3080
 ===================== ML ANALYSIS =====================
 Pearson correlation coefficient (r): 0.6531743078855208
 Mean Squared Error: 0.027682966389379574
@@ -18,6 +20,7 @@ Minimum Error: 0.0
 Binary accuracy: 85.87203637544657%
 Three category accuracy: 82.16953556349465%
 Five category accuracy: 76.61578434556674%
+Total Samples: 3080
 ===================== AVERAGED ANALYSIS =====================
 Pearson correlation coefficient (r): 0.5760614888115888
 Mean Squared Error: 0.04348140597689704

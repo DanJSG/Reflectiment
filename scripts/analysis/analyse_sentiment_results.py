@@ -44,12 +44,14 @@ def pearson_r(outfile, actual_scores, gold_scores):
     outfile.write(f"Pearson correlation coefficient (r): {r}\n")
 
 def main():
-    outfile = open("./analysed_sentiment.txt", "w+")
+    outfile = open("./analysed_results/sentiment/analysed_sentiment.txt", "w+")
     analysis_types = ["lexical", "ml", "averaged"]
+    n_items = len(open(f"./results/sentiment/squared_error_{analysis_types[0]}.txt", "r").readlines())
     for i in range(len(analysis_types)):
         errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/sentiment/squared_error_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
         actual_scores = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/sentiment/scores_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
         gold_scores = [float(line.split(",")[2].strip("\n")) for line in open(f"./results/sentiment/scores_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
+        outfile.write(f"Total Samples: {n_items}\n")
         outfile.write(f"===================== {analysis_types[i].upper()} ANALYSIS =====================\n")
         pearson_r(outfile, actual_scores, gold_scores)
         write_basic_stats(outfile, errors)
