@@ -44,18 +44,20 @@ def pearson_r(outfile, actual_scores, gold_scores):
     outfile.write(f"Pearson correlation coefficient (r): {r}\n")
 
 def main():
-    outfile = open("./analysed_sentiment.txt", "w+")
     analysis_types = ["lexical", "ml", "averaged"]
-    for i in range(len(analysis_types)):
-        errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/sentiment/squared_error_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
-        actual_scores = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/sentiment/scores_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
-        gold_scores = [float(line.split(",")[2].strip("\n")) for line in open(f"./results/sentiment/scores_{analysis_types[i]}.txt", "r").readlines() if "#" not in line]
-        outfile.write(f"===================== {analysis_types[i].upper()} ANALYSIS =====================\n")
-        pearson_r(outfile, actual_scores, gold_scores)
-        write_basic_stats(outfile, errors)
-        categorical_accuracy(outfile, actual_scores, gold_scores, two_category, "Binary")
-        categorical_accuracy(outfile, actual_scores, gold_scores, three_category, "Three category")
-        categorical_accuracy(outfile, actual_scores, gold_scores, five_category, "Five category")
+    moods = ["joy", "anger", "fear", "sadness"]
+    for mood in moods:
+        outfile = open(f"./analysed_mood_{mood}.txt", "w+")
+        for i in range(len(analysis_types)):
+            errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/mood/{mood}/squared_error_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
+            actual_scores = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/mood/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
+            gold_scores = [float(line.split(",")[2].strip("\n")) for line in open(f"./results/mood/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
+            outfile.write(f"===================== {analysis_types[i].upper()} ANALYSIS =====================\n")
+            pearson_r(outfile, actual_scores, gold_scores)
+            write_basic_stats(outfile, errors)
+            categorical_accuracy(outfile, actual_scores, gold_scores, two_category, "Binary")
+            categorical_accuracy(outfile, actual_scores, gold_scores, three_category, "Three category")
+            categorical_accuracy(outfile, actual_scores, gold_scores, five_category, "Five category")
 
 if __name__ == '__main__':
     main()
