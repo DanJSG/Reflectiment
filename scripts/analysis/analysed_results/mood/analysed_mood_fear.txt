@@ -1,33 +1,37 @@
-Total Samples: 3080
+Total Samples: 2988
 ===================== LEXICAL ANALYSIS =====================
-Pearson correlation coefficient (r): 0.3787176329615616
-Mean Squared Error: 0.10207342539662631
-Variance: 0.027960132613245075
-Standard Deviation: 0.16721283626936384
+Pearson correlation coefficient (r): 0.37946452397605035
+Regression Accuracy: 79.26661235282893%
+Regression Precision: 24.34886854176394%
+Mean Absolute Error: 0.20733387647171075
+Variance: 0.05928673992641018
+Standard Deviation: 0.24348868541763943
 Maximum Error: 1.0
 Minimum Error: 0.0
-Binary accuracy: 71.02955505034102%
-Three category accuracy: 61.12374147450471%
-Five category accuracy: 50.828190971094514%
-Total Samples: 3080
+Binary Classification accuracy: 70.60595915634416%
+Ternary Classification accuracy: 60.595915634415796%
+Quinary Classification accuracy: 50.418480080348175%
 ===================== ML ANALYSIS =====================
-Pearson correlation coefficient (r): 0.5876557665578075
-Mean Squared Error: 0.03554097162804581
-Variance: 0.007844227812639052
-Standard Deviation: 0.08856764540530053
-Maximum Error: 1.5675460674822401
-Minimum Error: 1.1130249999995908e-08
-Binary accuracy: 81.58493017213381%
-Three category accuracy: 74.82949009418643%
-Five category accuracy: 66.54758038324131%
-Total Samples: 3080
+Pearson correlation coefficient (r): 0.5887227351808206
+Regression Accuracy: 89.12842154147974%
+Regression Precision: 15.428689696261678%
+Mean Absolute Error: 0.10871578458520255
+Variance: 0.023804446574353127
+Standard Deviation: 0.15428689696261677
+Maximum Error: 1.2520168
+Minimum Error: 0.00010549999999998061
+Binary Classification accuracy: 81.15165718111818%
+Ternary Classification accuracy: 74.32206226983595%
+Quinary Classification accuracy: 65.9859390693003%
 ===================== AVERAGED ANALYSIS =====================
-Pearson correlation coefficient (r): 0.5393045578655491
-Mean Squared Error: 0.046289995589417474
-Variance: 0.006894126361949647
-Standard Deviation: 0.08303087595557238
-Maximum Error: 0.81271739527056
-Minimum Error: 6.677055999999585e-08
-Binary accuracy: 81.09775901266644%
-Three category accuracy: 70.54238389087367%
-Five category accuracy: 56.67424488470283%
+Pearson correlation coefficient (r): 0.5403880162956503
+Regression Accuracy: 85.46324397807165%
+Regression Precision: 15.850500878088553%
+Mean Absolute Error: 0.14536756021928357
+Variance: 0.025123837808628598
+Standard Deviation: 0.15850500878088553
+Maximum Error: 0.9015084
+Minimum Error: 0.00025839999999999197
+Binary Classification accuracy: 80.68295949112823%
+Ternary Classification accuracy: 70.03682624707064%
+Quinary Classification accuracy: 56.0763307666555%

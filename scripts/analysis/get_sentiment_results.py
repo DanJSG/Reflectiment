@@ -1,5 +1,6 @@
 from requests import post, Response
 from timeit import default_timer as timer
+from random import shuffle
 
 def update_progress(current, total, time_per_item):
     percentage = current / total
@@ -86,8 +87,7 @@ def write_score_outputs(sentences, gold_scores, actual_scores, path):
         outfile.write(f"{sentences[i]},{gold_scores[i]},{actual_scores[i]}\n")
 
 def main():
-    n = 35877
-    # n = 100
+    n = 3000
     analysis_types = ["Lexical", "ML", "Averaged"]
     sentences = [sentence.strip("\n") for sentence in open("./test_data/sentiment/test_x.txt", "r").readlines()]
     gold_scores = [float(score.strip("\n")) for score in open("./test_data/sentiment/test_y.txt", "r").readlines()]
@@ -99,7 +99,6 @@ def main():
     used_sentences = []
     for i in range(n):
         start = timer()
-        update_progress(i, n, average_time)
         response_scores = get_sentiment_scores(sentences[i])
         if response_scores == None:
             continue
@@ -112,14 +111,14 @@ def main():
         end = timer()
         times.append(end - start)
         average_time = sum(times) / len(times)
+        update_progress(i, n, average_time)
         
     for i in range(len(absolute_errors)):
         write_error_outputs(used_sentences[:n], absolute_errors[i], f"./results/sentiment/absolute_error_{analysis_types[i].lower()}.txt")
         write_error_outputs(used_sentences[:n], squared_errors[i], f"./results/sentiment/squared_error_{analysis_types[i].lower()}.txt")
         write_score_outputs(used_sentences[:n], gold_scores[:n], actual_scores[i], f"./results/sentiment/scores_{analysis_types[i].lower()}.txt")
 
+    print("Sentiment results fetched and saved.")
+
 if __name__ == '__main__':
-    # print(len(open("./test_data/sentiment/test_x.txt", "r").readlines()))
-    # response = get_sentiment_scores("ãƒâ©lan")
-    # print(response)
     main()

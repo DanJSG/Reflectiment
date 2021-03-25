@@ -1,0 +1,13 @@
+Total Samples: 159
+===================== ML ANALYSIS =====================
+Pearson correlation coefficient (r): 0.43123658521578473
+Regression Accuracy: 87.92336291329114%
+Regression Precision: 11.8624238926874%
+Mean Absolute Error: 0.12076637086708861
+Variance: 0.014071710060980085
+Standard Deviation: 0.11862423892687399
+Maximum Error: 0.657001466
+Minimum Error: 0.030750300000000008
+Binary Classification accuracy: 90.50632911392405%
+Ternary Classification accuracy: 89.87341772151899%
+Quinary Classification accuracy: 74.68354430379746%

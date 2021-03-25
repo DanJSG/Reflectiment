@@ -1,0 +1,39 @@
+Total Samples: 159
+===================== LEXICAL ANALYSIS =====================
+Pearson correlation coefficient (r): 0.13359320195655264
+Regression Accuracy: 47.86824981962026%
+Regression Precision: 25.187667696901016%
+Mean Absolute Error: 0.5213175018037974
+Variance: 0.06344186040095111
+Standard Deviation: 0.25187667696901017
+Maximum Error: 0.953125
+Minimum Error: 0.0
+Binary Classification accuracy: 27.21518987341772%
+Ternary Classification accuracy: 12.658227848101266%
+Quinary Classification accuracy: 8.227848101265822%
+Total Samples: 159
+===================== ML ANALYSIS =====================
+Pearson correlation coefficient (r): 0.2666014654520832
+Regression Accuracy: 60.346459668670896%
+Regression Precision: 20.21366108884762%
+Mean Absolute Error: 0.3965354033132911
+Variance: 0.04085920946147924
+Standard Deviation: 0.2021366108884762
+Maximum Error: 0.67993012
+Minimum Error: 0.03390361750000004
+Binary Classification accuracy: 27.21518987341772%
+Ternary Classification accuracy: 18.354430379746837%
+Quinary Classification accuracy: 16.455696202531644%
+Total Samples: 159
+===================== AVERAGED ANALYSIS =====================
+Pearson correlation coefficient (r): 0.17698721777210072
+Regression Accuracy: 54.4814007363924%
+Regression Precision: 22.505176684232%
+Mean Absolute Error: 0.45518599263607595
+Variance: 0.05064829775884997
+Standard Deviation: 0.22505176684232
+Maximum Error: 0.77688055
+Minimum Error: 0.0002335500000000268
+Binary Classification accuracy: 27.21518987341772%
+Ternary Classification accuracy: 12.025316455696203%
+Quinary Classification accuracy: 12.025316455696203%

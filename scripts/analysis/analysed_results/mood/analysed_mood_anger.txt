@@ -1,33 +1,37 @@
-Total Samples: 3080
+Total Samples: 2988
 ===================== LEXICAL ANALYSIS =====================
-Pearson correlation coefficient (r): 0.3833903756708157
-Mean Squared Error: 0.11058284196836973
-Variance: 0.03385239388882901
-Standard Deviation: 0.18399020052391107
+Pearson correlation coefficient (r): 0.38191040358681305
+Regression Accuracy: 79.21421574368932%
+Regression Precision: 26.247582538693763%
+Mean Absolute Error: 0.2078578425631068
+Variance: 0.06889355891255418
+Standard Deviation: 0.26247582538693764
 Maximum Error: 1.0
 Minimum Error: 0.0
-Binary accuracy: 73.92010392984736%
-Three category accuracy: 60.89639493341994%
-Five category accuracy: 55.08281909710945%
-Total Samples: 3080
+Binary Classification accuracy: 73.38466688985605%
+Ternary Classification accuracy: 60.395045195848674%
+Quinary Classification accuracy: 54.53632407097422%
 ===================== ML ANALYSIS =====================
-Pearson correlation coefficient (r): 0.6531743078855208
-Mean Squared Error: 0.027682966389379574
-Variance: 0.006241177325339166
-Standard Deviation: 0.07900112230430126
-Maximum Error: 0.9250211531120399
+Pearson correlation coefficient (r): 0.655359981167155
+Regression Accuracy: 92.35520095727587%
+Regression Precision: 14.830261615993207%
+Mean Absolute Error: 0.07644799042724137
+Variance: 0.02199366595988014
+Standard Deviation: 0.14830261615993207
+Maximum Error: 0.9617802
 Minimum Error: 0.0
-Binary accuracy: 85.87203637544657%
-Three category accuracy: 82.16953556349465%
-Five category accuracy: 76.61578434556674%
-Total Samples: 3080
+Binary Classification accuracy: 85.53732842316705%
+Ternary Classification accuracy: 81.82122530967526%
+Quinary Classification accuracy: 76.16337462336793%
 ===================== AVERAGED ANALYSIS =====================
-Pearson correlation coefficient (r): 0.5760614888115888
-Mean Squared Error: 0.04348140597689704
-Variance: 0.006255374679234661
-Standard Deviation: 0.07909092665555677
-Maximum Error: 0.8281000000000001
+Pearson correlation coefficient (r): 0.5756429855041352
+Regression Accuracy: 86.67002170398929%
+Regression Precision: 16.218407566408867%
+Mean Absolute Error: 0.13329978296010714
+Variance: 0.026303674399014845
+Standard Deviation: 0.16218407566408868
+Maximum Error: 0.91
 Minimum Error: 0.0
-Binary accuracy: 86.26177330302046%
-Three category accuracy: 74.08249431633648%
-Five category accuracy: 60.18187723286782%
+Binary Classification accuracy: 85.83863408101774%
+Ternary Classification accuracy: 73.51858051556745%
+Quinary Classification accuracy: 59.59156344158018%

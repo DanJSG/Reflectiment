@@ -25,7 +25,9 @@ def two_category(score):
     return 0 if score < 0.5 else 1
 
 def write_basic_stats(outfile, errors):
-    outfile.write(f"Mean Squared Error: {stats.mean(errors)}\n")
+    outfile.write(f"Regression Accuracy: {(1 - stats.mean(errors)) * 100}%\n")
+    outfile.write(f"Regression Precision: {(stats.stdev(errors)) * 100}%\n")
+    outfile.write(f"Mean Absolute Error: {stats.mean(errors)}\n")
     outfile.write(f"Variance: {stats.variance(errors)}\n")
     outfile.write(f"Standard Deviation: {stats.stdev(errors)}\n")
     outfile.write(f"Maximum Error: {max(errors)}\n")
@@ -49,17 +51,17 @@ def main():
     n_items = len(open(f"./results/mood/{moods[0]}/squared_error_{analysis_types[0]}.txt", "r", encoding="utf8").readlines())
     for mood in moods:
         outfile = open(f"./analysed_results/mood/analysed_mood_{mood}.txt", "w+")
+        outfile.write(f"Total Samples: {n_items}\n")
         for i in range(len(analysis_types)):
-            errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/mood/{mood}/squared_error_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
+            errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/mood/{mood}/absolute_error_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
             actual_scores = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/mood/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
             gold_scores = [float(line.split(",")[2].strip("\n")) for line in open(f"./results/mood/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
-            outfile.write(f"Total Samples: {n_items}\n")
             outfile.write(f"===================== {analysis_types[i].upper()} ANALYSIS =====================\n")
             pearson_r(outfile, actual_scores, gold_scores)
             write_basic_stats(outfile, errors)
-            categorical_accuracy(outfile, actual_scores, gold_scores, two_category, "Binary")
-            categorical_accuracy(outfile, actual_scores, gold_scores, three_category, "Three category")
-            categorical_accuracy(outfile, actual_scores, gold_scores, five_category, "Five category")
+            categorical_accuracy(outfile, actual_scores, gold_scores, two_category, "Binary Classification")
+            categorical_accuracy(outfile, actual_scores, gold_scores, three_category, "Ternary Classification")
+            categorical_accuracy(outfile, actual_scores, gold_scores, five_category, "Quinary Classification")
 
 if __name__ == '__main__':
     main()
