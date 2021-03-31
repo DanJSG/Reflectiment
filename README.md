@@ -9,7 +9,7 @@ Below is a guide for setting up your own local development environment of this a
 
 Nothing within the `/scripts` folder is used directly within the application - these are simply scripts and files that were used during the dataset and lexicon processing, neural network training process, and for final system analysis and results gathering.
 
-This application was developed as a final year project for an MEng in Electronic Engineering from the University of York.
+This application was developed as a final year project for a Masters (MEng) in Electronic Engineering from the University of York.
 
 ## Setting up a Local Development Environment
 
