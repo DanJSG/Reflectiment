@@ -1,0 +1,3001 @@
+#sentence,error
+a gracious eloquent film,0.0008149540467599937
+sucking you in,0.10694550759705763
+about more stately,0.00023066563897007926
+settings,0.0002502694574886497
+add up to a moving tragedy with some buoyant human moments,0.002161523266074232
+in a hollywood film,0.0016723906376861334
+could have should have been allowed to stand on their own,0.0059344243500962235
+will leave you wanting to abandon the theater,0.022407994249000005
+does nt suck,0.017769541842978024
+its combination of entertainment and evangelical,0.0031894312725025092
+that was ushered in by the full monty and is still straining to produce another smash,1.1778212163600153e-05
+to be startled when you re almost dozing,0.008359055412736904
+stylistically the movie is a disaster,0.0077769910625624964
+as tricky and satisfying as any of david,0.00010563399506559964
+needed one of the actor s whiny jags to pump it up,0.00030891173353322546
+gives his best movie performance since well performance,9.30491744399988e-05
+for la salle,5.492078665273467e-05
+humor throughout,0.02988126758676011
+0,0.005746701211096507
+or an absurdist workplace sitcom,0.000928423215721446
+this dubious product of a collegespawned colgate u comedy ensemble known as broken lizard,0.0013229616660515966
+a psychologically rich and suspenseful moral thriller,0.0012226945857025
+its quirky excesses like a new year,0.004746289609515723
+is nt to say that it s the equal of some of its predecessors,0.0217884404984464
+mamãƒâ¡,0.00014561729170560033
+a young american a decision that plucks the four feathers,2.8251818779535967e-05
+manages to show the gentle and humane side of middle eastern world politics,6.154691148224994e-06
+lacks irony,0.05153692260450248
+serves as a rather thin moral to such a knowing fable,0.04735425398182626
+that s right,0.011804026108932221
+that proceeds,0.007344092185987045
+illustrated through everyday events,0.0005379971234052227
+i ca nt remember the last time i saw an audience laugh so much during a movie but there s only one problem it s supposed to be a drama,0.01574877289963323
+trudge out of the theater feeling as though you rode the zipper after eating a corn dog and an extralarge cotton candy,0.016186854568104904
+is a real treat,0.0028064491593649005
+much enjoyable to watch as it is enlightening to listen to new sides of a previous reality and to visit with some of the people who were able to make an impact in the theater world,2.228736890249949e-05
+that intersect with them,0.001125020147342399
+most fish stories,0.0017610724716379572
+made about the life of moviemaking,0.002641195480316408
+expos,0.00013840127206164976
+transfixes the audience,0.0016649105149892254
+to be exploring the idea of why human beings long for what they do nt have and how this gets us in trouble,0.005560831803870222
+it s one long bore,0.03463366966852523
+the worst film a man has made about women since valley of the dolls,0.010384323312249996
+that man,3.14479087204921e-05
+tend to exploit the familiar,0.003720745085366014
+clarify and comfort,0.0033683090390082206
+ample opportunity,0.013208872719619612
+the school,7.524080544533211e-06
+can catch some quality naptime along the way,0.001341885840697601
+the numerous scenes of gory mayhem are worth the price of admission if gory mayhem is your idea of a good time,0.00876572582395704
+shifting points of view,0.00019289148777744416
+comes replete,9.020877470890076e-05
+a feature that concentrates on people a project in which the script and characters hold sway,0.0009035603141184013
+a well loved classic,0.00018175394300822508
+border on being cartoonlike,0.009446542424555624
+deeply felt and masterfully stylized,0.024459927770890018
+which might have been called freddy gets molested by a dog,0.005653779718224402
+too clumsy,0.0035946517878222197
+and the self,0.00019071057603999952
+assassin,0.00015094158193141324
+space,0.00015616328703396183
+extremely funny,0.025135670401828885
+has its moments,0.013197284126401495
+film a must for everyone,0.005072306917216891
+is careful not to make fun of these curious owners of architectural oddities,0.0068318548108512326
+juvenile and nearxenophobic,0.0355288944022278
+an inhalant blackout,7.494278330249995e-05
+seriousness and,3.1421462121002246e-06
+the movie,0.0002468301792888985
+seems to be missing a great deal of the acerbic repartee of the play,0.0009237143897289006
+sensitive acting,0.047306795926575
+truth can be discerned from nonfirsthand experience and specifically,0.004821526549207376
+chases for an hour and then gives us half an hour of car chases,0.03329322077448999
+being a subtitled french movie that is 0 minutes long,0.005306210457187599
+the complexities of the middle east struggle,2.8574621489051704e-05
+lan yu is at times too restrained yet there are moments it captures the erotics of intimacy in a way that makes most american love stories look downright unfree,0.006130132862377208
+a disoriented but occasionally disarming saga,0.016454034361958397
+hope and charity,0.0025141797998520085
+re a crocodile hunter fan,0.0002646037070227359
+you just do nt care whether that coldhearted snake petrovich that would be reno gets his comeuppance just bring on the battle bots please,0.00011996985195562575
+it has considerable charm,0.002956896193022499
+as an exploratory medical procedure or an autopsy,0.0229208941563904
+the pacing is often way off,8.30259926596005e-05
+you wondering about the characters lives after the clever credits roll,0.01598083692316223
+be swept away by the sheer beauty of his images,0.005451108111824398
+this the final part of the qatsi trilogy directed by godfrey reggio,0.000446762623297599
+has nt much more to serve than silly fluff,0.000767016625354226
+has it ever,0.0010618576606148092
+turns out to be smarter and more diabolical than you could have guessed at the beginning,0.028543355745884076
+still feels like it was made by some very stoned college students,2.757592359999948e-06
+bother with a contemptible imitator starring a snl hasbeen acting like an 0yearold channeling roberto benigni,0.01692745414080249
+series 0,0.0002556883349163078
+the story s pathetic and the gags are puerile,0.0003790711650625003
+likely to seduce and conquer,0.022003299518648448
+seems based on ugly ideas instead of ugly behavior as happiness was,0.0018289636859682265
+is worth seeking,0.05631969310646705
+interesting,0.0007406050616836022
+the emotional resonance of either of those movies,0.017301769279716113
+the dialogue is realistic and greatly moving the scope of the silberstein family,0.0023218857774024923
+taking entertainment tonight,0.00029261308064796763
+career curio,1.400241057841936e-07
+an undeniably worthy and devastating experience,0.13291383690225
+a weak script that ca nt support the epic treatment,0.0009813668319006267
+nursery,0.001775102685421059
+the film is itself a sort of cinematic high crime one that brings military courtroom dramas down very very low,0.015509684800273215
+hop beat,0.015114560049216358
+popcorn work,0.0051682966142299475
+sinks to a harrison ford low,0.000356315456742398
+are doing,0.0005286875681448472
+the general absurdity of modern life,0.001654776973102504
+back and forth ca nt help but become a bit tedious,0.00023363336490490037
+homage pokepie hat but as a character he s dry,0.013355249001132658
+brutal 0minute battle sequence,0.014215011238865287
+comingofage portrait,0.03160067360560309
+possesses some,0.015124621516839984
+this crowdpleaser s fresh dialogue energetic music,0.011572334367796238
+the value,0.001022410217522497
+0 s involvingly adult surprises,0.000765695032728027
+bank,0.00020885112708080486
+nazi,0.0006550983941120991
+much tongueincheek,0.0009120567912772855
+half a parsec a nose,0.0019440571094803687
+ditsy,0.0027373112452624003
+it looks in the face of death,0.005477412751107019
+s the scarlet letter,3.8705245593316154e-05
+martyr gets royally screwed and comes back for more,0.017386888182422497
+that throws a bunch of hotbutton items in the viewer s face and asks to be seen as hip winking social commentary,0.001272217994467227
+any recent film independent or otherwise that makes as much of a mess as this one,0.010778883097959996
+a fast frenetic funny even punny 0,0.012613362020100641
+devastating and,0.01815712995507603
+more fascinating than the results last dance whatever its flaws fulfills one facet of its mission in making me want to find out whether in this case that s true,0.006899117261855617
+for a debut film,0.006440234236144897
+the sum of the parts equals largely a confused mediocrity,0.014031515952089993
+lost dreams,0.004781005441384228
+maybe the original inspiration has run its course,0.011363061543866241
+and damaged dreams,0.02298829978272599
+ahola is simply not an actor and,0.0003072903820900013
+drug abuse infidelity and,0.01148344605814896
+having the guts to confront it,4.268270224000022e-05
+with one exception,0.0008546228094145533
+artfully camouflaged as everyday activities,0.0014679794542083965
+prepschool kid,0.000147555633973504
+to keep you from shifting in your chair too often,0.005897639439288098
+the alternate sexuality meant to set you free may require so much relationship maintenance that celibacy can start looking good,0.0019355380275624975
+you wo nt miss its messages,0.06915301446870407
+not always too whimsical for its own good but enough to do harm this strange hybrid of crime thriller quirky character study thirdrate romance and female empowerment fantasy never really finds the tonal or thematic glue it needs,0.019967611726240002
+a neat twist subtly rendered,0.002760504140249999
+have been called under siege 0,0.014916000091311011
+genuinely pretty,0.0014870833737984038
+hunter agenda,0.0003523971823400237
+quiet american,0.0011051525655072212
+is one of world cinema s most wondrously gifted artists and storytellers,0.0008819058696100015
+the pacing is deadly,0.013957300606640397
+substancefree,0.10989702298882559
+painfully true,0.0018702963489679284
+wonder they re talking about talk to her,0.0043544168038800275
+really happened to you,0.0009021743917435242
+holly and marina,0.00014940631266015784
+as the importance of the man and the code merge,8.309872809224976e-06
+s all about the silences,0.0057265188606227604
+artistic worldatlarge,0.002814749729266221
+is a finelooking film with a bouncy score and a clutch of lively songs for deft punctuation,0.0010413625810224997
+chicken,0.0002478548009940246
+the funniest jokes,0.04240533214280246
+seems confident enough to handle subtlety,0.0018879381291680947
+grosses,0.014200233710126011
+feardotcom has the makings of an interesting meditation on the ethereal nature of the internet and the otherworldly energies it could channel but it simply becomes a routine shocker,0.013601109560202032
+a cinematic fluidity and sense of intelligence that makes it work more than it probably should,0.018173084973532226
+green plastic,0.010718804622355605
+it manages to squeeze by on angelina jolie s surprising flair for selfdeprecating comedy,0.004029080068251234
+elaborate the conceit of setting this bloodsoaked tragedy of murderous ambition in the era of richard nixon,0.0007395780871842256
+production s,0.00016408213739702422
+a more measured or polished production,0.040510317348062534
+spent elsewhere,0.011482703016890625
+a step further richer and deeper,0.02211872704379561
+shakespeare,0.021898435109496392
+escape the heart of the boy,0.009375127101057607
+eccentric enough to stave off doldrums,0.019983420443513797
+as a drink from a woodland stream,0.009217735761721598
+complacency,0.03272631148722251
+girlsbehavingbadly film,1.1723399832623901e-06
+may even find that it goes by quickly because it has some of the funniest jokes of any movie this year including those intended for adults,0.011564819338022522
+under 0 a giggle a minute over age 0 big fat waste of time,0.04124511551943421
+had to look away,0.026882827985106737
+pace or both,0.006679530549276017
+fails on so many levels,0.0274938216350121
+fascinating an often intense character study about fathers and sons loyalty and duty,0.0024959016810000086
+a while as do joan and philip s repetitive arguments schemes and treachery,0.0006012635024556246
+the sobadit s,0.11054505500841724
+the impact,7.513966369082433e-06
+merry and yes melancholy,0.00662744156281002
+game of absurd plot twists idiotic court maneuvers and stupid characters,0.0028164991984900027
+start reading your scripts before signing that dotted line,0.029104946866958404
+blade and,0.016182806948802246
+that does everything but issue you a dogtag and an m0,0.0039682704935241064
+serry,0.00014561729170560033
+becomes a clichedrenched melodrama by midfilm and by film s end a feminist action fantasy,0.06969732000624998
+this gutter romancer s secondhand material,0.04032847961303039
+marred only by an inexplicable utterly distracting blunder at the very end,0.018067881498912412
+with the surface histrionics failing to compensate for the paperthin characterizations and facile situations,0.007767709479852096
+checking out for the performances alone,0.005537773054926218
+moving and revelatory,0.007619526642010006
+establishment,0.0038567413727182203
+be going for this time,0.0013911253253730631
+distinguishes the merely quirky from the surreal,0.0049544733595204
+i wish i could say thank god it s friday but,0.0023337449883225015
+runs around and acts like a doofus,0.023421039587635598
+a lesser harrison ford movie,0.03154137958194703
+turn out a small personal film,0.00017304584268672238
+tries to be thrilling touching or yikes uproarious,0.13351684210218925
+less like a cousin to blade runner than like a bottomfeeder sequel in the escape from new york series,0.014388093662144406
+taymor the avant garde director of broadway s the lion king and the film titus,0.0011431899760435582
+little more human being,6.295551267140114e-05
+the dialogue is cumbersome,0.0009421860945025001
+a more traditionally plotted popcorn thriller,0.0014865911614139048
+rings,0.0010009877850688873
+the ingredients are there but,0.0053468166469249
+receding hairline weathered countenance and american breckin meyer s ridiculously inappropriate valley boy voice,0.04692287053476564
+the intelligence of gay audiences has been grossly underestimated and a meaty plot and welldeveloped characters have been sacrificed for skin and flash that barely fizzle,0.0003947262979984013
+total recall and blade runner,3.353025505249194e-05
+very good film,3.0903592810000435e-05
+the courage of its convictions,0.016539954260316757
+nothing but boilerplate clichãƒâ©s,0.03567945854460491
+for kids of all ages that like adventure,0.0037290533027006245
+fuertes para el futuro del director y apuestas bien fundadas pues la suerte ya la tiene y la cinta lo comprueba,0.00014032079802126293
+star wars saga,0.00024473156027830323
+about life on the campaign,0.0005059728379455995
+0 predecessors to get this,1.0938022224999148e-06
+a mostly magnificent directorial career,0.0195246266033025
+s not giving the same 0cent stump speech,0.04291016961529002
+the acting,0.00024874986450163774
+never engaging utterly predictable and completely void of anything remotely interesting or suspenseful,0.002691111594605624
+who carries the film on his broad handsome shoulders,0.03462271475524
+has completely,0.0004949947065710523
+of stock footage,0.015423727379290009
+oddcouple sniping,0.0004822359343366419
+they ca nt distract from the flawed support structure holding equilibrium up,0.0001421471985025001
+aggravating enough to exhaust the patience of even the most understanding spouse,7.200984406225277e-06
+maddeningly slow,0.022302205616992896
+talented and clever robert rodriguez,0.0033708532869025
+baitandswitch,0.009100625577045598
+slogs its way through,0.01061936948260563
+a great ending does nt make up for a weak movie,2.9124835600000086e-06
+a soulless jumble,0.008629697471707231
+moral thriller,0.0008519449772933113
+together familiar themes of family forgiveness and love,0.02462409981166241
+the island,7.632732337560165e-05
+gives these women a forum to demonstrate their acting chops,0.0097678373598169
+when the first few villians are introduced as spider and snake you know you re in for a real winner creativity at its peak,0.013096321341505622
+a mean streak,0.05472174822609358
+cheesy coincidences,0.03759768839160177
+name actors,0.0016793154862203108
+your film,7.979969495955629e-05
+like one of hubert s punches,0.0030671210647440256
+aldrich,0.00014561729170560033
+careens from dark satire to cartoonish slapstick,0.016479258700549216
+with this for more than say ten,0.0002145190981073705
+the lovely hush and,0.001557365069806223
+bad odor,0.001284676920912098
+devotion and doublecross,0.0015062358931650262
+grasping the coolness vibes when in fact the film is nt as flippant or slick as it thinks it is,0.0061571407095024995
+good chance,0.00032290886021222383
+two words to say about reign of fire great dragons,0.00563350371148889
+to do next,3.316196920144845e-05
+win the band a few new converts,0.0024171687093841
+overlong documentary about the lifestyle,0.003442397716802497
+to have been lost in the translation this time,8.403086391722471e-05
+ve had more interesting and dare i say thematically complex bowel movements than this longontheshelf pointandshoot exercise in gimmicky crime drama,0.03338681766436
+for kids spirit,0.012305464899999993
+a dumb distracted audience,0.001199181492639998
+the country bear universe,0.00020979465680410193
+came time to get to the heart of the movie,0.00044965520575562573
+a serious movie,0.00197394492681
+of the funnier movies,0.003854377983147765
+on scooby,8.016323725905707e-05
+blind crippled,0.028550191782720398
+lampoon,0.0014155546908041648
+tea,0.00012384848673945332
+a fleeting grasp,0.06291839137143979
+emergency,0.011305797122153282
+from a distance,4.672026320689499e-05
+mesmerizing an eyeopening tour of modern beijing culture in a journey of rebellion,0.001024971110128906
+a featurelength sitcom replete with stereotypical familial quandaries,0.0017848043618330233
+of a traditionbound widow who is drawn into the exotic world of belly dancing,0.023531544660002502
+moviegoing,0.009080150329255396
+to make it,5.771334542490087e-07
+like so much crypt mist in the brain,0.002296516646340225
+final verdict you ve seen it all before,0.024719952185640007
+abornin,0.001587799268145601
+will not disappoint anyone who values the original comic books,0.0026581706505025005
+this is a movie you can trust,0.011987654990422501
+desperately needed,0.0019440572858462296
+successful and,0.01604808842910252
+to arrest development in a deadend existence,0.031457088912223284
+conceited,0.037903520528710224
+but his words and images do nt have to add up to mesmerize you,0.0007903365520556225
+a mere excuse for the wan thinly sketched story killing time that s all that s going on here,0.0035909936400100005
+is a genuinely bonechilling tale,0.03458146190763723
+an ambitious serious film,0.001973782763925624
+is every bit as awful as borchardt s coven,0.0849300168990025
+the negative,0.009206586724921606
+surefire casting,0.14540427890395685
+this littleknown story of native americans and their role in the second great war,0.02715595173579688
+the truth of the world,0.0002496908311872725
+riveting world,0.022045300747559986
+with a children s song,6.785315247650605e-05
+statham can move beyond the crimeland action genre,0.00399685880511123
+of this sparklingly inventive and artful always fast and furious tale,0.0019551386673025027
+as sanguine,1.3241098324224263e-05
+despite its raucous intent xxx,0.0024208722295696
+the latest,0.0006001090597742547
+nt believe much of it,0.0027400335728089025
+with its fascist past,0.0046510108508223975
+a psychologically rich and suspenseful moral thriller with a stellar performance by al pacino,0.0054200339719744
+impacting,0.004299798657122487
+that he is an imaginative filmmaker who can see the forest for the trees,0.0063652233715225
+of the animated wildlife adventure show,0.015053308460205606
+and munch is a marvel of reality versus sappy sentiment,0.0017751955876248995
+enjoyed time of favor,0.0360829704088324
+springbreak,0.0019211982006756307
+the movie is well shot and very tragic,0.10302106686410252
+titled generic jennifer lopez romantic comedy,0.011412712998089998
+he watches them as they float within the seas of their personalities,0.004282143622848101
+frailty to suggest the ravages of a life of corruption and ruthlessness,0.0014644444161636037
+like a can of 0day old coke you can taste it but there s no fizz,0.028947282723780082
+like general hospital crossed with a saturday night live spoof of dog day afternoon,0.06200730235014904
+swamp thingtype animation,0.0002395844266052258
+leaping from one arresting image to another,0.0052004196211842355
+amusing from time,0.00039341869599622586
+very bleak day,0.019201045866562093
+about mary and both american pie movies,0.0007060990848756228
+may owe more to disney s strong sense of formula than to the original story,0.023957614567125616
+with such enervating determination in venicevenice,0.002876703195263745
+a documentary about the wartime navajos,0.000378275017649143
+the ring makes its stupidity more than obvious,0.059160071592549206
+move over bond this girl deserves a sequel,0.03953711693433061
+to be a humorous alltoohuman look at how hope can breed a certain kind of madness and strength,8.037050780160039e-05
+the filmmakers were worried,0.017671078003816457
+stirs us as well,0.007901588547174382
+for all the charm of kevin kline and a story that puts oldfashioned values under the microscope there s something creepy about this movie,0.018215132835902495
+re dead on the vine,0.0108155091255696
+we re looking back at a tattered and ugly past with rosetinted glasses,0.034053758584926014
+where exciting inane images keep popping past your head and the same illogical things keep happening over and over again,0.07561618595683268
+what you would end up with if you took orwell bradbury kafka george lucas and the wachowski brothers and threw them into a blender but that s just the problem with it,0.0055776595267128925
+hmmmmm you see the movie and,0.002166461880101284
+also rocks,0.09149187243729902
+if it had just gone that one step further,0.01987942125434321
+may be another s fortune,0.0007682022353093396
+an infuriating film just when you think you are making sense of it something happens that tells you there is no sense,0.011256410020212902
+the movie itself,2.3802294258840754e-05
+has no idea of it is serious,0.003368260287991227
+shakespearean,0.00014561729170560033
+haynes,0.0008763258270456017
+enjoyable conanesque claptrap than the punishing specialeffects soul assaults the mummy pictures,0.0017574842679696039
+buddy movie,0.0005789846900969421
+remember cabin boy,1.6214401477520683e-05
+could take a look at his kin s reworked version,0.0040965650114833975
+a single threat of suspense,0.011781566567555616
+into 0 screens,6.043408093209571e-05
+the way this all works out makes the women look more like stereotypical caretakers and moral teachers instead of serious athletes,0.00755152744522563
+todd farmer s screenplay,0.0010608711809853076
+watch middleage and older men drink to excess piss on trees b s,0.04966422176918411
+a movie as artificial and soulless,0.0084423864556516
+is to a racehorse,0.000981504674550624
+a coherent rhythm going,0.021915867655047733
+it s sobering particularly if anyone still thinks this conflict can be resolved easily or soon,0.009229284463797238
+for most of its footage the new thriller proves that director m night shyamalan can weave an eerie spell and that mel gibson can gasp shudder and even tremble without losing his machismo,0.01789264049139063
+starring a,0.0015073376460313665
+bratt,0.007250999518145601
+the first few villians,0.0009787524764003964
+of virtuosic set pieces,0.00694540558881
+demographic groups,0.0006432409352180238
+deserve a passing grade even on a curve,0.0006492176600624984
+sticks with its subjects a little longer and,1.0951134900650228e-05
+its attendant,0.0027132435334037055
+mexico s,4.924452520765452e-06
+new action hero,9.30799081000048e-08
+getting around the fact that this is revenge of the nerds revisited again,0.062435019398700026
+allout villain,0.0036282835355052182
+showdon,0.0028876865563655964
+like a grinning jack o lantern,0.015785247524816026
+of pre0 0 new york and onto a crosscountry road trip of the homeric kind,0.00023695604007075395
+some episodes,3.797523538402478e-05
+sophisticated,0.0007205842296899955
+racial prejudice in its ugly and diverse forms,8.894904243839974e-05
+grossout monster movie,0.00033151296521250634
+those outside show business will enjoy a close look at people they do nt really want to know,0.012156073623776811
+your own life in much the same way its characters do,0.005845594863120098
+link together to conquer all kinds of obstacles whether they be of nature of man or of one another,0.0014968766364600995
+ice age only improves on it with terrific computer graphics inventive action sequences and a droll sense of humor,0.0012828610707025013
+a pleasant enough romance with intellectual underpinnings the kind of movie that entertains even as it turns maddeningly predictable,0.001156302619802505
+lukewarm maybe,0.015132905502015624
+most emotional resonance,0.03422643376501564
+quasishakespearean,0.004573438044585597
+material this rich it does nt need it,0.18144909057761222
+she and,6.644357757184816e-05
+are in the mood for an intelligent weepy,6.571891144899793e-06
+with some ingenious plot devices and some lavishly built settings,0.0026287718394024944
+rolled about 0 minutes,3.285103795430624e-05
+an inhuman monster,0.0014489937099225005
+there s a solid woman findingherself story somewhere in here but,0.0007001599124862254
+serve as whatever terror the heroes of horror movies try to avoid,0.00954718742828409
+does the absolute last thing we need hollywood doing to us,0.08168537830677162
+could use a little more humanity,0.004307757634920108
+much besides glib soullessness raunchy language and,0.025724259219865594
+the things that made the original men in black such a pleasure,0.003762840964000001
+scooby dooby doo and shaggy too,0.024444600168336113
+required to sell the material,0.00010965653230510196
+website movie,0.0009095727001291296
+love depraved,0.006239078867865605
+decent draft,0.009048310457599058
+like to watch a solid tale about a universally interesting soul,0.06582824187102247
+catch me feels capable of charming the masses with star power a popinduced score and sentimental moments that have become a spielberg trademark,0.026272665623402518
+s time to rethink independent films,0.00013360648161592887
+we can make,0.007286602754560006
+as any of the clients,0.003187970577074729
+from the opening strains of the average white band s pick up the pieces you can feel the love,0.002068319885076227
+is that it never loses touch with the reality of the grim situation,0.0029346283904563087
+by a dog,0.0006181512158466097
+wreak havoc,0.019435301451302508
+the title not only describes its main characters,0.020016066927422492
+life s wonderment,0.005617039318548113
+is to see two academy award winning actresses and one academy award winning actor succumb to appearing in this junk that s tv sitcom material at best,0.003232331832959997
+really dumb,0.062278232073844884
+we nod in agreement,0.003594355014643608
+projects the same lazy affability as its nominal star david arquette,0.007210909626555631
+there s more repetition than creativity throughout the movie,0.025432391005293358
+some other recent efforts,2.2828978209023673e-05
+for the first time since desperately seeking susan madonna does nt suck as an actress,0.07044901857107562
+stale cliches,0.012789559579174227
+a few zingers aside the writing is indifferent and jordan brady s direction is prosaic,0.0015360845861972288
+welldeserved reputation,0.0016758801343752234
+the unmentionable,0.009307617611240021
+resemblance to and shares the weaknesses of too many recent actionfantasy extravaganzas in which special effects overpower cogent storytelling and visual clarity during the big action sequences,0.000966866064580899
+painfully forced false and fabricated,1.9719550048899822e-05
+a piquant meditation on the things that prevent people from reaching happiness,0.008469716004723609
+such messagemongering moralism,0.01142819122269024
+sets a new benchmark for lameness,0.005545533662355604
+its share of belly laughs including a knockout of a closing line,0.0024391893604224966
+a lousy script,0.002158197100960001
+cherish would ve worked a lot better had it been a short film,0.025837670045446008
+more like a travelagency video,9.512598309502423e-05
+to the level of the direction,0.0005583920705630388
+stylistic tourdeforce,0.05383467252899999
+to her characters,0.00016473329751340998
+benefits greatly from a less manic tone than its predecessor as cho appears to have settled comfortably into her skin,3.2264781376000163e-06
+a history,0.0003232539699402258
+other stories,0.00022837382852180558
+a watch that makes time go faster rather than the other way,0.001972172603722496
+made for a different film altogether,3.918797560090034e-05
+o mundo era,0.00011017144249882271
+swaggers,0.0007624242007209006
+my interest from start to finish,0.0071746778300409006
+a beguiling serenity and poise that make it accessible for a nonnarrative feature,0.0363685553103222
+even with harris s strong effort,0.04484640583809003
+is bad,0.020444602986390618
+sustained intelligence from stanford,0.0047052808845024835
+disney sequels,0.027829746506249996
+without de niro,0.0013065497263355312
+screams at the top of their lungs no matter what the situation,0.030461035054810005
+never boring,0.03685707680508088
+there s no point of view no contemporary interpretation of joan s prefeminist plight so we re left thinking the only reason to make the movie is because present standards allow for plenty of nudity,0.01835698865984122
+stunning as frida and a starmaking project,0.01916242192656
+be comforted by the way it deals with big issues like death and destiny,4.751344900010766e-09
+plenty of fun for all,0.005478964101000615
+as exmarine walter who may or may not have shot kennedy actor raymond j barry is perfectly creepy and believable,0.008122084833212098
+its observation of just how much more grueling and timeconsuming the illusion of work is than actual work,0.0493535860254889
+last 0 minutes,0.002423168359073343
+in acting writing or direction,9.089037128809063e-06
+deem it necessary to document all this emotional misery,0.008651244235564222
+far more impact,0.0650585495763506
+would be a tossup between presiding over the end of cinema as we know it and another night of delightful hand shadows,0.009323572889822494
+both hugely entertaining and uplifting,0.005829274399599234
+becomes an exercise in trying to predict when a preordained big moment will occur and not if,0.0137516782830025
+of hubristic folly,0.0015433446174306282
+highlander and,0.0020668385880125125
+never change,0.002873283753120394
+as a welcome if downbeat missive from a forgotten front,0.002371074958879229
+the lack,0.0047470329286512245
+the mixture the intoxicating masala,0.0016269025446144058
+for heaven,0.00040166031934622646
+and their guests,0.0002440288721663508
+found myself strangely moved by even the corniest and most hackneyed contrivances,0.0044730748491025
+halftime,0.0002359039034197321
+imaginative premise,1.6069274822500465e-05
+ve got ice water in your veins,0.0002280254249108661
+it does take 0 hours to get through,0.02864012644792359
+if high crimes were any more generic it would have a universal product code instead of a title,0.028370322275406406
+evil than ever,0.0012140886562506225
+possibly,0.004715888083560977
+believe it for a second,1.0249144440612555e-05
+your dreams,0.0003628957753811504
+does have a heart,0.012388736242089983
+charles,7.090759904221835e-07
+to lend the characters individual stories enough dramatic resonance to make us care about them,0.05681932010976124
+suspenseful enough for older kids but not too scary,0.00037812455343062563
+does nt contain half the excitement of balto or quarter the fun of toy story 0,0.06103373955750564
+the superficial way it deals with its story,0.07849541213128693
+the tumultuous surroundings,0.005483060690526864
+or fourth viewing,0.004694815333032009
+dusty and leatherbound,0.008085127583088901
+defined by childlike dimness and a handful of quirks,0.006302363248130627
+he can outstealth any agent,0.05096841607608843
+of tragic loss and increasing decrepitude,0.0002493509437225007
+is that rare animal known as a perfect family film because it s about family,0.017653745982759993
+political prisoners,0.0017513604788490832
+elegantly appointed,0.0005443861904472277
+well as a star vehicle for zhao,0.025930773621122498
+de niro looks bored murphy recycles murphy and,0.03254438910840324
+it may be an easy swipe to take but,3.579545138489997e-05
+everything we ve come to expect from movies nowadays,0.0007881275784320983
+narc may not get an a for originality but,0.008766774179519864
+is terrific although the actors must struggle with the fact that they re playing characters who sometimes feel more like literary conceits than fleshandblood humans,0.0015055071247482264
+its spy,0.0036567641548330464
+enough secondary action to keep things moving along at a brisk amusing pace,0.003150489899100632
+until the film is well under way and yet it s hard to stop watching,0.0029720160624400137
+white freeze frames reminiscent of a pseudohip luxury car commercial it s,0.004483455453132097
+murphy do the genialrogue shtick to death,0.021205491659313024
+puts them into a battle of wills that is impossible to care about and is nt very funny,0.020893874236708222
+fists,0.0007308315870066075
+a film maker,0.003573574631860698
+the warpath,0.00026840047729955634
+is adorned with some awesome action photography and surfing,0.0016712357205625017
+an aspiring writer s comingofage,0.038720056269515635
+in ferment,0.0051754412954915915
+people on the economic fringes of margaret thatcher s ruinous legacy,0.004687647244296027
+of cinematic violence,0.0004990997945132212
+is one of those reputedly unfilmable novels that has bucked the odds to emerge as an exquisite motion picture in its own right,0.0034331191414806333
+then it would be fairly simple to forgive the financial extortion,0.0003873370375744005
+rhetoric and clichãƒâ©,0.05612982831446555
+even while his characters are acting horribly he is always sympathetic,0.0011609156987173665
+a surprisingly funny movie,0.0030021139514025026
+the film never veers from its comic course,0.1342150884567506
+if you grew up on scooby you ll love this movie,0.0002813491281062283
+all the longing,0.001035683569833442
+family fundamentals displays a rare gift for unflinching impartiality,0.007709849733062503
+what s the most positive thing that can be said about the new rob schneider vehicle,0.006083532009000006
+surprisingly similar teen drama,0.0020487121470781026
+of the movies,0.005948873848297241
+repetitive arguments schemes and treachery,0.028373642224800613
+the testosteronecharged wizardry of jerry bruckheimer productions,0.013925371665779354
+if this is the danish idea of a good time prospective tourists might want to consider a different destination some jolly country embroiled in a bloody civil war perhaps,0.08443328812234642
+kidd,0.00013267945908364872
+around obscure expressions like bellini and mullinski,0.0015832518590595114
+exudes a kind of nostalgic spymovie charm and,0.00860228981716091
+more vaudeville show than wellconstructed narrative but on those terms it s inoffensive and actually rather sweet,0.059621159591058036
+of people,0.00026555472722250003
+a happy throwback to the time when cartoons were cinema s most idiosyncratic form instead of one of its most predictable,0.004961490712622503
+nearly three hours,0.0005582072494880994
+ricochets from humor,0.00825584489242239
+hanson brothers,0.00018736863977502198
+recognize that there are few things in this world more complex and as it turns out more fragile,0.0021670095663224986
+0minute trifle,0.03122974280197209
+by orchestrating a finale that is impenetrable and dull,0.017716291478553588
+something needed to balance out the violence,0.007659431830512401
+family audiences,0.003273044742880898
+yet i found it weirdly appealing,0.00030718591395839987
+this loose collection,0.007917349640660109
+actor raymond j barry is perfectly creepy and believable,0.01398740261172248
+photography benoit delhomme,0.002623079168160026
+all about anakin,0.0001547394187249007
+this 0st century,0.002214902202248751
+the story really has no place to go since simone is not real,0.005296322159947219
+saving,0.0006634821368736094
+thinkers,0.0015921488550276015
+has done,0.0005076918351523234
+bodily fluids gag,0.0018353757004512257
+each other,0.0018164398935826625
+and at times uncommonly moving,0.05103600809136503
+consistently funny in an irresistible juniorhigh way and,0.002695587752902508
+cowriterdirector jonathan parker s,0.0003814697265625
+panther,2.576265943024892e-05
+brutal form,0.004723861354774254
+does nt so much phone in his performance as fax it no even that s too committed he gets his secretary to fax it,5.13451068024999e-05
+will only,4.678057957468916e-05
+is no doubt that krawczyk deserves a huge amount of the credit for the film s thoroughly winning tone,9.38723809960018e-06
+turns john q into a movieoftheweek tearjerker,0.010146449294272216
+treacle from every pore,0.000305328968532224
+a part of that elusive adult world,0.001641489939243025
+of the ring,0.0002962540972051223
+an almost constant mindset,0.002174558999115884
+observant cleverness toofacile coincidence and slightly noxious preciousness,0.0018134992590399992
+is mesmerizing filled with menace and squalor,0.04305670650121
+is still a nice little picture made by bright and friendly souls with a lot of good cheer,0.020880712402560002
+find some fun in this jumbled mess,0.08045559224430254
+that respects the marvel version without becoming,0.015502523453356893
+and funny a little uneven to be the cat s meow but it s good enough to be the purr,0.020491139476980214
+is never as daft as it should have been,0.009229833026880407
+anything special save for a few comic turns,0.03949715236059901
+to gooeyness,0.001437176516032327
+messagemongering moralism,0.049912696924757534
+the selection,0.00012748047102562377
+the thrill of the company s astonishing growth,0.011719171006214384
+i thought it could have been more,0.00018400610506322422
+with nary a glimmer of selfknowledge crane becomes more specimen than character and auto focus remains a chilly clinical lab report,0.0014762470102416025
+deft and,0.03286857864039422
+a lock,0.00027060602031145055
+conservative christian parents,8.054366055054486e-05
+is really a series of strungtogether moments,0.000542767681890628
+the santa clause 0 is a barely adequate babysitter for older kids but i ve got to give it thumbs down,0.07295542803189062
+to be compelling amusing and unsettling at the same time,0.019522550262534393
+tangle,0.0007782056459139051
+instructs a younger lad in zen and the art of getting laid in this prickly indie comedy of manners and misanthropy,0.07548979898156488
+helpfully,0.0008671360271391042
+in the theater watching this one,8.397189484992372e-05
+bogged down in earnest dramaturgy,0.04088846350428159
+like the nightmare you had a week ago that wo nt go away,0.05830372117687323
+just for sitting through it,0.00011543504016489988
+a slow soggy soporific visually dank crime melodramacharacter study,0.006201657000359999
+after next,0.02062263498441222
+the philosophical musings of the dialogue jar against the tawdry soap opera antics of the film s action,0.0003802297202703984
+tackles the topic of relationships in such a straightforward emotionally honest manner that by the end,0.010702838742975618
+effective and claustrophobic,0.03456427121413734
+monte cristo smartly emphasizes the wellwrought story and omits needless chase scenes and swordfights as the revenge unfolds,0.026520024790089997
+is so often less,0.0003710481440121005
+modernizes a e w mason s story to suit the sensibilities of a young american a decision that plucks the four feathers bare,0.009542420278222658
+horror and hellish conditions,0.014250823959544218
+calculated swill,0.00044315954733602475
+you ve seen the end of the movie,0.004284167862138024
+largely flat and uncreative moments,0.0018826877610025009
+aliens,9.386927999545676e-05
+baker s,7.480917959289917e-05
+any rock pile will do for a set,0.010406925565635597
+i assign one bright shining star to roberto benigni s pinocchio but i guarantee that no wise men will be following after it,0.0013169786160399995
+s a slow study the action is stilted and the tabloid energy embalmed,0.0022213075955625
+to personifying independence in its purest and yes most intimidating form,0.0025219419347235934
+replacing john carpenter s stylish tracking shots,0.0017936177887656242
+classicism or be exasperated by a noticeable lack of pace,0.008021289150722508
+i m not a fan of the phrase life affirming because it usually means schmaltzy,0.0019763995085912184
+your random e true hollywood story,0.0021425781108160786
+the unlikely story of sarah and harrison,0.0009415551099529017
+is undoubtedly one of the finest films of the year if you re not deeply touched by this movie check your pulse,0.018200627154090005
+zoolander,0.00014561729170560033
+without you is a probing examination of a female friendship set against a few dynamic decades,0.005638453284433223
+feels not only manufactured but also so false you can see the filmmakers puppet strings,0.0006918914726689014
+stage dialogue,0.002610941067624794
+how to win the battle,0.0006400596403599985
+well made but uninvolving bloodwork is nt a terrible movie just a stultifyingly obvious one an unrewarding collar for a murder mystery,0.0014420269544409036
+takes hold and grips hard,0.02221963099312502
+the rigors,0.003699490853433601
+charmingly,0.029831134454286416
+ample,0.02961345630864406
+0,5.6595532761499565e-05
+harder and harder to understand her choices,0.011165727280680016
+for this reason and this reason only the power of its own steadfast hoitytoity convictions,0.033249440095604106
+for fashioning an engrossing entertainment out of an almost surefire prescription for a critical and commercial disaster,0.05092279665664
+its ability to spoof both black and white stereotypes equally,0.010518840769959983
+this is an ungainly movie illfitting with its elbows sticking out where the knees should be,0.009554348938322507
+kok,8.622732594168906e-05
+street credibility,0.002537063360332902
+nt always make us laugh,0.0023922551071692204
+an enjoyable family film pretty much aimed at any youngster who loves horses,1.8507203999999287e-05
+even the corniest and most hackneyed contrivances,0.029610184191210004
+one adapted fromtelevision movie that actually looks as if it belongs on the big screen,0.0028644096672323914
+sometimes angry,0.011133842564850623
+no trouble sitting for blade ii,0.0014283478863800988
+blessed with immense physical prowess he may well be but ahola is simply not an actor,0.020893538888700616
+to his characters as if he has been giving them private lessons,0.0021944062433601015
+that door,4.8372407525756085e-05
+this modern mob music drama never fails to fascinate,0.0068754162826969055
+sticking its head up for a breath of fresh air now and then,0.0192964437274896
+can be made on the cheap,0.031626546789495655
+more daring and surprising american movies,0.005357680766592408
+the darling of many a kidsandfamilyoriented cable channel,6.699831756248418e-07
+this dramatically shaky contest of wills only reiterates the old hollywood saw,0.0425792783754009
+even when he s not at his most critically insightful godard can still be smarter than any 0 other filmmakers still at work,0.004813739118643224
+less endearing,0.033312123108888085
+oh and more entertaining too,0.049699666447008385
+attempts to heal after the death of a child,0.0066705606022500015
+pulled literally and figuratively by desire,0.07953558498189159
+defies an easy categorization,0.001888803543235055
+s not going to be everyone s bag of popcorn,0.0008234483637241
+the script s flaws,0.00010240428025000008
+taxes with your exwife,0.009680338255464098
+faking some pretty cool stunts but a complete failure at trying to create some pretty cool characters,0.006895766160562495
+bid to hold our attention,0.00211236020657639
+pretty toxic in its own right,0.00014101776250809945
+neater,0.0034409423955856547
+of being overrun by corrupt and hedonistic weasels,0.014644075981544099
+a sheet of firered flame,0.00028291097030180563
+a stifling morality tale,0.0335548794276081
+that could so easily have been fumbled by a lesser filmmaker,0.00019204554980249876
+gives his best movie,5.9113655688997755e-06
+those like me,0.0002364040014392265
+has to be a few advantages to never growing old like being able to hit on a 0year old when you re over 0,0.016494573133440008
+his most personal work yet,0.04845933017104003
+spoiler alert,0.003227452793955616
+an otherwise excellent film a powerful performance from mel gibson,0.0005789605945599954
+about the horrifying historical reality,0.002294201160752403
+is cloudy the picture making becalmed,0.00034356327741159805
+less than the characters,0.010985104657022496
+brits behaving badly watch snatch again,0.0001737943892721014
+that feels very human and very true to life,0.015360463006902234
+nails hard boiled hollywood argot with a bracingly nasty accuracy,0.017624952877554022
+shell games,6.695912004245182e-05
+cautions children about disturbing the world s delicate ecological balance,0.0003343883288189434
+that cuts across the grain of what,0.00043290775821566246
+cobbled together from largely flat and uncreative moments,0.005187895931702501
+and torturing,0.0001847417844006244
+might have made a decent children s movie if only benigni had nt insisted on casting himself in the title role,2.0874664454399976e-05
+many shallower movies these days seem too long,0.0002007903170024997
+the mill scifi film with a flimsy ending and lots of hype,0.017018307429435234
+the human comedy,0.00017963236728999973
+it the kahlo movie frida fans have been looking for,7.263019385222487e-05
+but not,0.0024333980903652255
+and,0.00014561729170560033
+only of delivering artfully lighted earnest inquiries that lack the kind of genuine depth that would make them redeemable,0.005932998051765846
+a mildly enjoyable if toothless adaptation of a much better book,0.002365280059881021
+stink bomb,0.0034938171365903998
+it s refreshing that someone understands the need for the bad boy diesel with his brawny frame and cool composed delivery fits the bill perfectly,0.004127143776122495
+re the kind of person who has seen every wim wenders film of the 0s,0.008982475011846403
+simplistic fluffball of whimsy,0.001187630133240103
+carmen and,1.584951551102427e-05
+mulan,3.3226034856009453e-06
+be embraced,0.0011108389055624985
+from simplicity,0.0001773429417782916
+presenting the,0.00047381354260582454
+the achingly unfunny phonce,0.0024734757294025004
+directtovideo release,0.019162138564672762
+that s being advertised as a comedy,0.001514630183062499
+varying,0.004560596551131716
+speak to the ways in which need history and presumption tangle and,0.0045389014956769055
+even quasioriginal when you can pillage from shirley jackson richard matheson and puke up something like rose red,0.0002328895749183993
+does mostly,0.0037671207847656245
+of a society in transition,0.0011608551872556241
+an articulate grownup voice in africanamerican cinema,0.003236497131648399
+like a change in herzog s personal policy than a halfhearted fluke,0.025690450955408096
+gutwrenching style of joseph heller or kurt vonnegut,0.03481445219893395
+best irish sense,0.001796700156250002
+of transgression,0.00017145222058255206
+the mind of jeffrey dahmer serial killer,0.0008432926764080037
+fascinating and timely,0.005048884080250007
+so painful to sit through,0.006948656193959998
+serves as the antidote,4.48638403122566e-05
+and over again,0.01320858194867403
+even indecent proposal,0.010011690414649225
+dense and enigmatic elusive stagy and stilted,0.0007602002951929009
+0 years old,0.030484112583596998
+to justify its twohour running time,0.022944761208454817
+that first made audiences on both sides of the atlantic love him,0.008278049132926232
+director gary fleder,8.836131600489967e-05
+arrangements,0.0016029696166326149
+give performances of exceptional honesty,0.006061953808102496
+let s face it,0.02927672391237175
+without any redeeming value whatsoever,0.05728028967566008
+limp eddie murphy,0.000988600936100624
+a very moving and revelatory footnote to the holocaust,0.022464628912202498
+there has been much puzzlement among critics about what the election symbolizes i believe the message is in the messenger,0.04951090035920251
+brainy,0.0030808185127297596
+to unnerve the majority,0.010836937210573312
+frenetic,0.008153889535232104
+0step program,5.261215662755962e-06
+loyal order,0.024878446904740916
+embroils,0.00044963718162249966
+there s no saving the movie sorry charlie,0.05406246490362322
+for the earnest emotional core,3.186105759360024e-05
+s a strange film one that was hard for me to warm up to,0.025372921805440003
+0th oscar nomination,0.024462503692354216
+its use of the thriller form to examine the labyrinthine ways in which people s lives cross and change,0.0005938047849721026
+rise above its heartonitssleeve writing,6.675633490702352e-05
+you re likely wondering why you ve been watching all this strutting and posturing,0.0008744576437128969
+for worst movie,0.0009803474102500003
+though i could not stand them,0.0166282159761936
+odoriferous,7.245661250102451e-05
+are jarring and,2.311494529599995e-06
+graceland,0.00014561729170560033
+machismo,0.0016382126325507668
+of quirkiness eccentricity and certain individuals tendency to let it all hang out and damn the consequences,0.001152112653556227
+and very tragic,0.017845915385846
+gets the onceover once again in gangster no 0 but,0.0006036712391572848
+that is tragically rare in the depiction of young women in film,0.007190858529144908
+geared more to grownups,0.0053156012527489
+have forsaken the entertaining elements of the original,0.00017962030506250013
+best earlier work,0.028760888509026014
+should have found orson welles greatgrandson,0.00013057667181022464
+the film is more worshipful than your random e,0.0428395675291562
+and overall strangeness,0.0085441090599225
+is clever and funny is amused by its special effects and leaves you feeling like you ve seen a movie instead of an endless trailer,0.016987114473890636
+as notting hill four weddings and a funeral bridget jones diary or high fidelity,5.564472900482006e-06
+filmmaker stacy peralta has a flashy editing style that does nt always jell with sean penn s monotone narration but,0.005961152472250002
+facial expressions,4.028517064359949e-05
+rarely easy obvious or selfindulgent,0.10938256110381901
+blue crush,0.029752842705045263
+particularly that unexpected downer of an ending,0.09956261074063921
+every single scene,0.02825100859429215
+but rather,0.000958569186110593
+kind of special,0.0255874703335056
+about what classic,0.011948733378508642
+if nothing else this movie introduces a promising unusual kind of psychological horror,1.2579416963998998e-06
+that santa bumps up against 0st century reality so hard,0.01460449083146873
+a fresh entertaining comedy that looks at relationships minus traditional gender roles,0.007378820308003591
+this sad occasionally horrifying but often inspiring film is among wiseman s warmest,0.00971934431796021
+from each film,0.011745414815350219
+waste of time,0.08895933480806523
+truly edgy,0.00029392273643062444
+javier bardem,0.004641342767014798
+upsetting,0.0022552977255006212
+makes a tragic error by going on for too long trying to mirror every subsequent event in chinese history war revolution communism etc,0.018732794676839994
+or indeed from any plympton film,0.012999755431260883
+drive right by it without noticing anything special save for a few comic turns intended and otherwise,0.019909658700528084
+many directors,0.004386443895694749
+the hero,0.0005200913775821452
+s refreshing after the phoniness of femalebonding pictures like divine secrets of the yaya sisterhood,0.009170561745302513
+the director knows how to apply textural gloss,0.005069709851591019
+with the right actors,0.03236767646583611
+create a completely numbing experience,0.0416860504134244
+it s time to rethink independent films,6.517672777730998e-05
+either too serious or too lighthearted,0.0025578751311936027
+s target market,0.0020310629489101984
+sustain interest and empathy,0.0069016425450156346
+this particular anciently demanding mãƒâ©tier,0.07697082842426889
+this sensuous and spirited tale of a prim widow who finds an unlikely release in bellydancing clubs,0.005815801129960005
+the film is just a corny examination of a young actress trying to find her way,0.0177133899615556
+a perpetual frat party how can something so gross be so boring,0.0230244874087684
+the front ranks,0.0017310301119224949
+0 seconds,0.00018826062705610077
+hollywood romantic comedies,0.001246707826562496
+intrepid hero,0.0054956460893906345
+hardpressed,0.008255351520871217
+deserves the dignity of an action hero motivated by something more than franchise possibilities,0.10867268274915999
+worldweary,0.004573438044585597
+parentchild relationships,0.000224990625097657
+respectable summer blockbuster,0.0033717370035555925
+is leguizamo s best movie work so far a subtle and richly internalized performance,0.008541303907680639
+this gory perverted sexsoaked riff on the cannibal genre,0.0006920385188906236
+people,0.00688761496562234
+the writings of jean genet and john rechy the films of fassbinder perhaps even the nocturnal works of goya,0.002755271486862401
+in the other,1.8411642592641218e-05
+done better,0.0015027558495060234
+who are sweet and believable and are defeated by a screenplay that forces them into bizarre implausible behavior,0.02788268775721
+the tv movieesque affected child acting to the dullest irish pub scenes ever filmed,0.043646166647222505
+it s one of the saddest films i have ever seen that still manages to be uplifting but not overly sentimental,0.007726783579515614
+sober and educational,0.007270717944935033
+doubt that peter ofallon did nt have an original bone in his body,0.007189949513344907
+the bigfisted direction of jez butterworth who manages to blast even the smallest sensitivities from the romance with his clamorous approach,0.02301053871006251
+the benefit,0.00830079157134241
+what a banal bore the preachy circuit turns out to be,0.01802016281664001
+of space,0.00025864954028222625
+architecture,0.0017946271580415922
+there s no clear picture of who killed bob crane,0.001231607084947599
+a movie version of a paintbynumbers picture we can tell what it is supposed to be,0.1400685939696121
+if there was actually one correct interpretation,0.0014800928604006244
+sloppy overthetop,0.005612586855840002
+afterschool,0.0007421463145814066
+is a stunning film a oneofakind tour de force,0.0010697521009142236
+by which all the queen s men is allegedly inspired,0.031138184538022494
+chasing who,0.021081512523667596
+cube,4.172423924863348e-08
+movie brainless,0.0005263215988900005
+as wellwritten as sexy beast not as gloriously flippant as lock stock and two smoking barrels but stylish and moody and exceptionally wellacted,0.00013989685283999869
+the station,0.00015830383015322537
+if this was your introduction to one of the greatest plays of the last 0 years,0.008088690950122504
+think of a very good reason,0.0394691530254025
+good laugh,0.004244596119819232
+to find out whether in this case that s true,0.00026471037815600735
+ka,0.0002451288104280991
+to build,0.00020841720970224528
+verges on camp,0.00022722788784639968
+prior to filming,0.00019776211883526374
+in the us,0.0004073064639672265
+than involving,0.0005352838429848037
+pleasure,0.0007570124920996
+is a good script good dialogue funny even for adults the characters are interesting and often very creatively constructed from figure to backstory,0.01082152310490251
+and really asks you to take these great leaps of faith and pays off,0.003476045763999995
+falls short of its ideal predecessor largely due to parker s illadvised meddling with the timeless source material,0.0006543527713024009
+it s not too fast and not too slow,0.017474683884504034
+stature,0.0007623682597742899
+marks a modest if encouraging return to form,0.0003123586112688991
+nothing i had nt already seen,0.012030146608100629
+tvtomovie,0.003291638294585598
+gives no quarter to anyone seeking to pull a cohesive story out of its 0ã‚â 0 hour running time,0.04066377915286438
+its impressive craftsmanship,0.0009080859808362283
+has made the nearfatal mistake of being what the english call too clever by half,0.03668322377082251
+ideas for the inevitable future sequels,0.0007470740293490241
+davis highly personal brand of romantic comedy is a tart smart breath of fresh air,0.0009196884141132297
+do nt let your festive spirit go this far,0.009490144951890619
+are of the highest and the performances,0.000533599605050622
+lastminute,0.014962159159209013
+a full experience,0.0024599536683263964
+of the worst possibilities of mankind,0.0041689814265224966
+dainty psychological terror on the outside with a creamy filling of familial jealousy and unrepentant domestic psychopathy,9.140316025010348e-09
+see,0.0005600891644372088
+mediterranean,0.0001354413215814765
+with a blind orphan at its center,0.007983647842290123
+so bad it starts to become good,0.04757774128440064
+than in answering them,0.00046951093457640094
+bring new energy to the familiar topic of office politics,0.01102074371087291
+s surprising,0.0018392418897090783
+suffer the same fate,0.005489104350480093
+vainly i think,0.016600874360659906
+and inconsequential romantic,0.022348953853792226
+will be all too familiar for anyone who s seen george roy hill s 0 film the sting,0.0020312427038760975
+follows the formula but,0.0023378273723261432
+saved only by its winged assailants,0.04129545630873722
+loud bangs,0.001782165326490002
+aristocratic,0.0007696782936848502
+inchoate,0.00029868649993740223
+after the phoniness of femalebonding pictures like divine secrets of the yaya sisterhood,0.07656280699002252
+this movie is maddening,0.04384732347612561
+twenty years,0.00025770910870771065
+taymor,0.00014561729170560033
+the forgettable pleasures of a saturday matinee,0.005759112242104216
+overlooked,0.002152775331960099
+might be lured in by julia roberts,0.03345895448205209
+has a major release been so painful to sit through,0.029300538275999998
+so vividly that the artist s work may take on a striking new significance for anyone who sees the film,0.0016686898201600034
+barney s crushingly selfindulgent spectacle,0.0018327975611042275
+cliff,0.0013229012883240962
+on a movie,0.00020663980562581226
+a disappointment for those who love alternate versions of the bard particularly ones that involve deep fryers and hamburgers,0.0623401970287559
+roll movie,0.0005394868860984511
+the jokes are sophomoric stereotypes are sprinkled everywhere and,0.0012936412742006243
+who is always a joy to watch even when her material is not firstrate,0.0027697590122499967
+does an established filmmaker,0.006294543632185607
+story to tell his own,0.0004665577752026532
+connect with on any deeper level,0.006890311462409986
+last year s taxes,0.001339172799984098
+by a miscast leading lady,0.014212147080384093
+own cinematic terms,0.0010244700699343391
+pat for its own good,0.05341500528742823
+memorable for a peculiar malaise that renders its tension flaccid and,0.005183707684120903
+waster,0.002262354072924105
+guns and jokes,0.0014492632272560982
+void,0.0023224312743921048
+roger dodger is one of the most compelling variations on in the company of men,0.0013338857017600049
+that jackie chan is getting older and that s something i would rather live in denial about,0.09391892679780249
+give some of the characters,0.0002214729864349925
+come to expect including the assumption that crazy people are innocent childlike and inherently funny,0.03158076768474623
+statement,0.0002234358877639831
+quills,2.088605622600219e-05
+do nt plan on the perfect ending but sweet home alabama hits the mark with critics who escaped from a small town life,0.0030769791437756182
+jaglom s films,0.0008072476252947127
+unturned,0.0008586578972082257
+to learn as many times as we have fingers to count on jason is a killer who does nt know the meaning of the word quit,0.010013122302048085
+gives us compelling damaged characters who we want to help or hurt,0.004441840603708236
+my wife s plotting is nothing special it s the delivery that matters here,0.029174260743710278
+goofy grandeur,0.02167143477308412
+thinking that we re not watching a double,1.2714832258803078e-06
+are a mixed bag,0.007897990831750875
+mirror every subsequent event in chinese history war revolution communism etc,0.0002610515572680995
+reeks,0.002312199922915603
+if a bit draggy at times,0.03495067266198009
+never really feel involved with the story as all of its ideas remain just that abstract ideas,0.060882283236656023
+like a film that strays past the two and a half mark,0.012498551321486393
+last week s,0.00016269023800856934
+its final form in last dance,0.0074849031901622395
+a quietly reflective and melancholy new zealand film about an eventful summer in a 0yearold girl,0.0005326418565312236
+the time frank parachutes down onto a moving truck,7.416717267733182e-05
+schaeffer,0.019800092365265615
+for a movie that tries to be smart it s kinda dumb,0.03209636174343064
+it still wo nt feel like the longest 0 minutes of your moviegoing life,0.05318811202523037
+vex nearly everyone,0.053400633096492914
+wow,0.005852259180003597
+with the movie s spycraft,0.00023860676595070392
+for the nonfan,0.0013721513995238442
+the plot and a maddeningly insistent and repetitive piano score that made me want to scream,0.009896981694780628
+a really cool bit,0.007676427651800618
+an accomplished actress,0.0027851246295184065
+an engaging storyline which also is nt embarrassed to make you reach for the tissues,0.001415523989902492
+will find in these characters foibles a timeless and unique perspective,0.0022590072668702203
+spider and snake,0.00030245011573464984
+seen heartbreak if you ve watched the far superior nurse betty or sunset boulevard even the unwatchable soapdish is more original,0.00747082166222722
+lost in the translation another routine hollywood frightfest in which the slack execution italicizes the absurdity of the premise,0.027152876829689997
+casts an odd rapt spell,0.00042254701873465126
+should pay reparations to viewers,0.045920163384909014
+period pieces,0.004401538277928103
+s worth the concentration,0.018648085998420022
+it s all about the silences and if you re into that,0.0009731015094306252
+have viewers guessing just who s being conned right up to the finale,0.0368408791464484
+know what you did last winter,0.004211126562628435
+night shyamalan s ability,7.356582958775746e-05
+icet sticks his mug in the window of the couple s bmw and begins haranguing the wife in bad stage dialogue,0.00677995382322562
+the villain,0.0005206611240000002
+half the interest,0.012413602378824403
+frida is certainly no disaster but neither is it the kahlo movie frida fans have been looking for,0.03158445349322404
+holm does his sly intricate magic,0.005518602941289992
+brown and,0.00019909963481128928
+give shapiro goldman and bolado credit for good intentions but,0.01922651878243675
+levels and levels of dilithium crystals better than the pitiful insurrection,0.009529519922947597
+faintly amusing,0.01196794428361
+to perform entertaining tricks,0.00015784153225000151
+relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft,0.0006929661380624967
+lane s,0.002925555717709232
+like the first movie based on j k,0.0006086461522700217
+its poignancy hooks us completely,0.07054410368196
+really funny fifteenminute,0.008412270401664904
+suicidal,0.04328933602820102
+with grace and panache,0.005366525780730632
+is perfectly inoffensive and harmless,0.0035965424305924015
+immature character,0.0015722287637955983
+the second world war to one man,0.0025100897598336106
+the kind of softcore twaddle you d expect to see on showtime s red shoe diaries,0.021846530864718407
+in a state of quiet desperation,0.005982849314603288
+ca nt sustain it,0.003410859598579227
+arliss howard s,0.0001314779620354559
+that thrives on artificiality,0.04597554830061903
+airless,0.009477051705022494
+giant chuck jones,0.0034930251273123966
+nor donovan,9.690866740840029e-05
+his or her own beliefs and,9.14482790093491e-06
+but little imagination,1.6499620590755887e-05
+many other hands,0.0002800488453156004
+teasing chilly poetry out of lives and settings,0.0001329282864792108
+it mostly worth the trip,0.0018178016354192278
+of the hefty audio system,0.0035525223772415997
+so graceless and devoid of merit,0.0435174812392336
+the demographically appropriate comic buttons,0.00226408859635359
+by the time it s done with us mira nair s new movie has its audience giddy with the delight of discovery,0.01518668653477564
+is more boring or embarrassing,2.369158275999967e-05
+an emotionally satisfying exploration of the very human need,0.01002912117025
+it haunts you you ca nt forget it,0.00504100497000122
+erotically perplexing,0.004143700955412226
+all that heaven allows and,0.033329468044959974
+the perkiness of witherspoon,0.009018386931875361
+enough trivializes an important crisis,0.021569724762322495
+sends us,0.007652913113664902
+didactic,0.0070280671236106285
+rotting,0.0005718428081652266
+quitting hits home with disorienting force,0.016213864789005633
+up more,0.009753827067707686
+demographics,0.0001952046844354895
+see these guys,0.0003225063574054423
+achieve the kind of dramatic unity that transports you,0.00654995463260411
+wince in embarrassment and others,0.006014570954932233
+a job well done,0.02114692114043608
+too much meandering norton has to recite bland police procedural details fiennes wanders around in an attempt to seem weird and distanced hopkins looks like a drag queen,0.005047630028555621
+wacky sight gags outlandish color schemes and corny visual puns,0.0025931050800516017
+runs for 0,0.005486670813364228
+gags and prom dates,0.0158593950241281
+canada s arctic light,0.004702815901326409
+fishy community,0.0018419982431090486
+who knows,0.009035360821885226
+immediate aftermath,0.00075945499985891
+suffered through the horrible pains of a death,0.0015359842539732253
+arts,0.00014959803370575469
+has all the excitement of eating oatmeal,0.1591465315837006
+this ancient indian practice,1.7174888809000836e-06
+the real triumphs,0.0012731837148899949
+with this film,0.001711839734128226
+unlikely release,0.00010045451529000103
+go,0.0016771569729534571
+a generic family comedy,0.025090344576462403
+the appointed time,0.00018804970127376324
+superficially written,0.006792121294862931
+that plays things so nice,0.0017351790140303972
+funny and human and really pretty damned wonderful,0.0006030447755809006
+the saddest films i have ever seen that still manages to be uplifting but not overly sentimental,4.610467840000067e-06
+makes the banger sisters,0.004089358854129023
+longer,0.0033449508438025016
+you ll forget about it by monday though and if they re old enough to have developed some taste so will your kids,0.04301040471025
+little clarity,0.023081068892702516
+secretary manages a neat trick bundling the flowers of perversity comedy and romance into a strangely tempting bouquet of a movie,0.0022606078522225104
+the movie too often spins its wheels with familiar situations and repetitive scenes,0.0005904307094884009
+the film shows signs that someone other than the director got into the editing room and tried to improve things by making the movie go faster,0.0007234028848225004
+if you do nt demand much more than a few cheap thrills from your halloween entertainment,0.006568698877200099
+the ethos of the chelsea hotel may shape hawke s artistic aspirations but,0.00614980697269703
+screenplay or,0.012876567681751222
+trapped at a perpetual frat party how can something so gross be so boring,0.01617028233188063
+it grows up,0.00018604932720010125
+s got as potent a topic as ever here,0.006196591221664901
+could have used my two hours better watching being john malkovich again,0.0006842597978895995
+s not original,0.017669261659350618
+in the ok court,0.009207364059246112
+the word perfectly,0.005523309301860898
+this is rote spookiness with nary an original idea or role or edit or score or anything really in sight,0.029457921015609994
+hudlin is stuck trying to light a fire with soggy leaves,0.00032993997806249976
+pokes provokes takes expressionistic license,0.05819993986380976
+hotep,0.00014561729170560033
+a bond movie is quite like calling a dog stupid but,4.854956096575236e-05
+invested in undergraduate doubling subtexts and ridiculous stabs at existentialism reminding of the discovery of the wizard of god,2.3546595600999985e-06
+i m not sure which half of dragonfly is worse the part where nothing s happening or the part where something s happening,0.034452668364490006
+artsy fantasy sequences,0.02619010049493938
+it no wiseacre crackle or,0.011715970120912229
+s a gag that s worn a bit thin over the years though do nt ask still finds a few chuckles,0.0015429537522025018
+own cuteness,0.015625648756734025
+does nt help that the director and cinematographer stephen kazmierski shoot on grungy video giving the whole thing a dirty tasteless feel,0.00011506209288999953
+mr haneke s own sadistic tendencies,0.0660728075409866
+to often play like a milquetoast movie of the week blown up for the big screen,3.811747338422524e-05
+be beyond comprehension,0.005699359663268715
+back and forth ca nt help but become a bit tedious even with the breathtaking landscapes and villainous varmints there to distract you from the ricocheting,0.003874982197916026
+alpha,0.04380610656323904
+a real sense,0.005162028769507596
+do bad things to and with each other in unfaithful,0.011339520569224222
+tacky,0.049880186084625605
+the film s shooting schedule,0.0003623055662742756
+banal bore the preachy circuit turns out to be,0.0013023617880625032
+it builds up to its insanely staged ballroom scene in which 0 actors appear in full regalia,0.005579292232515604
+studio production,0.00010074267381422523
+go for la salle s performance and make,0.00027883021720410153
+squandering his opportunity to make absurdist observations burns gets caught up in the rush of slapstick thoroughfare,0.007250391369592894
+alternately frustrating and rewarding,0.06860881790912253
+is debrauwer s refusal to push the easy emotional buttons,0.004718913034979016
+any academy awards,0.0005897244823672935
+the contacts between the american hosts and their guests,0.008841801692031019
+james eric,3.2950526919840075e-06
+try as i may i ca nt think of a single good reason to see this movie even though everyone in my group extemporaneously shouted thank you,0.0009575636274756267
+the catalytic effect a holy fool,0.006620577867193434
+entry portal,0.007335456228809283
+provide scant reason to care in this crude 0s throwback,0.01181964374969423
+stave,0.0007424502887394778
+garish,0.004181657929747604
+elaborate special effects take centre screen so that the human story is pushed to one side,0.0010322144883290266
+two oscar nominated films,0.028645917926102486
+contrived plotting stereotyped characters,0.00016740310024922423
+out of a cellular phone commercial,0.003028771754981283
+knows great comedy need nt always make us laugh,0.031060756137984424
+wo nt have any trouble getting kids to eat up these veggies,0.06154387320438177
+wo nt win many fans over the age of 0,0.017220561616443916
+an extended episode of touched by an angel,0.024821602324612908
+is at once a tough pill to swallow and a minor miracle of selfexpression,0.0006195389814916009
+greatly impressed by the skill of the actors involved in the enterprise,0.007077587686559999
+cultural backgrounds,0.009013310237787021
+it s dark but has wonderfully funny moments you care about the characters and the action and special effects are firstrate,0.0035036188743906307
+he stumbles in search of all the emotions and life experiences,0.007524263561555163
+interesting in concept,0.001116091123202505
+never reduces the situation to simple melodrama,0.0302117185365842
+about this traditional thriller moderately successful but not completely satisfying,0.006232310656650229
+the era s creme de la celluloid,0.0016339350523514034
+has a wickedly eccentric enchantment to it,0.00051439260605063
+nutty consistently funny,1.80446544100007e-05
+digs into their very minds to find an unblinking flawed humanity,0.0006907535111960991
+though the story is hackneyed the characters have a freshness and modesty that transcends their predicament,0.005234413252070018
+frailty offers chills much like those that you get when sitting around a campfire around midnight telling creepy stories to give each other the willies,0.016162664928300884
+this time kaufman s imagination has failed him,0.013356825930910221
+is short,0.000622041359733048
+propels her into the upper echelons of the directing world,0.010182606099209993
+a scruffy,0.006384662000646398
+on the tv show,3.465784044228113e-05
+the little girls understand and,2.733928538955361e-05
+american sports movie,0.00018198387721960106
+while the remainder would be more at home on a daytime television serial,0.0001971255312195994
+this movie may not have the highest production values you ve ever seen but it s the work of an artist one whose view of america history and the awkwardness of human life is generous and deep,0.018472257943909248
+ballisticpyrotechnic hong kong action,0.004960620702442284
+sugarsweet,0.0008763258270456017
+a wellmade but emotionally scattered film whose hero gives his heart only to the dog,0.07694935136924656
+poorly acted,0.013263774178771594
+precious life,0.00034026727493222634
+confuses its message with an ultimate desire to please,0.00047119254658090206
+or edit or,2.1009509604231936e-06
+has far more energy,0.05977317046761249
+the story is just too slim,0.0175686038224921
+authors,0.00016776896598435742
+successful on other levels,0.0007902910097732246
+it s hard to sense that powerhouse of 0thcentury prose behind her childlike smile,0.05775463484536363
+a collectively stellar performance,0.008259560644515631
+one of the most significant moviegoing pleasures,0.07301938343658004
+hmmmmm you see the movie and you think,0.03847682129445905
+to give his audience a single character worth rooting for or worth rooting against for that matter,0.03259576401642089
+tops,0.0026848779586928604
+costly divorce,0.002354684359508099
+swims away with the sleeper movie of the summer award,0.19408676958783996
+stifling its creator s comic voice,0.006175303134111408
+an appealing couple he s understated and sardonic,0.004267666577664392
+in flux,2.9357227687040603e-06
+moviegoing,3.7255840233998166e-06
+a satisfying destination,0.005279293951562499
+s simply stupid irrelevant and deeply,0.017882204457409595
+we westerners,0.0017962239642438035
+it bangs a very cliched drum at times,0.0021511215606342267
+its onesidedness flirts with propaganda,0.026634031104409605
+much entertainment value,0.008063460800400614
+bluechip,0.01703180324641439
+also taps into the primal fears of young people trying to cope with the mysterious and brutal nature of adults,0.0031983605714025025
+a feelgood movie can still show real heart,1.2831798622500441e-05
+noisy and pretentious,0.0007269791025024986
+is loopy and ludicrous that it could have been a hoot in a badmovie way if the laborious pacing and endless exposition had been tightened,0.0030207302077689003
+detailing the politics involved in the creation of an extraordinary piece of music,0.006353232949408908
+if disingenuous,0.00039047004889922394
+jackass fan,0.0027846802878049005
+the relationship,0.0003468425741640985
+impostor deviously,0.00014206256100000032
+building up,0.0005996549445496092
+the power of the eccentric and the strange the fact that it is nt very good,0.04233330322784224
+threedimensional characters,0.023500805531775887
+rests in the relationship between sullivan and his son,0.0066800282844735985
+sets the tone for a summer of good stuff,0.017003564077221218
+the truth about charlie,0.0003341878314480234
+the determination of pinochet s victims,0.00465242607360303
+the unfulfilling,0.002315734102305624
+riffs on the diciness of colonics on straight versus gay personal ads on how men would act if they had periods and on the perils of a certain outrãƒâ© sexual practice,0.0046120849735028875
+reduces the second world war to one man,0.00164503937603722
+never knew existed,0.007840309820434564
+director denis villeneuve s,0.0006661671209155858
+for small favors,2.490188149088933e-06
+inventive fun,0.0034511688862225013
+the endlessly repetitive scenes of embarrassment,3.633102844900143e-06
+it wears its bmovie heritage like a badge of honor,0.0005765790254436
+of moviemaking one of the best actors directors and producers,0.00019853584957562302
+and yet at the end,0.0007854542657658516
+may not be last tango in paris but,0.0009307480828541629
+halfhearted movie career,0.0002961884025156238
+to tear your eyes away from the images,0.019309180136290568
+violated,0.007083381111980624
+much of it comes from the brave uninhibited performances by its lead actors,0.00025838955024999973
+unsatisfying ending,0.030327189799291217
+gets more tiresome,0.0081501281173636
+this little 0,3.115778064914001e-05
+it s not lifeaffirming its vulgar and mean but i liked it,0.00013094385102489745
+about nothing delivered by the former mr,0.00043026271470062463
+marinelegal mystery,0.0004920088497192569
+spring break,0.00020547105275038068
+the yaya member with the o0tank,0.0002709395008576005
+a different kind of love story,0.04187689521840251
+overwhelming pleasure,0.0008471184880900065
+those well spent,0.002551614187385021
+by the very prevalence of the fastforward technology,0.009408087252137022
+sinister though not nearly so sinister as the biennial disney girl movie,0.04748467221964839
+enough to read the subtitles,0.001040661468711223
+afflicting,0.00371678865425184
+an inexpressible and drab wannabe looking for that exact niche,1.5284854872224514e-05
+an a for originality,0.03860415855394811
+dj caruso,0.00031151014512249863
+sees himself as impervious to a fall,0.002960685876474225
+also is nt embarrassed to make you reach for the tissues,0.0002810189555043993
+i m not generally a fan of vegetables but this batch is pretty cute,0.03815308618242251
+considerable appeal,0.008005793520010004
+register strongly with anybody who still retains a soft spot for precollegiate humor,0.0066163501469024945
+enter and accept,4.6264646483345e-05
+that old adage about women being unknowable,0.05147244485640604
+the movie seems confident enough to handle subtlety,0.0025581978126768957
+looked at how this movie turned out,0.0022454130939240985
+lusty,0.023377931425449226
+often looks like an episode of the tv show blind date only less technically proficient and without the popup comments,0.0005017902404556242
+who will construct a portrait of castro,0.0024373134654140194
+mired in sentimentality,0.05212185571347324
+eight legged freaks is partly an homage to them tarantula and other low budget bmovie thrillers of the 0s and 0s,0.004778960771280785
+more stunts,0.012440923313198776
+an example to upandcoming documentarians of the overlooked pitfalls of such an endeavour,0.06955912255020323
+an unwillingness to explore beyond the surfaces of her characters,0.0001583906570622258
+ca nt save itself from being unoriginal unfunny and unrecommendable,0.003873581091610002
+grasp,0.0005699244261481019
+parker can not sustain the buoyant energy level of the film s city beginnings into its country conclusion,0.13302597783438025
+polished korean politicalaction film is just as good and bad as hollywood action epics,0.012599460847182397
+check out the girls his film is a frat boy s idea of a good time,0.0016791333784729025
+zero,0.003384206131644905
+more than that it s a work of enthralling drama,0.0013911497555343993
+shows a remarkable gift for storytelling,0.0007589832151225051
+the lowgrade cheese standards,0.03272151535122834
+the first part making up for any flaws that come later,0.008777768318165034
+dissing a bond movie is quite like calling a dog stupid but when it has the temerity to run over two hours,0.0008294664962115983
+are all fine,0.00038415529601440056
+doyle,6.958047210308157e-05
+the jokes are telegraphed so far in advance they must have been lost in the mail,2.5782724900000494e-06
+instead of kicking off the intrigue and suspense and mystery of the whole thing,0.0001054416815104005
+involve deep fryers and hamburgers,3.26999771428222e-06
+a remarkably coherent horrifically vivid snapshot,4.570616410000111e-06
+horsdoeuvre,0.00014561729170560033
+to the achingly unfunny phonce and his several silly subplots,0.06195799271064061
+heed,0.004461420535225954
+abstract approach,0.009141179167316207
+the wallpaper of his chosen reality here thankfully,0.0014515667568220586
+as garnish not only is entry number twenty the worst of the brosnan bunch,0.0006162682125624976
+one that s been told by countless filmmakers about italian chinese irish latin indian russian,0.0008376848035562233
+witty and,0.013211578307056878
+an overlong visit,0.00019138052438122407
+terrifying if obvious,0.0056551317443721
+fantasy film,5.135943890250945e-07
+is it a romantic comedy,0.0019850402033641033
+feel very much like a brandnew,0.0004261539683890094
+a technically wellmade suspenser but its abrupt drop in iq points as it races to the finish line proves simply too discouraging to let slide,0.0023103653503876026
+wind up as glum as mr de niro,0.012588739020202508
+a case study that exists apart from all the movie s political ramifications,0.01840375362438923
+nothing more than the latest schwarzenegger or stallone flick,0.007117575554775626
+pure 0,0.008723264204707476
+some like ballistic arrive stillborn,0.024421784985584095
+the movie worked for me right up to the final scene,0.02172128590884491
+the very end,0.008024475174919232
+of two directors,0.00010618171041140084
+a solid wellformed satire,0.0033283495564224988
+composed delivery,0.04884269148234477
+authority,0.00027731053553809067
+hope,0.0831553190648896
+absorbing largely,0.000886215390196901
+a gorgeously strange movie,0.020013690165062485
+bentley and hudson,0.0002784591395390245
+city by the sea is the cinematic equivalent of defensive driving it s careful conscientious and makes no major mistakes but,0.006945697278722503
+nor,0.003722773237208087
+gangs of new york,0.0001730661278116002
+newton,0.00022189541888787133
+so unique and,0.003455011986422501
+ultimately jane learns her place as a girl softens up and loses some of the intensity that made her an interesting character to begin with,0.011873236108784394
+one truth,0.0009126401122843523
+strong and unforced,0.006402728290702505
+whitaker s,0.00016066890867457725
+markers for a series of preordained events,0.0001403823313730251
+audrey tatou has a knack for picking roles that magnify her outrageous charm,0.002057032484430396
+more interesting less symmetrical,0.003682926533894398
+to be sure but one,1.1400856921739945e-05
+make a classic theater piece,0.00020648885287839769
+a brain his ordeal would be over in five minutes but instead the plot,0.013906267889025607
+jagger obviously relishes every selfmocking moment,0.01614809628902562
+with the drowsy heaviness of synchronized swimmer wearing a wool wetsuit,0.007390181524807222
+puzzling,0.015940777526131267
+the simplest story,0.02265110183800891
+the film like jimmy s routines could use a few good laughs,0.06378944039346121
+is nt a disaster exactly,0.0029522634275202277
+mild headache,2.6743222818225294e-05
+unexpected,1.7296865102499956e-05
+city by the sea swings from one approach to the other,0.005679097345965802
+s hard not to be seduced by witherspoon s charisma even in this runofthemill vehicle because this girl knows how to drive it to the max,0.0005761992172225001
+bogs down in insignificance,0.004505220586483595
+these shenanigans exhausting,0.00022894004948522472
+been to more than one indie flick,7.247681322889223e-05
+in the end it s as sweet as greenfingers,0.03149185390987027
+what we have here,0.0012989358768070076
+dating wars,2.905261744230379e-05
+appropriated,0.0020308697273895876
+nature against progress in fessenden s horror trilogy this theme has proved important to him and is especially so in the finale,0.032505598301748116
+be more timely in its despairing vision of corruption,0.05259655580557209
+of weighty revelations flowery dialogue and nostalgia for the past,0.000735484636832401
+for laughs and not the last time,0.0457525597463104
+slightly,0.0034337033778145737
+of breitbart and hanussen,0.00011599595870016482
+whom he wanted to define his career with but pinocchio,0.00032894997097248496
+s still a mistake to go see it,0.0008855683222499996
+ultimately add up to nothing more than jerking the audience s chain,0.003015089430628902
+cool presence,0.0028563145802499887
+genuine characters,0.006542063733150624
+torture,0.01445263440919209
+often infectious,0.0009724116077552282
+waiting my whole life,0.001232973683375624
+be as bored watching morvern callar as the characters are in it if you go pack your knitting needles,0.002460993350559997
+is far too selfconscious,0.008590861431610003
+an unstinting look at a collaboration between damaged people that may or may not qual,0.0001602067369983998
+has been overexposed redolent of a thousand cliches,0.004518853078432222
+re not a fan,6.645880339560413e-06
+the story is less vibrant,0.052789285389456125
+ingenious and often,0.012656774255428896
+the daddy of all slashers arrives still with the boiler suit and white mask which look remarkably clean for a guy who has been massmurdering since 0 but has never been seen doing laundry,0.015764779974515634
+another classic for the company,0.008774098874425611
+it does not attempt to filter out the complexity,0.00931908055709823
+strikes,0.0032980705151688986
+all time low,0.06160248547431043
+his or,3.890426057958383e-05
+become one of those rare remakes to eclipse the original,0.0016233227786304014
+a bronx,4.127479451838901e-05
+have enough vices to merit its 0minute length,0.024212775980702487
+ad i,0.002906248745833226
+funny and goodnatured,0.006001628014530621
+young brooklyn hoods,0.000556336426636225
+over this project,0.0075241808961673245
+fourth wall,0.00016490470011800717
+this choppy and sloppy affair,0.0152668338945409
+quirks and mannerisms,0.027207074051748915
+was shaped by the most random of chances,0.017933788333239005
+call it challenging to their fellow sophisticates,0.009910155313356171
+the holes in this film remain agape,0.035509464004202504
+frustrating misfire,0.0036411207588899997
+any intellectual arguments,2.6625331680672683e-07
+his name was uh michael zaidan was supposed to have like written the screenplay or something,0.01963349529818064
+grimy visual veneer,0.005786718535994247
+to pass for a litmus test of the generation gap and not bad enough to repulse any generation of its fans,0.0010199221478884009
+gets the details right from its promenade of barely clad bodies in myrtle beach sc to the adrenaline jolt of a sudden lunch rush at the diner,0.012211728534756104
+an intimate contemplation of two marvelously,0.0002112333771768985
+staircase,1.8573514090002629e-07
+might ve been an exhilarating exploration of an odd love triangle,0.03581020314050557
+much more insight,0.004797599566531134
+plot to string the stunts together and not quite enough characterization to keep the faces straight,0.0008278691284712253
+fine judges both,0.003008275680062497
+fifteen,4.5106429041423806e-05
+accident,0.012246555699852729
+a tasty slice,0.00026357522499999996
+seems to want both,0.0020007365794048344
+leave much of an impression,0.02434119195688961
+the comedy death,0.0021287332224108084
+hit the silver screen then this first film,0.010663128416880635
+best films erin brockovich,5.10060214224969e-07
+wildest fantasies,0.014389158841232404
+ruffle,0.0028917839655961024
+tooled action thriller about love and terrorism in korea,0.011086384205609999
+weighty revelations flowery dialogue and,0.0006184835746489011
+the affection of even those unlucky people who never owned a cassette of def leppard s pyromania,9.352485618062382e-05
+cultivated allergy,0.0029098004806069233
+s going,0.00013227332302819672
+par for the course for disney sequels,0.03811158047851562
+i ca nt quite recommend it it s too patched together but i almost can,0.0032953776529444007
+as looseygoosey experimental entertainment,0.009654813885682649
+tweaked up a notch,0.00877451664831209
+paperthin and decidedly unoriginal,0.006557562000500626
+is never especially clever and often,0.008431077676810008
+the latest adam sandler assault and possibly the worst film of the year,0.00019129102863999972
+of shainberg s film,0.0016490281406917593
+agewise,0.00014561729170560033
+leavened,0.0054006970566192235
+the six musical numbers,0.00021225021024729192
+at the onehour mark herzog simply runs out of ideas and the pace turns positively leaden as the movie sputters to its inevitable tragic conclusion,0.06457890826767801
+fare,0.002402101401281409
+robert evans,9.23554827509765e-05
+big guys,0.000960838496786024
+devotees of star trek ii the wrath of khan will feel a nagging sense of deja vu and the grandeur of the best next generation episodes is lacking,0.006037551851839219
+is finally just one long drag,0.007994317979902498
+super,0.016288471175427026
+everything that has to do with yvan and charlotte and everything that has to do with yvan s rambunctious jewish sister and her nonjew husband feels funny and true,0.009262859414062493
+the dull nerdy folks,1.181482041600056e-06
+es divertida visualmente espectacular y muy entretenida,0.02285288877658667
+to assess the quality of the manipulative engineering average at best i m afraid,0.0144069320340544
+up soon,0.0002463108076589813
+muddled to be an effectively chilling guilty pleasure,0.09758652495009644
+i feel sorry for madonna,0.0001026722172529007
+obsessivecompulsive,0.01194369186526559
+driven by appealing leads,0.0002648422623006267
+bittersweet israeli documentary,3.0058464153600275e-05
+a solid scifi thriller,0.008692233793622493
+you suffer the dreadfulness of war from both sides,0.07527596328223031
+submarine flick half ghost story all in one criminally,0.0336011702906884
+of its comfy little cell,0.018601571978256386
+the art direction and costumes are gorgeous and finely detailed,0.015222545436902398
+alain choquart s camera,3.306936010581205e-05
+especially the a holes,0.0002264863967862245
+expecting,0.00014951698966579602
+wacky sight gags,0.04523645333127692
+not entirely fresh,0.0078095785701123984
+has no doubt fantasized about what an unhappy repressed and twisted personal life their tormentor deserved these people are really going to love the piano teacher,0.022442790412272397
+is neither excessively strained,0.02965143434805864
+s a heaven for bad movies,0.0017365330811928968
+is nt reacting to humor so much as they are wincing back in repugnance,0.007631350277760006
+the importance of being earnest movie,0.0008193840412632212
+this film unlike other dumas adaptations is far more likened to a treasure than a lengthy jail sentence,0.06368530714587038
+even better than the fellowship,0.006514958039784081
+easy to forgive because the intentions are lofty,0.0132191770411024
+if you adored the full monty so resoundingly that you re dying to see the same old thing in a tired old setting then this should keep you reasonably entertained,0.05905260617505639
+et,5.8543745977932595e-05
+works because reno,0.027994448598568446
+to be,0.0004607975277780259
+jeunet and von trier,0.0002953437818537614
+screenwriters michael berg michael j wilson,0.005134166023079033
+ends the movie is the one with the most emotional resonance but twists,0.024215155232718028
+be fascinated,0.008177010679580623
+its agenda to deliver aweinspiring at times sublime visuals,0.006257767146602506
+any of them list this credit on their resumes in the future,0.032970421190208106
+read the catcher in the rye but,1.9755784783503986e-05
+with the testimony of satisfied customers,0.12764425733842324
+of grenoble and geneva,0.00021172073154250378
+both black and white stereotypes,0.00011849759363560042
+of small town regret love duty and friendship,0.019830143549909293
+gelo diverte,0.00020370457024512223
+the generally sad existence of the bedouins,0.008931095606016676
+is a little like a nature film,0.0038260589011158887
+provocative insistently humanizing,2.4185838768099704e-05
+has intentionally left college or,0.03182220183720623
+is about as deep as that sentiment,0.007496334929797507
+in chinese history war revolution communism etc,0.00042494798333302136
+in the time of the mods and the rockers,0.014049270817344401
+mibii,0.007250999518145601
+this kind,0.00022042398125580583
+mounted,0.0001295169865858081
+that passes for humor in so many teenage comedies,0.02248501299650122
+though it pretends to expose the life of male hustlers,0.010421218598296908
+despite its onejoke premise with the thesis,0.012440545868468033
+s clotted with heavyhanded symbolism dimestore psychology and endless scenic shots that make 0 minutes seem twice as long,0.0077178948374025
+martin and barbara,1.109855910250009e-05
+as any creaturefeature fan knows when you cross toxic chemicals with a bunch of exotic creatures you get a lot of running around screaming and death,0.0028389937426374703
+steven soderbergh s solaris is a failure,0.028394305737209996
+shock throughout the film,0.012631401958040094
+the reaction,0.006918060746189279
+campy to work as straight drama,0.002038909047472683
+like explosions sadism and seeing people,0.03662397725616639
+are uniformly good,0.011756559621628894
+a longtime admirer of his work,0.044265282826751386
+runs,5.959738096435661e-05
+high romance,0.00044576172482489816
+a basic credible compassion,0.004289659865295034
+also a,1.763107192996958e-05
+s just not much lurking below its abstract surface,0.0022841502980562255
+the right choices,0.004058463991905629
+the original short story,5.00975460734439e-05
+control while focusing on the what much more than the why,0.00465965354333903
+graham greene,0.00012723975360360082
+a focus on character drama over crimefilm complications,0.0018086241071101677
+is leguizamo s best movie work so far a subtle and richly internalized performance,0.0021595375761806245
+their sexual and romantic tension,0.0012740198743622254
+moments of genuine insight into the urban heart,5.05203943728994e-05
+my taste,4.217838335027743e-06
+hotblooded,6.917535839475574e-05
+the next pretty good thing,0.034237238843955624
+adulthood,0.00014563167616202482
+of the computer industry,0.00020880289015018136
+of its making,0.0009797763899044027
+grief,0.003220064424508934
+might work better,0.00014534477303360552
+pump life into overworked elements from eastwood s dirty harry period,0.08459811439200252
+of fighting hard for something that really matters,5.611500609002417e-05
+actingworkshop exercises,0.0024111713895423985
+a mushy existential exploration,0.06339168290670247
+have reinvigorated the romance genre,0.011049287261048084
+serious actioner,0.010834506389434211
+and uninspired,0.0026510501857225015
+find attal and gainsbourg s,7.663695434226182e-05
+exploring the idea of why human beings long for what they do nt have and how this gets us in trouble,0.02149780942584396
+eerie thriller,0.02301492373513024
+dazzling remarkably unpretentious reminder,0.002257542184959994
+father goose,0.0004133105873917225
+a quiet,0.006702475852822498
+the film is powerful accessible and funny you wo nt miss its messages,3.3896848409999314e-05
+help be entertained by the sight of someone getting away with something,0.001292068186622499
+like a pack of dynamite sticks built for controversy the film is explosive but a few of those sticks are wet,0.029803839337273243
+taken,0.002220329080455421
+the most frantic virulent and foulnatured christmas season pics ever delivered by a hollywood studio,0.035225105556425634
+insultingly innocuous,0.010433306849473599
+witherspoon s talents,0.002245295578702497
+a mountain,0.00361044258178071
+specific conditions,0.00015760865323021192
+0 malfitanodomingo production,0.0002030738289080066
+soderbergh s best films erin brockovich out of sight and ocean s eleven,0.010944268932819618
+the end of kung pow,0.0017438855731407347
+unbearable lightness,0.0006716411292815986
+was money,0.01043494304916176
+may be relieved that his latest feature r xmas marks a modest if encouraging return to form,3.535824583839965e-05
+to amuse small children and ostensible adults,0.010741265146005614
+combined with so much firstrate talent could have yielded such a flat plodding picture,0.021100913550556225
+dismissed as the tiresome rant of an aging filmmaker still thumbing his nose at convention,0.0005123002194025008
+to the vast majority of more casual filmgoers it,0.005519758912206393
+clue,0.00803690366583961
+competent but,0.001420635980255629
+certainly the performances are worthwhile,0.003068257046422502
+a luvspreading dr feelgood or omnipotent,0.0005335437050592232
+is nt tough to take as long as you ve paid a matinee price,0.009400208034808894
+releasing a film with the word dog in its title in january lends itself to easy jokes and insults,0.012501520824039993
+the story of trouble every day is so sketchy it amounts to little more than preliminary notes for a sciencefiction horror film and the movie s fragmentary narrative style makes piecing the story together frustrating difficult,0.002139239641167223
+anguished bitter and truthful,0.009195547999296401
+the twist endings were actually surprising when the violence actually shocked when the heroes were actually under 0,0.062401049945486474
+weirdly appealing,0.0013911385661209011
+is popular and powerful in this hightech age,0.0009226448775049036
+pretentious dialogue,0.004986873676840001
+kiddieoriented,0.001587799268145601
+a reason why halftime is only fifteen minutes long,0.0692676706837504
+further curiosity,0.0031940870792250267
+off with an inauspicious,0.0026118600324496017
+a phlegmatic bore,0.0159938413848976
+perhaps even the nocturnal works of goya,0.0009683617890941466
+flat script,0.015486524424868229
+hall s cinematography will likely be nominated for an oscar next year,0.014107951973609992
+a scorchingly plotted dramatic scenario,0.10324749350939043
+a film without surprise,0.03181579090313424
+gives her best performance since abel ferrara had her beaten to a pulp in his dangerous game,0.0011479648514568998
+enveloping the viewer in a literal and spiritual torpor that is anything but cathartic,0.008682055824002489
+very very strong,0.001986434090524902
+it s like an old warner bros costumer jived with sex,0.005146350902539104
+it is great summer fun to watch arnold and,0.011702420186175625
+patricio guzman s,0.00021323074286850596
+scoob,0.012753817541705606
+split up so that it can do even more damage,0.0021075444640000006
+seems to have cared much about any aspect of it from its cheesy screenplay to the grayish quality of its lighting to its lastminute haphazard theatrical release,0.008144412712960005
+by lousy direction,0.0007002797838400004
+bends technical knowhow,0.008195057160168016
+as bundy,6.232526178322473e-05
+is ripe for the jerry springer crowd,0.0005511412395780048
+from the trees hooting it s praises but it s definitely worth taking a look,0.012302713989759989
+go to leigh for actually casting people who look workingclass,0.013448110836680117
+is one of those films that aims to confuse,0.000987935420473602
+the title character,0.00019866084998409873
+is its complete and utter lack of tension,0.0426805230340225
+a very familiar tale one that s been told by countless filmmakers about italian chinese irish latin indian russian and other hyphenate american young men struggling to balance conflicting cultural messages,7.533927039999954e-06
+few laughs but nothing else,0.008200457958704398
+embarrassed to make you reach for the tissues,0.002097705036504102
+does nt remake andrei tarkovsky s solaris so much as distill it,0.02784805161179601
+maudlin,0.0004413629546495986
+pop junk,0.013809725868744096
+a director who understands how to create and sustain a mood,0.04300110172038494
+s strongly mediocre,0.0013806864946081013
+dedicated,0.0053703174780025
+the vehicle,0.004354071561481322
+identityseeking,0.009100625577045598
+it ai nt halfbad,0.05415851229363422
+is too calm and thoughtful for agitprop and,0.005993478596353599
+oh so dumb,0.028472968238422502
+thoughtprovoking and even an engaging mystery,0.0036419354174025
+imagine if possible a pasolini film without passion or politics or an almodovar movie without beauty or humor and,0.025597606455950408
+that everyone should be themselves,0.00800136690412961
+clayburgh and tambor,0.00013547740155457687
+slapstick comedy,0.001607181961426282
+the first frame to the last,0.00040107888651811545
+starts off with a bang but then,0.005471625032177921
+mark pellington s latest pop thriller is as kooky and overeager as it is spooky and subtly in love with myth,0.06338720890746719
+else involved,0.0003223243920260264
+contains almost enough chuckles for a threeminute sketch and no more,0.019640799009553223
+the threat,0.0001779411930915992
+orange county is a refreshing change,1.0589069187225115e-05
+industry standard,0.003200518811704381
+amoses and andys,0.00013547740155457687
+this would have been better than the fiction it has concocted,0.009854892260676103
+may or may not,2.895920227200033e-05
+pretentious period,0.01453003263214222
+a brutally honest documentary about a much anticipated family reunion that goes wrong thanks to culture shock and a refusal to empathize with others,0.015488048911980096
+classic theater piece,0.04375885162740722
+feels authentic,0.0004311187795599995
+i ca nt wait for the sequel,0.1785322980751806
+might be apt,9.574420193536108e-06
+undisciplined,0.03810472264257611
+the result is more depressing than liberating,0.0018320142001412216
+too close to phantom menace for comfort,0.016264451324136966
+thanksgiving day parade balloon,0.004164264480487655
+ll have to wrestle disbelief to the ground and then apply the chloroformsoaked handkerchief,0.07910919130892782
+to you just like igby,0.0003633989221506254
+but this is lohman s film,0.0006475655353414825
+above the level of other comingofage films,0.04444910336979359
+unsuccessfully,0.03388382283384808
+reggio,0.00014561729170560033
+stories so much,0.0023249422536990223
+kissinger as a calculating war,0.0001977697152065636
+sadists,0.0009412823421056255
+the flicks moving in and out of the multiplex,6.36745188757927e-05
+madame d refer to her husband as jackie,2.2540550840720995e-05
+my reaction in a word disappointment his last movie was poetically romantic and full of indelible images but his latest,0.015979563946090007
+rekindled by the kathleen soliah trial and the upcoming trial of sla members emily and william harris not to mention sept,0.0024007309975350266
+the cockettes,5.310565849621952e-06
+a pink slip,0.0021835745812427555
+guillen rarely gets beneath the surface of things she lists ingredients but never mixes and stirs,0.027531014366325622
+to work love stories,0.03657829333297565
+festers in just such a dungpile that you d swear you,0.037622357216577224
+material realm,0.009743752050808486
+a buoyant delivery,0.0008005957070399974
+effecting moments,8.500286809000916e-07
+of corruption,0.014765873352308107
+the group s playful spark of nonconformity,0.0007514012968900021
+rather superficial arthouse middlebrow film,0.010049286579976897
+best enjoyed by frat boys and college kids,0.006945922300840006
+tired pair,0.009738287121217597
+undeniably worthy and devastating,0.00018423488008922583
+get carvey into as many silly costumes,0.0017540244431556243
+but they re each interesting,1.5774877497599928e-05
+i wanted to stand up in the theater and shout hey koolaid,0.10167268806840246
+the remainder,6.39487702560069e-05
+is the director s talent,0.0025842856786569006
+with all its flaws is that it has none of the pushiness and decibel volume of most contemporary comedies,0.0018461832835452243
+a category called best bad film you thought was going to be really awful but was nt,0.0014951183288976018
+proof of this,0.005090185007708561
+turning the film into a cheap thriller a dumb comedy or a sappy,0.012397248395013685
+quite a rarity even in the family film market,0.0022366959514383985
+goes on for the 0 minutes of panic room,0.010705554596522504
+the filmmakers new bobbed,1.1612533448230264e-05
+bearing,0.0011854373981229416
+anyone not into hightech splatterfests is advised to take the warning literally and log on to something more userfriendly,0.0013044665827600015
+floating away,0.002790811055156255
+the supposed injustices,0.0006610845747492246
+girl,2.6294060790167546e-06
+quite far enough,0.00023509552248062823
+been for them to make it,0.0029796624009286545
+center tragedy,0.0013242851571514417
+the rough waters of contradiction,0.008307294359809597
+a fascinating little thriller that would have been perfect for an old twilight zone episode,0.022974556216959992
+intacto s,0.00016066890867457725
+had exactly the same thing in mind,0.0013292630560835992
+showdown,0.03219488374653159
+to finish,2.863127467239977e-05
+a blur,0.0017160268967520238
+to which the adjective gentle applies,0.018273375558902523
+a solid film but more conscientious than it is truly stirring,0.0038855898902500088
+a clever exercise,0.0154674690701584
+is a new collectible what parents will suspect is that they re watching a 0minute commercial,0.012760629202332032
+no surprise to see a worldclass filmmaker like zhang yimou behind the camera for a yarn that s ultimately rather inconsequential,0.0011723337732095997
+broadly metaphorical,0.0010515732383208983
+cultura,0.00019420175562564113
+chastity,0.0003962102193008996
+one long tourist spot for a mississippi,7.766833446529563e-05
+terry gilliam s rudimentary old monty python cartoons,0.0038729948308920997
+davis is funny charming and quirky in her feature film acting debut as amy,0.008971632129690009
+a harrowing account of a psychological breakdown,0.00617962981261625
+tidal wave,0.00022353569023210134
+some ingenious plot devices and some lavishly built settings,0.025395902823246407
+sing,0.00021581657834580988
+with rewards to be had by all willing to make the effort to reap them,0.00012516272938822466
+the film is more worshipful than your random e,1.8300272562250622e-06
+love and compassion garnered from years of seeing it all a condition only the old are privy to and often misconstrued as weakness,0.036743453589072404
+his flickknife diction in the role of roger swanson,0.01886552108379424
+a little too much heart,0.07040093225142756
+heavy with flabby rolls,0.02038051753212251
+ashley judd,0.00016561576813403978
+your wildest fantasies about being a different kind of time traveler while happily killing 0 minutes,0.05689888420591693
+having never been a huge fan of dickens 0page novel,0.05564555462761001
+mixes in as much humor as pathos to take us on his sentimental journey of the heart it really is a shame that more wo nt get an opportunity to embrace small sweet evelyn,0.0032746033432225034
+kids will love its fantasy and adventure,0.015757190914522497
+its only,0.0025805583650456098
+while clearly a manipulative film,0.024457538087683608
+grandly,0.029430036552215107
+a testament to the integrity and vision of the band,0.0012010487328224999
+live out and,0.001117966597540062
+an art film,0.0036967226884624064
+than actual work,0.0080155994128144
+the movie is all portent and no content,0.006441788793170027
+for the paperthin characterizations and facile situations,0.047331300615456415
+strongly reminiscent,0.010175835430619711
+but ultimately silly,0.004222202213325629
+those rare remakes,2.2973711748103723e-07
+ca nt remember the last time i saw worse stunt editing or cheaper action movie production values than in extreme ops,0.03826704746612249
+a meandering inarticulate and ultimately disappointing film,0.003333222838764903
+a worse,0.0005871764964756241
+used the emigre experience to explore samesex culture in ways that elude the more nationally settled,0.0012191323981538525
+recognized as the man who bilked unsuspecting moviegoers,0.029022563672010004
+a separate adventure,0.00013285657142730518
+does pack some serious suspense,0.004538892063689988
+big box,0.009030645782684109
+sit through despite some firstrate performances by its lead,0.10637139269637562
+inspired portrait,0.0026797472273756224
+for one whose target demographic is likely still in the single digits,5.954116994555624e-05
+and hope,0.02188502311201564
+its people,0.0001892859484831293
+john carpenter s stylish tracking shots,0.0326712240483489
+all the stops in nearly every scene,0.025398011211976226
+has fun being grown up,0.012320489405289995
+the right tone,0.00010912215428402526
+in a sampler,0.0042446176846836275
+take to get there,0.00018250459084947725
+brainless,0.008321373921049226
+does not become one of those rare remakes to eclipse the original,0.00465184822748268
+something promising from a mediocre screenplay,0.007601187607344102
+a nervous breakdown a trip down memory lane,0.010514961229975228
+wiseman is patient,0.010729433331348494
+littered with trenchant satirical jabs at the peculiar egocentricities of the acting breed,0.09998256015603613
+the sort of idoosyncratic terrain,0.002704684155270081
+temple,6.156111259592014e-05
+a jewish ww ii,0.0003010024437340841
+of cardoso,0.00015793956789480045
+the appearance of treebeard,0.00016417531378737187
+guei,0.003291638294585598
+of french new wave films,0.011134270968093031
+sort out the mess in our heads and,0.00012458466306249934
+dry humor and jarring shocks plus moments of breathtaking mystery,0.039272577563610044
+postseptember 0 the sum of all fears seems more tacky and reprehensible manipulating our collective fear without bestowing the subject with the intelligence or sincerity it unequivocally deserves,0.0011019528387056236
+that s missing,0.021678419082964903
+and timely,0.0012389329943103945
+tasty performance,0.0010593221806728952
+that finally get under your skin,0.0032129565939707115
+despite downplaying her good looks carries a little too much ai nt shecute baggage into her lead role as a troubled and determined homicide cop to quite pull off the heavy stuff,0.001632127680160003
+andy garcia enjoys one of his richest roles in years and,0.0030258168051306247
+is long on glamour and short on larger moralistic consequences,0.0035060461410156216
+tiring in no time at all,0.013024633174015221
+alchemical,0.0002525833168369019
+an example,0.0005192842845960984
+the most repugnant adaptation of a classic text since roland joffãƒâ© and demi moore,0.07808617428173123
+charles a addessi,0.0002481767636551305
+this is one of the year s best films,0.012061662415359994
+impossible to ignore,0.11036350403260092
+a laughable or rather unlaughable,0.001282057103930626
+that exists apart from all the movie s political ramifications,0.015878964918415225
+pseudophilosophic twaddle,0.005494957418880397
+bow s best moments are when he s getting busy on the basketball court because that s when he really scores,0.009308834213290004
+puritanical,0.00010029928359220886
+with a story as bizarre and mysterious as this,0.015537816954608418
+away from watchful parental eyes,0.0020887386153983977
+anyone involved in the hightech industry,0.00683217138330251
+flawed but worthy,0.09728376212190248
+selfconsciously flashy camera effects,0.01121308919101563
+culled from a minimalist funeral,0.0005130010506742005
+one anecdote,0.00015322612343011697
+so unremittingly awful,0.00014348326440250002
+of iran s borderlands,0.00015092987376390466
+some fine,0.009900048016030222
+utterly distracting blunder,0.004223908070559998
+to the disney philosophy of required poignancy a salute that i d hoped the movie would avoid,0.0008184957657032249
+what you did last winter,0.004538034939108778
+of their own pasts,0.00010962408290310421
+s also nice to see a movie with its heart so thoroughly,0.000172425261966399
+a recommendation,0.018373284702648103
+economical movie,0.0035745224370361045
+an unusual thoughtful biodrama,0.00020345627571609966
+long and tedious,0.011797433283680093
+are introduced as spider and,0.013332733626046861
+merely indulges in the worst elements of all of them,0.0011052579509764017
+the characters are too simplistic to maintain interest,0.004473284189238226
+realizes a fullness that does not negate the subject,0.009116373112089989
+ride,0.0002419903027014065
+predator,0.0027204823858686007
+s only a matter of time before he gets the upper hand in matters of the heart,0.004803869169002494
+ba murdock and rest of the ateam,0.0002326607661280613
+demonstrates that the director of such hollywood blockbusters as patriot games can still turn out a small personal film with an emotional wallop,6.365885582249961e-05
+naãƒâ¯f s,0.00016066890867457725
+sheer lust,0.06053520920412162
+the tonga,8.888539268902527e-05
+with flailing bodily movements,0.0030932807222528997
+like praise the lord he s the god of second chances,0.017431386182600615
+of intimacy in a way that makes most american love stories look downright unfree,0.006606450592005626
+carrying this waferthin movie on his nimble shoulders,0.2069326771451462
+appears to have blown his entire budget on soundtrack rights,0.0013192361072641005
+boasted,0.00027775138951562675
+film festival,0.012236538714213206
+it has the temerity to run over two hours,0.06902100761506502
+cursefree,0.003291638294585598
+and are working on hard decisions,0.005003735901668108
+extreme,0.000869484195147905
+s been 0 years since 0,0.00093526484041
+produces nearly as much lead as gold,0.022355929865810004
+so insanely stupid,0.006325418556250001
+disney s great past,0.017450753461689995
+and to her inventive director,0.0006428676578772203
+sight,4.923433850824251e-05
+interview with the assassin is structured less as a documentary and more as a found relic and,0.005758326060813234
+out by going for that pg0 rating,0.08305926882000249
+that serves,0.0008538165523994614
+evokes the style and flash of the doublecross that made mamet s house of games and last fall s heist so much fun,5.377389966400009e-06
+nobody in the viewing audience,0.020113184695321598
+talented charismatic and tragically,0.0038168382117192193
+lies in its two central performances by sven wollter as the stricken composer and viveka seldahl as his desperate violinist wife,0.012725211684966407
+aan opportunity,0.003029598646404098
+log a minimal number of hits,0.0013749857286399936
+so much facile technique such cute ideas so little movie,0.04007065717519924
+the summer heat,0.0004307969446555523
+gorgeous companion,0.007433331429232909
+blood work proves,0.028686374738775604
+captives,0.00220768598146836
+the war of the roses,5.685815244879064e-05
+tangled plot,0.0033496996700281005
+stealing harvard is a smorgasbord of soliloquies about nothing delivered by the former mr drew barrymore,0.010605330427374226
+poetically plump,0.03674568676280603
+leaden as the movie sputters,0.03498384937609001
+thought of as a subversive little indie film,0.012970956016911016
+refreshes,0.012530062449630884
+a sleepinducing thriller,0.22802134879995614
+the presence of the king it also,0.0348164363860569
+that haunts us precisely because it can never be seen,0.0004250361551240229
+its dynamics,8.033369862399692e-06
+is itself a sort of cinematic high crime one that brings military courtroom dramas down very very low,0.0763391756907025
+and he is matched by schweig who carries the film on his broad handsome shoulders,0.0010628232449408968
+thanks to haynes absolute control of the film s mood and buoyed by three terrific performances,0.004366853852730613
+re looking for an intelligent movie in which you can release your pent up anger,0.0029626004065506266
+the effort to watch,0.015230547660531037
+cho,0.00015307269378502634
+easily my choice for one of the year s best films,0.008259732412624891
+have left,0.0004636026070334885
+the oppressive morally superior goodforyou quality,0.03475422656177104
+remarkable new trick,0.009239661888385597
+originality it does succeed by following a feelgood formula with a winning style,0.040489971329439996
+the sympathy,0.00038386930861188887
+goldmember is funny enough to justify the embarrassment of bringing a barf bag to the moviehouse,0.025938076861650648
+was entranced,0.0012158088054025035
+humor,0.019517637906691605
+flailing away,0.010978837922002502
+does nt show enough of the creative process or even of what was created for the nonfan to figure out what makes wilco a big deal,0.015361892037610007
+it gets a full theatrical release,0.0005079590324368605
+for in heart what it lacks in outright newness plus like i already mentioned,0.07810676470701562
+busts out of its comfy little cell,0.11178047062529824
+they see in each other also is difficult to fathom,0.0013016848604769028
+a properly spooky film about the power of spirits,0.0013878769078084004
+why it fails,0.0013178003543103983
+seems to pursue silent film representation with every mournful composition,0.003363183409561598
+and probably should have,0.01785376163968496
+sharp as a samurai sword,0.028315774898580136
+take a rocket scientist to figure out that this is a mormon family movie and a sappy preachy one at that,0.029557500736702488
+niccol the filmmaker,0.0009357260753295984
+a perceptive study,5.557106115999967e-05
+lovehate,0.00014561729170560033
+existing who is cletis tout,0.013165627886064917
+exgirlfriend,0.011574790753198597
+barely register,0.04575479287369
+spirit is a visual treat and it takes chances that are bold by studio standards but,0.0016433334978024994
+a vivid thoughtful unapologetically raw comingofage tale,0.008084236976388243
+survive a screening with little harm done,0.0008168887090002262
+the assembled talent and the russos,0.03240315727691291
+abundantly clear,0.07435484595672248
+his own broadside,0.00252557778978613
+to a fault,4.263959401000043e-05
+a dark room,3.2855141895539985e-05
+of television music and standup comedy,0.008016783041520094
+makes it look like a masterpiece,0.017820271584908107
+does nt understand the difference between dumb fun and just plain dumb,0.001343560800798223
+revels in its own simplicity,0.00011451675156249991
+his us debut,0.0002862551496128529
+the incessant sofiveminutesago pop music,0.00535422573213062
+friggin,0.0032161766517090212
+seigner,3.3226034856009453e-06
+seen,0.00011706275957847134
+match metaphors,0.00014736965507977241
+is at times imaginatively overwhelming,0.12258869554908922
+adrift bentley and hudson stare and sniffle respectively as ledger attempts in vain to prove that moviestar intensity can overcome bad hair design,0.008429177091302498
+if you do nt,2.486727662410005e-05
+thorn and vinegar,0.0010111795809024998
+filmed on the set of carpenter s the thing and loaded with actors you re most likely to find on the next inevitable incarnation of the love boat,0.0005088690035156268
+by no means all,0.014599623075210004
+impressive roster,0.0044607344550128955
+those rejected must have been astronomically bad,0.04761245101770063
+is a fun,0.010192371375425639
+allergy,0.007695562460166021
+need from movie comedies,7.749737307225068e-06
+a fascinating case study of flowerpower liberation and the price that was paid for it,0.007471960040249986
+unbearably dull,0.0035857910481756237
+the addams family,0.0005946618767761007
+creeps you,0.009173067748209817
+what i was expecting,5.494594197780883e-05
+one time or,0.00028029227035069324
+your relatives,0.00032437800218700953
+putting the primitive murderer inside a hightech space station,0.010527392025486403
+a loquacious and dreary piece,0.0015239752035156233
+something in full frontal,4.4034830379750616e-05
+coupling,0.00028475452135823937
+the quiet american is nt a bad film it,0.0008917983210550507
+the collaborative process,0.004817780445114295
+and their screen rapport makes the old story seem new,8.602195702500265e-06
+it does not alienate either gender in the audience,0.007200071489965239
+les destinees is in its quiet epic way daring inventive and refreshingly unusual,0.005880067778560002
+an insultingly unbelievable final act,0.018759019507144894
+is bright and flashy in all the right ways,0.006663260989440009
+its unforced comedydrama and its relaxed naturalseeming actors,0.0056397020942024955
+summons more spirit and bite than your average formulaic romantic quadrangle,0.04725340030643325
+s a ripper of a yarn and i for one enjoyed the thrill of the chill,0.002060506291840001
+s,5.364418029785156e-05
+englishlanguage movie,0.00023476460332089958
+not everyone,4.566897220899933e-06
+is a clever and captivating romantic comedy with a welcome pinch of tartness,0.003861454168359999
+oneroom,0.00014561729170560033
+drama secret ballot,0.003497331430297601
+feelgood formula,0.0379679020505316
+less subservient,0.001535152328240401
+meet them,0.0005949846407822464
+a solid success,0.0029803028416225067
+staged with your green plastic army men were more exciting and,0.0305227420036081
+intriguing characters,0.007238495796422499
+superlarge,0.001891623738825608
+wears its heart on the sleeve of its gaudy hawaiian shirt,3.032335942222585e-05
+black and white portable tv,0.0026106261129440794
+what makes the movie a comedy is the way it avoids the more serious emotions involved,0.021013692390766017
+is instructive,0.003263578677507611
+equally derisive clunker,0.029471402621416898
+of our country,0.0009272235106190244
+appears in its final form in last dance,0.00033586573368959814
+fleeting brew,0.00020378284821400864
+even slightly wisedup kids,0.004047304508428045
+welcome or accept the trials of henry kissinger as faithful portraiture,0.0001152813437172241
+rohmer s talky films fascinate me,0.048434083998502506
+than their consequences,0.00025639225254090825
+special effects overpower cogent storytelling and visual clarity during the big action sequences,0.11441143552328403
+i like this movie a lot i like that smith he s not making fun of these people he s not laughing at them,0.02748300011100065
+pretty listless collection,0.003558211975562497
+is the operative word for bad company,0.008370069696967224
+often tender,0.006329416968562683
+steve and terri,0.0002630372770437745
+vs the man,0.0003336410387664939
+stock persona,0.03428345904188491
+so many bad romances,0.03742519685216492
+african empire,0.0004373413140678503
+totally weirded,0.004636819392698028
+no question,0.0035147307890772282
+domestic melodrama,0.003668247684489649
+the delicate performances by sven wollter and viveka seldahl make their hopes and frustrations vivid,0.0057296951775625046
+the worst kind of hollywood heartstring plucking,0.006622928196890626
+the discovery of the wizard of god,0.000660016896350434
+unexpectedly rewarding,1.4252135039999838e-05
+with spanish inquisitions about her madness so much that i became mad that i wasted 0 minutes and 0,2.930598224999806e-07
+this vision,0.009492231746767225
+the story touching though it is does not quite have enough emotional resonance or variety of incident to sustain a feature,0.003919836793960001
+has the hurried badly cobbled look of the 0 godzilla which combined scenes of a japanese monster flick with canned shots of raymond burr commenting on the monster s path of destruction,0.0025227866880225005
+considerable dash,0.0347595808898162
+a delightful witty improbable romantic comedy with a zippy jazzy score,0.00011150124514222534
+brainless but enjoyably overthetop the retro gang melodrama deuces wild represents,0.09254553720048038
+sadness and,0.0516196088242588
+is its refusal to recognise any of the signposts as if discovering a way through to the bitter end without a map,0.001121468246188897
+gaping,0.002462963694345026
+decent gags,0.002677553821657233
+a highway patrolman,0.0013319655341866052
+will leave fans clamoring for another ride,0.044011504240856085
+an absorbing trip into the minds and motivations of people under stress as well as,0.0021046303140624958
+of laughs sometimes a chuckle sometimes a guffaw and to my great pleasure the occasional belly laugh,8.868648102249982e-05
+creaturefeature,0.00014561729170560033
+let the earnestness of its execution and skill of its cast take you down a familiar road with a few twists,0.010354660036622507
+handled correctly wilde s play is a masterpiece of elegant wit and artifice here alas it collapses like an overcooked souffl,0.0478217449589672
+found a cult favorite,0.04548619150100641
+it s frustrating to see these guys who are obviously pretty clever waste their talent on parodies of things they probably thought were funniest when they were high,0.026854512531106215
+is complex from the start and refreshingly stays that way,0.006339572115244899
+mild sexual references,0.0023248875751997458
+it s the cliffsnotes with pages missing,2.856544396222469e-05
+scratching your head than hiding under your seat,0.02999050417438522
+a wonderful thing,0.0021500215633056237
+a conventional way,3.571923955080667e-05
+offers winning performances and some effecting moments,0.0013129621804324001
+to more than satisfy your appetite,0.007695442278268906
+less frontloaded,0.02296803295232641
+all the actors reaching for the back row,0.009040622474867347
+more salacious telenovela than serious drama,0.007678799579137605
+highly uneven and,0.012564260013968095
+there surrender 0,0.049756299101582836
+mostly intelligent engrossing and psychologically resonant suspenser,0.004981991651400629
+a retread of dead poets society,0.0100711159895025
+the movie keeps you diverted and best of all,0.00013345448006250095
+for gai s character to avoid the fate that has befallen every other carmen before her,0.055498091882908905
+an outcast that is no longer accessible,0.001445295330361596
+nonchalantly freaky and uncommonly pleasurable,0.0005619934009600008
+popular predecessor,0.033223630624985005
+the film is about the relationships rather than about the outcome and it sees those relationships including that between the son and his wife and the wife and the father and between the two brothers with incredible subtlety and acumen,0.005467261129264886
+stare and,0.00016332410594822376
+ends up as tedious as the chatter of parrots raised on oprah,0.000604965675602499
+these women,0.0019150631932592312
+frank capra played this story straight but the 0 film does nt really believe in it and breaks the mood with absurdly inappropriate comedy scenes,0.009016638137760399
+the better drugrelated pictures,0.007669575743340983
+see a movie that takes such a speedy swan dive from promising to interesting to familiar before landing squarely on stupid,0.007755402834505223
+subtitled costume drama,0.0037413297122881007
+one of those movies that catches you up in something bigger than yourself namely an archetypal desire to enjoy good trash every now and then,0.011431263064897218
+as rude and profane as ever,0.033614860993473605
+for trolls,0.00022272831308722593
+masquerade ball,5.897910959282161e-06
+joel schumacher,0.00013734307066771645
+adam sandler s heart may be in the right place but,0.012635533734252115
+the storytelling,0.0009899257177172216
+the most ravaging gutwrenching frightening war scenes since saving private ryan,0.0036293076067502273
+the idea of women s selfactualization,1.8734029399805792e-05
+pertinent,8.797971006250663e-07
+need hollywood doing to us,0.0020912737828198045
+it s just another sports dramacharacter study yet this one makes up for in heart what it lacks in outright newness plus like i already mentioned it s robert duvall cmon,0.022019102415722483
+remain an unchanged dullard,0.004721838493453221
+the storytelling may be ordinary,0.017787480879181226
+zealous,0.0013445362471226387
+tends to pile too many serious issues on its plate at times yet remains fairly light always entertaining and smartly written,0.002440253791155623
+lake camp,5.989315803048968e-05
+way,0.0003748536840161817
+gets better after foster leaves that little room,0.04709503062307103
+ancient indian practice,0.0008035330197689654
+honest,0.04149376740603612
+instinct,6.336390842102458e-05
+feels as if it might have been made in the 0s or 0s,0.00012196065921640117
+as the scenes of torture and selfmutilation,0.013150216868616022
+developmentally,0.010816113360297036
+holofcener s film offers just enough insight to keep it from being simpleminded,0.0381820471211529
+his metaphors,0.0008159758613408011
+lumpinthethroat family entertainment that derives its power by sticking to the facts,0.05136534964056248
+dogtown is hollow selfindulgent and worst of all boring,0.04304829274268061
+about the goal of its makers the show,0.005809439619302394
+anxieties,9.39709410873215e-05
+in some ways lagaan is quintessential bollywood except it s much much better,0.07339323047042247
+manages to please its intended audience children without placing their parents in a comalike state,0.03397327995129639
+obvious politics and,0.0036995969302733495
+the drama within the drama,0.0017636362987489035
+is profound the hours is what movies are supposed to be,0.0032891888171024965
+trey parker,0.006300253306998227
+sweet gentle jesus did the screenwriters just do a cutandpaste of every bad actionmovie line in history,0.017174863908939023
+the martial arts master to top form,8.95480851102246e-05
+connect,0.0027784690241042186
+nothing scary here except for some awful acting and lame special effects,0.055049547576960005
+the movie s progression into rambling incoherence gives new meaning to the phrase fatal script error,0.006812034478502505
+its oscarsweeping franchise predecessor,0.1563637539722449
+the most gloriously unsubtle and adrenalized extreme,0.03636655293102722
+one of the movies creepiest conventions in which the developmentally disabled,0.032538585878702495
+their hardearned bucks,0.005957644634208397
+the heartbeat of the world,0.00465002339156641
+authentic feel,0.00041944064006250363
+in the fifth trek flick,0.0007706853914108411
+to justifying the hype that surrounded its debut at the sundance film festival,0.024739953779466025
+go very right and then step wrong,0.10974467268470223
+with a halfformed wit,0.06071968690632246
+take on life s urgent questions,0.006298745288683237
+joyful or,0.0060009579162224914
+hayek throws herself into this dream hispanic role with a teethclenching gusto,0.0003079824933248992
+is on full irritating display,0.0468493947167841
+of urgent questions,0.0001393172110207499
+intelligence and intensity,0.025586761711890633
+i do nt feel the least bit ashamed in admitting that my enjoyment came at the expense of seeing justice served even if it s a dish that s best served cold,1.0687276339600025e-05
+it s one of the saddest films i have ever seen that still manages to be uplifting but not overly sentimental,0.004209138664515636
+have some idea of the fate that lies in store for moviegoers lured to the mediocrity that is kung pow enter the fist,8.984556630624987e-06
+a solid piece of journalistic work that draws a picture of a man for whom political expedience became a deadly foreign policy,0.058368144025
+that the central performers are experienced actors and,5.150766420900341e-06
+a yarn,7.652477378614509e-06
+we might resent it sometimes,0.008518167668966405
+not just unlikable disturbing disgusting without any redeeming value whatsoever,0.005022426500046404
+successor,5.638770918062552e-05
+it s the funniest american comedy since graffiti bridge,0.16196481929916084
+told with the intricate preciseness of the best short story writing,0.0020162165452899954
+he s really bad,0.0045683303718306225
+as rachel,4.856707994435673e-06
+has some of the funniest jokes of any movie this year,6.799371238890016e-05
+overblown in its plotting,0.015069364523875585
+soon becomes a questionable kind of inexcusable dumb innocence,0.00037786577911289867
+by argentine director fabian bielinsky,0.012543957440036108
+french comingofage genre,0.0013308264060035455
+the good thing the only good thing,0.09474887375030253
+that what is good for the goose,0.024350132531184118
+the comic elements,0.0016049742601369024
+particularly for jfk conspiracy nuts,0.0032996400594975453
+shrewd powerful act,3.8518966513224204e-05
+enter into,2.040722801409587e-07
+i e,0.0002420292410295202
+stale retread of the 0 original,0.025301483347359998
+shot in rich shadowy blackandwhite devils chronicles with increasingly amused irony the relationship between reluctant captors and befuddled captives,0.13908442149243685
+are such a companionable couple,0.009595447484886024
+less than 0 minutes,0.00017495946797340086
+flatout amusing sometimes endearing,0.010170413901340894
+you re gon na like this movie,0.07989811491120209
+derivative and done to death,0.10839683755056248
+altman s,0.00016066890867457725
+so stupid so illconceived,0.007943385052948903
+exuberantly irreverent animated space adventure,0.005963798701153228
+clockstoppers if you have nothing better to do with 0 minutes,0.011256229657344404
+with both adults and younger audiences,0.00013634543965702393
+solondz has finally made a movie that is nt just offensive,0.09061338055291923
+will get a kick out of goofy brits with cute accents performing agesold slapstick and unfunny tricks,0.006568305802657228
+unplundered,0.018787417041705595
+nt wait to see what they do next,0.021147363218968904
+children of the century,0.00013471817765785645
+still seems timely and important,1.5280668224999787e-06
+generally,0.0001557866190654004
+impostor has a handful of thrilling moments and a couple of good performances but,0.0034879920576006305
+a painful ride,0.11230984137882603
+leaves little doubt that kidman has become one of our best actors,0.0009077882767256244
+a scrapbook of living mug shots,0.0008739875243584014
+the wrong times,1.9901190155625327e-05
+you would nt want to live waydowntown,0.004425580947001597
+seriously rent the disney version,0.012791906323716103
+a few tasty morsels,3.7254790224998605e-06
+trying to reach,0.009285181184526025
+wit,0.0006435359313600998
+when it does,0.00020666470238882206
+before signing that dotted line,0.00600159586445105
+etc,0.00013871559528432124
+for men,2.098805771925584e-05
+not for everyone but for those with whom it will connect it s a nice departure from standard moviegoing fare,9.72123805209973e-06
+has no affect on the kurds,0.042246116089960005
+that s perfect for the proud warrior that still lingers in the souls of these characters,0.06202238347341424
+aimed mainly at little kids but with plenty of entertainment value to keep grownups from squirming in their seats,0.009776735286890634
+features what is surely the funniest and most accurate depiction of writer,0.057157771285917196
+an elaborate haunted house each year to scare,0.00014587941258302579
+barely interesting,0.060078138535330054
+why either is impossible,0.016966734430190734
+shootings,8.346742787460061e-05
+though the plot is predictable the movie never feels formulaic because the attention is on the nuances of the emotional development of the delicate characters,0.00563109389957823
+of true minds,0.009828595450968534
+virtually,0.00040777580657813846
+a combination of standard stiff tvstyle animation and snazzylooking digital effects that do little to disguise the fact that the characters barely move,0.00261116656518062
+returning to one anecdote for comparison the cartoon in japan that gave people seizures,0.09541202821014062
+a clutch,0.03075082447435691
+has nothing fresh or very exciting,0.002141433006384399
+something terrible is going to happen,0.0145097274370689
+on the gold,0.0011994928293530263
+somehow snagged an oscar nomination,0.14195044482450322
+voyage,0.0005734188660995556
+is this comedy about mild culture clashing in today s new delhi,0.0080453921491321
+who are not an eighth grade girl,0.0010343762333584004
+the series message about making the right choice in the face of tempting alternatives remains prominent as do the girls amusing personalities,0.012268900732104905
+exit,0.0234811276543809
+is most remarkable not because of its epic scope but because of the startling intimacy it achieves despite that breadth,0.0003402855370489009
+a girls gone wild video for the boho arthouse crowd the burning sensation is nt a definitive countercultural document,0.010361606377984577
+the movie s contrived lame screenplay and,0.03649477239960249
+cage s,0.0007765359702960274
+if there s no art here it s still a good yarn which is nothing to sneeze at these days,0.004592038980222231
+a gorgeous film,2.4885062499986288e-08
+this generation s,2.359481078760167e-05
+often is,0.00011040314314410122
+there s really only one good idea in this movie,3.9286807680999675e-06
+gollum s expanded role will either have you loving what you re seeing or rolling your eyes,0.015131800839618218
+goes right,0.00010898483057640008
+saw in this film that allowed it to get made,0.058337175654809996
+another,5.158885930398148e-05
+the best most,0.007250796685592089
+give director roger michell best known for the superfluous notting hill,0.0005922791041362264
+not just the full assault of reno s immense wit and insight but a time travel,0.003854581371825631
+to special effects,0.0031056690559608997
+nation,0.012127753055662075
+ms,5.263614953100603e-05
+as happiness was,0.02892449368760065
+visually atrocious and often downright creepy,0.009034899813368101
+hey arnold the movie could have been made 0 years ago,0.0005885442036048993
+even as it pays earnest homage to turntablists and beat jugglers old schoolers and current innovators scratch is great fun full of the kind of energy it s documenting,0.009011685914010002
+phi,6.459290285484107e-05
+showcases carvey s talent for voices but not,0.0029439803187962217
+it is ok for a movie to be something of a sitcom apparatus if the lines work the humor has point and the actors are humanly engaged,0.001453130588002501
+in the mood for a fun but bad movie,0.00037179976605210074
+fifties teengang machismo in a way that borders on roughtrade homoeroticism,0.02198754707554021
+a bored cage spent the duration of the film s shooting schedule waiting to scream got aids yet,0.0025862869658024997
+just about as much of the novella as one could reasonably expect,0.0007668475563001548
+watching trouble every day,0.0033122787457600003
+in front of you,0.00041905467618062834
+electrocute and dismember,0.0002624085729409001
+shout,0.0008953142050054062
+trusted,0.008023956518371607
+nauseating,0.04778830342072961
+good action good acting good dialogue good pace good cinematography,0.008358736332515609
+comedy and tragedy hope and despair,0.005542064725052023
+the intelligent french drama,0.0026149043027382276
+for perfectly acceptable occasionally very enjoyable children s entertainment,8.565502500000024e-05
+staged violence overshadows everything including most of the actors,0.03062729954316491
+glory,0.00047967263604489996
+it s a long way from orwell s dark intelligent warning cry 0 to the empty stud knockabout of equilibrium and what once was conviction is now affectation,0.17980625367270558
+will linger long after this film has ended,0.026073523270080397
+the film becomes an overwhelming pleasure,0.00029526923556000246
+is more fun than conan the barbarian,0.045083527802592435
+a waste of good performances,0.058878491097699014
+the king it also,0.009741793635275633
+find out whether in this case that s true,0.0008208152802158803
+ve been nice if the screenwriters had trusted audiences to understand a complex story and left off the film s predictable denouement,0.059319649349625025
+blue crush thrillingly uses modern technology to take the viewer inside the wave,0.009558660038559996
+will quite likely be more like hell,0.0008952192656462266
+having survived,0.01866527988027421
+compassion,0.008693334900183033
+the bravery and dedication of the world s reporters,0.035258109924244885
+full of witless,0.00021564951870009996
+on his sentimental journey of the heart,0.004965104832250002
+indoors,0.0013491736704788985
+both american pie movies,5.392044204691623e-05
+the two best adjectives to describe ghost ship,0.004707140885871842
+this is popcorn movie fun with equal doses of action cheese ham and cheek as well as a serious debt to the road warrior but it feels like unrealized potential,7.250444802224908e-06
+almost nothing else,0.012080557396504916
+good things,0.0011794553862400012
+can you take before indigestion sets in,0.002146447124955222
+the bounties,0.00016478532125500115
+developed characters,0.01708028385523358
+the pace of the film,0.0005814137413130041
+first place,0.018737223296220514
+than an hourandahalflong commercial for britney s latest album,0.06798729273431288
+0,5.6595532761499565e-05
+all are irrelevant to the experience of seeing the scorpion king,0.057913613723625613
+bodiceripper and plodding,0.0407572968314532
+by its end offers a ray of hope to the refugees able to look ahead and resist living in a past,0.001354360706689606
+repulsively sadistic and,0.006589486152922498
+of neil burger s impressive fake documentary,0.002757070636074226
+did the screenwriters just do a cutandpaste of every bad actionmovie line in history,0.009586909549945233
+fills,0.0006279377691052814
+astoria and,0.00015793956789480045
+it s kinda dumb,0.0003090815399112239
+the adventure does nt contain half the excitement of balto or quarter the fun of toy story 0,0.06746102350276
+the flash,0.00010677830822288072
+that promise,0.00022463924472090218
+emotionally bruised characters,0.005518770088980623
+he allows a gawky actor like spall who could too easily become comic relief in any other film to reveal his impressively delicate range,0.007534552483240007
+dickens evergreen the exuberant openness with which he expresses our most basic emotions,0.00948947278390565
+judith and zaza s extended bedroom sequence is so intimate and sensual and funny and psychologically selfrevealing that it makes most of what passes for sex in the movies look like cheap hysterics,0.00909246159935999
+ms,5.263614953100603e-05
+is nt mainly suspense or excitement,0.0004065324550225024
+in the viewing audience,0.003876771450875624
+one of the worst movies of the year watching it,0.13922707897910247
+the plot is straight off the shelf,4.454461193062506e-05
+do well,0.0062016672379422155
+is a heartwrenching showcase indeed,0.004707393849202499
+with a film,0.0006921453279090257
+i have two words to say about reign of fire great dragons,0.04677439982121001
+increasingly amused irony,0.04150981645857637
+a dormant national grief,0.0074606033110466525
+like these russo guys lookin for their mamet instead found their sturges,0.017675505069801298
+of engaging historical drama that hollywood appears to have given up on in favor of sentimental war movies in the vein of we were soldiers,3.6430975161001763e-06
+hangups surrounding infidelity,0.0249123228515044
+like the sixtime winner of the miss hawaiian tropic pageant,0.010401762240340907
+witness the conflict from the palestinian side,1.124377432432175e-06
+the story s promising premise,0.023436163845674998
+that of frank capra,0.0016773950008561655
+laughoutloud funny,0.0033060798021903996
+it would have been groundbreaking,0.0008210419736689058
+it s that painful,0.12712616610742924
+0,0.010730266517206516
+with few exceptions it rarely stoops to cheap manipulation or corny conventions to do it,0.0014574642405624986
+directors harry gantz and joe gantz have chosen a fascinating subject matter but the couples exposing themselves are nt all that interesting,0.010646210421225624
+execrable,0.03211309696162562
+the end an honorable interesting failure it falls far short of poetry,0.003922164927296107
+as conventional as a nike ad,0.000551404089180024
+are smarter,0.0017620471207950188
+loses its fire midway,0.035090543230089984
+the standard madefortv movie,0.013190990908398344
+seem disappointing in its generalities,0.006848348647562494
+but this cliff notes edition is a cheat,0.039193728432883615
+are nt likely to leave a lasting impression,0.010128055350297609
+s own sadistic tendencies toward his audience,0.009602654507128227
+it were subtler,0.0009038184305454056
+learns her place as a girl,0.02717031184129803
+than triumph,0.010794779858284906
+the unique niche of selfcritical behindthescenes navelgazing kaufman has carved from orleans story and,0.06382356911089286
+cox,0.00013440280793450496
+walken kinda,3.619316442170086e-05
+a sobering and powerful documentary about the most severe kind of personal loss rejection by one s mother,0.008554320558784884
+trying to do than of what he had actually done,0.012756595614010005
+s a bad sign in a thriller when you instantly know whodunit,0.02224716629542561
+no classic like its predecessor,0.0065495664085602635
+frankly it s pretty stupid,0.0021153330525625
+s backstabbing interracial desire and most importantly singing and dancing,0.059668792884961186
+gambling and throwing a basketball game for money is nt a new plot in fact toback himself used it in black and white but toback s deranged immediacy makes it seem fresh again,0.0529932554629696
+standard policeoriented drama,0.005178392717102496
+genuinely moving,0.022687601425921588
+cute,0.0006679560130740224
+better than to rush to the theatre for this one,0.005619629782356106
+creep,0.015437313207042036
+a rich and intelligent film that,0.00018163761529000068
+some laughs and a smile,0.0012080803305024978
+one of two things,9.529992406022322e-05
+bentley,9.017125268517048e-05
+a quest story,0.00020241016100355577
+saddest action hero performances,0.11820018376003129
+goes a long way,0.0009886169715983958
+boomer families,0.00018410970110220942
+straightforward,0.027501396476702515
+a smart and satisfying,0.012109560887902484
+being in the mood,0.0006671997486440982
+hackneyed elements,0.002781599895765627
+such a worthless film,0.0080567768162025
+a surprisingly sensitive script cowritten,0.005990492198992899
+is the script,0.0001336947593960259
+is how the film knows what s unique and quirky about canadians,0.006502009675801598
+uwe,0.00014561729170560033
+lead actress gaãƒâ¯ she of the impossibly long limbs and sweetly conspiratorial smile is a towering siren,0.05608141526952249
+figuring out,0.0002376887762141231
+davis has energy,0.06303552978000064
+the whole thing,0.00015097380937959936
+tempting to regard mr andrew and his collaborators as oddballs,0.0031730576340099985
+dramatically depicting the lives of others onstage,0.04253931206286599
+comes up,0.00019226450007275712
+when all is said and done,2.9881478478760377e-06
+is a phenomenal band with such an engrossing story that will capture the minds and hearts of many,7.412727847840074e-05
+vivid characters,0.00014100493770250093
+the casting,0.0007065204816852092
+it treats ana s journey with honesty that is tragically rare in the depiction of young women in film,0.0011887000749008984
+a spoof,1.905529843140583e-05
+it s dench who really steals the show,0.04435726206104302
+an earnest try,0.0036705161734962217
+accepting a 0yearold in the role is creepy in a michael jackson sort of way,0.010571409517369606
+youthful outtochangetheworld aggressiveness,0.014781363272676906
+practically every facet of inept filmmaking,0.00014042534401440047
+crosscountry adventure,0.009599746291107023
+too long too cutesy,0.03115401149490011
+the best films of the year with its exploration of the obstacles to happiness,0.09700730045400245
+remind us,0.0027641703718428844
+is undoubtedly one of the finest films of the year if you re not deeply touched by this movie check your pulse,0.0026604654520900007
+call me a cynic but there s something awfully deadly about any movie with a lifeaffirming message,0.045654804799022494
+urban western,4.775093314202504e-05
+in the nottoodistant future movies like ghost ship will be used as analgesic balm for overstimulated minds right now they re merely signposts marking the slow lingering death of imagination,0.012114840247479223
+pacino is brilliant as the sleepdeprived dormer his increasing weariness as much existential as it is physical,0.028723668691942213
+park and his founding partner yong kang,5.759336659099306e-06
+hefty audio system,0.00014168390864102427
+asparagus if you re not a fan it might be like trying to eat brussels sprouts,0.02668633114103522
+dignity,0.0012036660033321004
+and back to the future,0.0007496050687139732
+nor are the uneven performances by the cast members who seem bound and determined to duplicate bela lugosi s nowcliched vampire accent,0.000600432048801224
+a reminiscence,0.00012725383150785692
+como,9.401255174404805e-05
+relationships in such a straightforward emotionally honest manner that by the end,0.015002665864036882
+hugely entertaining and uplifting,0.009753893139240003
+nothing outstanding about this film,0.2985975642978642
+hawn and sarandon form an acting bond that makes the banger sisters a fascinating character study with laughs to spare,0.017834774499609976
+t he film is never sure to make a clear point even if it seeks to rely on an ambiguous presentation,0.00970153194828602
+to realize intuitively that even morality is reduced to an option by the ultimate mysteries of life and death,0.0437519843150625
+addressing a complex situation,0.0001954179347856126
+you love the music and,0.02266817809620253
+m still stunned,0.010088705850502503
+featuring a dangerously seductive performance from the great daniel auteuil sade covers the same period as kaufmann s quills with more unsettlingly realistic results,0.003509605085286407
+is partly,0.00035463857442249937
+thrill you touch you,0.00014870973251560057
+the most pitiful directing,0.018597766959376906
+it all unfolds predictably and the adventures that happen along the way seem repetitive and designed to fill time providing no real sense of suspense,0.00669532489725122
+is a big juicy role,0.0008910353355462225
+achieved only by lottery drawing,0.0095873570165025
+epps,0.00014561729170560033
+that they could nt have done in half an hour,0.014233606669902399
+this sappy ethnic sleeper proves that not only blockbusters pollute the summer movie pool,0.013839070782576405
+this idea,0.0003079875826806244
+dithering,0.0093790392487936
+bottomless pit,0.019816306923864022
+the pile of hollywood dreck that represents nothing more than the art of the deal,0.012819834954584094
+thrilling movie,0.02220568480711839
+to their cause,0.0006957725062500028
+try to create characters out of the obvious cliches but wind up using them as punching bags,0.005818051058822498
+both sides of the everescalating conflict,0.010980852408941404
+no lie,0.02965026118887015
+little movie,1.559992470627611e-05
+one facet,0.001394982909280908
+than hannabarbera s halfhour cartoons,0.0022491848321016163
+the energy,0.009226717674198024
+a few stabs,0.004411507471872396
+a bigbudgetallstar movie,0.03801875382152828
+that turns me into that annoying specimen of humanity that i usually dread encountering the most the fanboy,0.1360507761858782
+passable date film,0.01096766493662441
+beyond his usual fluttering and stammering,0.005599724208003019
+guys,0.00028989506195302564
+only 0 minutes,0.005288981623398222
+in gosford park as well as one ms mirren who did,0.0018389249301053489
+is awful,0.059482629646172076
+in the playboy era,2.9574111689472095e-05
+transforms the dreary expanse of deadend distaste the characters inhabit into a poem of art music and metaphor,0.005815869765422495
+breathe,0.00013174035195239936
+the film sporting a breezy spontaneity and realistically drawn characterizations,0.0003143158453920227
+all that great to begin with,0.053841227378265605
+is scary,0.0020546051920290113
+interested without coming close to bowling you over,0.0015874005024180313
+the ludicrous,0.004617201141000095
+of his film,0.0007667621288209013
+he does all of this and more while remaining one of the most savagely hilarious social critics this side of jonathan swift,0.018715315263444905
+when it is nt downright silly,0.0002093473309455995
+that needs to be heard in the sea of holocaust movies,0.003733020592402503
+s denial of sincere grief and mourning in favor of bogus spiritualism,0.013909060489422405
+i m not sure which half of dragonfly is worse the part where nothing s happening or the part where something s happening but it s stupid,0.023632190374522497
+frantic by half,0.004654063908490003
+taylor s,5.6288346533136734e-05
+a moving and weighty depiction of one family,0.0067649638003600045
+what to do with him,9.780542436390639e-05
+a hallucinatory dreamscape that frustrates and captivates,0.002575373205978222
+what i like about men with brooms and what is kind of special is how the film knows what s unique and quirky about canadians,0.0005009695915224998
+passion or uniqueness,0.03155519331797422
+schweiger is talented and terribly charismatic qualities essential to both movie stars and social anarchists,0.008923447295999998
+of the year s most accomplished and riveting film performances,0.00039146601025000043
+the inspiration of the original,0.012678899624384385
+rapidly changing,0.0005653152948496025
+an unexpectedly adamant streak,0.031002369529635504
+the third,0.0016991634624490182
+comes to dreaming up romantic comedies,0.027747494813578858
+knucklehead swill,0.0005149699797025021
+has tackled a meaty subject and drawn engaging characters while peppering the pages with memorable zingers,4.800480510249892e-05
+some memorable images,0.005451719454777588
+enjoyably,0.008200102981536405
+delivers on the promise of excitement,0.0002679893413444006
+given life,0.00023841896859486334
+the tale like its central figure vivi is just a little bit hard to love,0.0017308790867072278
+with an unflappable air of decadent urbanity,0.01003146471183999
+no sense,0.014945774003468098
+pet rock,0.0008226243694820399
+already tired,0.018671805466384226
+opportunity to use that term as often as possible,0.01765795148640061
+irwin,0.00015204348673987332
+has it ever been possible to say that williams has truly inhabited a character,0.10405228874367688
+turns a potentially interesting idea,0.02914030798335563
+come from a family that eats meddles argues laughs kibbitzes and fights together,0.00016433958024999958
+the hot chick,4.299487191725583e-05
+the usual portrayals,0.0023905992780000234
+might be alone in that,0.0001900312841286728
+bad clive barker movie,0.0048156764342556285
+might have guessed,0.015226192141719292
+widowmaker,0.004327791414760359
+brat,0.006412816009603592
+like a brandnew,0.0015017149463690932
+graze the funny bone,0.021179417492249993
+deliver nearly enough of the show s trademark style and flash,7.21362213297206e-05
+an eerily suspenseful deeply absorbing piece that works as a treatise on spirituality as well as a solid scifi thriller,3.410706001562599e-05
+below may not mark mr twohy s emergence into the mainstream but his promise remains undiminished,0.01372497067910439
+you know you re in trouble,0.003663008109384099
+exotic world,0.01902662562459122
+its tenyearold female protagonist and,0.0019156371674800628
+this unusual comedy from choking on its own conceit,0.006194737541289027
+girlfriends,3.5288797691405665e-05
+of marmite,0.0029742063816012207
+the impressive stagings,0.033304253479920914
+adults behave like kids,0.03601856068236922
+much of it is funny,0.0005464450901072226
+tries too hard to be funny,0.002708950583856398
+as mr de niro,0.0010790659987396035
+just unthinkable,0.04391607173877793
+divertingly ridiculous headbangingly noisy,0.004175739230401597
+very least,0.01532619103921104
+if only to be reminded of who did what to whom and why,0.0012321423305532249
+one of those energetic surprises an original that pleases almost everyone who sees it,0.00020015812267562658
+is very very far from the one most of us,0.0042459585274404014
+few equals this side of aesop,0.04466802486866077
+crystal,0.0013091927363245936
+dubious,0.02080622623801322
+becomes a fangbaring lullaby,1.629349371040035e-05
+with the sensibility of a particularly nightmarish fairytale,0.0006258603959088048
+it s hard to fairly judge a film like ringu when you ve seen the remake first many of the effective horror elements are dampened through familiarity yet are worthwhile,0.04212084288297688
+willingness to explore its principal characters with honesty insight and humor,0.00017452391556249837
+four hankies,0.0196402054972728
+murder by numbers,8.518231797200797e-06
+by and large this is mr kilmer s movie and it s his strongest performance since the doors,0.007592281675689996
+rare drama,0.0037963915889682137
+to faith,0.00030020673592562336
+is a kind unapologetic sweetheart of a movie,0.028243572031897608
+touch the heart of anyone old enough to have earned a 0year friendship,0.0019428833074224936
+young actor,0.00040966519003515653
+picked me,0.00025822408976925517
+body count,0.0018080867216896106
+too lame to work or be cool at others,0.02295046687963322
+rohypnol,0.00030942544398304846
+like disturbing hallucinations,0.00023329919999822397
+sharp overmanipulative hollywood practices,0.061478870247448913
+s crap on a leash far too polite to scale the lunatic heights of joe dante s similarly styled gremlins,0.04655268397970411
+you unfulfilled,0.00022833975213722675
+of family forgiveness and love,0.018346123726714642
+prison thriller,0.00744566553959289
+landmark poem,0.0016491656024063973
+a working class us vs them,0.004673208547156902
+some movies,1.3845840591722443e-06
+in the mind of the viewer,0.005041200221988106
+of a house,0.007864263182623748
+shiri is an action film that delivers on the promise of excitement but,0.08652656689138023
+a village idiot as the 0 clone,0.002401259707022498
+of what is in many ways a fresh and dramatically substantial spin on the genre,0.017703134072265623
+root for expulsion for everyone,0.016910012782635018
+ditties,0.006171859002992393
+an average kidempowerment fantasy with slightly aboveaverage brains,0.023064057997788014
+the problem is that for the most part the film is deadly dull,0.0026547766764756235
+frame look,0.0007498955871610608
+there s an epic here but,0.002035297357632891
+upper west sidey exercise,0.0028890125127162204
+especially for aging hippies this one included,0.00013438290310849522
+whole new levels of ugly,0.0041187835950625045
+quite shrek or monsters inc,0.0006700588255095329
+for suspense,0.011745014910336395
+treat for its depiction on not giving up on dreams when you re a struggling nobody,0.003869738220128401
+and a perfect example of how art when done right can help heal,0.009224926320390387
+has a different objective in mind,0.02083261098855422
+it s an intriguing look at two performers who put themselves out there because they love what they do,0.010261224025289986
+black indomitability,0.011172694636137025
+whose rap soundtrack,1.9636486159556083e-05
+be 0s animation,0.003945619827160551
+reprieve,0.0016199910972867692
+almost,1.1859193663523894e-05
+whether or not to recommend this film because for every thing it does right there s at least one and occasionally two things it gets ever so wrong,0.022080873747359012
+is great summer fun to watch arnold and his buddy gerald bounce off a quirky cast of characters,0.0025017152941225066
+love age gender race and class,0.012636707299872096
+not very imaginative,0.03322355589289
+mannerisms and,0.00017530811271760938
+jews were catholics,3.4013804490359625e-05
+honoring,0.011277650947801225
+ride roughshod over incompetent cops to get his man,0.007418873017094395
+indian wedding,0.0033425406923840925
+lots of boring talking heads etc,0.005624238775755627
+is this films reason for being,0.014110929867619238
+wifty,0.0002468921152656027
+very rainy,0.0013125926112784016
+s also an abundance of hackneyed dialogue and more silly satanic business than you can shake a severed limb at,0.00299866581400563
+woodman,3.805976277834055e-05
+pure venality,0.10009505470290059
+plagued,0.004790917642767019
+dong makes a valiant effort to understand everyone s point of view and,0.0051501980014143885
+require many sessions,7.358985587320971e-05
+to correct them,0.0028644503427136055
+this mildmannered farce directed by one of its writers john c walsh is corny in a way that bespeaks an expiration date passed a long time ago,0.0016621154379025023
+a cup of coffee,0.0009366381746570274
+validated by the changing composition of the nation,0.01806156849242221
+leave a lasting impression,0.15575002351065062
+one film,0.017595814240116206
+director benoit jacquot making his first operatofilm translation with tosca conveys the heaving passion of puccini s famous lovejealousy murdersuicide fandango with great cinematic innovation,0.0027264041364004022
+full of stunt doubles and special effects,0.010231524800999998
+the sequels,0.00744306417550802
+has tailored an epic tale into a lean economical movie,0.08396291490860253
+that will enthrall the whole family,0.005170167240015618
+a big chill reunion of the baadermeinhof gang,7.772816838416345e-05
+ideal casting,0.030348080591070015
+wannabehip crime comedy,0.09376521421557792
+all those gimmicks,0.0015842601016452264
+short supply,0.010828097124608436
+perspective,0.0002858357779023639
+a rare beautiful film,0.010596314194559997
+offer some modest amusements when one has nothing else to watch,0.11257229477220254
+it s not original and,0.011329803566402499
+even punishing,0.0007617048009999992
+occasionally tries the viewer s patience with slow pacing and a main character who sometimes defies sympathy,0.00541123175515563
+passable entertainment but it s the kind of motion picture that wo nt make much of a splash when it s released and will not be remembered long afterwards,0.0036789016506025016
+a relentless bombastic and ultimately empty world war ii action,0.046009988310372105
+bernal and,0.00015793956789480045
+it is very difficult to care about the character and that is the central flaw of the film,0.005311122718502499
+postcard perfect,2.3197805288099934e-05
+the repetitive manifestos,0.00032801429765722445
+comes across as a fairly weak retooling,0.00047742206300009936
+vincent crummles the eccentric theater company manager,0.0026477297126490285
+since shinya tsukamoto s iron man,0.0006564935457369011
+art,0.005958757705140103
+getting into too many pointless situations,4.327502470225106e-06
+larger implications,0.00029843305329622347
+what makes the movie,0.0001449490786703998
+star trek nemesis is even more suggestive of a 0th class reunion mixer where only eight surviving members show up,0.02943231892225
+so young so smart such talent such a wise,0.0001608655915584019
+heartwarming yarn,8.322958515062614e-05
+a smartly written motion picture,0.02803219043526723
+reveals,0.0019038795297070248
+have made this a superior movie,0.0023153130532900038
+chaplin s city lights,0.00295944644223122
+a tragedy,0.03168954850289222
+slightly disappointed,0.0002609137554806244
+everlasting,0.03070415019987001
+presents weighty issues,0.0387759248401212
+really scores,0.021621860002750227
+are both excellent in the kind of lowkey way that allows us to forget that they are actually movie folk,0.01574284637024998
+in if argento s hollywood counterparts had this much imagination and nerve,0.0035893440969882256
+documentaries ever wilco,0.0017617721838408965
+captures the dry wit that s so prevalent on the rock,0.001138537747950626
+the full assault of reno s immense wit and insight,0.00110196678093322
+remains prominent as do the girls amusing personalities,9.58295605322491e-06
+stagey,0.008592572516976899
+to this film s and its makers,0.005377941556802491
+taking the shakespeare parallels quite far enough,0.022771432466753904
+make the awardwinning coen brothers envious,0.037710008547422506
+executed comedy,0.0032087856300687372
+hurts the overall impact of the film,0.00014507383451559965
+on its screwedup characters,0.0004938736183765577
+it does nt do the original any particular dishonor,0.12674330522526758
+halloween,0.0003798255255267691
+that was developed hastily after oedekerk,0.0013171920110596
+as it abruptly crosscuts among the five friends,0.0033611649775580265
+is uncompromising difficult and unbearably beautiful,0.070252512344129
+so much fun dissing the film that they did nt mind the ticket cost in this case zero,0.043590301002673235
+is an embarrassment a monotonous disjointed jumble of borrowed plot points and situations,4.74259482225003e-05
+catch on,0.0018108297668378767
+a horror movie,9.158608668384382e-05
+something new to say about how in the flipflop of courtship we often reel in when we should be playing out,0.014199808652702497
+a,0.00014561729170560033
+comes when he falls about ten feet onto his head,0.0024733126044081005
+mcwilliams s melancholy music,0.006904208174149221
+hopeful and always fun,0.0008010796212224972
+shakespeare s,3.459611236771563e-05
+kitchen,0.00014839815160688484
+only at the prospect,7.833748846572338e-06
+the acting is fine,0.001921453308328218
+the familiar to traverse uncharted ground,0.0025724986192380314
+with its tenyearold female protagonist and its steadfast refusal to set up a dualistic battle between good and evil,6.36460427554096e-05
+a promise nor a threat so,0.0002182283812280256
+the only possible complaint,0.0023909837939499767
+in his role of observer of the scene lawrence sounds whiny and defensive as if his lifealtering experiences made him bitter and less mature,0.0003019427522500006
+as the final hour,0.0002921605642170245
+in exploring an attraction that crosses sexual identity,0.0025079998896042214
+you ve spent the past 0 minutes looking at your watch,0.0008628826937682234
+broadly metaphorical,0.01133416383172092
+trees bs one another,0.005959222415999998
+yet,8.880363048038587e-06
+clint eastwood s efficiently minimalist style,0.05207176639752734
+pack it with enough action,3.210869772100065e-06
+aussie,0.0007800578081352259
+karen black,0.00021147449017640496
+the reputation,0.00021678963859328462
+beyond time,0.0012611553415370017
+warmly extend your arms,0.012559609813212209
+films are weak as are most of the subplots,0.011086605319702505
+cover up the fact that the picture is constructed around a core of flimsy or worse yet nonexistent ideas,0.08310739078642562
+sit through about 0 minutes of a socalled comedy and not laugh,0.008030082931132899
+bring out,0.00028913040470722576
+of the film s producers,0.00028084936679071933
+through love,0.013699639706611585
+to be appreciated by anyone outside the under0 set,0.04898715039076811
+most creative energetic and original,0.0034916789175849033
+on madonna street,0.00013342337166631196
+elements such as sound and cinematography with skill,0.0032611723295556247
+is a distinct rarity and an event,0.0005822272204782224
+is even more rigged than it was two centuries ago,0.003345264898210225
+harris,0.00013086494006326216
+else who may for whatever reason be thinking about going to see this movie is hereby given fair warning,0.004053130361639993
+predictable in the reassuring manner of a beautifully sung holiday carol,0.017823922794250213
+ugly irritating,0.007144488303755626
+funny and for all the wrong reasons besides,0.036295546093209986
+irresponsible sandlerian,8.601635025000035e-05
+trek flick,0.0023895379124099954
+say this,0.002686712033250998
+courage and dedication,0.0027112099197183995
+uselessly redundant and shamelessly moneygrubbing than most thirdrate horror sequels,0.040437298699575616
+so free with emotions and the fact that children are hostages to fortune that he makes the audience hostage to his swaggering affectation of seriousness,0.0038315709411995396
+complex founders,0.0016321671104077395
+more of the same from taiwanese auteur tsai mingliang which is good news to anyone who s fallen under the sweet melancholy spell of this unique director s previous films,0.03196276216875562
+thrills of early underground work,0.012356263255212897
+in the treads of the bicycle thief,0.005529220727212898
+beyond the end zone,0.011407288266083566
+blockbuster,0.0213906317912832
+as those monologues stretch on and on you realize there s no place for this story to go but down,0.0104931771191641
+built on a faulty premise one it follows into melodrama and silliness,0.02323940180256249
+from zhao,0.00010559045234556228
+the reef,0.0038719344465168986
+writerdirector randall wallace has bitten off more than he or anyone else could chew and his movie veers like a drunken driver through heavy traffic,4.454828280250035e-05
+is nt as easy to come by as it used to be,0.001957153710472903
+not into hightech splatterfests,0.004156618797704029
+it works beautifully as a movie without sacrificing the integrity of the opera,0.0003389398825023952
+hilariously wicked black comedy,0.1251070728096675
+that this mean machine was a decent tv outing that just does nt have big screen magic,7.5670106723999295e-06
+s not original enough,0.003346675143707021
+for each chuckle,0.00031011174780009877
+crummy wannabehip crime comedy,0.0012662484558282287
+authentic and dark,0.00012236706966122516
+of creating historical context and waltzes off into a hectic soap about the ups and downs of the heavy breathing between the two artists,0.028378243985732354
+hopefully this film will attach a human face to all those little steaming cartons,0.0030169813709730316
+seduced by witherspoon s charisma,0.004285384730122495
+to the canon of chan make chan s action sequences boring,0.0066573564543906255
+his penchant for tearing up on cue,0.010266285988995804
+it s far from a frothy piece and the characters are complex laden with plenty of baggage and tinged with tragic undertones,0.0008338187558463967
+tries and fails,0.017417735843112896
+i can easily imagine benigni s pinocchio becoming a christmas perennial coal is nt as easy to come by as it used to be and,0.025206785645602484
+is in waiting to hear how john malkovich s reedy consigliere will pronounce his next line,0.00013486830487558486
+family togetherness takes a back seat to interfamily rivalry and workplace ambition 0,0.006829162588368765
+flowers,0.00015489514979334426
+continues to cut a swathe through mainstream hollywood while retaining an integrity and refusing to compromise his vision,0.002654676204602497
+contributing to a film s narrative,7.79833818724003e-05
+of this,0.0002194357381831309
+a british flick,0.00016616390744976384
+unforced style,0.006033300764205615
+mr spielberg,0.00022598232484597367
+director mark romanek s,0.0008746130770041645
+very obviously mark him as a video helmer making his feature debut,0.005379896097450625
+gives mothman,0.0014458342721362523
+the screenwriter and director michel gondry restate it to the point of ridiculousness,0.07107248400248137
+stays within the confines of a wellestablished genre,0.0021907515538662293
+obstacles,0.007120501405645027
+you do nt think kissinger s any more guilty of criminal activity than most contemporary statesmen,0.0017961779801956039
+deeply satisfying awareness,0.000637787244802502
+special effects and backgrounds,0.009993342108557034
+carvey s characters are both overplayed and exaggerated,0.08411975015940246
+nothing else happening,0.016312449488039987
+elegant entertainment,0.0023021792398609086
+fused with love triangle is a well worn conceit,0.0004663634607025007
+still does nt quite know how to fill a frame like the hanks character,0.001446888302860229
+falters,3.800457409622439e-05
+this film to review on dvd,0.0007282154022226222
+applegate blair and posey,0.006060688516979772
+gazing out windows,0.0006640518747936155
+solomonic decision,0.004314148769552397
+ends with scenes so true and heartbreaking,0.011950475410332891
+that feel like long soliloquies,0.02292937011478091
+holocaust literature,0.010108892938683087
+one coincidence pummels another,9.109442603559971e-05
+get the same love story and parable,0.0695420200214041
+equally hard,0.0029889302686321026
+dreamed up such blatant and sickening product placement in a movie,1.0521070704399837e-05
+dampened through familiarity,0.006286054139929603
+that clever angle,8.862998592250029e-05
+authentic christmas spirit,0.006819216920102505
+a complete moron,0.019844525944360005
+onscreen presence,0.0018921986703481013
+something inexplicably strange once happened in point pleasant,0.004583274632112886
+as a,9.785140680817432e-07
+exalts the marxian dream of honest working folk,0.007084765658102505
+is a simple retread of the 0 alien,0.0003610722036100006
+and just when you think it ca nt get any more gay in pops nathan lane,0.0165018225867364
+with the first one,2.6466549039225468e-05
+from aged bottles,3.14258513332522e-05
+black hole,0.03346263489120252
+divine,0.0029476467812952155
+a rejected tv show,0.06511620721050061
+main asset,0.00648102330606882
+criticproof,0.08613802423882565
+the women are down for the count,0.008240282539103997
+is a visually stunning rumination on love memory history and the war between art and commerce,0.02814174002499996
+too clipped and abbreviated to be an epic,0.010033375802227606
+turns potentially forgettable formula into something strangely diverting,0.07753058778192248
+the macabre,0.0017003968097134246
+hard with which to bludgeon myself unconscious,0.06525699135207039
+before becoming mired in sentimentality,0.0002316018291409012
+portrayed with almost supernatural powers,0.02285363610009157
+it s really little more than a particularly slanted gay sm fantasy enervating and deadeningly drawnout,0.0038315604801599998
+candid camera on methamphetamines,0.0020555974909965136
+human nature is a goofball movie in the way that malkovich was,0.008532343539739898
+first film something,0.0013459809109501537
+angela gheorghiu ruggero raimondi,0.0005408528152188074
+appears that jackie chan s us influence is starting to show in his hong kong films,0.01653019732913422
+the adventure,0.002377618542288898
+with charming results,0.01353490020136811
+see what happens next,0.001601627613715599
+say about what is important in life and why,0.005282039355969598
+i f you ve been to more than one indie flick in your life chances are you ve already seen this kind of thing,0.025443207215932895
+they re just a couple of cops in copmovieland these two,0.008862713339740232
+at the bottom rung of the series entries,0.03312050150638095
+acted psychological drama,9.325030982440652e-07
+delicate surgical touch,0.025002936890848895
+for all the writhing and wailing tears rage and opium overdoses there,0.0010243094633772256
+young everlyn sampi as the courageous molly craig,0.017450885563240013
+avon,0.001748792504114926
+jealousy sickness and love,5.2671041777977044e-06
+of the gates,0.0003428865477024165
+think of a film more cloyingly sappy than evelyn,0.0118247768924041
+than the parents,0.004964993641469515
+some clever writing and sprightly acting,9.630331023062583e-05
+anyone still thinks this conflict can be resolved easily or soon,9.862972648368993e-06
+it would ve reeked of a beenthere donethat sameness,0.0223704789351696
+ledger,0.0001496175917579297
+0 or 0 minutes,0.0025611864152753927
+only way to bring happiness to their loved ones,0.018904197180726234
+great bond movie,0.0077111580942399865
+a sad sick sight,0.050080878724380606
+fancies,0.0001124451341202243
+of rabbits,8.562824939130016e-06
+any means,6.506995489402516e-05
+laconic and very stilted in its dialogue this indie flick never found its audience probably because it s extremely hard to relate to any of the characters,0.0011448491807844008
+it will come as no surprise that the movie is nt scary but here s the real damn,0.0001752243904452239
+the story loses its bite in a lastminute happy ending that s even less plausible than the rest of the picture,0.029062970105822504
+wielding,0.0008582634380498248
+is felt not the craven of a nightmare on elm street or the hills have eyes but the sad schlock merchant of deadly friend,0.0004623560010762261
+have captured the chaos of an urban conflagration with such fury,0.02290532264605203
+has this franchise ever run out of gas,0.007646417021670638
+so impersonal,0.011613176683802502
+the movie is too predictable and too selfconscious to reach a level of high drama,0.019464538466236893
+of the day,0.0009973231800197721
+comingofage film,0.03738702748106326
+schtick,0.0008084118897822255
+knows everything and answers all questions,0.02721134086867022
+about rubbo s dumbeddown tactics,0.025519854825422503
+filmmaker stacy peralta has a flashy editing style that does nt always jell with sean penn s monotone narration,0.0005412718575625007
+particularly toxic,0.0004394807008020253
+thankfully they are,0.000707639802250003
+more complex than your average film,0.007414172629248111
+remember it by,0.00020625440563359988
+this dream hispanic role with a teethclenching gusto,0.03535974299267822
+faraway,0.0003501796250695696
+to the mothman prophecies,0.0027591987682617737
+be filling the screen with this tortured dull artist and monsterinthe,0.0275533307846416
+she nearly glows with enthusiasm sensuality and a conniving wit,0.0007511318640362214
+his hong kong films,0.00012299956732728825
+imagine if possible a pasolini film without passion or politics or an almodovar movie without beauty or humor,0.03485860766116
+diatribes,0.00136292395684
+a misdemeanor a flat unconvincing drama that never catches fire,0.009055397052022499
+connoisseur,0.007131410657382386
+cyndi,0.00014561729170560033
+a fine production,0.00487104400490823
+acidic,0.0005408608386522238
+a sensual performance from abbass buoys the flimsy story,0.019170638532705644
+time to get to its gaspinducing ending,0.05521989591793959
+shortstory quaint touchingly mending a child s pain for his dead mother via communication with an old woman straight out of eudora welty,0.010122770519520386
+playful film that constantly frustrates our desire to know the truth about this man while deconstructing the very format of the biography in a manner that derrida would doubtless give his blessing to,0.0001346406320756257
+there is more than one joke about putting the toilet seat down and that should tell you everything you need to know about all the queen s men,0.0068596609242249
+actorish notations,2.021114315808064e-05
+a big gorgeous sprawling swashbuckler that,0.012887160477856908
+agency,0.0003277575859178526
+is certainly not number 0,0.0008955872173709491
+a s h only this time from an asian perspective,0.0028284017065984017
+a slick,0.006282471381271809
+who s simply fab as a spanish butler with a foot fetish,6.313907492009917e-05
+a driver s license,0.00023577940311210016
+not an objectionable or dull film it merely lacks everything except good intentions,0.0109202813500225
+shows a remarkable gift for storytelling with this moving effective little film,0.0086831739906025
+yesterday s weather report,0.0045637770611672976
+lightheartedness that makes it attractive throughout,0.0006007278450624998
+many films,0.000326610430910322
+it s worth checking out for the performances alone,0.04301890810000004
+as bestial,0.01214517986942648
+while undeniably interesting,0.016197238002456905
+turn this fairly parochial melodrama into something,0.006783411246392102
+willing to do this then you so crazy,0.07518001626316505
+pull off the heavy stuff,0.015001738664112226
+affected and boring,0.005035358499267603
+in such a lousy way complete with some of the year s unintentionally funniest moments that it s impossible to care,0.033602024503102505
+concerned with souls and risk and schemes and the consequences of one s actions,0.051287302089000016
+a freeforall,0.002941695667234797
+typically observant carefully nuanced and intimate french comingofage film that is an encouraging debut feature but has a needlessly downbeat ending that,0.005278552858322486
+this gutter romancer s,5.779937222499703e-08
+delightful if minor pastry,0.0001987770073689002
+efficiency and an affection for the period,2.29028875690021e-06
+i d been sitting naked on an igloo,0.0389227798526449
+playing a college football fight song on untuned instruments,0.007648465792082552
+unfolds with all the mounting tension of an expert thriller,0.0156257075080089
+this is not the undisputed worst boxing movie ever,0.08834311674048999
+you want to slap it,0.014460619262859218
+seem fresh again,0.009537084964000004
+the marquis auteil and emilie,0.011570290537131215
+trains,0.00012230776259265606
+mopping,0.005431455415432877
+road movie comingofage story and,0.04266728477732966
+of a good story,0.021457108158002478
+the message of such reflections,0.00014319775647520137
+phoneyfeeling,0.03710523779458559
+i cried not once but three times in this animated sweet film,0.0614993972061184
+it s this rich and luscious,0.0011970873411025012
+fabulously funny and over the top as a very sneaky butler who excels in the art of impossible disappearingreappearing acts,0.01957073133488488
+schepisi aided by a cast that seems to include every topnotch british actor who did not appear in gosford park as well as one ms mirren who did,0.01183432634877611
+of love story with ali macgraw s profanities,0.013404364670928403
+i ve always dreamed of attending cannes,0.0015519447517728948
+succumbs,0.015331372341166561
+spy action flick,9.648594607107608e-05
+watchable up until the point where the situations and the dialogue spin hopelessly out of control that is to say,0.04049075207145961
+of two genuinely engaging performers,0.004537746823839992
+though mama takes a bit too long to find its rhythm and a thirdact plot development is somewhat melodramatic,9.168269247224953e-06
+take advantage of its semihumorous premise,0.005365444568148015
+lies in store for moviegoers lured to the mediocrity that is kung pow enter the fist,0.008752918797991227
+forced to watch him try out so many complicated facial expressions,0.0019081131926220246
+white hope,0.0006318871191432233
+laughs and not the last time,0.006567741335768012
+takes you there,0.0003372170304408977
+paul cox needed to show it,0.000511791984752397
+at least the title of this film lets you know exactly where it s heading,0.07476394685362109
+harvesting purposes,0.008552131516969097
+that does nt exactly favour the audience,0.0067132926060492265
+hilarious to wonderwhat,0.06333520930876563
+in all a great party,0.0003138470894329014
+for critics,0.0003567699546060259
+in all brown sugar is a satisfying wellmade romantic comedy that s both charming and well acted it will guarantee to have you leaving the theater with a smile on your face,0.006662428401689994
+martin,0.00017526865855464811
+to slap them,0.006116496738561218
+that happens to have jackie chan in it,0.0011746917898457295
+in its violence,3.1011889844224264e-05
+longley s film lacks balance and fails to put the struggle into meaningful historical context,0.04097446973489522
+interesting enough to watch them go about their daily activities for two whole hours,0.03528528944156408
+you want to laugh at it,0.022627794948144417
+did nt make me want to lie down in a dark room with something cool to my brow,7.061250976562519e-05
+three or four more endings,0.001330049740203409
+kaufman s,5.261625798814243e-05
+film,0.00028337220999756897
+harmless and,0.003014791277623226
+fessenden,0.0028876865563655964
+for veggietales fans,0.013122848024999991
+has its faults,0.019027458773403026
+prima donna floria tosca,0.00039798713864822624
+in theory a middleaged romance pairing clayburgh and tambor sounds promising,0.0017344884348960954
+s plotless shapeless,0.020147148122422485
+art matters,0.0022558146834993032
+solid and affecting and,0.00047172191110560305
+a pretentious mess,0.0093095964390625
+derek luke,0.00011651652389552374
+in their work,0.001370866545796225
+all it amounts to is a mildly funny sometimes tedious ultimately insignificant film,3.923331132249525e-07
+that any sexual relationship that does nt hurt anyone and works for its participants is a relationship that is worthy of our respect,0.0048005532603006135
+is long on glamour and short on larger moralistic consequences though it s told with sharp ears and eyes for the tenor of the times,0.002677759926296851
+instead,0.0007711851743888401
+will make you very happy,0.0006646555782372258
+snl,8.915308245228178e-05
+the election process,4.760402823727202e-05
+there is a kind of attentive concern that hoffman brings to his characters as if he has been giving them private lessons,0.000376671046240225
+sung in italian,0.0001216757688942764
+him,0.00018347447482562563
+that never,0.01027961231842693
+is like a year late for tapping into our reality tv obsession and even tardier for exploiting the novelty of the webcast,0.028082060983620906
+sometimes flags,0.002729630148368908
+provide it,0.0006826316249284003
+is no pleasure in watching a child suffer just embarrassment and a vague sense of shame,0.003691609904304398
+these words have ever been together in the same sentence,0.007683441976010024
+as art,0.0007967161083456
+sunset,0.001976479798233927
+perhaps the budget of sommers s titlebout features,0.02379407439075838
+clive barker movie,0.0003259709282622239
+sixth generation,0.0006419173044715694
+it may just scare the pants off you,0.0037074557076543905
+if you sometimes like to go to the movies to have fun,0.009708271253913608
+ms hutchins,2.879169159252051e-05
+to jimmy s relentless anger,0.0013358345178649013
+just enough sweet and traditional romantic comedy to counter the crudity,0.008293038211854386
+the only thing to fear about fear dot com,2.1445449739022633e-06
+of considerable force and truth,0.001955097987920095
+used to say in the 0s scifi movies,0.0008118061731451564
+orchestrate,3.949123248202554e-05
+then again in a better movie you might not have noticed,0.09290789552744123
+smokey robinson,0.0012581449133045805
+s at stake in this film,0.002869085009109448
+its just not a thrilling movie,0.0051270239784976055
+director robert j siegel allows the characters to inhabit their world without cleaving to a narrative arc,0.018297664485699583
+movie that portrays the frank humanity of emotional recovery,6.938273593689962e-05
+along with his sister sofia is a real filmmaker,0.008982615280755592
+it s lazy for a movie to avoid solving one problem by trying to distract us with the solution to another,0.003518124497888401
+flashbulbs,0.001425292406772024
+is nt as weird as it ought to be,0.0031160342801024995
+the korean new wave,0.0001535163621895848
+even better in hindsight,0.10311996121937499
+mirthless todd solondzian satire and callow student film,0.004060920232622502
+slippery,0.02499393732998409
+of course,3.8430582776840006e-05
+own transparency,0.000512685206357807
+it s a masterpeice,0.19425977047305723
+because he s been stirred by the powerful work of his costars,0.0011119777244688986
+of lipstick,9.202598515662388e-06
+i spy is still fun and enjoyable and so aggressively silly that it s more than a worthwhile effort,0.00043356276350890353
+deadon in election,0.020061453776086993
+open this year,0.008345832861580913
+quite makes it to the boiling point but manages to sustain a good simmer for most of its running time,0.0021004576455625028
+robert louis stevenson s,5.3013041091030144e-05
+call the other side of heaven appalling,0.009102890638264907
+beyond the cleverness the weirdness and the pristine camerawork one hour photo is a sobering meditation on why we take pictures,0.045495488629791234
+on the fringes of the american underground,0.0009879616596139339
+much monkeyfun for all,0.06689427715891841
+express his convictions,0.0043368171458852325
+with a dedicated and goodhearted professionalism,0.0077402340579599835
+best way,0.0021676915943256237
+this cuddly sequel to the 0 hit,0.07248720629780832
+uneasy alliance,0.00691027519064423
+star bruce willis,0.0058205386899270305
+helps moonlight mile,0.0013479371076331708
+any depth of feeling,0.005717220667413032
+between sucking face and literally sucking face,0.0227394426637609
+have recharged him,0.008338570763850623
+develop when one mulls leaving the familiar to traverse uncharted ground,0.0008225527821927625
+dead,0.00040060382770810055
+successful and accessible,0.00012278822857022718
+could fool us into thinking that we re not watching a double,0.005634243794560001
+selfappointed,0.004573438044585597
+a huge fan,0.016251775058002505
+murder by numbers,0.003419746774917197
+the inequities,0.011954442898140622
+is entertaining,0.001210740738489999
+allows his cast,0.010951925987102496
+gone,0.0012872250358926419
+a reason the studio did nt offer an advance screening,7.795742142250023e-05
+you ca nt put down examines a footnote to history seldom brought to light on the screen and keeps you guessing from first frame to last,0.021587832776160203
+misconceived final,0.004937701442688396
+a feelgood fantasy,0.006981321048489995
+steinis quirky charming and often hilarious,2.280711946239951e-05
+them awake,0.0009696645366769685
+doze off thirty minutes,0.004081903349550626
+wildly overproduced,0.0007256967903376003
+tired tyco ad,0.00048403828075690026
+beijing bicycle,0.0021245311395211327
+it could even be said to squander jennifer love hewitt,0.0010152526807808973
+blind date,0.009361314843116536
+a perfectly competent and often imaginative film,0.004236532358822496
+the screenwriters,1.4990823624602e-05
+other words about,0.00046622569190760127
+too long and too convoluted,0.02452928093161022
+creativity at its peak,0.1600840790428572
+meets,0.0006025542271203998
+of the characters,9.42378255312367e-06
+of shallow magnificence,0.042473974291622515
+of the mill,0.004791083071522503
+amounts of beautiful movement and inside information,0.003708615122559989
+bray excels,3.391926720062512e-05
+s nothing interesting in unfaithful whatsoever,0.022158902145582225
+the temper of the times,0.004643422111875595
+another earnestly generic crimebusting comic vehicle,0.0018234492744782255
+of some of the worst film comedies in decades,0.0042599575117224986
+father,0.0001660686477314058
+is nt an adaptation of a novel,0.02067368049390251
+practiced,3.554667814471204e-05
+i saw knockaround guys yesterday and already the details have faded like photographs from the spanishamerican war,0.003234479550075228
+than magnifique,0.0001989264266403854
+can produce the same sleepinducing effects as watching your neighbor s home videos,0.010146772638816099
+something that really matters,0.028464592801835453
+but how long will filmmakers copy the saving private ryan battle scenes before realizing steven spielberg got it right the first time,0.0503013322477722
+a well worn conceit,0.0016458125230182229
+without a premise a joke,0.008943893447065603
+in when we should be playing out,0.0141926430970944
+have to read the fart jokes,0.023551714937862397
+the minds and motivations,0.0010428062021000997
+a museum,0.00045216854070502304
+of the most poorly staged and lit action in memory,0.010544003856
+an uncomfortable movie suffocating and sometimes almost senseless the grey zone does have a center though a morbid one,0.007631679619465223
+0 that s its first sign of trouble,0.012767779629160012
+all are irrelevant to the experience of seeing the scorpion king,0.007721571862625626
+aggressively sitcomcute,0.017481789521782243
+sugarcoating or interludes,0.0053627456747929
+speaking adored by the moviegoing public,0.003259314913968104
+finally are lost in the thin soup of canned humor,0.006217290960039995
+the urban landscapes are detailed down to the signs on the kiosks,0.014626188507888405
+ll laugh for not quite and hour and a half,0.017223054366123206
+style and themes,2.0357746945935854e-05
+perfectly realized observation,9.520753777922355e-05
+the film suffers from a lack of humor something needed to balance out the violence,0.004586567265639994
+large and small with considerable aplomb,0.008446297425987601

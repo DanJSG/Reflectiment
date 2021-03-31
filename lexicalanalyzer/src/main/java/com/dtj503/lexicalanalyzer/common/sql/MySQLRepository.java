@@ -121,8 +121,6 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 		// Initialise incomplete  SQL query
 		String baseQuery = "SELECT * FROM `" + tableName + "` WHERE ";
 
-		System.out.println(firstValues);
-
 		List<String> andConditions = new ArrayList<>();
 		for(int i = 0; i < firstValues.size(); i++) {
 			andConditions.add("(" + firstColumn.name() + "=?" + " AND " + secondColumn.name() + "=?" + ")");
@@ -146,7 +144,6 @@ public class MySQLRepository<T extends SQLEntity> implements SQLRepository<T>{
 				statement.setObject(n, firstValues.get(i));
 				statement.setObject(n + 1, secondValues.get(i));
 			}
-			System.out.println(statement);
 			return executeStatementAndBuildObjects(builder, connection, statement);
 
 		} catch (SQLException e) 	{

@@ -55,6 +55,7 @@ public class ReflectionAnalysisService extends AnalysisService {
                     scoredWordMap);
             // Fetch and choose the modifier word scores
             List<ScoredWord> modifierScoredWords = fetchWordScores(words, SQLTable.SENTIMENT, modifierTag, new ScoredWordBuilder());
+            modifierScoredWords = modifierScoredWords == null ? new ArrayList<>() : modifierScoredWords;
             modifierScoredWords = pickScoredWord(words, modifierScoredWords);
             // Convert the modifier words into a sentence
             Sentence<ScoredWord> modifierSentence = new Sentence<>(sentence.getOriginalText(), modifierScoredWords);
