@@ -14,7 +14,7 @@ public enum ReflectionCategory {
     BELIEF("belief"),
     DIFFICULTY("difficulty"),
     PERSPECTIVE("perspective"),
-    LEARNING("learning"),
+    LEARNING("outcome"),
     INTENTION("intention");
 
     private final String category;
