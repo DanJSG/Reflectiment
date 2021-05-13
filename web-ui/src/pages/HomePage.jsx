@@ -37,11 +37,9 @@ function HomePage() {
     return (
         <div className='w-100 h-100'>
             <MainContent>
-                <h1 className="p-4 display-4 font-weight-normal">Automated Text Analyzer</h1>
+                <h1 className="p-4 pt-5 display-4 font-weight-normal">Automated Text Analyzer</h1>
                 <p className="pl-3 pr-3 text-justify">
-                    This tool automatically analyzes sentiment, mood, and reflection in a piece of written text. 
-                    To get started, simply type some text into the box below and click "Analyze". 
-                    The results will then be shown below automatically.
+                    This tool analyzes sentiment, mood, and reflection in writing. Type something into the box below and click "Analyze" to get started. 
                 </p>
                 <TextSubmissionCard handleAnalysisResponse={handleAnalysisResponse} />
                 {

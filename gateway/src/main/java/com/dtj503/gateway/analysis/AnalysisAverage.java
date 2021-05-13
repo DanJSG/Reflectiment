@@ -64,14 +64,7 @@ public class AnalysisAverage {
      */
     private static SentimentScore averageSentimentScores(SentimentScore a, SentimentScore b) {
         float average = (a.getScore() + b.getScore()) / 2;
-        String label;
-        if(average >= -1 && average < -0.33) {
-            label = "negative";
-        } else if(average >= -0.33 && average < 0.33) {
-            label = "neutral";
-        } else {
-            label = "negative";
-        }
+        String label = average <= -0.33 ? "negative" : average < 0.33 ? "neutral" : "positive";
         return new SentimentScore(average, label);
     }
 
