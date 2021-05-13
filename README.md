@@ -74,3 +74,7 @@ Then run the following to start the application:
 yarn start
 ```
 This will start the application and automatically open your default browser to the application running locally. 
+
+## License
+
+This repository is licensed under the [MIT License](https://github.com/DanJSG/Reflectiment/blob/master/LICENSE).
