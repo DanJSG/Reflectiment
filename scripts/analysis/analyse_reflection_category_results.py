@@ -26,7 +26,7 @@ def two_category(score):
 
 def write_basic_stats(outfile, errors):
     outfile.write(f"Regression Accuracy: {(1 - stats.mean(errors)) * 100}%\n")
-    outfile.write(f"Regression Precision: {(stats.stdev(errors)) * 100}%\n")
+    outfile.write(f"Regression Precision: {(1 - stats.stdev(errors)) * 100}%\n")
     outfile.write(f"Mean Absolute Error: {stats.mean(errors)}\n")
     outfile.write(f"Variance: {stats.variance(errors)}\n")
     outfile.write(f"Standard Deviation: {stats.stdev(errors)}\n")
@@ -46,15 +46,15 @@ def pearson_r(outfile, actual_scores, gold_scores):
     outfile.write(f"Pearson correlation coefficient (r): {r}\n")
 
 def main():
-    analysis_types = ["ml"]
-    moods = ["critical", "experience", "feelings", "outcome", "personal", "perspective"]
-    n_items = len(open(f"./results/reflection/{moods[0]}/squared_error_{analysis_types[0]}.txt", "r", encoding="utf8").readlines())
+    analysis_types = ["ml", "lexical"]
+    moods = ["difficulty", "experience", "feeling", "outcome", "belief", "perspective"]
+    n_items = len(open(f"./results/reflection2/{moods[0]}/squared_error_{analysis_types[0]}.txt", "r", encoding="utf8").readlines())
     for mood in moods:
-        outfile = open(f"./analysed_results/reflection/analysed_reflection_{mood}.txt", "w+")
+        outfile = open(f"./analysed_results/reflection2/analysed_reflection_{mood}.txt", "w+")
         for i in range(len(analysis_types)):
-            errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/reflection/{mood}/absolute_error_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
-            actual_scores = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/reflection/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
-            gold_scores = [float(line.split(",")[2].strip("\n")) for line in open(f"./results/reflection/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
+            errors = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/reflection2/{mood}/absolute_error_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
+            actual_scores = [float(line.split(",")[1].strip("\n")) for line in open(f"./results/reflection2/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
+            gold_scores = [float(line.split(",")[2].strip("\n")) for line in open(f"./results/reflection2/{mood}/scores_{analysis_types[i]}.txt", "r", encoding="utf8").readlines() if "#" not in line]
             outfile.write(f"Total Samples: {n_items}\n")
             outfile.write(f"===================== {analysis_types[i].upper()} ANALYSIS =====================\n")
             pearson_r(outfile, actual_scores, gold_scores)

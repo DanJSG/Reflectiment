@@ -8,34 +8,34 @@ def send_api_request(sentence):
     return response.json()
 
 def get_mood_scores(sentence):
-    score_types = ["mlScores"]
-    moods = ["critical", "experience", "feelings", "outcome", "personal", "perspective"]
-    try:
-        analysis = send_api_request(sentence)
-        scores = {
-            "critical": [],
-            "experience": [],
-            "feelings": [],
-            "outcome": [],
-            "personal": [],
-            "perspective": []
-        }
-        for score_type in score_types:
-            mixed_scores = analysis["sentences"][0][score_type]["reflection"]["categoryScores"]
-            for mood in moods:
-                scores[mood].append(mixed_scores[mood])
-        return scores
-    except:
-        return None
+    score_types = ["mlScores", "lexicalScores"]
+    moods = ["difficulty", "experience", "feeling", "outcome", "belief", "perspective"]
+
+    analysis = send_api_request(sentence)
+    scores = {
+        "difficulty": [],
+        "experience": [],
+        "feeling": [],
+        "outcome": [],
+        "belief": [],
+        "perspective": []
+    }
+    for score_type in score_types:
+        mixed_scores = analysis["sentences"][0][score_type]["reflection"]["categoryScores"]
+        for mood in moods:
+            scores[mood].append(mixed_scores[mood])
+    print(scores)
+    return scores
+
 
 def init_stats_dict():
     return {
-        "critical": [[]],
-        "experience": [[]],
-        "feelings": [[]],
-        "outcome": [[]],
-        "personal": [[]],
-        "perspective": [[]]
+        "difficulty": [[], []],
+        "experience": [[], []],
+        "feeling": [[], []],
+        "outcome": [[], []],
+        "belief": [[], []],
+        "perspective": [[], []]
     }
 
 def squared_error(gold_score, actual_score):
@@ -59,17 +59,17 @@ def write_score_outputs(sentences, gold_scores, actual_scores, path):
 
 def main():
     n = 158
-    moods = ["critical", "experience", "feelings", "outcome", "personal", "perspective"]
-    analysis_types = ["ML"]
+    moods = ["difficulty", "experience", "feeling", "outcome", "belief", "perspective"]
+    analysis_types = ["ML", "Lexical"]
     sentences = [sentence.strip("\n") for sentence in open("./test_data/reflection/test_x.txt", "r", encoding="utf8").readlines()]
     gold_scores_arr = [[float(score) for score in scores.strip("\n").split(",")] for scores in open("./test_data/reflection/test_y.txt", "r").readlines()]
     gold_scores_dict = {
         "experience": [gold_scores_group[0] for gold_scores_group in gold_scores_arr],
-        "feelings": [gold_scores_group[1] for gold_scores_group in gold_scores_arr],
-        "personal": [gold_scores_group[2] for gold_scores_group in gold_scores_arr],
+        "feeling": [gold_scores_group[1] for gold_scores_group in gold_scores_arr],
+        "belief": [gold_scores_group[2] for gold_scores_group in gold_scores_arr],
         "perspective": [gold_scores_group[3] for gold_scores_group in gold_scores_arr],
         "outcome": [gold_scores_group[4] for gold_scores_group in gold_scores_arr],
-        "critical": [gold_scores_group[5] for gold_scores_group in gold_scores_arr],
+        "difficulty": [gold_scores_group[5] for gold_scores_group in gold_scores_arr],
     }
     actual_scores = init_stats_dict()
     absolute_errors = init_stats_dict()
@@ -90,9 +90,13 @@ def main():
     
     for mood in moods:
         for i in range(len(analysis_types)):
-            write_error_outputs(used_sentences[:n], absolute_errors[mood][i], f"./results/reflection/{mood}/absolute_error_{analysis_types[i].lower()}.txt")
-            write_error_outputs(used_sentences[:n], squared_errors[mood][i], f"./results/reflection/{mood}/squared_error_{analysis_types[i].lower()}.txt")
-            write_score_outputs(used_sentences[:n], gold_scores_dict[mood][:n], actual_scores[mood][i], f"./results/reflection/{mood}/scores_{analysis_types[i].lower()}.txt")
+            print(f"n = {n}")
+            print(f"i = {i}")
+            print(f"len absolute errors for {mood} = {len(absolute_errors[mood])}")
+
+            write_error_outputs(used_sentences[:n], absolute_errors[mood][i], f"./results/reflection2/{mood}/absolute_error_{analysis_types[i].lower()}.txt")
+            write_error_outputs(used_sentences[:n], squared_errors[mood][i], f"./results/reflection2/{mood}/squared_error_{analysis_types[i].lower()}.txt")
+            write_score_outputs(used_sentences[:n], gold_scores_dict[mood][:n], actual_scores[mood][i], f"./results/reflection2/{mood}/scores_{analysis_types[i].lower()}.txt")
 
 if __name__ == '__main__':
     main()

@@ -17,7 +17,7 @@ class ReflectionAnalyzer(Analyzer):
         self._json_path: str = "./models/reflection/Uni+Bi-LSTM.json"
         self._weights_path: str = "./models/reflection/Uni+Bi-LSTM.hdf5"
         self._configure_gpu()
-        self.labels: list = ["experience", "feelings", "personal", "perspective", "outcome", "critical"]
+        self.labels: list = ["experience", "feeling", "belief", "perspective", "outcome", "difficulty"]
         self.model: keras.Model = self._load_model()
         self._dummy_request()
 
