@@ -7,7 +7,7 @@ The machine learning based analyzer is written in Python and makes use of the Ke
 
 Below is a guide for setting up your own local development environment of this application. <b>Please note that the machine learning based analyzer makes use of the Google News word2vec word embeddings and so requires a lot of memory to run, usually utilising around 7GB of RAM in normal operation.</b>
 
-Nothing within the `/scripts` folder is used directly within the application - these are simply scripts and files that were used during the dataset and lexicon processing, neural network training process, and for final system analysis and results gathering.
+Nothing within the [`/scripts`](/scripts) folder is used directly within the application - these are simply scripts and files that were used during the dataset and lexicon processing, neural network training process, and for final system analysis and results gathering.
 
 This application was developed as a final year project for a Masters (MEng) in Electronic Engineering from the University of York.
 
@@ -27,10 +27,10 @@ On your local system you will need to have the following installed:
 ### 2. Application Architecture
 The application is split up into four microservices:
 
-* The Lexical Analyzer (`/lexicalanalyzer`) - an algorithmic text analyzer based on lexicons and language rules
-* The Machine Learning Analyzer (`/mlanalyzer`) - a machine learning based text analyzer using Keras and Tensorflow
-* The API Gateway (`/gateway`) - a REST API gateway which acts as an interface to both text analyzers
-* The Web User Interface (`/web-ui`) - a web-based UI built using the ReactJS framework
+* The Lexical Analyzer ([`/lexicalanalyzer`](/lexicalanalyzer)) - an algorithmic text analyzer based on lexicons and language rules
+* The Machine Learning Analyzer ([`/mlanalyzer`](/mlanalyzer)) - a machine learning based text analyzer using Keras and Tensorflow
+* The API Gateway ([`/gateway`](/gateway)) - a REST API gateway which acts as an interface to both text analyzers
+* The Web User Interface ([`/web-ui`](/web-ui)) - a web-based UI built using the ReactJS framework
 
 This diagram shows how the microservices connect:
 
