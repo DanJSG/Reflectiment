@@ -32,6 +32,10 @@ The application is split up into four microservices:
 * The API Gateway (`/gateway`) - a REST API gateway which acts as an interface to both text analyzers
 * The Web User Interface (`/web-ui`) - a web-based UI built using the ReactJS framework
 
+This diagram shows how the microservices connect:
+
+![application architecture diagram](/Application-Architecture-Diagram.png)
+
 Local setup requirements for each of these services will now be covered.
 
 ### 3. Lexical Analyzer
